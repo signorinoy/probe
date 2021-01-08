@@ -1,0 +1,91 @@
+\chapter{Convex Sets}
+
+\section{Affine and Convex Sets}
+
+\subsection{Affine Sets}
+
+\begin{definition}{Affine Set}{}
+    A nonempty set $C$ is a \textbf{affine set} that satisfy $$\forall x_1,x_2\in C, \theta\in\mathbf{R}, \theta x_1+(1-\theta)x_2\in C.$$
+\end{definition}
+
+\subsection{Convex Sets}
+
+\begin{definition}{Convex Set}{}
+    A nonempty set $C$ is a \textbf{convex set} that satisfy $$\forall x_1,x_2\in C,\theta\in[0,1], \theta x_1+(1-\theta)x_2\in C.$$
+\end{definition}
+
+\begin{definition}{Convex Hull}{}
+    The \textbf{convex hull} of a set $C$, denoted by $\text{conv } C$ is a set of all convex combinations of points in $C$, $$\text{conv } C=\{\theta_1x_1+\ldots+\theta_kx_k|x_i\in C;\theta_i\geq 0,i=1,\ldots,k;\theta_1+\ldots+\theta_k=1\}.$$
+\end{definition}
+
+\begin{note}
+    The convex hull $\text{conv } C$ is always convex, which is the minimal convex set that contains $C$.
+\end{note}
+
+\subsection{Cones}
+
+\begin{definition}{Cone}{}
+    A nonempty set $C$ is a \textbf{cone} that satisfy $$\forall x\in C,\theta\geq 0,\theta x\in C.$$
+\end{definition}
+
+\begin{definition}{Convex Cone}{}
+    A nonempty set $C$ is a \textbf{convex cone} that satisfy $$\forall x_1,x_2\in C, \theta_1,\theta_2\geq 0,\theta_1 x_1+\theta_2 x_2\in C.$$
+\end{definition}
+
+\section{Some Important Examples}
+
+\begin{definition}{Hyperplane}{}
+    A hyperplane is a set of the form $$\{x|a^Tx=b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
+\end{definition}
+
+% \begin{note}
+%     Hyperplanes are affine and convex.
+% \end{note}
+
+\begin{definition}{Halfspace}{}
+    A hyperplane is a set of the form $$\{x|a^Tx\leq b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
+\end{definition}
+
+% \begin{note}
+%     Halfspaces are convex, not affine.
+% \end{note}
+
+\begin{definition}{(Euclidean) Ball}{}
+    A (Euclidean) ball in $\mathbf{R}^n$ with center $x_c$ and radius $r$ has the form $$B(x_c,r)=\{x\vert\|x-x_c\|_2\leq r\}=\{x_c+ru\vert\|u\|_2\leq 1\},$$ where $r>0$.
+\end{definition}
+
+\begin{definition}{Ellipsoid}{}
+    A Ellipsoid in $\mathbf{R}^n$ with center $x_c$ has the form $$\mathcal{E}=\{x\vert(x-x_c)^TP^{-1}(x-x_c)\leq 1\}=\{x_c+Au\vert \|u_2\|\leq 1\},$$ where $P\in\mathbf{S}^{n}_{++}$ (symmetric positive definite).
+\end{definition}
+
+\begin{definition}{Norm Ball}{}
+    
+\end{definition}
+
+\begin{definition}{Norm Cone}{}
+    
+\end{definition}
+
+\begin{definition}{Polyhedra}{}
+    
+\end{definition}
+
+\begin{definition}{Positive Semidefinite Cone}{}
+    
+\end{definition}
+
+\section{Operations that Preserve Convexity}
+
+\subsection{Intersection}
+
+\subsection{Affine Functions}
+
+\subsection{Perspective Function}
+
+\subsection{Linear-fractional Function}
+
+\section{Generalized Inequalities}
+
+\section{Separating and Supporting Hyperplanes}
+
+\section{Dual Cones and Generalized Inequalities}
