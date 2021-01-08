@@ -1,0 +1,109 @@
+\chapter{Law of Large Numbers}
+
+\begin{introduction}
+    \item Weak Law of Large Numbers
+    \item Strong Law of Large Numbers
+    \item Uniform Law of Large Numbers
+\end{introduction}
+
+\section{Weak Law of Large Numbers}
+
+\begin{lemma}{}{}
+    If $p>0$ and $E\left|Z_{n}\right|^{p}\rightarrow 0$, then
+    \begin{equation}
+        Z_{n}\stackrel{d}{\rightarrow}0.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}{Weak Law of Large Numbers with Finite Variances}{}
+    Let $X_1,X_2,\ldots$ be i.i.d. random variables with $EX_i=\mu$ and $\text{var}(X_i)\leq C<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, then
+    \begin{equation}
+        S_n/n\stackrel{L^2}{\rightarrow}\mu,\quad S_n/n\stackrel{p}{\rightarrow}\mu.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}{Weak Law of Large Numbers without i.i.d.}{}
+    Let $X_1,X_2,\ldots$ be random variables, Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=ES_n$, $\sigma_n^2=\text{var}(S_n)$, if $\sigma_n^2/b_n^2\rightarrow 0$, then
+    \begin{equation}
+        \frac{S_n-\mu_n}{b_n}\stackrel{p}{\rightarrow}0.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}{Weak Law of Large Numbers for Triangular Arrays}{}
+    
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}{Weak Law of Large Numbers by Feller}{}
+    Let $X_1,X_2,\ldots$ be i.i.d. random variables with
+    \begin{equation}
+        \lim_{x\rightarrow 0}xP(|X_i|>x)=0.
+    \end{equation}
+    Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=E\left(X_1I_{(|X_1<n|)}\right)$, then
+    \begin{equation}
+        S_n/n-\mu_n\stackrel{p}{\rightarrow}0.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}{Weak Law of Large Numbers}{}
+    Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu=EX_i$, then
+    \begin{equation}
+        S_n/n\stackrel{p}{\rightarrow}\mu.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{note}
+    $E|X_i|=\infty$
+\end{note}
+
+\section{Strong Law of Large Numbers}
+
+\subsection{Borel-Cantelli Lemmas}
+
+\begin{theorem}{Borel-Cantelli Lemma}{}
+    If $\sum_{n=1}^{\infty}P\left(A_{n}\right)<\infty$, then
+    \begin{equation}
+        P\left(A_{n}\text{ i.o. }\right)=0.
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}{The Second Borel-Cantelli Lemma}{}
+    If $\{A_n\}$ are independent with $\sum_{n=1}^{\infty}P\left(A_{n}\right)=\infty$, then,
+    \begin{equation}
+        P\left(A_{n}\text{ i.o. }\right)=1.
+    \end{equation}
+\end{theorem}
+
+\subsection{Strong Law of Large Numbers}
+
+\begin{theorem}{Strong Law of Large Numbers}{SLLN}
+    Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu=EX_i$, then
+    \begin{equation}
+        S_n/n\stackrel{a.s.}{\rightarrow}\mu.
+    \end{equation}
+\end{theorem}
+
+\section{Uniform Law of Large Numbers}
