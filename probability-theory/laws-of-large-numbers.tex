@@ -47,7 +47,7 @@
         \item $\sum_{m=1}^{n}P\left(\left|X_{n,m}\right|>b_{n}\right)\rightarrow 0$, and
         \item $b_{n}^{-2}\sum_{m=1}^{n}E\bar{X}_{n,m}^{2}\rightarrow 0$.
     \end{enumerate}
-    Suppose $S_{n}=X_{n, 1}+\cdots+X_{n,n}$ and $a_{n}=\sum_{m=1}^{n}E\bar{X}_{n,m}$, thenxxs
+    Suppose $S_{n}=X_{n, 1}+\cdots+X_{n,n}$ and $a_{n}=\sum_{m=1}^{n}E\bar{X}_{n,m}$, then
     \begin{equation}
         \frac{S_n-a_n}{b_n}\stackrel{p}{\rightarrow}0.
     \end{equation}
@@ -143,5 +143,52 @@
 \end{theorem}
 
 \begin{proof}
+    Suppose
+    \begin{equation*}
+        \Delta_{\delta}\left(X_{i},\theta_{0}\right)=\sup_{\theta\in B\left(\theta_{0},\delta\right)}g\left(X_{i},\theta\right)-\inf_{\theta\in B\left(\theta_{0},\delta\right)}g\left(X_{i},\theta\right).
+    \end{equation*}
     
+    Since (i) $\Delta_{\delta}\left(X_{i},\theta_{0}\right)\stackrel{a.s.}{\rightarrow} 0$ by condition (2), (ii) $\Delta_{\delta}\left(X_{i},\theta_{0}\right) \leq 2\sup_{\theta\in\Theta}\left|g\left(X_{i},\theta\right)\right|\leq 2G\left(X_{i}\right)$ by condition (3) and (4). Then
+    \begin{equation*}
+        E\Delta_{\delta}\left(X_{i},\theta_{0}\right)\rightarrow 0,\text{ as }\delta\rightarrow 0.
+    \end{equation*}
+    
+    So, for all $\theta\in\Theta$ and $\varepsilon>0$, there exists $\delta_{\varepsilon}(\theta)$ such that
+    \begin{equation*}
+        E\left[\Delta_{\delta_{\varepsilon}(\theta)}\left(X_{i},\theta\right)\right]<\varepsilon.
+    \end{equation*}
+    
+    Since $\Theta$ is compact, we can find a finite subcover, such that $\Theta$ is covered by
+    \begin{equation*}
+        \cup_{k=1}^{K}B\left(\theta_{k}, \delta_{\varepsilon}\left(\theta_{k}\right)\right).
+    \end{equation*}
+
+    \begin{equation*}
+        \begin{aligned}
+            & \sup_{\theta\in\Theta}\left[n^{-1}\sum_{i=1}^{n}g\left(X_{i},\theta\right)-Eg\left(X_{i},\theta\right)\right] \\
+            =& \max_{k}\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}\left[n^{-1}\sum_{i=1}^{n}g\left(X_{i},\theta\right)-Eg\left(X_{i},\theta\right)\right] \\
+            \leq& \max_{k}\left[n^{-1}\sum_{i=1}^{n}\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)-E\inf_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right] \\
+        \end{aligned}.
+    \end{equation*}
+
+    Since
+    \begin{equation*}
+        E\left|\sup_{\theta\in B\left(\theta_{k},\delta_{c}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right|\leq EG\left(X_{i}\right)<\infty,
+    \end{equation*}
+    by the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}),
+
+    \begin{equation*}
+        \begin{aligned}
+            =& o_{p}(1)+\max_{k}\left[E\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)-E\inf_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right] \\
+            =& o_{p}(1)+\max_{k}E\Delta_{\delta_{\varepsilon}\left(\theta_{k}\right)}\left(X_{i},\theta_{k}\right) \\
+            \leq& o_{p}(1)+\varepsilon
+        \end{aligned}
+    \end{equation*}
+
+    By analogous argument,
+    \begin{equation*}
+        \inf _{\theta \in \Theta}\left[n^{-1} \sum_{i=1}^{n} g\left(X_{i}, \theta\right)-E g\left(X_{i}, \theta\right)\right] \geq o_{p}(1)-\varepsilon
+    \end{equation*}
+
+    The desired result follows from the above equation by the fact that $\varepsilon$ is chosen arbitrarily.
 \end{proof}

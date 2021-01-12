@@ -47,7 +47,7 @@ How to prove that functions are measurable?
 \begin{definition}{Distribution}{}
     A distribution of random variable $X$ is a probability function $P:\mathcal{R}\rightarrow\mathbb{R}$ by setting
     \begin{equation}
-        \mu(A)=P(X\in A)=P\left(X^{-1}(A)\right),\quad\text{for}\mathcal{A}\in\mathcal{R}.
+        \mu(A)=P(X\in A)=P\left(X^{-1}(A)\right),\quad\text{for}A\in\mathcal{R}.
     \end{equation}
 \end{definition}
 
@@ -79,15 +79,35 @@ How to prove that functions are measurable?
     \end{enumerate}
 \end{theorem}
 
+\begin{proof}
+    
+\end{proof}
+
 \begin{theorem}{}{}
     If $F$ satisfies (1), (2), and (3) in Theorem \ref{thm:distribution-function-property}, then it is the distribution function of some random variable.
 \end{theorem}
+
+\begin{proof}
+    
+\end{proof}
 
 \begin{theorem}{}{}
     A distribution function has at most countably many discontinuities
 \end{theorem}
 
+\begin{proof}
+    
+\end{proof}
+
 \section{Expected Value}
+
+\begin{definition}{Expectation}{expectation}
+    
+\end{definition}
+
+\begin{theorem}{Bounded Convergence Theorem}{bounded-convergence-theorem}
+    
+\end{theorem}
 
 \begin{theorem}{Fatou's Lemma}{fatou-lemma}
     If $X_n \geq 0$, then
@@ -96,13 +116,6 @@ How to prove that functions are measurable?
     \end{equation}
 \end{theorem}
 
-\begin{theorem}L{}{}
-    W distribution function $F(x)=P(X \leq x)$ has the form
-\begin{equation*}
-F(x)=\int_{-\infty}^{x} f(y) d y
-\end{equation*}
-we say that $X$ has density function $f$. In remembering formulas,
-\end{theorem}
 
 \begin{theorem}{Monotone Convergence Theorem}{monotone-convergence}
     If $0 \leq X_{n} \uparrow X$, then
@@ -215,6 +228,13 @@ The definition of independence can be extended to the infinite collection.
 \end{theorem}
 
 \section{Moments}
+
+\begin{lemma}{}{}
+    If $Y>0$ and $p>0$, then
+    \begin{equation}
+        E(Y^p)=\int_{0}^{\infty}py^{p-1}P(Y>y)\mathrm{d}y.
+    \end{equation}
+\end{lemma}
 
 \section{Characteristic Functions}
 
