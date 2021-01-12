@@ -1,17 +1,46 @@
 \chapter{Convergence of Random Variables}
 
 \begin{introduction}
-    \item Convergence in Distribution
-    \item Convergence in Probability
-    \item Almost Sure Convergence
     \item Convergence in Mean
+    \item Convergence in Probability
+    \item Convergence in Distribution
+    \item Almost Sure Convergence
 \end{introduction}
 
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/relation-of-convergences.eps}
-    \caption{Relations of Convergence of Random Variables}
-\end{figure}
+\section{Convergence in Mean}
+
+\begin{definition}{Convergence in Mean}{}
+    A sequence $\{X_n\}$ of real-valued random variables \textbf{converges in the r-th mean} ($r\geq1$) towards the random variable $X$, if
+    \begin{enumerate}
+        \item The r-th absolute moments $E(|X_n|^r)$ and $E(|X|^r)$ of $\{X_n\}$ and $X$ exist,
+        \item $\lim_{n\to\infty}E\left(|X_n-X|^r\right)=0$.
+    \end{enumerate}
+    Convergence in the r-th mean is denoted by
+    \begin{equation}
+        X_n \stackrel{L^r}{\rightarrow} X.
+    \end{equation}
+\end{definition}
+
+\section{Convergence in Probability}
+
+\subsection{Definition of Convergence in Probability}
+
+\begin{definition}{Convergence in Probability}{}
+    A sequence $\{X_n\}$ of real-valued random variables \textbf{converges in probability} towards the random variable $X$, if
+    \begin{equation}
+        \forall \varepsilon > 0, \lim_{n\to\infty}P\left(|X_n-X|>\varepsilon\right)=0.
+    \end{equation}
+    Convergence in probability is denoted by
+    \begin{equation}
+        X_n \stackrel{p}{\rightarrow} X.
+    \end{equation}
+\end{definition}
+
+\begin{definition}{Convergence in Uninform}{}
+    
+\end{definition}
+
+\subsection{Properties of Convergence in Probability}
 
 \section{Convergence in Distribution}
 
@@ -44,7 +73,7 @@
     \end{equation}
 \end{lemma}
 
-\begin{lemma}{Portmanteau Lemma}{portmanteau-lemma}
+\begin{theorem}{Portmanteau Lemma}{portmanteau-lemma}
     $\{X_n\}$ converges in distribution to $X$, if and only if any of the following statements are true,
     \begin{itemize}
         \item $P(X_n\leq x)\rightarrow P(X\leq x)$, for all continuity points of the distribution of $X$.
@@ -53,7 +82,7 @@
         \item $\limsup_{n \rightarrow\infty}P\left(X_{n} \in K\right) \leq P\left(X_{\infty} \in K\right)$, for all closed sets $K$.
         \item $\lim_{n\rightarrow\infty}P\left(X_{n}\in A\right)=P\left(X_{\infty}\in A\right)$, for all Borel sets $A$ with $P\left(X_{\infty}\in \partial A\right)=0$.
     \end{itemize}
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
     
@@ -78,18 +107,102 @@
     
 \end{proof}
 
+\begin{theorem}{}{}
+    If $X_{n}\stackrel{p}{\rightarrow}X$, then
+    \begin{equation}
+        X_{n}\stackrel{d}{\rightarrow}X,
+    \end{equation}
+    and that, conversely, if $X_{n}\stackrel{d}{\rightarrow}c$, where $c$ is a constant, then
+    \begin{equation}
+        X_{n}\stackrel{p}{\rightarrow}c.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $\forall\varepsilon>0$, at fixed point $x$, since if $X_n\leq x$ and $|X_n-X|\leq\varepsilon$, then $X\leq x+\varepsilon$, then
+        \begin{equation*}
+            \{X\leq x+\varepsilon\}\subset\{X_n\leq x\}\cup\{|X_n-X|>\varepsilon\},
+        \end{equation*}
+        similarily, if $X\leq x-\varepsilon$ and $|X_n-X|\leq\varepsilon$, then $X_n\leq x$, then
+        \begin{equation*}
+            \{X_n\leq x\}\subset\{X\leq x-\varepsilon\}\cup\{|X_n-X|>\varepsilon\},
+        \end{equation*}
+        then, by the union bound,
+        \begin{equation*}
+            \begin{gathered}
+                P\left(X\leq x+\varepsilon\right)\leq P\left(X_n\leq x\right)+P\left(|X_n-X|>\varepsilon\right),\\
+                P\left(X_n\leq x\right)\leq P\left(X\leq x-\varepsilon\right)+P\left(|X_n-X|>\varepsilon\right).\\
+            \end{gathered}
+        \end{equation*}
+        So, we got
+        \begin{equation*}
+            \begin{gathered}
+                P\left(X\leq x+\varepsilon\right)-P\left(|X_n-X|>\varepsilon\right)\leq P\left(X_n\leq x\right) \\
+                \leq P\left(X\leq x-\varepsilon\right)+P\left(|X_n-X|>\varepsilon\right)
+            \end{gathered}
+        \end{equation*}
+        As $n\rightarrow\infty$, $P\left(|X_n-X|>\varepsilon\right)\rightarrow 0$, then
+        \begin{equation*}
+            \begin{gathered}
+                P\left(X\leq x-\varepsilon\right)\leq\lim_{n\rightarrow\infty}P\left(X_n\leq x\right)\leq P\left(X\leq x+\varepsilon\right) \\
+                \Rightarrow F(x-\varepsilon)\leq \lim_{n\rightarrow\infty}F_n(x)\leq F(x+\varepsilon)
+            \end{gathered}.
+        \end{equation*}
+        By the property of distribution (Theorem \ref{thm:distribution-function-property}), as $\varepsilon\rightarrow 0$, then
+        \begin{equation*}
+            \lim_{n\rightarrow\infty}F_n(x)=F(x),
+        \end{equation*}
+        which means,
+        \begin{equation*}
+            X_n\stackrel{d}{\rightarrow}X.
+        \end{equation*}
+        \item
+        Since $X_{n}\stackrel{d}{\rightarrow}c$, where $c$ is a constant, then $\forall\varepsilon>0$,
+        \begin{equation*}
+            \begin{gathered}
+                \lim_{n\rightarrow\infty}P(X_n\leq c+\varepsilon)=1\Rightarrow\lim_{n\rightarrow\infty}P(X_n>c+\varepsilon)=0\\
+                \lim_{n\rightarrow\infty}P(X_n\leq c-\varepsilon)=0.\\
+            \end{gathered}
+        \end{equation*}
+        Therefore,
+        \begin{equation*}
+            P\left(\left|X_n-c\right|<\varepsilon\right)=0,
+        \end{equation*}
+        which means
+        \begin{equation*}
+            X_n\stackrel{p}{\rightarrow}c.
+        \end{equation*}
+    \end{enumerate}
+\end{proof}
+
 \begin{theorem}{Slutsky's Theorem}{slutsky-theorem}
     Let $X_{n}, Y_{n}$ be sequences of random variables. If $X_{n}\stackrel{d}{\rightarrow}X$ and $Y_{n}\stackrel{p}{\rightarrow}c$, then
     \begin{enumerate}
         \item $X_{n}+Y_{n}\stackrel{d}{\rightarrow}X+c$.
         \item $X_{n}Y_{n}\stackrel{d}{\rightarrow}cX$.
-        \item $\frac{X_{n}}{Y_{n}}\stackrel{d}{\rightarrow}\frac{X}{c}$, provided that $c$ is invertible.
+        \item $X_{n}/Y_{n}\stackrel{d}{\rightarrow}X/c$, provided that $c$ is invertible.
     \end{enumerate}
 \end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item
+        Since 
+        \item
+
+        \item
+        
+    \end{enumerate}
+\end{proof}
 
 \begin{note}
     However that convergence in distribution of $X_{n}\stackrel{d}{\rightarrow}X$ and $Y_{n}\stackrel{d}{\rightarrow}Y$ does in general not imply convergence in distribution of $X_n+Y_n\stackrel{d}{\rightarrow}X+Y$ or of $X_nY_n\stackrel{d}{\rightarrow}XY$.
 \end{note}
+
+\begin{theorem}{Cram\'er-Wold Theorem}{cramer-wold-theorem}
+    
+\end{theorem}
 
 \begin{theorem}{Delta Method}{}
     Let $\{X_{n}\}$ be a sequence of random variables with
@@ -145,38 +258,6 @@
     \end{equation}
 \end{theorem}
 
-\section{Convergence in Probability}
-
-\subsection{Definition of Convergence in Probability}
-
-\begin{definition}{Convergence in Probability}{}
-    A sequence $\{X_n\}$ of real-valued random variables \textbf{converges in probability} towards the random variable $X$, if
-    \begin{equation}
-        \forall \varepsilon > 0, \lim_{n\to\infty}\text{Pr}\left(|X_n-X|>\varepsilon\right)=0.
-    \end{equation}
-    Convergence in probability is denoted by
-    \begin{equation}
-        X_n \stackrel{p}{\rightarrow} X.
-    \end{equation}
-\end{definition}
-
-\subsection{Properties of Convergence in Probability}
-
-\begin{theorem}{}{}
-    If $X_{n}\stackrel{p}{\rightarrow}X$, then
-    \begin{equation}
-        X_{n}\stackrel{d}{\rightarrow}X,
-    \end{equation}
-    and that, conversely, if $X_{n}\stackrel{d}{\rightarrow}c$, where $c$ is a constant, then
-    \begin{equation}
-        X_{n}\stackrel{p}{\rightarrow}c.
-    \end{equation}
-\end{theorem}
-
-\begin{proof}
-    
-\end{proof}
-
 \section{Almost Sure Convergence}
 
 \subsection{Definition of Almost Sure Convergence}
@@ -184,7 +265,7 @@
 \begin{definition}{Almost Sure Convergence}{}
     A sequence $\{X_n\}$ of real-valued random variables converges \textbf{almost sure} or \textbf{almost everywhere} or \textbf{with probability 1} or \textbf{strongly} towards the random variable $X$, if
     \begin{equation}
-        \text{Pr}\left(\lim_{n\to\infty}X_n=X\right)=1.
+        P\left(\lim_{n\to\infty}X_n=X\right)=1.
     \end{equation}
     Almost sure convergence is denoted by
     \begin{equation}
@@ -217,16 +298,8 @@
 \end{theorem}
 
 
-\section{Convergence in Mean}
-
-\begin{definition}{Convergence in Mean}{}
-    A sequence $\{X_n\}$ of real-valued random variables \textbf{converges in the r-th mean} ($r\geq1$) towards the random variable $X$, if
-    \begin{enumerate}
-        \item The r-th absolute moments $E(|X_n|^r)$ and $E(|X|^r)$ of $\{X_n\}$ and $X$ exist,
-        \item $\lim_{n\to\infty}E\left(|X_n-X|^r\right)=0$.
-    \end{enumerate}
-    Convergence in the r-th mean is denoted by
-    \begin{equation}
-        X_n \stackrel{L^r}{\rightarrow} X.
-    \end{equation}
-\end{definition}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/relation-of-convergences.eps}
+    \caption{Relations of Convergence of Random Variables}
+\end{figure}

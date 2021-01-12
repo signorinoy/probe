@@ -20,7 +20,7 @@
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers with Finite Variances}{}
-    Let $X_1,X_2,\ldots$ be i.i.d. random variables with $EX_i=\mu$ and $\text{var}(X_i)\leq C<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, then
+    Let $X_1,X_2,\ldots$ be i.i.d. random variables with $EX_i=\mu$ and $\text{Var}(X_i)\leq C<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, then
     \begin{equation}
         S_n/n\stackrel{L^2}{\rightarrow}\mu,\quad S_n/n\stackrel{p}{\rightarrow}\mu.
     \end{equation}
@@ -31,7 +31,7 @@
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers without i.i.d.}{}
-    Let $X_1,X_2,\ldots$ be random variables, Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=ES_n$, $\sigma_n^2=\text{var}(S_n)$, if $\sigma_n^2/b_n^2\rightarrow 0$, then
+    Let $X_1,X_2,\ldots$ be random variables, Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=ES_n$, $\sigma_n^2=\text{Var}(S_n)$, if $\sigma_n^2/b_n^2\rightarrow 0$, then
     \begin{equation}
         \frac{S_n-\mu_n}{b_n}\stackrel{p}{\rightarrow}0.
     \end{equation}
@@ -42,7 +42,15 @@
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers for Triangular Arrays}{}
-    
+    For each $n$, let $X_{n,m},1\leq m\leq n$, be independent random variables. Suppose $b_n>0$ with $b_n\rightarrow\infty$, $\bar{X}_{n,m}=X_{n,m}I_{\left(X_{n,m}\leq b_n\right)}$, if
+    \begin{enumerate}
+        \item $\sum_{m=1}^{n}P\left(\left|X_{n,m}\right|>b_{n}\right)\rightarrow 0$, and
+        \item $b_{n}^{-2}\sum_{m=1}^{n}E\bar{X}_{n,m}^{2}\rightarrow 0$.
+    \end{enumerate}
+    Suppose $S_{n}=X_{n, 1}+\cdots+X_{n,n}$ and $a_{n}=\sum_{m=1}^{n}E\bar{X}_{n,m}$, thenxxs
+    \begin{equation}
+        \frac{S_n-a_n}{b_n}\stackrel{p}{\rightarrow}0.
+    \end{equation}
 \end{theorem}
 
 \begin{proof}
@@ -54,7 +62,7 @@
     \begin{equation}
         \lim_{x\rightarrow 0}xP(|X_i|>x)=0.
     \end{equation}
-    Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=E\left(X_1I_{(|X_1<n|)}\right)$, then
+    Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=E\left(X_1I_{(|X_1|<n)}\right)$, then
     \begin{equation}
         S_n/n-\mu_n\stackrel{p}{\rightarrow}0.
     \end{equation}
@@ -64,7 +72,7 @@
     
 \end{proof}
 
-\begin{theorem}{Weak Law of Large Numbers}{}
+\begin{theorem}{Weak Law of Large Numbers}{WLLN}
     Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu=EX_i$, then
     \begin{equation}
         S_n/n\stackrel{p}{\rightarrow}\mu.
@@ -83,19 +91,31 @@
 
 \subsection{Borel-Cantelli Lemmas}
 
-\begin{theorem}{Borel-Cantelli Lemma}{}
+\begin{lemma}{Borel-Cantelli Lemma}{borel-cantelli-lemma}
     If $\sum_{n=1}^{\infty}P\left(A_{n}\right)<\infty$, then
     \begin{equation}
         P\left(A_{n}\text{ i.o. }\right)=0.
     \end{equation}
-\end{theorem}
+\end{lemma}
 
-\begin{theorem}{The Second Borel-Cantelli Lemma}{}
+\begin{lemma}{The Second Borel-Cantelli Lemma}{}
     If $\{A_n\}$ are independent with $\sum_{n=1}^{\infty}P\left(A_{n}\right)=\infty$, then,
     \begin{equation}
         P\left(A_{n}\text{ i.o. }\right)=1.
     \end{equation}
-\end{theorem}
+\end{lemma}
+
+\begin{corollary}{}{}
+    Suppose $\{A_{n}\}$ are independent with $P\left(A_{n}\right)<1,\forall n$. If $P\left(\cup_{n=1}^{\infty}A_{n}\right)=1$ then
+    \begin{equation}
+        \sum_{n=1}^{\infty}P\left(A_{n}\right)=\infty,
+    \end{equation}
+    and hence $P\left(A_{n}\text{ i.o. }\right)=1$
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
 
 \subsection{Strong Law of Large Numbers}
 
@@ -107,3 +127,21 @@
 \end{theorem}
 
 \section{Uniform Law of Large Numbers}
+
+\begin{theorem}{Uniform Law of Large Numbers}{ULLN}
+    Suppose
+    \begin{enumerate}
+        \item $\Theta$ is compact.
+        \item $g\left(X_{i},\theta\right)$ is continuous at each $\theta\in\Theta$ almost sure.
+        \item $g\left(X_{i},\theta\right)$ is dominated by a function $G\left(X_{i}\right)$, i.e. $\left|g\left(X_{i},\theta\right)\right|\leq G\left(X_{i}\right)$.
+        \item $EG\left(X_{i}\right)<\infty$.
+    \end{enumerate}
+    Then
+    \begin{equation}
+        \sup_{\theta\in\Theta}\left|n^{-1}\sum_{i=1}^{n}g\left(X_{i},\theta\right)-Eg\left(X_{i},\theta\right)\right|\stackrel{p}{\rightarrow}0.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}

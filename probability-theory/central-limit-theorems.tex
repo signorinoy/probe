@@ -103,7 +103,7 @@
 \section{Central Limit Theorems}
 
 \begin{theorem}{Central Limit Theorem for i.i.d. Sequences}{}
-    Let $X_1,X_2,\ldots$ be i.i.d. with $EX_i=\mu$, $\text{var}(X_i)=\sigma^2\in(0,\infty)$. Let $S_n=X_1+X_2+\ldots+X_n$, then
+    Let $X_1,X_2,\ldots$ be i.i.d. with $EX_i=\mu$, $\text{Var}(X_i)=\sigma^2\in(0,\infty)$. Let $S_n=X_1+X_2+\ldots+X_n$, then
     \begin{equation}
         \frac{S_n-n\mu}{\sigma n^{\frac{1}{2}}} \stackrel{d}{\rightarrow} \chi,
     \end{equation}
@@ -115,7 +115,7 @@
 \end{proof}
 
 \begin{theorem}{The Linderberg-Feller Central Limit Theorem}{}
-    For each $n$, let $X_{n,m},1\leq m\leq n$, be independent random variables with $EX_{n,m}=0$. Suppose
+    For each $n$, let $X_{n,m},1\leq m\leq n$, be independent random variables with $EX_{n,m}=0$. If
     \begin{enumerate}
         \item $\sum_{m=1}^{n}EX_{n,m}^{2} \rightarrow \sigma^{2}>0$.
         \item $\forall\epsilon>0,\lim_{n\rightarrow\infty}\sum_{m=1}^{n}E\left(\left|X_{n,m}\right|^{2};\left|X_{n,m}\right|>\epsilon\right)=0$

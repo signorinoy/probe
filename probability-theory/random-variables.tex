@@ -1,5 +1,14 @@
 \chapter{Random Variables}
 
+\begin{introduction}
+    \item Probability Space
+    \item Random Variables
+    \item Distributions
+    \item Expected Value
+    \item Independence
+    \item Characteristic Functions
+\end{introduction}
+
 \section{Probability Space}
 
 \begin{definition}{Probability Space}{}
@@ -33,7 +42,7 @@ How to prove that functions are measurable?
 
 \section{Distributions}
 
-\subsection{Definition of Distribution}
+\subsection{Definition of Distributions}
 
 \begin{definition}{Distribution}{}
     A distribution of random variable $X$ is a probability function $P:\mathcal{R}\rightarrow\mathbb{R}$ by setting
@@ -57,7 +66,7 @@ How to prove that functions are measurable?
    that $X$ has density function $f$.
 \end{definition}
 
-\subsection{Properties of Distribution}
+\subsection{Properties of Distributions}
 
 \begin{theorem}{Properties of Distribution Function}{distribution-function-property}
     Any distribution function $F$ has the following properties,
@@ -184,23 +193,28 @@ The definition of independence can be extended to the infinite collection.
 
 \subsection{Sums of Independent Random Variables}
 
-\begin{theorem}{Convolution for Distribution Function}{}
-    If $X$ and $Y$ are independent, $F(x)=P(X\leq x)$, and $G(y)=P(Y\leq y)$, then
-    \begin{equation}
-        P(X+Y\leq z)=\int F(z-y)\mathrm{d}G(y).
-    \end{equation}
+\begin{theorem}{Convolution for Random Variables}{}
+    \begin{enumerate}
+        \item If $X$ and $Y$ are independent, $F(x)=P(X\leq x)$, and $G(y)=P(Y\leq y)$, then
+        \begin{equation}
+            P(X+Y\leq z)=\int F(z-y)\mathrm{d}G(y).
+        \end{equation}
+        \item If $X$ and $Y$ are independent,  $X$ with density $f$ and $Y$ with distribution function $G$, then $X+Y$ has density
+        \begin{equation}
+            h(x)=\int f(x-y)\mathrm{d}G(y).
+        \end{equation}
+        Suppose $Y$ has density $g$, the last formula can be written as
+        \begin{equation}
+            h(x)=\int f(x-y)g(y)\mathrm{d}y.
+        \end{equation}
+        \item If $X$ and $Y$ are independent, integral-valued random variables, then
+        \begin{equation}
+            P(X+Y=n)=\sum_{m}P(X=m)P(Y=n-m).
+        \end{equation}
+    \end{enumerate}
 \end{theorem}
 
-\begin{theorem}{Convolution for Density Function}{}
-    Suppose that $X$ with density $f$ and $Y$ with distribution function $G$ are independent. Then $X+Y$ has density
-    \begin{equation}
-        h(x)=\int f(x-y)\mathrm{d}G(y)
-    \end{equation}
-    When $Y$ has density $g$, the last formula can be written as
-    \begin{equation}
-        h(x)=\int f(x-y)g(y)\mathrm{d}y
-    \end{equation}
-\end{theorem}
+\section{Moments}
 
 \section{Characteristic Functions}
 
