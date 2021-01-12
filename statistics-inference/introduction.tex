@@ -1,9 +1,13 @@
 \chapter{Introduction}
 
-\section{Sufficient Statistics}
+\section{Populations and Samples}
+
+\section{Statistics}
+
+\subsection{Sufficient Statistics}
 
 \begin{definition}{Sufficient Statistics}{}
-    A statistic $T$ is said to be sufflcient for $X$, or for the family $\mathcal{P}=\left\{P_{\theta}, \theta \in \Omega\right\}$ of possible distributions of $X$, or for $\theta$, if the conditional distribution of $X$ given $T=t$ is independent of $\theta$ for all $t$.
+    A statistic $T$ is said to be sufficient for $X$, or for the family $\mathcal{P}=\left\{P_{\theta}, \theta \in \Omega\right\}$ of possible distributions of $X$, or for $\theta$, if the conditional distribution of $X$ given $T=t$ is independent of $\theta$ for all $t$.
 \end{definition}
 
 \begin{theorem}{Fisher–Neyman Factorization Theorem}{}
@@ -16,3 +20,63 @@
 \begin{proof}
     
 \end{proof}
+
+\subsection{Completeness}
+
+\section{Estimators}
+
+\subsection{Definition of Estimators}
+
+\begin{definition}{Estimator}{estimator}
+    An estimator is a real-valued function defined over the sample space, that is
+    \begin{equation}
+        \delta:\textbf{X}\rightarrow\mathbb{R}.
+    \end{equation}
+    It is used to estimate an estimand, $g(\theta)$, a real-valued function of the parameter.
+\end{definition}
+
+\subsection{Properties of Estimators}
+
+\subsubsection*{Unbiasedness}
+
+\begin{definition}{Unbiasedness}{}
+    An estimator $\delta(\textbf{X})$ of $g(\theta)$ is unbiased if
+    \begin{equation}
+        E_\theta\left[\delta(\textbf{X})\right]=g(\theta),\quad\forall\theta\in\Theta.
+    \end{equation}
+\end{definition}
+
+\begin{note}
+    \begin{itemize}
+        \item Unbiased estimators of $g(\theta)$ may not exist.
+        \item 
+    \end{itemize}
+\end{note}
+
+\begin{example}[ Nonexistence of Unbiased Estimator ]
+    
+\end{example}
+
+\subsubsection*{Consistency}
+
+\begin{definition}{Consistency}{}
+    
+\end{definition}
+
+\subsubsection*{Asymptotic Normality}
+
+\begin{definition}{Asymptotic Normality}{}
+    
+\end{definition}
+
+\subsubsection*{Efficiency}
+
+\begin{definition}{Efficiency}{}
+    
+\end{definition}
+
+\subsubsection*{Robustness}
+
+\begin{definition}{Robustness}{}
+    
+\end{definition}

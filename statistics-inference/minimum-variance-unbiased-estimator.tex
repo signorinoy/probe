@@ -1,1 +1,138 @@
 \chapter{Minimum-Variance Unbiased Estimator}
+
+\begin{definition}{UMVU Estimators}{}
+    An unbiased estimator $\delta(\textbf{X})$ of $g(\theta)$ is the uniform minimum variance unbiased (UMVU) estimator of $g(\theta)$ if
+    \begin{equation}
+        \text{Var}_{\theta}\delta(\textbf{X})\leq\text{Var}_{\theta}\delta'(\textbf{X}),\quad\forall\theta\in\Theta,
+    \end{equation}
+    where $\delta'(\textbf{X})$ is any other unbiased estimator of $g(\theta)$.
+\end{definition}
+
+\begin{note}
+    If there exists an unbiased estimator of $g$, the estimand $g$ will be called $U$-estimable.
+\end{note}
+
+\begin{enumerate}
+    \item If $T(\textbf{X})$ is a complete sufficient statistic, estimator $\delta(\textbf{X})$ that only depends on $T(\textbf{X})$, then for any $U$-estimable function $g(\theta)$ with
+    \begin{equation}
+        E_{\theta}\delta(T(\textbf{X}))=g(\theta),\quad\forall\theta\in\Theta,
+    \end{equation}
+    hence, $\delta(T(\textbf{X}))$ is the unique UMVU estimator of $g(\theta)$.
+    \item If $T(\textbf{X})$ is a complete sufficient statistic and $\delta({\textbf{X}})$ is any unbiased estimator of $g(\theta)$, then the UMVU estimator of $g(\theta)$ can be obtained by
+    \begin{equation}
+        E\left[\delta(\textbf{X})\mid T(\textbf{X})\right].
+    \end{equation}
+\end{enumerate}
+
+\begin{example}[ Estimating Polynomials of a Normal Variance ]
+    Let $X_{1},\ldots,X_{n}$ be distributed with joint density
+    \begin{equation}
+        \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\sum\left(x_{i}-\xi\right)^{2}\right].
+    \end{equation}
+    Discussing the UMVU estimators of $\xi^r$, $\sigma^r$, $\xi/\sigma$.
+\end{example}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \textbf{$\sigma$ is known}:
+
+        Since $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ is the complete sufficient statistic of $X_i$, and
+        \begin{equation*}
+            E(\bar{X})=\xi,
+        \end{equation*}
+        then the UMVU estimator of $\xi$ is $\bar{X}$.
+
+        Therefore, the UMVU estimator of $\xi^r$ is $\bar{X}^r$ and the UMVU estimator of $\xi/\sigma$ is $\bar{X}/\sigma$.
+
+        \item \textbf{$\xi$ is known}:
+
+        Since $s^r=\sum\left(x_{i}-\xi\right)^r$ is the complete sufficient statistic of $X_i$.
+
+        Assume
+        \begin{equation*}
+            E\left[\frac{s^r}{\sigma^r}\right]=\frac{1}{K_{n,r}},
+        \end{equation*}
+        where $K_{n,r}$ is a constant depends on $n,r$.
+
+        Since $s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)$, then
+        \begin{equation*}
+            E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\mathrm{d}x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
+        \end{equation*}
+        therefore,
+        \begin{equation*}
+            K_{n,r}=\frac{\Gamma(\frac{n}{2})}{2^{\frac{r}{2}}\cdot\Gamma\left(\frac{n+r}{2}\right)}.
+        \end{equation*}
+
+        Hence,
+        \begin{equation*}
+            E\left[s^rK_{n,r}\right]=\sigma^r \text{ and } E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
+        \end{equation*}
+        which means the UMVU estimator of $\sigma^r$ is $s^rK_{n,r}$ and the UMVU estimator of $\xi/\sigma$ is $\xi s^{-1}K_{n,-1}$.
+
+        \item \textbf{Both $\xi$ and $\sigma$ is unknown}:
+
+        Since $(\bar{X},s_x^r)$ are the complete sufficient statistic of $X_i$, where $s_x^2=\sum\left(x_{i}-\bar{X}\right)^r$.
+
+        Since $s_x^2/\sigma^2\sim\chi^2(n-1)$, then
+        \begin{equation*}
+            E\left[\frac{s_x^r}{\sigma^r}\right]=\frac{1}{K_{n-1,r}}.
+        \end{equation*}
+
+        Hence,
+        \begin{equation*}
+            E\left[s_x^rK_{n-1,r}\right]=\sigma^r,
+        \end{equation*}
+        which means the UMVU estimator of $\sigma^r$ is $s_x^rK_{n-1,r}$,
+        and
+        \begin{equation*}
+            E(\bar{X})=\xi,
+        \end{equation*}
+        which means the UMVU estimator of $\xi$ is $\bar{X}$.
+
+        Since $\bar{X}$ and $s_x^r$ are independent, then
+        \begin{equation*}
+            E[\bar{X}s_x^{-1}K_{n-1,-1}]=\xi/\sigma
+        \end{equation*}
+        which means the UMVU estimator of $\xi/\sigma$ is $\bar{X}s_x^{-1}K_{n-1,-1}$.
+    \end{enumerate}
+\end{solution}
+
+\begin{example}[]
+    Let $X_{1},\ldots,X_{n}$ be i.i.d sample from $U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)$, where $\theta_1\in\mathbb{R},\theta_2\in\mathbb{R}^+$. Discussing the UMVU estimators of $\theta_1,\theta_2$.
+\end{example}
+
+\begin{solution}
+    Let $X_{(i)}$ be the i-th order statistic of $X_i$, then $\left(X_{(1)},X_{(n)}\right)$ is the complete and sufficient statistic for $(\theta_1,\theta_2)$. Thus it suffices to find a function $\left(X_{(1)},X_{(n)}\right)$, which is unbiased of $(\theta_1,\theta_2)$.
+
+    Let
+    \begin{equation*}
+        Y_i=\frac{X_i-(\theta_1-\theta_2)}{2\theta_2}\sim U(0,1),
+    \end{equation*}
+    and
+    \begin{equation*}
+        Y_{(i)}=\frac{X_{(i)}-(\theta_1-\theta_2)}{2\theta_2},
+    \end{equation*}
+    be the i-th order statistic of $Y_i$, then we got
+    \begin{equation*}
+        \begin{aligned}
+            E[X_{(1)}] &= 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2) \\
+            &= 2\theta_2\int_{0}^{1}ny(1-y)^{n-1}\mathrm{d}y+(\theta_1-\theta_2) \\
+            &= \theta_1-\frac{3n+1}{n+1}\theta_2 \\
+            E[X_{(n)}] &= 2\theta_2E[Y_{(n)}]+(\theta_1-\theta_2) \\
+            &= 2\theta_2\int_{0}^{1}ny^{n}\mathrm{d}y+(\theta_1-\theta_2) \\
+            &= \theta_1+\frac{n-1}{n+1}\theta_2 \\
+        \end{aligned}.
+    \end{equation*}
+
+    Thus,
+    \begin{equation*}
+        \begin{aligned}
+            \theta_1 &= E\left[\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)}\right], \\
+            \theta_2 &= E\left[\frac{n+1}{4n}\left(X_{(n)}-X_{(1)}\right)\right], \\
+        \end{aligned}
+    \end{equation*}
+    which means the UMVU estimator is
+    \begin{equation*}
+        \hat{\theta_1}=\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)},\quad\hat{\theta_2}=-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}.
+    \end{equation*}
+\end{solution}
