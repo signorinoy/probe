@@ -85,9 +85,9 @@
         which means the UMVU estimator of $\sigma^r$ is $s_x^rK_{n-1,r}$,
         and
         \begin{equation*}
-            E(\bar{X})=\xi,
+            E(\bar{X}^r)=\xi^r,
         \end{equation*}
-        which means the UMVU estimator of $\xi$ is $\bar{X}$.
+        which means the UMVU estimator of $\xi^r$ is $\bar{X}^r$.
 
         Since $\bar{X}$ and $s_x^r$ are independent, then
         \begin{equation*}
@@ -128,7 +128,7 @@
     \begin{equation*}
         \begin{aligned}
             \theta_1 &= E\left[\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)}\right], \\
-            \theta_2 &= E\left[\frac{n+1}{4n}\left(X_{(n)}-X_{(1)}\right)\right], \\
+            \theta_2 &= E\left[-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}\right], \\
         \end{aligned}
     \end{equation*}
     which means the UMVU estimator is

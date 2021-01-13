@@ -106,6 +106,22 @@ In general, this Bayes estimator under squared error loss is given by
     E\left(\Theta\mid x\right) = \frac{\int\theta f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}.
 \end{equation}
 
+\begin{example}
+    Consider
+    \begin{equation*}
+        \begin{aligned}
+            Y_i&\stackrel{\text{i.i.d}}{\sim}N(\mu,\Gamma^{-1}),\quad i=1,2,\ldots,n\\
+            \mu&\sim N(0,1),\\
+            \Gamma&\sim\text{Gamma}(2,1),
+        \end{aligned}
+    \end{equation*}
+    calculate the Single-Prior Bayes estimator under squared error loss.
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
 For exponential families
 
 \begin{theorem}{}{}
@@ -155,9 +171,9 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
     Consider
     \begin{equation}
         \begin{aligned}
-            X\mid\lambda &\sim \text{Poisson}\left(\lambda\right),\\
-            \Lambda\mid b &\sim \text{Gamma}\left(a,b\right), \text{ a known},\\
-            \frac{1}{b} &\sim \text{Gamma}\left(k,\tau\right),
+            X_i\mid\lambda &\stackrel{\text{i.i.d}}{\sim} \text{Poisson}\left(\lambda\right),\quad i=1,2\ldots,n\\
+            \lambda\mid b &\sim \text{Gamma}\left(a,b\right), \text{ a known},\\
+            \frac{1}{b} &\sim \text{Gamma}\left(k,\tau\right),\\
         \end{aligned}
     \end{equation}
     calculate the Hierarchical Bayes estimator under squared error loss.

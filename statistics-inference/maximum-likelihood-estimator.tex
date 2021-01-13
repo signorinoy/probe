@@ -26,9 +26,17 @@ Equivalently, the MLE can be taken to be the maximum of the standardized log-lik
     \frac{l\left(\theta;\textbf{X}_{n}\right)}{n}=\frac{\log L\left(\theta;\textbf{X}_{n}\right)}{n}=\frac{1}{n}\sum_{i=1}^{n}\log p\left(X_{i};\theta\right)=\frac{1}{n}\sum_{i=1}^{n}l\left(\theta;X_{i}\right).
 \end{equation}
 
+Define
+\begin{equation}
+    \begin{gathered}
+        Q\left(\theta;\textbf{X}_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}l\left(\theta;X_{i}\right), \\
+        \hat{\theta}\left(\textbf{X}_{n}\right):=\max_{\theta\in\Theta}Q\left(\theta;\textbf{X}_{n}\right). \\
+    \end{gathered}
+\end{equation}
+
 \section{Consistency of MLE}
 
-Let $Q\left(\theta;\textbf{X}_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}l\left(\theta;X_{i}\right)$, by the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}), we can get,
+By the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}), we can get,
 
 \begin{equation}
     \frac{1}{n}\sum^{n}l\left(\theta;X_{i}\right)\stackrel{p}{\rightarrow}E\left[l(\theta;X)\right].
@@ -52,7 +60,7 @@ Suppose $Q_{0}(\theta)=E\left[l(\theta;X)\right]$, then we will show that $Q_{0}
         \item $Q_{0}(\theta)$ is continuous in $\theta$.
         \item $Q\left(\theta;\textbf{X}_{n}\right)$ converges uniformly in probability to $Q_{0}(\theta)$.
     \end{enumerate}
-    then $\hat{\theta}\left(\textbf{X}_{n}\right)$ defined as the value of $\theta\in\Theta$ which for each $\textbf{X}_{n}$ maximizes the objective function $Q\left(\theta ; \textbf{X}_{n}\right)$ satisfies
+    then
     \begin{equation}
         \hat{\theta}\left(\textbf{X}_{n}\right)\stackrel{p}{\rightarrow}\theta_{0}.
     \end{equation}
