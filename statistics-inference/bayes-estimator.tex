@@ -110,7 +110,7 @@ In general, this Bayes estimator under squared error loss is given by
     Consider
     \begin{equation*}
         \begin{aligned}
-            Y_i&\stackrel{\text{i.i.d}}{\sim}N(\mu,\Gamma^{-1}),\quad i=1,2,\ldots,n\\
+            X_i&\stackrel{\text{i.i.d}}{\sim}N(\mu,\Gamma^{-1}),\quad i=1,2,\ldots,n\\
             \mu&\sim N(0,1),\\
             \Gamma&\sim\text{Gamma}(2,1),
         \end{aligned}
@@ -119,7 +119,24 @@ In general, this Bayes estimator under squared error loss is given by
 \end{example}
 
 \begin{solution}
-    
+    \begin{equation*}
+        \begin{aligned}
+            p\left(\textbf{X}\mid\mu,\Gamma\right)&=\Gamma^n(2\pi)^{-\frac{n}{2}}\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right],\\
+            p(\mu)&=\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{\mu^2}{2}\right),\\
+            p(\Gamma)&=\frac{1}{\Gamma(2)}\Gamma\exp\left(-\Gamma\right).
+        \end{aligned}
+    \end{equation*}
+
+    Therefore,
+    \begin{equation*}
+        h\left(\textbf{X},\mu,\Gamma\right)=C\Gamma^n\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right]\exp\left(-\frac{\mu^2}{2}\right)\Gamma\exp\left(-\Gamma\right),
+    \end{equation*}
+    where $C=\frac{(2\pi)^{-\frac{n+1}{2}}}{\Gamma(2)}$.
+
+    For $\mu$, we have
+    \begin{equation*}
+        \pi\left(\mu\mid\textbf{X},\Gamma\right)=\frac{h\left(\textbf{X},\mu,\Gamma\right)}{p(\mu\mid\textbf{X})}
+    \end{equation*}
 \end{solution}
 
 For exponential families
