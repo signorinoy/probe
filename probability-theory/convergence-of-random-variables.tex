@@ -28,7 +28,7 @@
 \begin{definition}{Convergence in Probability}{}
     A sequence $\{X_n\}$ of real-valued random variables \textbf{converges in probability} towards the random variable $X$, if
     \begin{equation}
-        \lim_{n\to\infty}P\left(|X_n-X|>\varepsilon\right)=0,\quad\forall\varepsilon>0.
+        \forall\varepsilon>0,\quad\lim_{n\to\infty}P\left(|X_n-X|>\varepsilon\right)=0.
     \end{equation}
     Convergence in probability is denoted by
     \begin{equation}
@@ -297,9 +297,40 @@
     \end{equation}
 \end{theorem}
 
-
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{./probability-theory/figures/relation-of-convergences.eps}
     \caption{Relations of Convergence of Random Variables}
 \end{figure}
+
+\section{Asymptotic Notation for Random Variables}
+
+\begin{definition}{Little $o_p$}{}
+    A sequence $\{A_n\}$ of real-valued random variables is of smaller order in probability than a sequence $\{B_n\}$, if
+    \begin{equation}
+        \frac{A_n}{B_n}\stackrel{p}{\rightarrow}0.
+    \end{equation}
+    Smaller order in probability is denoted by
+    \begin{equation}
+        A_n=o_p(B_n).
+    \end{equation}
+    Particularly,
+    \begin{equation}
+        A_n=o_p(1)\iff A_n\stackrel{p}{\rightarrow}0.
+    \end{equation}
+\end{definition}
+
+\begin{definition}{Big $O_p$}{}
+    A sequence $\{A_n\}$ of real-valued random variables is of smaller order than or equal to a sequence $\{B_n\}$ in probability, if
+    \begin{equation}
+        \forall\varepsilon>0\;\exists M_\varepsilon,\quad\lim_{n\rightarrow\infty} P\left(|A_n|\leq M_\varepsilon|B_n|\right)\geq 1-\varepsilon.
+    \end{equation}
+    Smaller order than or equal to in probability is denoted by
+    \begin{equation}
+        A_n=O_p(B_n).
+    \end{equation}
+\end{definition}
+
+\begin{note}
+    
+\end{note}
