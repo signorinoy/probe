@@ -37,7 +37,7 @@ How to prove that functions are measurable?
 \end{theorem}
 
 \begin{enumerate}
-    \item 
+    \item
 \end{enumerate}
 
 \section{Distributions}
@@ -63,7 +63,7 @@ How to prove that functions are measurable?
     \begin{equation*}
         F(x)=\int_{-\infty}^{x}f(y)\mathrm{d}y,
     \end{equation*}
-   that $X$ has density function $f$.
+    that $X$ has density function $f$.
 \end{definition}
 
 \subsection{Properties of Distributions}
@@ -80,7 +80,7 @@ How to prove that functions are measurable?
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{}{}
@@ -88,7 +88,7 @@ How to prove that functions are measurable?
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{}{}
@@ -96,7 +96,7 @@ How to prove that functions are measurable?
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \subsection{Families of Distributions}
@@ -105,11 +105,11 @@ How to prove that functions are measurable?
 \section{Expected Value}
 
 \begin{definition}{Expectation}{expectation}
-    
+
 \end{definition}
 
 \begin{theorem}{Bounded Convergence Theorem}{bounded-convergence-theorem}
-    
+
 \end{theorem}
 
 \begin{theorem}{Fatou's Lemma}{fatou-lemma}
@@ -142,9 +142,9 @@ How to prove that functions are measurable?
     \begin{enumerate}
         \item Two events $A$ and $B$ are independent if $P(A \cap B)=P(A) P(B)$.
         \item Two random variables $X$ and $Y$ are independent if for all $C,D\in\mathcal{R}$
-        \begin{equation}
-            P(X\in C,Y\in D)=P(X\in C)P(Y\in D).
-        \end{equation}
+              \begin{equation}
+                  P(X\in C,Y\in D)=P(X\in C)P(Y\in D).
+              \end{equation}
         \item Two $\sigma$-fields $\mathcal{F}$ and $\mathcal{G}$ are independent if for all $A\in\mathcal{F}$ and $B\in\mathcal{G}$ the events $A$ and $B$ are independent.
     \end{enumerate}
 \end{definition}
@@ -173,17 +173,17 @@ The definition of independence can be extended to the infinite collection.
     An infinite collection of objects ($\sigma$-fields, random variables, or sets) is said to be independent if every finite subcollection is,
     \begin{enumerate}
         \item $\sigma$-fields $\mathcal{F}_{1},\mathcal{F}_{2},\ldots,\mathcal{F}_{n}$ are independent if whenever $A_{i}\in\mathcal{F}_{i}$ for $i=1, \ldots,n$, we have
-        \begin{equation}
-            P\left(\cap_{i=1}^{n}A_{i}\right)=\prod_{i=1}^{n}P\left(A_{i}\right).
-        \end{equation}
+              \begin{equation}
+                  P\left(\cap_{i=1}^{n}A_{i}\right)=\prod_{i=1}^{n}P\left(A_{i}\right).
+              \end{equation}
         \item Random variables $X_{1},\ldots,X_{n}$ are independent if whenever $B_{i}\in\mathcal{R}$ for $i=1,\ldots,n$ we have
-        \begin{equation}
-            P\left(\cap_{i=1}^{n}\left\{X_{i}\in B_{i}\right\}\right)=\prod_{i=1}^{n}P\left(X_{i}\in B_{i}\right).
-        \end{equation}
+              \begin{equation}
+                  P\left(\cap_{i=1}^{n}\left\{X_{i}\in B_{i}\right\}\right)=\prod_{i=1}^{n}P\left(X_{i}\in B_{i}\right).
+              \end{equation}
         \item Sets $A_{1},\ldots,A_{n}$ are independent if whenever $I\subset\{1,\ldots,n\}$ we have
-        \begin{equation}
-            P\left(\cap_{i\in I}A_{i}\right)=\prod_{i\in I}P\left(A_{i}\right).
-        \end{equation}
+              \begin{equation}
+                  P\left(\cap_{i\in I}A_{i}\right)=\prod_{i\in I}P\left(A_{i}\right).
+              \end{equation}
     \end{enumerate}
 \end{definition}
 
@@ -212,21 +212,21 @@ The definition of independence can be extended to the infinite collection.
 \begin{theorem}{Convolution for Random Variables}{}
     \begin{enumerate}
         \item If $X$ and $Y$ are independent, $F(x)=P(X\leq x)$, and $G(y)=P(Y\leq y)$, then
-        \begin{equation}
-            P(X+Y\leq z)=\int F(z-y)\mathrm{d}G(y).
-        \end{equation}
+              \begin{equation}
+                  P(X+Y\leq z)=\int F(z-y)\mathrm{d}G(y).
+              \end{equation}
         \item If $X$ and $Y$ are independent,  $X$ with density $f$ and $Y$ with distribution function $G$, then $X+Y$ has density
-        \begin{equation}
-            h(x)=\int f(x-y)\mathrm{d}G(y).
-        \end{equation}
-        Suppose $Y$ has density $g$, the last formula can be written as
-        \begin{equation}
-            h(x)=\int f(x-y)g(y)\mathrm{d}y.
-        \end{equation}
+              \begin{equation}
+                  h(x)=\int f(x-y)\mathrm{d}G(y).
+              \end{equation}
+              Suppose $Y$ has density $g$, the last formula can be written as
+              \begin{equation}
+                  h(x)=\int f(x-y)g(y)\mathrm{d}y.
+              \end{equation}
         \item If $X$ and $Y$ are independent, integral-valued random variables, then
-        \begin{equation}
-            P(X+Y=n)=\sum_{m}P(X=m)P(Y=n-m).
-        \end{equation}
+              \begin{equation}
+                  P(X+Y=n)=\sum_{m}P(X=m)P(Y=n-m).
+              \end{equation}
     \end{enumerate}
 \end{theorem}
 
@@ -269,7 +269,7 @@ The definition of independence can be extended to the infinite collection.
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \subsection{The Inversion Formula}
@@ -283,7 +283,7 @@ The characteristic function uniquely determines the distribution. This and more 
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{}{}
@@ -294,7 +294,7 @@ The characteristic function uniquely determines the distribution. This and more 
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \subsection{Convergence in Distribution}
@@ -308,7 +308,7 @@ The characteristic function uniquely determines the distribution. This and more 
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \subsection{Moments and Derivatives}

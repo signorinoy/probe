@@ -49,7 +49,7 @@ Suppose $Q_{0}(\theta)=E\left[l(\theta;X)\right]$, then we will show that $Q_{0}
 \end{lemma}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{Consistency of MLE}{}
@@ -73,13 +73,13 @@ Suppose $Q_{0}(\theta)=E\left[l(\theta;X)\right]$, then we will show that $Q_{0}
     \end{equation*}
 
     Since $\Theta(\epsilon)$ is an open set, then $\Theta\cap\Theta(\epsilon)^{C}$ is a compact set (Assumption 2).
-    
+
     Since $Q_{0}(\theta)$ is a continuous function (Assumption 3), then
     \begin{equation*}
         \theta^{*}:=\sup_{\theta\in\Theta\cap \Theta(\epsilon)^{C}}\left\{Q_{0}(\theta)\right\}
     \end{equation*}
-    is a achieved for a $\theta$ in the compact set. 
-    
+    is a achieved for a $\theta$ in the compact set.
+
     Since $\theta_{0}$ is the unique maximized, let
     \begin{equation*}
         Q_{0}\left(\theta_{0}\right)-Q_{0}\left(\theta^{*}\right)=\delta>0.
@@ -87,28 +87,28 @@ Suppose $Q_{0}(\theta)=E\left[l(\theta;X)\right]$, then we will show that $Q_{0}
 
     \begin{enumerate}
         \item For $\theta\in\Theta\cap\Theta(\epsilon)^{C}$. Let $A_n=\left\{\sup_{\theta\in\Theta\cap\Theta(\epsilon)^{C}}\left|Q\left(\theta;\textbf{X}_{n}\right)-Q_{0}(\theta)\right|<\frac{\delta}{2}\right\}$, then
-        \begin{equation*}
-            \begin{aligned}
-                A_{n}\Rightarrow Q\left(\theta;\textbf{X}_{n}\right)&<Q_{0}(\theta)+\frac{\delta}{2} \\
-                &\leq Q_{0}\left(\theta^{*}\right)+\frac{\delta}{2} \\
-                &= Q_{0}\left(\theta_{0}\right)-\frac{\delta}{2}
-            \end{aligned}
-        \end{equation*}
+              \begin{equation*}
+                  \begin{aligned}
+                      A_{n}\Rightarrow Q\left(\theta;\textbf{X}_{n}\right) & <Q_{0}(\theta)+\frac{\delta}{2}                    \\
+                                                                           & \leq Q_{0}\left(\theta^{*}\right)+\frac{\delta}{2} \\
+                                                                           & = Q_{0}\left(\theta_{0}\right)-\frac{\delta}{2}
+                  \end{aligned}
+              \end{equation*}
         \item For $\theta\in\Theta(\epsilon)$. Let $B_n=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|Q\left(\theta;\boldsymbol{X}_{n}\right)-Q_{0}(\theta)\right|<\frac{\delta}{2}\right\}$, then
-        \begin{equation*}
-            B_{n}\Rightarrow Q\left(\theta;\boldsymbol{X}_{n}\right)>Q_{0}(\theta)-\frac{\delta}{2},\forall\theta\in\Theta(\epsilon)
-        \end{equation*}
-        By Assumption 1,
-        \begin{equation*}
-            Q\left(\theta_{0};\boldsymbol{X}_{n}\right)>Q_{0}\left(\theta_{0}\right)-\frac{\delta}{2}
-        \end{equation*}
+              \begin{equation*}
+                  B_{n}\Rightarrow Q\left(\theta;\boldsymbol{X}_{n}\right)>Q_{0}(\theta)-\frac{\delta}{2},\forall\theta\in\Theta(\epsilon)
+              \end{equation*}
+              By Assumption 1,
+              \begin{equation*}
+                  Q\left(\theta_{0};\boldsymbol{X}_{n}\right)>Q_{0}\left(\theta_{0}\right)-\frac{\delta}{2}
+              \end{equation*}
     \end{enumerate}
 
     If both $A_{n}$ and $B_{n}$ hold, then
     \begin{equation*}
         \hat{\theta}\in\Theta(\epsilon).
     \end{equation*}
-    
+
     By Assumption 4, we can concluded that $P\left(A_{n}\cap B_{n}\right)\rightarrow 1$, so
     \begin{equation*}
         P(\hat{\theta}\in\Theta(\epsilon))\rightarrow 1,

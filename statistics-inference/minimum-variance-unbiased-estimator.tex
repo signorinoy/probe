@@ -14,17 +14,17 @@
 
 \begin{enumerate}
     \item If $T(\textbf{X})$ is a complete sufficient statistic, estimator $\delta(\textbf{X})$ that only depends on $T(\textbf{X})$, then for any $U$-estimable function $g(\theta)$ with
-    \begin{equation}
-        E_{\theta}\delta(T(\textbf{X}))=g(\theta),\quad\forall\theta\in\Theta,
-    \end{equation}
-    hence, $\delta(T(\textbf{X}))$ is the unique UMVU estimator of $g(\theta)$.
+          \begin{equation}
+              E_{\theta}\delta(T(\textbf{X}))=g(\theta),\quad\forall\theta\in\Theta,
+          \end{equation}
+          hence, $\delta(T(\textbf{X}))$ is the unique UMVU estimator of $g(\theta)$.
     \item If $T(\textbf{X})$ is a complete sufficient statistic and $\delta({\textbf{X}})$ is any unbiased estimator of $g(\theta)$, then the UMVU estimator of $g(\theta)$ can be obtained by
-    \begin{equation}
-        E\left[\delta(\textbf{X})\mid T(\textbf{X})\right].
-    \end{equation}
+          \begin{equation}
+              E\left[\delta(\textbf{X})\mid T(\textbf{X})\right].
+          \end{equation}
 \end{enumerate}
 
-\begin{example}[ Estimating Polynomials of a Normal Variance ]
+\begin{example}[Estimating Polynomials of a Normal Variance]
     Let $X_{1},\ldots,X_{n}$ be distributed with joint density
     \begin{equation}
         \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\sum\left(x_{i}-\xi\right)^{2}\right].
@@ -36,64 +36,64 @@
     \begin{enumerate}
         \item \textbf{$\sigma$ is known}:
 
-        Since $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ is the complete sufficient statistic of $X_i$, and
-        \begin{equation*}
-            E(\bar{X})=\xi,
-        \end{equation*}
-        then the UMVU estimator of $\xi$ is $\bar{X}$.
+              Since $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ is the complete sufficient statistic of $X_i$, and
+              \begin{equation*}
+                  E(\bar{X})=\xi,
+              \end{equation*}
+              then the UMVU estimator of $\xi$ is $\bar{X}$.
 
-        Therefore, the UMVU estimator of $\xi^r$ is $\bar{X}^r$ and the UMVU estimator of $\xi/\sigma$ is $\bar{X}/\sigma$.
+              Therefore, the UMVU estimator of $\xi^r$ is $\bar{X}^r$ and the UMVU estimator of $\xi/\sigma$ is $\bar{X}/\sigma$.
 
         \item \textbf{$\xi$ is known}:
 
-        Since $s^r=\sum\left(x_{i}-\xi\right)^r$ is the complete sufficient statistic of $X_i$.
+              Since $s^r=\sum\left(x_{i}-\xi\right)^r$ is the complete sufficient statistic of $X_i$.
 
-        Assume
-        \begin{equation*}
-            E\left[\frac{s^r}{\sigma^r}\right]=\frac{1}{K_{n,r}},
-        \end{equation*}
-        where $K_{n,r}$ is a constant depends on $n,r$.
+              Assume
+              \begin{equation*}
+                  E\left[\frac{s^r}{\sigma^r}\right]=\frac{1}{K_{n,r}},
+              \end{equation*}
+              where $K_{n,r}$ is a constant depends on $n,r$.
 
-        Since $s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)$, then
-        \begin{equation*}
-            E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\mathrm{d}x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
-        \end{equation*}
-        therefore,
-        \begin{equation*}
-            K_{n,r}=\frac{\Gamma(\frac{n}{2})}{2^{\frac{r}{2}}\cdot\Gamma\left(\frac{n+r}{2}\right)}.
-        \end{equation*}
+              Since $s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)$, then
+              \begin{equation*}
+                  E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\mathrm{d}x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
+              \end{equation*}
+              therefore,
+              \begin{equation*}
+                  K_{n,r}=\frac{\Gamma(\frac{n}{2})}{2^{\frac{r}{2}}\cdot\Gamma\left(\frac{n+r}{2}\right)}.
+              \end{equation*}
 
-        Hence,
-        \begin{equation*}
-            E\left[s^rK_{n,r}\right]=\sigma^r \text{ and } E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
-        \end{equation*}
-        which means the UMVU estimator of $\sigma^r$ is $s^rK_{n,r}$ and the UMVU estimator of $\xi/\sigma$ is $\xi s^{-1}K_{n,-1}$.
+              Hence,
+              \begin{equation*}
+                  E\left[s^rK_{n,r}\right]=\sigma^r \text{ and } E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
+              \end{equation*}
+              which means the UMVU estimator of $\sigma^r$ is $s^rK_{n,r}$ and the UMVU estimator of $\xi/\sigma$ is $\xi s^{-1}K_{n,-1}$.
 
         \item \textbf{Both $\xi$ and $\sigma$ is unknown}:
 
-        Since $(\bar{X},s_x^r)$ are the complete sufficient statistic of $X_i$, where $s_x^2=\sum\left(x_{i}-\bar{X}\right)^r$.
+              Since $(\bar{X},s_x^r)$ are the complete sufficient statistic of $X_i$, where $s_x^2=\sum\left(x_{i}-\bar{X}\right)^r$.
 
-        Since $s_x^2/\sigma^2\sim\chi^2(n-1)$, then
-        \begin{equation*}
-            E\left[\frac{s_x^r}{\sigma^r}\right]=\frac{1}{K_{n-1,r}}.
-        \end{equation*}
+              Since $s_x^2/\sigma^2\sim\chi^2(n-1)$, then
+              \begin{equation*}
+                  E\left[\frac{s_x^r}{\sigma^r}\right]=\frac{1}{K_{n-1,r}}.
+              \end{equation*}
 
-        Hence,
-        \begin{equation*}
-            E\left[s_x^rK_{n-1,r}\right]=\sigma^r,
-        \end{equation*}
-        which means the UMVU estimator of $\sigma^r$ is $s_x^rK_{n-1,r}$,
-        and
-        \begin{equation*}
-            E(\bar{X}^r)=\xi^r,
-        \end{equation*}
-        which means the UMVU estimator of $\xi^r$ is $\bar{X}^r$.
+              Hence,
+              \begin{equation*}
+                  E\left[s_x^rK_{n-1,r}\right]=\sigma^r,
+              \end{equation*}
+              which means the UMVU estimator of $\sigma^r$ is $s_x^rK_{n-1,r}$,
+              and
+              \begin{equation*}
+                  E(\bar{X}^r)=\xi^r,
+              \end{equation*}
+              which means the UMVU estimator of $\xi^r$ is $\bar{X}^r$.
 
-        Since $\bar{X}$ and $s_x^r$ are independent, then
-        \begin{equation*}
-            E[\bar{X}s_x^{-1}K_{n-1,-1}]=\xi/\sigma
-        \end{equation*}
-        which means the UMVU estimator of $\xi/\sigma$ is $\bar{X}s_x^{-1}K_{n-1,-1}$.
+              Since $\bar{X}$ and $s_x^r$ are independent, then
+              \begin{equation*}
+                  E[\bar{X}s_x^{-1}K_{n-1,-1}]=\xi/\sigma
+              \end{equation*}
+              which means the UMVU estimator of $\xi/\sigma$ is $\bar{X}s_x^{-1}K_{n-1,-1}$.
     \end{enumerate}
 \end{solution}
 
@@ -115,20 +115,20 @@
     be the i-th order statistic of $Y_i$, then we got
     \begin{equation*}
         \begin{aligned}
-            E[X_{(1)}] &= 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2) \\
-            &= 2\theta_2\int_{0}^{1}ny(1-y)^{n-1}\mathrm{d}y+(\theta_1-\theta_2) \\
-            &= \theta_1-\frac{3n+1}{n+1}\theta_2 \\
-            E[X_{(n)}] &= 2\theta_2E[Y_{(n)}]+(\theta_1-\theta_2) \\
-            &= 2\theta_2\int_{0}^{1}ny^{n}\mathrm{d}y+(\theta_1-\theta_2) \\
-            &= \theta_1+\frac{n-1}{n+1}\theta_2 \\
+            E[X_{(1)}] & = 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2)                           \\
+                       & = 2\theta_2\int_{0}^{1}ny(1-y)^{n-1}\mathrm{d}y+(\theta_1-\theta_2) \\
+                       & = \theta_1-\frac{3n+1}{n+1}\theta_2                                 \\
+            E[X_{(n)}] & = 2\theta_2E[Y_{(n)}]+(\theta_1-\theta_2)                           \\
+                       & = 2\theta_2\int_{0}^{1}ny^{n}\mathrm{d}y+(\theta_1-\theta_2)        \\
+                       & = \theta_1+\frac{n-1}{n+1}\theta_2                                  \\
         \end{aligned}.
     \end{equation*}
 
     Thus,
     \begin{equation*}
         \begin{aligned}
-            \theta_1 &= E\left[\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)}\right], \\
-            \theta_2 &= E\left[-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}\right], \\
+            \theta_1 & = E\left[\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)}\right], \\
+            \theta_2 & = E\left[-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}\right], \\
         \end{aligned}
     \end{equation*}
     which means the UMVU estimator is

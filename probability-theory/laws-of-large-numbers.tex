@@ -16,7 +16,7 @@
 \end{lemma}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers with Finite Variances}{}
@@ -27,7 +27,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers without i.i.d.}{}
@@ -38,7 +38,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers for Triangular Arrays}{}
@@ -54,7 +54,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers by Feller}{}
@@ -69,7 +69,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{Weak Law of Large Numbers}{WLLN}
@@ -80,7 +80,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{note}
@@ -147,17 +147,17 @@
     \begin{equation*}
         \Delta_{\delta}\left(X_{i},\theta_{0}\right)=\sup_{\theta\in B\left(\theta_{0},\delta\right)}g\left(X_{i},\theta\right)-\inf_{\theta\in B\left(\theta_{0},\delta\right)}g\left(X_{i},\theta\right).
     \end{equation*}
-    
+
     Since (i) $\Delta_{\delta}\left(X_{i},\theta_{0}\right)\stackrel{a.s.}{\rightarrow} 0$ by condition (2), (ii) $\Delta_{\delta}\left(X_{i},\theta_{0}\right) \leq 2\sup_{\theta\in\Theta}\left|g\left(X_{i},\theta\right)\right|\leq 2G\left(X_{i}\right)$ by condition (3) and (4). Then
     \begin{equation*}
         E\Delta_{\delta}\left(X_{i},\theta_{0}\right)\rightarrow 0,\text{ as }\delta\rightarrow 0.
     \end{equation*}
-    
+
     So, for all $\theta\in\Theta$ and $\varepsilon>0$, there exists $\delta_{\varepsilon}(\theta)$ such that
     \begin{equation*}
         E\left[\Delta_{\delta_{\varepsilon}(\theta)}\left(X_{i},\theta\right)\right]<\varepsilon.
     \end{equation*}
-    
+
     Since $\Theta$ is compact, we can find a finite subcover, such that $\Theta$ is covered by
     \begin{equation*}
         \cup_{k=1}^{K}B\left(\theta_{k}, \delta_{\varepsilon}\left(\theta_{k}\right)\right).
@@ -165,9 +165,9 @@
 
     \begin{equation*}
         \begin{aligned}
-            & \sup_{\theta\in\Theta}\left[n^{-1}\sum_{i=1}^{n}g\left(X_{i},\theta\right)-Eg\left(X_{i},\theta\right)\right] \\
-            =& \max_{k}\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}\left[n^{-1}\sum_{i=1}^{n}g\left(X_{i},\theta\right)-Eg\left(X_{i},\theta\right)\right] \\
-            \leq& \max_{k}\left[n^{-1}\sum_{i=1}^{n}\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)-E\inf_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right] \\
+                 & \sup_{\theta\in\Theta}\left[n^{-1}\sum_{i=1}^{n}g\left(X_{i},\theta\right)-Eg\left(X_{i},\theta\right)\right]                                                                                                                                                             \\
+            =    & \max_{k}\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}\left[n^{-1}\sum_{i=1}^{n}g\left(X_{i},\theta\right)-Eg\left(X_{i},\theta\right)\right]                                                                                      \\
+            \leq & \max_{k}\left[n^{-1}\sum_{i=1}^{n}\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)-E\inf_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right] \\
         \end{aligned}.
     \end{equation*}
 
@@ -179,9 +179,9 @@
 
     \begin{equation*}
         \begin{aligned}
-            =& o_{p}(1)+\max_{k}\left[E\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)-E\inf_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right] \\
-            =& o_{p}(1)+\max_{k}E\Delta_{\delta_{\varepsilon}\left(\theta_{k}\right)}\left(X_{i},\theta_{k}\right) \\
-            \leq& o_{p}(1)+\varepsilon
+            =    & o_{p}(1)+\max_{k}\left[E\sup_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)-E\inf_{\theta\in B\left(\theta_{k},\delta_{\varepsilon}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right] \\
+            =    & o_{p}(1)+\max_{k}E\Delta_{\delta_{\varepsilon}\left(\theta_{k}\right)}\left(X_{i},\theta_{k}\right)                                                                                                                                                             \\
+            \leq & o_{p}(1)+\varepsilon
         \end{aligned}
     \end{equation*}
 

@@ -17,10 +17,10 @@ In Bayesian arguments, it is important to keep track of which variables are bein
     \item The density of $X$ will be denoted by $X \sim f\left(x \mid \theta\right)$.
     \item The prior distribution will be denoted by $\Pi \sim \pi\left(\theta \mid \lambda\right)$ or $\Lambda \sim \gamma\left(\lambda\right)$, where $\lambda$ is another parameter (sometimes called a hyperparameter).
     \item The posterior distribution, which calculate the conditional distributions as that of $\theta$ given $x$ and $\lambda$, or $\lambda$ given $x$, which is denoted by $\Pi \sim \pi\left(\theta \mid x, \lambda\right)$ or $\Lambda \sim \gamma\left(\lambda \mid x\right)$, that is
-    \begin{equation}
-        \pi\left(\theta \mid x, \lambda\right) = \frac{f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right)}{m\left(x \mid \lambda\right)},
-    \end{equation}
-    where marginal distributions $m\left(x \mid \lambda\right) = \int f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right) \mathrm{d} \theta$.
+          \begin{equation}
+              \pi\left(\theta \mid x, \lambda\right) = \frac{f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right)}{m\left(x \mid \lambda\right)},
+          \end{equation}
+          where marginal distributions $m\left(x \mid \lambda\right) = \int f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right) \mathrm{d} \theta$.
 \end{itemize}
 
 \begin{theorem}{}{bayes-definition}
@@ -28,9 +28,9 @@ In Bayesian arguments, it is important to keep track of which variables are bein
     \begin{itemize}
         \item There exists an estimator $\delta_0$ with finite risk.
         \item For almost all $x$, there exists a value $\delta_{\Lambda}\left(x\right)$ minimizing
-        \begin{equation}
-            E\{L[\Theta,\delta\left(x\right)] \mid X=x\}.
-        \end{equation}
+              \begin{equation}
+                  E\{L[\Theta,\delta\left(x\right)] \mid X=x\}.
+              \end{equation}
     \end{itemize}
     Then, $\delta_{\Lambda}\left(x\right)$ is a Bayes Estimator.
 \end{theorem}
@@ -42,29 +42,29 @@ In Bayesian arguments, it is important to keep track of which variables are bein
     Suppose the assumptions of Theorem \ref{thm:bayes-definition} hold.
     \begin{enumerate}
         \item If $L\left(\theta,d\right)=[d-g\left(\theta\right)]^2$, then
-        \begin{equation}
-            \delta_{\Lambda}\left(x\right)=E[g\left(\Theta\right) \mid x].
-        \end{equation}
+              \begin{equation}
+                  \delta_{\Lambda}\left(x\right)=E[g\left(\Theta\right) \mid x].
+              \end{equation}
         \item If $L\left(\theta,d\right)=w\left(\theta\right)[d-g\left(\theta\right)]^2$, then
-        \begin{equation}
-            \delta_{\Lambda}\left(x\right)=\frac{E[w\left(\theta\right)g\left(\Theta\right) \mid x]}{E[w\left(\theta\right) \mid x]}.
-        \end{equation}
+              \begin{equation}
+                  \delta_{\Lambda}\left(x\right)=\frac{E[w\left(\theta\right)g\left(\Theta\right) \mid x]}{E[w\left(\theta\right) \mid x]}.
+              \end{equation}
         \item If $L\left(\theta,d\right)=|d-g\left(\theta\right)|$, then $\delta_\Lambda\left(x\right)$ is any median of the conditional distribution of $\Theta$ given $x$.
         \item If
-        \begin{equation*}
-            L(\theta, d)=\left\{
-                \begin{array}{l}
-                    0 \text { when }|d-\theta| \leq c \\
-                    1 \text { when }|d-\theta|>c
-                \end{array}
-            \right.,
-        \end{equation*}
-        then $\delta_\Lambda\left(x\right)$ is the midpoint of the interval $I$ of length $2c$ which maxmizes $P\left(\Theta\in I\mid x\right)$.
+              \begin{equation*}
+                  L(\theta, d)=\left\{
+                  \begin{array}{l}
+                      0 \text { when }|d-\theta| \leq c \\
+                      1 \text { when }|d-\theta|>c
+                  \end{array}
+                  \right.,
+              \end{equation*}
+              then $\delta_\Lambda\left(x\right)$ is the midpoint of the interval $I$ of length $2c$ which maxmizes $P\left(\Theta\in I\mid x\right)$.
     \end{enumerate}
 \end{corollary}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{}{}
@@ -85,8 +85,8 @@ Methodologies have been developed to deal with the difficulty which sometimes in
 The Single-Prior Bayes model in a general form as
 \begin{equation}
     \begin{aligned}
-        X\mid\theta &\sim f\left(x\mid\theta\right),\\
-        \Theta\mid\gamma &\sim \pi\left(\theta\mid\lambda\right),
+        X\mid\theta      & \sim f\left(x\mid\theta\right),         \\
+        \Theta\mid\gamma & \sim \pi\left(\theta\mid\lambda\right),
     \end{aligned}
     \label{eq:single-prior-bayes}
 \end{equation}
@@ -110,9 +110,9 @@ In general, this Bayes estimator under squared error loss is given by
     Consider
     \begin{equation*}
         \begin{aligned}
-            X_i&\stackrel{\text{i.i.d}}{\sim}N(\mu,\Gamma^{-1}),\quad i=1,2,\ldots,n\\
-            \mu&\sim N(0,1),\\
-            \Gamma&\sim\text{Gamma}(2,1),
+            X_i    & \stackrel{\text{i.i.d}}{\sim}N(\mu,\Gamma^{-1}),\quad i=1,2,\ldots,n \\
+            \mu    & \sim N(0,1),                                                         \\
+            \Gamma & \sim\text{Gamma}(2,1),
         \end{aligned}
     \end{equation*}
     calculate the Single-Prior Bayes estimator under squared error loss.
@@ -121,9 +121,9 @@ In general, this Bayes estimator under squared error loss is given by
 \begin{solution}
     \begin{equation*}
         \begin{aligned}
-            p\left(\textbf{X}\mid\mu,\Gamma\right)&=\Gamma^n(2\pi)^{-\frac{n}{2}}\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right],\\
-            p(\mu)&=\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{\mu^2}{2}\right),\\
-            p(\Gamma)&=\frac{1}{\Gamma(2)}\Gamma\exp\left(-\Gamma\right).
+            p\left(\textbf{X}\mid\mu,\Gamma\right) & =\Gamma^n(2\pi)^{-\frac{n}{2}}\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right], \\
+            p(\mu)                                 & =\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{\mu^2}{2}\right),                            \\
+            p(\Gamma)                              & =\frac{1}{\Gamma(2)}\Gamma\exp\left(-\Gamma\right).
         \end{aligned}
     \end{equation*}
 
@@ -142,7 +142,7 @@ In general, this Bayes estimator under squared error loss is given by
 For exponential families
 
 \begin{theorem}{}{}
-    
+
 \end{theorem}
 
 \section{Hierarchical Bayes}
@@ -150,9 +150,9 @@ For exponential families
 In a Hierarchical Bayes model, rather than specifying the prior distribution as a single function, we specify it in a \textbf{hierarchy}. Thus, the Hierarchical Bayes model in a general form as
 \begin{equation}
     \begin{aligned}
-        X\mid\theta &\sim f\left(x\mid\theta\right),\\
-        \Theta\mid\gamma &\sim \pi\left(\theta\mid\lambda\right),\\
-        \Gamma &\sim \psi\left(\gamma\right),
+        X\mid\theta      & \sim f\left(x\mid\theta\right),         \\
+        \Theta\mid\gamma & \sim \pi\left(\theta\mid\lambda\right), \\
+        \Gamma           & \sim \psi\left(\gamma\right),
     \end{aligned}
     \label{eq:hierarchical-bayes}
 \end{equation}
@@ -184,13 +184,13 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
     which shows that \textbf{the Hierarchical Bayes estimator can be thought of as a mixture of Single-Prior estimators}.
 \end{note}
 
-\begin{example}[ Poisson Hierarchy ]
+\begin{example}[Poisson Hierarchy]
     Consider
     \begin{equation}
         \begin{aligned}
-            X_i\mid\lambda &\stackrel{\text{i.i.d}}{\sim} \text{Poisson}\left(\lambda\right),\quad i=1,2\ldots,n\\
-            \lambda\mid b &\sim \text{Gamma}\left(a,b\right), \text{ a known},\\
-            \frac{1}{b} &\sim \text{Gamma}\left(k,\tau\right),\\
+            X_i\mid\lambda & \stackrel{\text{i.i.d}}{\sim} \text{Poisson}\left(\lambda\right),\quad i=1,2\ldots,n \\
+            \lambda\mid b  & \sim \text{Gamma}\left(a,b\right), \text{ a known},                                  \\
+            \frac{1}{b}    & \sim \text{Gamma}\left(k,\tau\right),                                                \\
         \end{aligned}
     \end{equation}
     calculate the Hierarchical Bayes estimator under squared error loss.
@@ -206,11 +206,11 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{note}
-    
+
 \end{note}
 
 \section{Empirical Bayes}

@@ -15,7 +15,7 @@
 \end{lemma}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{lemma}{}{exp}
@@ -26,7 +26,7 @@
 \end{lemma}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{The De Moivre-Laplace Theorem}{de-moivre-laplace}
@@ -40,40 +40,40 @@
     If $n$ and $k$ and integers
     \begin{equation*}
         P\left(S_{2 n}=2 k\right)=\left(\begin{array}{c}
-        2 n \\
-        n+k
-        \end{array}\right) 2^{-2 n}
+                2 n \\
+                n+k
+            \end{array}\right) 2^{-2 n}
     \end{equation*}
     By lemma \ref{lem:stirling}, we have
     \begin{equation*}
         \begin{aligned}
-        \left(\begin{array}{c}
-        2 n \\
-        n+k
-        \end{array}\right) &=\frac{(2 n) !}{(n+k) !(n-k) !} \\
-        & \sim \frac{(2 n)^{2 n}}{(n+k)^{n+k}(n-k)^{n-k}} \cdot \frac{(2 \pi(2 n))^{1 / 2}}{(2 \pi(n+k))^{1 / 2}(2 \pi(n-k))^{1 / 2}}
+            \left(\begin{array}{c}
+                    2 n \\
+                    n+k
+                \end{array}\right) & =\frac{(2 n) !}{(n+k) !(n-k) !}                                                                                             \\
+                                                   & \sim \frac{(2 n)^{2 n}}{(n+k)^{n+k}(n-k)^{n-k}} \cdot \frac{(2 \pi(2 n))^{1 / 2}}{(2 \pi(n+k))^{1 / 2}(2 \pi(n-k))^{1 / 2}}
         \end{aligned}
     \end{equation*}
     Hence,
     \begin{equation*}
         \begin{aligned}
-        P\left(S_{2 n}=2 k\right)&=
-        \left(\begin{array}{c}
-        2 n \\
-        n+k
-        \end{array}\right) 2^{-2 n} \\ 
-        & \sim\left(1+\frac{k}{n}\right)^{-n-k} \cdot\left(1-\frac{k}{n}\right)^{-n+k} \\
-        & \cdot(\pi n)^{-1 / 2} \cdot\left(1+\frac{k}{n}\right)^{-1 / 2} \cdot\left(1-\frac{k}{n}\right)^{-1 / 2} \\
-        & =\left(1-\frac{k^{2}}{n^{2}}\right)^{-n} \cdot\left(1+\frac{k}{n}\right)^{-k} \cdot\left(1-\frac{k}{n}\right)^{k} \\
-        & \cdot(\pi n)^{-1 / 2} \cdot\left(1+\frac{k}{n}\right)^{-1 / 2} \cdot\left(1-\frac{k}{n}\right)^{-1 / 2} \\
-    \end{aligned}
+            P\left(S_{2 n}=2 k\right) & =
+            \left(\begin{array}{c}
+                    2 n \\
+                    n+k
+                \end{array}\right) 2^{-2 n}                                                                                               \\
+                                      & \sim\left(1+\frac{k}{n}\right)^{-n-k} \cdot\left(1-\frac{k}{n}\right)^{-n+k}                                      \\
+                                      & \cdot(\pi n)^{-1 / 2} \cdot\left(1+\frac{k}{n}\right)^{-1 / 2} \cdot\left(1-\frac{k}{n}\right)^{-1 / 2}           \\
+                                      & =\left(1-\frac{k^{2}}{n^{2}}\right)^{-n} \cdot\left(1+\frac{k}{n}\right)^{-k} \cdot\left(1-\frac{k}{n}\right)^{k} \\
+                                      & \cdot(\pi n)^{-1 / 2} \cdot\left(1+\frac{k}{n}\right)^{-1 / 2} \cdot\left(1-\frac{k}{n}\right)^{-1 / 2}           \\
+        \end{aligned}
     \end{equation*}
     Let $2k=x\sqrt{2n}$, i.e., $k=x\sqrt{\frac{n}{2}}$. By lemma \ref{lem:exp}, we have
     \begin{equation*}
         \begin{aligned}
-        \left(1-\frac{k^{2}}{n^{2}}\right)^{-n} &=\left(1-x^{2} / 2 n\right)^{-n} \rightarrow e^{x^{2} / 2} \\
-        \left(1+\frac{k}{n}\right)^{-k} &=(1+x / \sqrt{2 n})^{-x \sqrt{n / 2}} \rightarrow e^{-x^{2} / 2} \\
-        \left(1-\frac{k}{n}\right)^{k} &=(1-x / \sqrt{2 n})^{x \sqrt{n / 2}} \rightarrow e^{-x^{2} / 2}
+            \left(1-\frac{k^{2}}{n^{2}}\right)^{-n} & =\left(1-x^{2} / 2 n\right)^{-n} \rightarrow e^{x^{2} / 2}       \\
+            \left(1+\frac{k}{n}\right)^{-k}         & =(1+x / \sqrt{2 n})^{-x \sqrt{n / 2}} \rightarrow e^{-x^{2} / 2} \\
+            \left(1-\frac{k}{n}\right)^{k}          & =(1-x / \sqrt{2 n})^{x \sqrt{n / 2}} \rightarrow e^{-x^{2} / 2}
         \end{aligned}
     \end{equation*}
     For this choice of $k$, $k/n \rightarrow 0$, so
@@ -114,7 +114,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{The Linderberg-Feller Central Limit Theorem}{}
@@ -127,5 +127,5 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}

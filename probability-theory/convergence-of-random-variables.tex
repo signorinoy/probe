@@ -37,7 +37,7 @@
 \end{definition}
 
 \begin{definition}{Convergence in Uninform}{}
-    
+
 \end{definition}
 
 \subsection{Properties of Convergence in Probability}
@@ -85,16 +85,16 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{Continuous Mapping Theorem}{continuous-mapping-theorem}
     Let $g$ be a measurable function and $D_g=\{x:g \text{ is discontinuous at } x\}$ with $P(X\in D_g)=0$, then,
     \begin{equation}
         \begin{aligned}
-            X_{n} \stackrel{d}{\rightarrow} X & \Rightarrow g\left(X_{n}\right) \stackrel{\mathrm{d}}{\rightarrow} g(X), \\
-            X_{n} \stackrel{p}{\rightarrow} X & \Rightarrow g\left(X_{n}\right) \stackrel{p}{\rightarrow} g(X), \\
-            X_{n} \stackrel{a.s.}{\rightarrow} X & \Rightarrow g\left(X_{n}\right) \stackrel{a.s.}{\rightarrow} g(X). \\
+            X_{n} \stackrel{d}{\rightarrow} X    & \Rightarrow g\left(X_{n}\right) \stackrel{\mathrm{d}}{\rightarrow} g(X), \\
+            X_{n} \stackrel{p}{\rightarrow} X    & \Rightarrow g\left(X_{n}\right) \stackrel{p}{\rightarrow} g(X),          \\
+            X_{n} \stackrel{a.s.}{\rightarrow} X & \Rightarrow g\left(X_{n}\right) \stackrel{a.s.}{\rightarrow} g(X).       \\
         \end{aligned}
     \end{equation}
     If in addition $g$ is bounded, then
@@ -104,7 +104,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{}{}
@@ -121,58 +121,58 @@
 \begin{proof}
     \begin{enumerate}
         \item $\forall\varepsilon>0$, at fixed point $x$, since if $X_n\leq x$ and $|X_n-X|\leq\varepsilon$, then $X\leq x+\varepsilon$, then
-        \begin{equation*}
-            \{X\leq x+\varepsilon\}\subset\{X_n\leq x\}\cup\{|X_n-X|>\varepsilon\},
-        \end{equation*}
-        similarily, if $X\leq x-\varepsilon$ and $|X_n-X|\leq\varepsilon$, then $X_n\leq x$, then
-        \begin{equation*}
-            \{X_n\leq x\}\subset\{X\leq x-\varepsilon\}\cup\{|X_n-X|>\varepsilon\},
-        \end{equation*}
-        then, by the union bound,
-        \begin{equation*}
-            \begin{gathered}
-                P\left(X\leq x+\varepsilon\right)\leq P\left(X_n\leq x\right)+P\left(|X_n-X|>\varepsilon\right),\\
-                P\left(X_n\leq x\right)\leq P\left(X\leq x-\varepsilon\right)+P\left(|X_n-X|>\varepsilon\right).\\
-            \end{gathered}
-        \end{equation*}
-        So, we got
-        \begin{equation*}
-            \begin{gathered}
-                P\left(X\leq x+\varepsilon\right)-P\left(|X_n-X|>\varepsilon\right)\leq P\left(X_n\leq x\right) \\
-                \leq P\left(X\leq x-\varepsilon\right)+P\left(|X_n-X|>\varepsilon\right)
-            \end{gathered}
-        \end{equation*}
-        As $n\rightarrow\infty$, $P\left(|X_n-X|>\varepsilon\right)\rightarrow 0$, then
-        \begin{equation*}
-            \begin{gathered}
-                P\left(X\leq x-\varepsilon\right)\leq\lim_{n\rightarrow\infty}P\left(X_n\leq x\right)\leq P\left(X\leq x+\varepsilon\right) \\
-                \Rightarrow F(x-\varepsilon)\leq \lim_{n\rightarrow\infty}F_n(x)\leq F(x+\varepsilon)
-            \end{gathered}.
-        \end{equation*}
-        By the property of distribution (Theorem \ref{thm:distribution-function-property}), as $\varepsilon\rightarrow 0$, then
-        \begin{equation*}
-            \lim_{n\rightarrow\infty}F_n(x)=F(x),
-        \end{equation*}
-        which means,
-        \begin{equation*}
-            X_n\stackrel{d}{\rightarrow}X.
-        \end{equation*}
+              \begin{equation*}
+                  \{X\leq x+\varepsilon\}\subset\{X_n\leq x\}\cup\{|X_n-X|>\varepsilon\},
+              \end{equation*}
+              similarily, if $X\leq x-\varepsilon$ and $|X_n-X|\leq\varepsilon$, then $X_n\leq x$, then
+              \begin{equation*}
+                  \{X_n\leq x\}\subset\{X\leq x-\varepsilon\}\cup\{|X_n-X|>\varepsilon\},
+              \end{equation*}
+              then, by the union bound,
+              \begin{equation*}
+                  \begin{gathered}
+                      P\left(X\leq x+\varepsilon\right)\leq P\left(X_n\leq x\right)+P\left(|X_n-X|>\varepsilon\right),\\
+                      P\left(X_n\leq x\right)\leq P\left(X\leq x-\varepsilon\right)+P\left(|X_n-X|>\varepsilon\right).\\
+                  \end{gathered}
+              \end{equation*}
+              So, we got
+              \begin{equation*}
+                  \begin{gathered}
+                      P\left(X\leq x+\varepsilon\right)-P\left(|X_n-X|>\varepsilon\right)\leq P\left(X_n\leq x\right) \\
+                      \leq P\left(X\leq x-\varepsilon\right)+P\left(|X_n-X|>\varepsilon\right)
+                  \end{gathered}
+              \end{equation*}
+              As $n\rightarrow\infty$, $P\left(|X_n-X|>\varepsilon\right)\rightarrow 0$, then
+              \begin{equation*}
+                  \begin{gathered}
+                      P\left(X\leq x-\varepsilon\right)\leq\lim_{n\rightarrow\infty}P\left(X_n\leq x\right)\leq P\left(X\leq x+\varepsilon\right) \\
+                      \Rightarrow F(x-\varepsilon)\leq \lim_{n\rightarrow\infty}F_n(x)\leq F(x+\varepsilon)
+                  \end{gathered}.
+              \end{equation*}
+              By the property of distribution (Theorem \ref{thm:distribution-function-property}), as $\varepsilon\rightarrow 0$, then
+              \begin{equation*}
+                  \lim_{n\rightarrow\infty}F_n(x)=F(x),
+              \end{equation*}
+              which means,
+              \begin{equation*}
+                  X_n\stackrel{d}{\rightarrow}X.
+              \end{equation*}
         \item
-        Since $X_{n}\stackrel{d}{\rightarrow}c$, where $c$ is a constant, then $\forall\varepsilon>0$,
-        \begin{equation*}
-            \begin{gathered}
-                \lim_{n\rightarrow\infty}P(X_n\leq c+\varepsilon)=1\Rightarrow\lim_{n\rightarrow\infty}P(X_n>c+\varepsilon)=0\\
-                \lim_{n\rightarrow\infty}P(X_n\leq c-\varepsilon)=0.\\
-            \end{gathered}
-        \end{equation*}
-        Therefore,
-        \begin{equation*}
-            P\left(\left|X_n-c\right|<\varepsilon\right)=0,
-        \end{equation*}
-        which means
-        \begin{equation*}
-            X_n\stackrel{p}{\rightarrow}c.
-        \end{equation*}
+              Since $X_{n}\stackrel{d}{\rightarrow}c$, where $c$ is a constant, then $\forall\varepsilon>0$,
+              \begin{equation*}
+                  \begin{gathered}
+                      \lim_{n\rightarrow\infty}P(X_n\leq c+\varepsilon)=1\Rightarrow\lim_{n\rightarrow\infty}P(X_n>c+\varepsilon)=0\\
+                      \lim_{n\rightarrow\infty}P(X_n\leq c-\varepsilon)=0.\\
+                  \end{gathered}
+              \end{equation*}
+              Therefore,
+              \begin{equation*}
+                  P\left(\left|X_n-c\right|<\varepsilon\right)=0,
+              \end{equation*}
+              which means
+              \begin{equation*}
+                  X_n\stackrel{p}{\rightarrow}c.
+              \end{equation*}
     \end{enumerate}
 \end{proof}
 
@@ -188,11 +188,11 @@
 \begin{proof}
     \begin{enumerate}
         \item
-        Since 
+              Since
         \item
 
         \item
-        
+
     \end{enumerate}
 \end{proof}
 
@@ -201,7 +201,7 @@
 \end{note}
 
 \begin{theorem}{Cram\'er-Wold Theorem}{cramer-wold-theorem}
-    
+
 \end{theorem}
 
 \begin{theorem}{Delta Method}{}
@@ -274,7 +274,7 @@
 \end{definition}
 
 \begin{note}
-    
+
 \end{note}
 
 \subsection{Properties of Almost Sure Convergence}
@@ -287,7 +287,7 @@
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}{}{}
@@ -332,5 +332,5 @@
 \end{definition}
 
 \begin{note}
-    
+
 \end{note}

@@ -38,17 +38,9 @@
     A hyperplane is a set of the form $$\{x|a^Tx=b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
 \end{definition}
 
-% \begin{note}
-%     Hyperplanes are affine and convex.
-% \end{note}
-
 \begin{definition}{Halfspace}{}
     A hyperplane is a set of the form $$\{x|a^Tx\leq b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
 \end{definition}
-
-% \begin{note}
-%     Halfspaces are convex, not affine.
-% \end{note}
 
 \begin{definition}{(Euclidean) Ball}{}
     A (Euclidean) ball in $\mathbf{R}^n$ with center $x_c$ and radius $r$ has the form $$B(x_c,r)=\{x\vert\|x-x_c\|_2\leq r\}=\{x_c+ru\vert\|u\|_2\leq 1\},$$ where $r>0$.
@@ -58,34 +50,54 @@
     A Ellipsoid in $\mathbf{R}^n$ with center $x_c$ has the form $$\mathcal{E}=\{x\vert(x-x_c)^TP^{-1}(x-x_c)\leq 1\}=\{x_c+Au\vert \|u_2\|\leq 1\},$$ where $P\in\mathbf{S}^{n}_{++}$ (symmetric positive definite).
 \end{definition}
 
-\begin{definition}{Norm Ball}{}
-    
-\end{definition}
-
-\begin{definition}{Norm Cone}{}
-    
-\end{definition}
-
-\begin{definition}{Polyhedra}{}
-    
-\end{definition}
-
-\begin{definition}{Positive Semidefinite Cone}{}
-    
-\end{definition}
-
-\section{Operations that Preserve Convexity}
-
-\subsection{Intersection}
-
-\subsection{Affine Functions}
-
-\subsection{Perspective Function}
-
-\subsection{Linear-fractional Function}
-
 \section{Generalized Inequalities}
 
-\section{Separating and Supporting Hyperplanes}
+\subsection{Definition of Generalized Inequalities}
 
-\section{Dual Cones and Generalized Inequalities}
+\begin{definition}{Proper Cone}{proper-cone}
+    A cone $K\subseteq\mathbf{R}^n$ is proper cone, if
+    \begin{itemize}
+        \item $K$ is convex.
+        \item $K$ is closed.
+        \item $K$ is solid (nonempty interior).
+        \item $K$ is pointed (contains no line).
+    \end{itemize}
+\end{definition}
+
+\begin{definition}{Generalized Inequalities}{generalized-inequalities}
+    The partial ordering on $\mathbf{R}^n$ defined by proper cone $K$, if
+    \begin{equation}
+        y-x\in K,
+    \end{equation}
+    which can be denoted by
+    \begin{equation}
+        x\preceq_{K}y\text{ or }y\succeq_{K}x.
+    \end{equation}
+    The strict partial ordering on $\mathbf{R}^n$ defined by proper cone $K$, if
+    \begin{equation}
+        y-x\in\text{ int }K,
+    \end{equation}
+    which can be denoted by
+    \begin{equation}
+        x\prec_{K}y\text{ or }y\succ_{K}x.
+    \end{equation}
+\end{definition}
+
+\begin{note}
+    When $K=\mathbf{R}_{+}$, the partial ordering $\preceq_{K}$ is the usual ordering $\leq$ on $\mathbf{R}$, and the strict partial ordering $\prec_{K}$ is the usual strict ordering $<$ on $\mathbf{R}$.
+\end{note}
+
+\subsection{Properties of Generalized Inequalities}
+
+\begin{theorem}{Properties of Generalized Inequalities}{}
+    A generalized inequality $\preceq_{K}$ has the following properties:
+    \begin{itemize}
+        \item Preserved under addition:
+        \item Transitive:
+        \item Preserved under nonnegative  scaling:
+        \item Reflexive:
+        \item Antisymmetric:
+        \item Preserved under limits:
+    \end{itemize}
+    A strict generalized inequality $\prec_{K}$ has the following properties:
+\end{theorem}

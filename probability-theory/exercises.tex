@@ -12,23 +12,23 @@
 \begin{solution}
     \begin{enumerate}
         \item
-        \textbf{Complement}: Suppose $A\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A\in\mathcal{F}_{i}$. And each $\mathcal{F}_{i}$ is $\sigma$-algebra,
-        \begin{equation*}
-            A^c\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
-        \end{equation*}
-        \textbf{Finite Union}: Suppose $A_1,A_2\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A_1\in\mathcal{F}_{i},A_2\in\mathcal{F}_{j}$, such that,
-        \begin{equation*}
-            A_1,A_2\in\mathcal{F}_{\max(i,j)}.
-        \end{equation*}
-        Since each $\mathcal{F}_{i}$ is $\sigma$-algebra,
-        \begin{equation*}
-            A_1\cup A_2\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
-        \end{equation*}
+              \textbf{Complement}: Suppose $A\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A\in\mathcal{F}_{i}$. And each $\mathcal{F}_{i}$ is $\sigma$-algebra,
+              \begin{equation*}
+                  A^c\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
+              \end{equation*}
+              \textbf{Finite Union}: Suppose $A_1,A_2\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A_1\in\mathcal{F}_{i},A_2\in\mathcal{F}_{j}$, such that,
+              \begin{equation*}
+                  A_1,A_2\in\mathcal{F}_{\max(i,j)}.
+              \end{equation*}
+              Since each $\mathcal{F}_{i}$ is $\sigma$-algebra,
+              \begin{equation*}
+                  A_1\cup A_2\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
+              \end{equation*}
         \item
-        Let $\mathcal{F}_{i}$ be a Borel Set of $[1,2-\frac{1}{i}]$. Suppose $A_i=[1,2-\frac{1}{i}]\in\mathcal{F}_{i}$,
-        \begin{equation*}
-            \cup_{i}A_{i}=[1,2)\notin\cup_{i}\mathcal{F}_{i}.
-        \end{equation*}
+              Let $\mathcal{F}_{i}$ be a Borel Set of $[1,2-\frac{1}{i}]$. Suppose $A_i=[1,2-\frac{1}{i}]\in\mathcal{F}_{i}$,
+              \begin{equation*}
+                  \cup_{i}A_{i}=[1,2)\notin\cup_{i}\mathcal{F}_{i}.
+              \end{equation*}
     \end{enumerate}
 \end{solution}
 
@@ -49,8 +49,8 @@
     Since $g\geq 0$ be continuous, $g(Y_n)\stackrel{a.s.}{\rightarrow}g(Y_\infty)$ and $g(Y_n)\geq 0$ (Theorem \ref{thm:continuous-mapping-theorem}), and the Fatou's Lemma (\ref{thm:fatou-lemma}) implies,
     \begin{equation*}
         \begin{aligned}
-            \liminf_{n\rightarrow\infty}Eg(X_n)=&\liminf_{n\rightarrow\infty}Eg(Y_n)\geq E\left(\liminf_{n\rightarrow\infty}g(Y_n)\right)\\
-            =&Eg(Y_\infty)=Eg(X_\infty).
+            \liminf_{n\rightarrow\infty}Eg(X_n)= & \liminf_{n\rightarrow\infty}Eg(Y_n)\geq E\left(\liminf_{n\rightarrow\infty}g(Y_n)\right) \\
+            =                                    & Eg(Y_\infty)=Eg(X_\infty).
         \end{aligned}
     \end{equation*}
 \end{solution}
@@ -65,10 +65,10 @@
 \begin{solution}
     \begin{equation*}
         \begin{aligned}
-            \left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| =& \left|{\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)+\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)}\right. \\
-            & \left.{-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)}\right| \\
-            \leq& \left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right| \\
-            & + \left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right|
+            \left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| = & \left|{\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)+\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)}\right. \\
+                                                                               & \left.{-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)}\right|        \\
+            \leq                                                               & \left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right|          \\
+                                                                               & + \left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right|
         \end{aligned}.
     \end{equation*}
 
@@ -90,7 +90,7 @@
     \begin{equation*}
         \begin{aligned}
             \left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\notin[-M,M]}\right| \\
-            \leq 2E\max(h(Xn),h(X))I_{x\notin[-M,M]}\leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}. \\
+            \leq 2E\max(h(Xn),h(X))I_{x\notin[-M,M]}\leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}.                                                                    \\
         \end{aligned}
     \end{equation*}
 
