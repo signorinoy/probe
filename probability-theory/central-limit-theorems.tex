@@ -10,7 +10,7 @@
 
 \subsection{The De Moivre-Laplace Theorem}
 
-\begin{lemma}{Stirling's Formula}{stirling}
+\begin{lemma}[Stirling's Formula] \label{lem:stirling}
     \begin{equation}
         n ! \sim \sqrt{2 \pi} n^{n+\frac{1}{2}} e^{-n} \text{ as } n \rightarrow \infty.
     \end{equation}
@@ -20,7 +20,7 @@
 
 \end{proof}
 
-\begin{lemma}{}{exp}
+\begin{lemma} \label{lem:exp}
     If $c_j\rightarrow 0$, $a_j\rightarrow\infty$ and $a_jc_j\rightarrow\lambda$, then
     \begin{equation}
         \left(1+c_j\right)^{a_j}\rightarrow e^\lambda.
@@ -31,7 +31,7 @@
 
 \end{proof}
 
-\begin{theorem}{The De Moivre-Laplace Theorem}{de-moivre-laplace}
+\begin{theorem}[The De Moivre-Laplace Theorem] \label{thm:de-moivre-laplace}
     Let $X_{1}, X_{2}, \ldots$ be i.i.d. with $P\left(X_{1}=1\right)=P\left(X_{1}=-1\right)=1 / 2$ and let $S_{n}=X_{1}+\cdots+X_{n}$. If $a<b$, then as $m \rightarrow \infty$
     \begin{equation}
         P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \mathrm{d} x.
@@ -107,7 +107,7 @@
 
 \subsection{Classic Central Limit Theorem}
 
-\begin{theorem}{Classic Central Limit Theorem (i.i.d.)}{}
+\begin{theorem}[Classic Central Limit Theorem (i.i.d.)]
     Let $X_1,X_2,\ldots$ be i.i.d. with $EX_i=\mu$, $\text{Var}(X_i)=\sigma^2\in(0,\infty)$. Let $S_n=X_1+X_2+\ldots+X_n$, then
     \begin{equation}
         \frac{S_n-n\mu}{\sigma n^{\frac{1}{2}}} \stackrel{d}{\rightarrow} \chi,
@@ -119,7 +119,7 @@
 
 \end{proof}
 
-\begin{theorem}{The Linderberg-Feller Central Limit Theorem}{}
+\begin{theorem}[The Linderberg-Feller Central Limit Theorem]
     For each $n$, let $X_{n,m},1\leq m\leq n$, be independent random variables with $EX_{n,m}=0$. If
     \begin{enumerate}
         \item $\sum_{m=1}^{n}EX_{n,m}^{2} \rightarrow \sigma^{2}>0$.
@@ -134,7 +134,7 @@
 
 \section{Central Limit Theorem for independent non-identical Random Variables}
 
-\begin{theorem}{The Liapounov Central Limit Theorem}{}
+\begin{theorem}[The Liapounov Central Limit Theorem]
     
 \end{theorem}
 

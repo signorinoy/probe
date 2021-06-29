@@ -8,7 +8,7 @@
 
 \section{Weak Law of Large Numbers}
 
-\begin{lemma}{}{}
+\begin{lemma}
     If $p>0$ and $E\left|Z_{n}\right|^{p}\rightarrow 0$, then
     \begin{equation}
         Z_{n}\stackrel{d}{\rightarrow}0.
@@ -19,7 +19,7 @@
 
 \end{proof}
 
-\begin{theorem}{Weak Law of Large Numbers with Finite Variances}{}
+\begin{theorem}[Weak Law of Large Numbers with Finite Variances]
     Let $X_1,X_2,\ldots$ be i.i.d. random variables with $EX_i=\mu$ and $\text{Var}(X_i)\leq C<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, then
     \begin{equation}
         S_n/n\stackrel{L^2}{\rightarrow}\mu,\quad S_n/n\stackrel{p}{\rightarrow}\mu.
@@ -30,7 +30,7 @@
 
 \end{proof}
 
-\begin{theorem}{Weak Law of Large Numbers without i.i.d.}{}
+\begin{theorem}[Weak Law of Large Numbers without i.i.d.]
     Let $X_1,X_2,\ldots$ be random variables, Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=ES_n$, $\sigma_n^2=\text{Var}(S_n)$, if $\sigma_n^2/b_n^2\rightarrow 0$, then
     \begin{equation}
         \frac{S_n-\mu_n}{b_n}\stackrel{p}{\rightarrow}0.
@@ -41,7 +41,7 @@
 
 \end{proof}
 
-\begin{theorem}{Weak Law of Large Numbers for Triangular Arrays}{}
+\begin{theorem}[Weak Law of Large Numbers for Triangular Arrays]
     For each $n$, let $X_{n,m},1\leq m\leq n$, be independent random variables. Suppose $b_n>0$ with $b_n\rightarrow\infty$, $\bar{X}_{n,m}=X_{n,m}I_{\left(X_{n,m}\leq b_n\right)}$, if
     \begin{enumerate}
         \item $\sum_{m=1}^{n}P\left(\left|X_{n,m}\right|>b_{n}\right)\rightarrow 0$, and
@@ -57,7 +57,7 @@
 
 \end{proof}
 
-\begin{theorem}{Weak Law of Large Numbers by Feller}{}
+\begin{theorem}[Weak Law of Large Numbers by Feller]
     Let $X_1,X_2,\ldots$ be i.i.d. random variables with
     \begin{equation}
         \lim_{x\rightarrow 0}xP(|X_i|>x)=0.
@@ -72,7 +72,7 @@
 
 \end{proof}
 
-\begin{theorem}{Weak Law of Large Numbers}{WLLN}
+\begin{theorem}[Weak Law of Large Numbers] \label{thm:WLLN}
     Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu=EX_i$, then
     \begin{equation}
         S_n/n\stackrel{p}{\rightarrow}\mu.
@@ -91,21 +91,21 @@
 
 \subsection{Borel-Cantelli Lemmas}
 
-\begin{lemma}{Borel-Cantelli Lemma}{borel-cantelli-lemma}
+\begin{lemma}[Borel-Cantelli Lemma] \label{lem:borel-cantelli-lemma}
     If $\sum_{n=1}^{\infty}P\left(A_{n}\right)<\infty$, then
     \begin{equation}
         P\left(A_{n}\text{ i.o. }\right)=0.
     \end{equation}
 \end{lemma}
 
-\begin{lemma}{The Second Borel-Cantelli Lemma}{}
+\begin{lemma}[The Second Borel-Cantelli Lemma]
     If $\{A_n\}$ are independent with $\sum_{n=1}^{\infty}P\left(A_{n}\right)=\infty$, then,
     \begin{equation}
         P\left(A_{n}\text{ i.o. }\right)=1.
     \end{equation}
 \end{lemma}
 
-\begin{corollary}{}{}
+\begin{corollary}
     Suppose $\{A_{n}\}$ are independent with $P\left(A_{n}\right)<1,\forall n$. If $P\left(\cup_{n=1}^{\infty}A_{n}\right)=1$ then
     \begin{equation}
         \sum_{n=1}^{\infty}P\left(A_{n}\right)=\infty,
@@ -119,7 +119,7 @@
 
 \subsection{Strong Law of Large Numbers}
 
-\begin{theorem}{Strong Law of Large Numbers}{SLLN}
+\begin{theorem}[Strong Law of Large Numbers] \label{thm:SLLN}
     Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu=EX_i$, then
     \begin{equation}
         S_n/n\stackrel{a.s.}{\rightarrow}\mu.
@@ -128,7 +128,7 @@
 
 \section{Uniform Law of Large Numbers}
 
-\begin{theorem}{Uniform Law of Large Numbers}{ULLN}
+\begin{theorem}[Uniform Law of Large Numbers] \label{thm:ULLN}
     Suppose
     \begin{enumerate}
         \item $\Theta$ is compact.

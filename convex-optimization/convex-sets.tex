@@ -4,17 +4,17 @@
 
 \subsection{Affine Sets}
 
-\begin{definition}{Affine Set}{}
+\begin{definition}[Affine Set]
     A nonempty set $C$ is a \textbf{affine set} that satisfy $$\forall x_1,x_2\in C, \theta\in\mathbf{R}, \theta x_1+(1-\theta)x_2\in C.$$
 \end{definition}
 
 \subsection{Convex Sets}
 
-\begin{definition}{Convex Set}{}
+\begin{definition}[Convex Set]
     A nonempty set $C$ is a \textbf{convex set} that satisfy $$\forall x_1,x_2\in C,\theta\in[0,1], \theta x_1+(1-\theta)x_2\in C.$$
 \end{definition}
 
-\begin{definition}{Convex Hull}{}
+\begin{definition}[Convex Hull]
     The \textbf{convex hull} of a set $C$, denoted by $\text{conv } C$ is a set of all convex combinations of points in $C$, $$\text{conv } C=\{\theta_1x_1+\ldots+\theta_kx_k|x_i\in C;\theta_i\geq 0,i=1,\ldots,k;\theta_1+\ldots+\theta_k=1\}.$$
 \end{definition}
 
@@ -24,29 +24,29 @@
 
 \subsection{Cones}
 
-\begin{definition}{Cone}{}
+\begin{definition}[Cone]
     A nonempty set $C$ is a \textbf{cone} that satisfy $$\forall x\in C,\theta\geq 0,\theta x\in C.$$
 \end{definition}
 
-\begin{definition}{Convex Cone}{}
+\begin{definition}[Convex Cone]
     A nonempty set $C$ is a \textbf{convex cone} that satisfy $$\forall x_1,x_2\in C, \theta_1,\theta_2\geq 0,\theta_1 x_1+\theta_2 x_2\in C.$$
 \end{definition}
 
 \section{Some Important Examples}
 
-\begin{definition}{Hyperplane}{}
+\begin{definition}[Hyperplane]
     A hyperplane is a set of the form $$\{x|a^Tx=b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
 \end{definition}
 
-\begin{definition}{Halfspace}{}
+\begin{definition}[Halfspace]
     A hyperplane is a set of the form $$\{x|a^Tx\leq b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
 \end{definition}
 
-\begin{definition}{(Euclidean) Ball}{}
+\begin{definition}[(Euclidean) Ball]
     A (Euclidean) ball in $\mathbf{R}^n$ with center $x_c$ and radius $r$ has the form $$B(x_c,r)=\{x\vert\|x-x_c\|_2\leq r\}=\{x_c+ru\vert\|u\|_2\leq 1\},$$ where $r>0$.
 \end{definition}
 
-\begin{definition}{Ellipsoid}{}
+\begin{definition}[Ellipsoid]
     A Ellipsoid in $\mathbf{R}^n$ with center $x_c$ has the form $$\mathcal{E}=\{x\vert(x-x_c)^TP^{-1}(x-x_c)\leq 1\}=\{x_c+Au\vert \|u_2\|\leq 1\},$$ where $P\in\mathbf{S}^{n}_{++}$ (symmetric positive definite).
 \end{definition}
 
@@ -54,7 +54,7 @@
 
 \subsection{Definition of Generalized Inequalities}
 
-\begin{definition}{Proper Cone}{proper-cone}
+\begin{definition}[Proper Cone] \label{def:proper-cone}
     A cone $K\subseteq\mathbf{R}^n$ is proper cone, if
     \begin{itemize}
         \item $K$ is convex.
@@ -64,7 +64,7 @@
     \end{itemize}
 \end{definition}
 
-\begin{definition}{Generalized Inequalities}{generalized-inequalities}
+\begin{definition}[Generalized Inequalities] \label{def:generalized-inequalities}
     The partial ordering on $\mathbf{R}^n$ defined by proper cone $K$, if
     \begin{equation}
         y-x\in K,
@@ -89,7 +89,7 @@
 
 \subsection{Properties of Generalized Inequalities}
 
-\begin{theorem}{Properties of Generalized Inequalities}{}
+\begin{theorem}[Properties of Generalized Inequalities]
     A generalized inequality $\preceq_{K}$ has the following properties:
     \begin{itemize}
         \item Preserved under addition:

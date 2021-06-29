@@ -4,7 +4,7 @@ We shall look for some estimators that make the risk function $R\left(\theta,\de
 
 This chapter will discuss the first method, also known as, Bayes Estimator.
 
-\begin{definition}{Bayes Estimator}{bayes-estimator}
+\begin{definition}[Bayes Estimator] \label{def:bayes-estimator}
     The Bayes Estimator $\delta$ with respect to $\Lambda$ is minimizing the Bayes Risk of $\delta$
     \begin{equation}
         r\left(\Lambda, \delta\right)=\int R\left(\theta, \delta\right) \mathrm{d} \Lambda\left(\theta\right)
@@ -23,7 +23,7 @@ In Bayesian arguments, it is important to keep track of which variables are bein
           where marginal distributions $m\left(x \mid \lambda\right) = \int f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right) \mathrm{d} \theta$.
 \end{itemize}
 
-\begin{theorem}{}{bayes-definition}
+\begin{theorem} \label{thm:bayes-definition}
     Let $\Theta$ have distribution $\Lambda$, and given $\Theta=\theta$, let $X$ have distribution $P_{\theta}$. Suppose, the following assumptions hold for the problem of estimating $g\left(\Theta\right)$ with non-negative loss function $L\left(\theta,d\right)$,
     \begin{itemize}
         \item There exists an estimator $\delta_0$ with finite risk.
@@ -38,7 +38,7 @@ In Bayesian arguments, it is important to keep track of which variables are bein
     Improper prior
 \end{note}
 
-\begin{corollary}{}{}
+\begin{corollary}
     Suppose the assumptions of Theorem \ref{thm:bayes-definition} hold.
     \begin{enumerate}
         \item If $L\left(\theta,d\right)=[d-g\left(\theta\right)]^2$, then
@@ -67,7 +67,7 @@ In Bayesian arguments, it is important to keep track of which variables are bein
 
 \end{proof}
 
-\begin{theorem}{}{}
+\begin{theorem}
     Necessiary condition for Bayes Estimator
 \end{theorem}
 
@@ -141,7 +141,7 @@ In general, this Bayes estimator under squared error loss is given by
 
 For exponential families
 
-\begin{theorem}{}{}
+\begin{theorem}
 
 \end{theorem}
 
@@ -163,9 +163,8 @@ where we assume that $\psi\left(\cdot\right)$ is known and not dependent on any 
 \end{note}
 
 Given a loss function $L\left(\theta,d\right)$, we would then determine the estimator that minimizes
-\begin{equation}
+\begin{equation} \label{eq:hierarchical-bayes-estimator}
     \int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta,
-    \label{eq:hierarchical-bayes-estimator}
 \end{equation}
 where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 \begin{equation*}
@@ -197,7 +196,7 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 \end{example}
 
 
-\begin{theorem}{}{}
+\begin{theorem}
     For the Hierarchical Bayes model (\ref{eq:hierarchical-bayes}),
     \begin{equation}
         K\left[\pi\left(\lambda\mid x\right),\psi\left(\lambda\right)\right] < K\left[\pi\left(\theta\mid x\right),\pi\left(\theta\right)\right],
