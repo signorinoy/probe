@@ -1,0 +1,54 @@
+\chapter{Support Vector Machine}
+
+\begin{theorem}
+    The minimizer of
+    \begin{equation*}
+        \arg\min_{g} E\left\{\left[1-Yg(X)\right]_{+}\mid X=x\right\}
+    \end{equation*}
+    is the sign of $f(x)=\log\frac{p(x)}{1-p(x)}$, i.e.,
+    \begin{equation*}
+        \text{sgn}\left[p(x)-\frac{1}{2}\right]
+    \end{equation*}
+    where $\operatorname{sgn}(\cdot)$ is the sign function.
+\end{theorem}
+
+\begin{proof}
+    For the hinge loss function, that,
+    \begin{equation*}
+        \begin{aligned}
+              & E\left\{\left[1-Yg(X)\right]_{+}\mid X=x\right\}                                                   \\
+            = & \left[1-g(x)\right]_{+}P\left(Y=1\mid X=x\right)+\left[1+g(x)\right]_{+}P\left(Y=-1\mid X=x\right) \\
+            = & \left[1-g(x)\right]_{+}p(x)+\left[1+g(x)\right]_{+}\left[1-p(x)\right]                             \\
+            = & \left\{\begin{array}{ll}
+                \left[1-g(x)\right]p(x),                & g(x)<-1           \\
+                1+\left[1-2p(x)\right]g(x),             & -1\leq g(x)\leq 1 \\
+                \left[1+g(x)\right]\left[1-p(x)\right], & g(x)>1
+            \end{array}\right.
+        \end{aligned}
+    \end{equation*}
+
+    When $g(x)<-1$,
+    \begin{equation*}
+        \arg\min_{g}E\left\{\left[1-Yg(X)\right]_{+}\mid X=x\right\}=\arg\min_{g}\left[1-g(x)\right]p(x)=-1
+    \end{equation*}
+
+    When $g(x)>1$,
+    \begin{equation*}
+        \arg\min_{g}E\left\{\left[1-Yg(X)\right]_{+}\mid X=x\right\}=\arg\min_{g}\left[1+g(x)\right]\left[1-p(x)\right]=1
+    \end{equation*}
+
+    When $-1\leq g(x)\leq 1$,
+    \begin{equation*}
+        \begin{aligned}
+              & \arg\min_{g}E\left\{\left[1-Yg(X)\right]_{+}\mid X=x\right\} \\
+            = & \arg\min_{g}\left\{1+\left[1-2p(x)\right]g(x)\right\}        \\
+            = & \left\{\begin{array}{ll}
+                -1, & p(x)<\frac{1}{2} \\
+                0,  & p(x)=\frac{1}{2} \\
+                1,  & p(x)>\frac{1}{2}
+            \end{array}\right.
+        \end{aligned}
+    \end{equation*}
+
+    Thus, for the $g(x)\in\left[-1,1\right]$ the minimizer of $\arg\min_{g} E\left\{\left[1-Yg(X)\right]_{+}\mid X=x\right\}$ is the sign of $p(x)-\frac{1}{2}$, that is the sign of $f(x)=\log\frac{p(x)}{1-p(x)}$
+\end{proof}
