@@ -1,1 +1,152 @@
 \chapter{Kernel Methods}
+
+\begin{definition}[Positive Definite Kernel]
+    Let $\mathcal{X}$ be a set, a function $K:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}$ is called a positive definite kernel on $\mathcal{X}$ iff it is
+    \begin{enumerate}
+        \item symmetric, that is,
+              \begin{equation}
+                  K\left(\mathbf{x},\mathbf{x}^{\prime}\right)=K\left(\mathbf{x}^{\prime},\mathbf{x}\right),\quad\forall\mathbf{x},\mathbf{x}^{\prime}\in\mathcal{X}
+              \end{equation}
+        \item positive definite, that is,
+              \begin{equation}
+                  \sum_{i=1}^{n}\sum_{j=1}^{n}c_{i}c_{j}K\left(\mathbf{x}_{i},\mathbf{x}_{j}\right)\geq 0,
+              \end{equation}
+              holds for any $x_{1},\ldots,x_{n}\in\mathcal{X}$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\mathbb{R}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Morse-Aronszajn's Theorem] \label{thm:morse-aronszajn}
+    For any set $\mathcal{X}$, suppose $K:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}$ is positive definite, then there is a unique RKHS $\mathcal{H}\subset\mathbb{R}^{\mathcal{X}}$ with reproducing kernel $K$.
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item How to build a valid pre-RKHS $\mathcal{H}_{0}$?
+
+              Consider the vector space $\mathcal{H}_{0}\subset\mathcal{R}^{\mathcal{X}}$ spanned by the functions $\left\{K\left(\cdot,\mathbf{x}\right)\right\}_{\mathbf{x}\in\mathcal{X}}$. For any $f,g\in\mathcal{H}_{0}$, suppose
+              \begin{equation*}
+                  f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\mathbf{x}_{i}\right),\quad g=\sum_{j=1}^{n}b_{j}K\left(\cdot,\mathbf{y}_{j}\right)
+              \end{equation*}
+              and let the inner product of $\mathcal{H}_{0}$ be
+              \begin{equation}
+                  \left\langle f,g\right\rangle=\sum_{i=1}^{m}\sum_{j=1}^{n}a_{i}b_{j}K\left(\mathbf{x}_{i},\mathbf{y}_{j}\right)
+                  \label{eq:definition-pre-rkhs-inner-product}
+              \end{equation}
+
+              Let $\mathbf{x}\in\mathcal{X}$,
+              \begin{equation*}
+                  \left\langle f,K\left(\cdot,\mathbf{x}\right)\right\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i} K\left(\mathbf{x},\mathbf{x}_{i}\right)=f(\mathbf{x})
+                  \label{eq:reproducing-kernel}
+              \end{equation*}
+
+              And, we also have
+              \begin{equation*}
+                  \langle f, g\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m} a_{i} g\left(\mathbf{x}_{i}\right)=\sum_{j=1}^{n} b_{j} f\left(\mathbf{y}_{j}\right)
+              \end{equation*}
+
+              Suppose
+              \begin{equation*}
+                  f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\mathbf{x}_{i}\right),\quad g=\sum_{j=1}^{n}b_{j}K\left(\cdot,\mathbf{y}_{j}\right),\quad h=\sum_{k=1}^{p}c_{k}K\left(\cdot,\mathbf{z}_{k}\right)
+              \end{equation*}
+              \begin{enumerate}
+                  \item Linearity: For any $\alpha,\beta\in\mathbb{R}$, $\left\langle\alpha f+\beta g,h\right\rangle_{\mathcal{H}_{0}}=\alpha\left\langle f,h\right\rangle_{\mathcal{H}_{0}}+\beta\left\langle g,h\right\rangle_{\mathcal{H}_{0}}$.
+                        \begin{equation*}
+                            \begin{aligned}
+                                \left\langle\alpha f+\beta g,h\right\rangle_{\mathcal{H}_{0}}= & \left[\alpha\sum_{i=1}^{m}a_{i}K\left(\cdot,\mathbf{x}_{i}\right)+\beta\sum_{j=1}^{n}b_{j}K\left(\cdot,\mathbf{y}_{j}\right)\right]\cdot\sum_{k=1}^{p}c_{k}K\left(\cdot,\mathbf{z}_{k}\right) \\
+                                =                                                              & \alpha\sum_{i=1}^{m}\sum_{k=1}^{p}a_{i}c_{k}K\left(\mathbf{x}_{i},\mathbf{z}_{k}\right)+\beta\sum_{j=1}^{n}\sum_{k=1}^{p}b_{j}c_{k}K\left(\mathbf{y}_{j},\mathbf{z}_{k}\right)                \\
+                                =                                                              & \alpha\left\langle f,h\right\rangle_{\mathcal{H}_{0}}+\beta\left\langle g,h\right\rangle_{\mathcal{H}_{0}}
+                            \end{aligned}
+                        \end{equation*}
+                  \item Conjugate Symmetry: $\langle f,g\rangle_{\mathcal{H}_{0}}=\langle g,f\rangle_{\mathcal{H}_{0}}$.
+                        \begin{equation*}
+                            \begin{aligned}
+                                \langle f,g\rangle_{\mathcal{H}_{0}}= & \sum_{i=1}^{m}\sum_{j=1}^{n}a_{i}b_{j}K\left(\mathbf{x}_{i},\mathbf{y}_{j}\right)=\sum_{j=1}^{n}\sum_{i=1}^{m}b_{j}a_{i}K\left(\mathbf{y}_{j},\mathbf{x}_{i}\right) \\
+                                =                                     & \langle g,f\rangle_{\mathcal{H}_{0}}
+                            \end{aligned}
+                        \end{equation*}
+                  \item Positive Definiteness: $\langle f,f\rangle_{\mathcal{H}_{0}}\geq 0$ and $\langle f,f\rangle_{\mathcal{H}_{0}}=0$ if and only if $f=0$.
+
+                        By positive definiteness of $K$, we have:
+                        \begin{equation*}
+                            \langle f,f\rangle_{\mathcal{H}_{0}}=\|f\|_{\mathcal{H}_{0}}^{2}=\sum_{i=1}^{m}\sum_{j=1}^{m}a_{i}a_{j}K\left(\mathbf{x}_{i},\mathbf{x}_{j}\right)\geq 0
+                        \end{equation*}
+
+                        As for, $\langle f,f\rangle_{\mathcal{H}_{0}}=0$ if and only if $f=0$, we have,
+                        \begin{itemize}
+                            \item["$\Rightarrow$"] If $f=0$, that is $f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\mathbf{x}_{i}\right)=0$, we have
+                                \begin{equation*}
+                                    \langle f,f\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i}f=0
+                                \end{equation*}
+                            \item["$\Leftarrow$"] For $\forall\mathbf{x}\in\mathcal{X}$, by Cauchy-Schwarwz Inequality, we have,
+                                \begin{equation*}
+                                    |f(\mathbf{x})|=\left|\left\langle f,K\left(,\cdot{\mathbf{x}}\right)\right\rangle_{\mathcal{H}_{0}}\right|\leq\|f\|_{\mathcal{H}_{0}}\cdot K\left(\mathbf{x},\mathbf{x}\right)^{\frac{1}{2}}
+                                \end{equation*}
+                                therefore, if $\|f\|_{\mathcal{H}_{0}}=0$, then $f=0$
+                        \end{itemize}
+              \end{enumerate}
+              Hence, definition in equation \ref{eq:definition-pre-rkhs-inner-product} is a valid inner product, which is a valid pre-RKHS $\mathcal{H}_{0}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{example}[ Common Kernels]
+    \begin{enumerate}
+        \item $K(\mathbf{x},\mathbf{y})=\exp\left(-\frac{\left\|\mathbf{x}-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right),\quad\mathbf{x},\mathbf{y}\in\mathbb{R}^{d}$
+    \end{enumerate}
+\end{example}
+
+\begin{proof}
+    \begin{enumerate}
+        \item It is obvious that $K(\mathbf{x},\mathbf{y})$ is symmetric, we only need to show $K(\mathbf{x},\mathbf{y})$ is positive definite.
+              \begin{equation*}
+                  \begin{aligned}
+                      K(\mathbf{x},\mathbf{y})= & \exp\left(-\frac{\left\|\mathbf{x}-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right)                                                                                                                                  \\
+                      =                         & \exp\left(-\frac{1}{2\sigma^{2}}\|\mathbf{x}\|^{2}\right)\cdot\exp\left(\frac{1}{\sigma^{2}}\left\langle\mathbf{x},\mathbf{y}\right\rangle\right)\cdot\exp\left(-\frac{1}{2\sigma^{2}}\|\mathbf{y}\|^{2}\right)
+                  \end{aligned}
+              \end{equation*}
+
+              By the Taylor expansion of the exponential function, that
+              \begin{equation*}
+                  \exp\left(\frac{x}{\sigma^{2}}\right)=\sum_{n=0}^{+\infty}\left\{\frac{x^{n}}{\sigma^{2n}\cdot n!}\right\}
+              \end{equation*}
+              Hence,
+              \begin{equation*}
+                  \exp\left(\frac{1}{\sigma^{2}}\left\langle\mathbf{x},\mathbf{y}\right\rangle\right)=\sum_{n=0}^{+\infty}\left\{\frac{\left\langle\mathbf{x},\mathbf{y}\right\rangle^{n}}{\sigma^{2n}\cdot n!}\right\}
+              \end{equation*}
+
+              By the Multinomial Theorem, we have
+              \begin{equation*}
+                  \begin{aligned}
+                      \left\langle\mathbf{x},\mathbf{y}\right\rangle^{n}= & \left(\sum_{i=1}^{d}x_{i}y_{i}\right)^{n}=\sum_{k_{1}+k_{2}+\ldots+k_{d}=n}\left[\binom{n}{k_{1},k_{2},\ldots,k_{d}}\prod_{i=1}^{d}\left(x_{i}y_{i}\right)^{k_{i}}\right]                                     \\
+                      =                                                   & \sum_{k_{1}+k_{2}+\ldots+k_{d}=n}\left[\binom{n}{k_{1},k_{2},\ldots,k_{d}}^{\frac{1}{2}}\prod_{i=1}^{d}x_{i}^{k_{i}}\cdot\binom{n}{k_{1},k_{2},\ldots,k_{d}}^{\frac{1}{2}}\prod_{i=1}^{d}y_{i}^{k_{i}}\right] \\
+                  \end{aligned}
+              \end{equation*}
+              Therefore,
+              \begin{equation*}
+                  \begin{aligned}
+                      K(\mathbf{x},\mathbf{y})= & \exp\left(-\frac{\left\|\mathbf{x}-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right)=\exp\left(-\frac{\|\mathbf{x}\|^{2}}{2\sigma^{2}}\right)\cdot\exp\left(-\frac{\|\mathbf{y}\|^{2}}{2\sigma^{2}}\right)\cdot\sum_{n=0}^{+\infty}\left\{\frac{\left\langle\mathbf{x},\mathbf{y}\right\rangle^{n}}{\sigma^{2n}\cdot n!}\right\} \\
+                      =                         & \sum_{n=0}^{+\infty}\frac{\exp\left(-\frac{\|\mathbf{x}\|^{2}}{2\sigma^{2}}\right)}{\sigma^{n}\cdot\sqrt{n!}}\cdot\frac{\exp\left(-\frac{\|\mathbf{y}\|^{2}}{2\sigma^{2}}\right)}{\sigma^{n}\cdot\sqrt{n!}}\cdot\left\langle\mathbf{x},\mathbf{y}\right\rangle^{n}
+                  \end{aligned}
+              \end{equation*}
+
+              Let
+              \begin{equation*}
+                  c_{\sigma,n}\left(\mathbf{x}\right)=\frac{\exp\left(-\frac{\|\mathbf{x}\|^{2}}{2\sigma^{2}}\right)}{\sigma^{n}\cdot\sqrt{n!}},\quad f_{n,\mathbf{k}}\left(\mathbf{x}\right)=\binom{n}{k_{1},k_{2},\ldots,k_{d}}^{\frac{1}{2}}\prod_{i=1}^{d}x_{i}^{k_{i}}
+              \end{equation*}
+              then,
+              \begin{equation*}
+                  \begin{aligned}
+                      K(\mathbf{x},\mathbf{y})= & \sum_{n=0}^{+\infty}\sum_{k_{1}+k_{2}+\ldots+k_{d}=n}c_{\sigma,n}\left(\mathbf{x}\right)f_{n,\mathbf{k}}\left(\mathbf{x}\right)\cdot c_{\sigma,n}\left(\mathbf{y}\right)f_{n,\mathbf{k}}\left(\mathbf{y}\right) \\
+                      =                         & \left\langle\Phi\left(\mathbf{x}\right),\Phi\left(\mathbf{y}\right)\right\rangle                                                                                                                                \\
+                  \end{aligned}
+              \end{equation*}
+              where $\Phi\left(\mathbf{x}\right)_{\sigma,n,\mathbf{k}}=c_{\sigma,n}\left(\mathbf{x}\right)f_{n,\mathbf{k}}\left(\mathbf{x}\right)$.
+
+              \begin{equation*}
+                  \begin{aligned}
+                      \sum_{i=1}^{n}\sum_{j=1}^{n}c_{i}c_{j}K\left(\mathbf{x}_{i},\mathbf{x}_{j}\right)= & \sum_{i=1}^{n}\sum_{j=1}^{n}c_{i}c_{j}\left\langle\Phi\left(\mathbf{x}_{i}\right),\Phi\left(\mathbf{x}_{j}\right)\right\rangle       \\
+                      =                                                                                  & \left\langle\sum_{i=1}^{n}c_{i}\Phi\left(\mathbf{x}_{i}\right),\sum_{i=1}^{n}c_{i}\Phi\left(\mathbf{x}_{i}\right)\right\rangle\geq 0
+                  \end{aligned}
+              \end{equation*}
+              for any $x_{1},\ldots,x_{n}\in\mathcal{X}$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\mathbb{R}$, i.e., $K(\mathbf{x},\mathbf{y})$ is positive definite.
+    \end{enumerate}
+\end{proof}
