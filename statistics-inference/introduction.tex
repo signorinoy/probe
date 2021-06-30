@@ -29,8 +29,6 @@
 
 \section{Estimators}
 
-\subsection{Definition of Estimators}
-
 \begin{definition}[Estimator] \label{def:estimator}
     An estimator is a real-valued function defined over the sample space, that is
     \begin{equation}
@@ -39,9 +37,7 @@
     It is used to estimate an estimand, $\theta$, a real-valued function of the parameter.
 \end{definition}
 
-\subsection{Properties of Estimators}
-
-\subsubsection*{Unbiasedness}
+\subsection*{Unbiasedness}
 
 \begin{definition}[Unbiasedness]
     An estimator $\hat{\theta}$ of $\theta$ is unbiased if
@@ -57,28 +53,35 @@
     \end{itemize}
 \end{note}
 
-\begin{example}[Nonexistence of Unbiased Estimator]
+\begin{example}[ Nonexistence of Unbiased Estimator]
 
 \end{example}
 
-\subsubsection*{Consistency}
+\subsection*{Consistency}
 
 \begin{definition}[Consistency]
     An estimator $\hat{\theta}_n$ of $\theta$ is consistent if
     \begin{equation}
-        \lim_{n\rightarrow\infty}P\left(\left|\hat{\theta}_n-\theta\right|>\varepsilon\right)=0,\quad\forall\varepsilon>0.
+        \lim_{n\rightarrow\infty}P\left(\left|\hat{\theta}_n-\theta\right|>\varepsilon\right)=0,\quad\forall\varepsilon>0,
+    \end{equation}
+    that is,
+    \begin{equation}
+        \hat{\theta}_{n}\stackrel{p}{\rightarrow}\theta.
     \end{equation}
 \end{definition}
 
-\begin{example}[Unbiased But Consistent]
+\begin{note}
+    \begin{enumerate}
+        \item Unbiased But Consistent
+        \item Biased But Not Consistent
+    \end{enumerate}
+\end{note}
 
+\begin{example}[ Common Mean]
+    
 \end{example}
 
-\begin{example}[Biased But Not Consistent]
-
-\end{example}
-
-\subsubsection*{Asymptotic Normality}
+\subsection*{Asymptotic Normality}
 
 \begin{definition}[Asymptotic Normality]
     An estimator $\hat{\theta}_n$ of $\theta$ is asymptotic normality if
@@ -87,13 +90,13 @@
     \end{equation}
 \end{definition}
 
-\subsubsection*{Efficiency}
+\subsection*{Efficiency}
 
 \begin{definition}[Efficiency]
 
 \end{definition}
 
-\subsubsection*{Robustness}
+\subsection*{Robustness}
 
 \begin{definition}[Robustness]
 
