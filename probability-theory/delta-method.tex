@@ -1,0 +1,43 @@
+
+\chapter{The Delta Methods}
+
+\begin{theorem}[Delta Method]
+    Let $\{X_{n}\}$ be a sequence of random variables with
+    \begin{equation*}
+        \sqrt{n}\left[X_{n}-\theta\right] \stackrel{d}{\rightarrow}\sigma\chi,
+    \end{equation*}
+    where $\theta$ and $\sigma$ are finite, then for any function $g$ with the property that $g'(\theta)$ exists and is non-zero valued,
+    \begin{equation*}
+        \sqrt{n}\left[g\left(X_{n}\right)-g(\theta)\right] \stackrel{d}{\rightarrow} \sigma g'(\theta)\chi.
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    Under the assumption that $g'(\theta)$ is continuous.
+
+    Since, $g'(\theta)$ exists, with the first-order Taylor Approximation:
+    \begin{equation*}
+        g(X_n)=g(\theta)+g'(\tilde{\theta})(X_n-\theta),
+    \end{equation*}
+    where $\tilde{\theta}$ lies between $X_n$ and $\theta$.
+
+    Since $X_n\stackrel{p}{\rightarrow}\theta$, and $|\tilde{\theta}-\theta|<|X_n-\theta|$, then
+    \begin{equation*}
+        \tilde{\theta}\stackrel{p}{\rightarrow}\theta,
+    \end{equation*}
+    Since $g'(\theta)$ is continuous, by Continuous Mapping Theorem (\ref{thm:continuous-mapping-theorem}),
+    \begin{equation*}
+        g'(\tilde{\theta})\stackrel{p}{\rightarrow}g'(\theta).
+    \end{equation*}
+    and,
+    \begin{equation*}
+        \sqrt{n}\left(g(X_n)-g(\theta)\right)=\sqrt{n}g'(\tilde{\theta})(X_n-\theta),
+    \end{equation*}
+    \begin{equation*}
+        \sqrt{n}\left[X_{n}-\theta\right] \stackrel{d}{\rightarrow}\sigma\chi,
+    \end{equation*}
+    by Slutsky's Theorem (\ref{thm:slutsky-theorem}),
+    \begin{equation*}
+        \sqrt{n}\left[g\left(X_{n}\right)-g(\theta)\right] \stackrel{d}{\rightarrow} \sigma g'(\theta)\chi.
+    \end{equation*}
+\end{proof}
