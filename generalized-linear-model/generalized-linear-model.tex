@@ -1,0 +1,129 @@
+\chapter{Generalized Linear Model}
+
+\section{Exponential Family}
+
+\begin{definition}[Exponential Family] \label{def:exponential-family}
+    An exponential family of probability distributions as those distributions whose density is defined to be
+    \begin{equation}
+        f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
+    \end{equation}
+\end{definition}
+
+\begin{property}
+    The exponential family have the following properties,
+    \begin{equation*}
+        E(Y)=b^{\prime}(\theta)\quad\operatorname{Var}(Y)=b^{\prime\prime}(\theta)a(\phi).
+    \end{equation*}
+\end{property}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{table}[hpt]
+    \scriptsize
+    \centering
+    \caption{Common Distributions of Exponential Family}
+    \begin{tabular}{ccccccccc}
+        \toprule
+        Distribution & Parameter(s)      & $\theta$                         & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\operatorname{Var}(Y)$                                              \\
+        \midrule
+        Normal       & $N(\mu,\sigma^2)$ & $\mu$                            & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                                               \\
+        Bernoulli    & $\text{Bern}(p)$  & $\log\left(\frac{p}{1-p}\right)$ & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\
+        Poisson      & $P(\mu)$          & $\log(\mu)$                      & $1$          & $\mathrm{e}^{\theta}$           & $1$       & $-\log(y!)$                                                   & $\mathrm{e}^{\theta}$             & $\mathrm{e}^{\theta}$                                                \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Model Assumption}
+
+Suppose the response $Y$ has a distribution in the exponential family
+\begin{equation*}
+    f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
+\end{equation*}
+with link function $g$, such that,
+\begin{equation}
+    E\left(Y\mid\mathbf{X}\right)=\mu=g^{-1}(\eta),\quad\eta=\mathbf{X}^{\prime}\boldsymbol{\beta}
+\end{equation}
+where the link function provides the relationship between the linear predictor and the mean of the distribution function.
+
+\begin{remark}
+    If $\eta=\theta$, the link function is called \textbf{canonical link function}.
+\end{remark}
+
+
+\begin{table}[hpt]
+    \centering
+    \caption{Commonly Used Link Functions}
+    \begin{tabular}{clcc}
+        \toprule
+        Distribution & Support of Distribution  & Link Function $g(\mu)$               & Mean Function $g^{-1}(\eta)$ \\
+        \midrule
+        Normal       & real:$(-\infty,+\infty)$ & $\mu$                                & $\eta$                       \\
+        Bernoulli    & integer: $\{0,1\}$       & $\log\left(\frac{\mu}{1-\mu}\right)$ & $\frac{1}{1+\exp(-\eta)}$    \\
+        Poisson      & integer: $0,1,2,\ldots$  & $\log\left(\mu\right)$               & $\exp\left(\eta\right)$      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Model Estimation}
+
+\subsection{Maximum Likelihood}
+
+Suppose the log-likelihood function be
+\begin{equation}
+    \ell\left(\boldsymbol{\beta}\mid\mathbf{X},y\right)=\log\left[f\left(y\mid\theta,\phi\right)\right]=\log\left[f\left(y\mid g^{-1}(\eta),\phi\right)\right]
+\end{equation}
+where $g$ is the canonical link function and $\eta=\mathbf{X}^{\prime}\boldsymbol{\beta}$.
+
+Suppose $\hat{\boldsymbol{\beta}}_{t},\hat{\boldsymbol{\beta}}_{t+1}$ be the maximum likelihood estimate at the t-th and (t+1)-th iterations, respectively. Two algorithms can be used to obtain the maximum likelihood estimate $\hat{\boldsymbol{\beta}}$.
+
+\begin{enumerate}
+    \item Newton-Raphson Method:
+          \begin{equation}
+              \hat{\boldsymbol{\beta}}_{t+1}=\hat{\boldsymbol{\beta}}_{t}+A^{-1}\left(\hat{\boldsymbol{\beta}}_{t}\right)U\left(\hat{\boldsymbol{\beta}}_{t}\right)\Leftrightarrow A\left(\hat{\boldsymbol{\beta}}_{t}\right)\hat{\boldsymbol{\beta}}_{t+1}=A\left(\hat{\boldsymbol{\beta}}_{t}\right)\hat{\boldsymbol{\beta}}_{t}+U\left(\hat{\boldsymbol{\beta}}_{t}\right)
+          \end{equation}
+          where
+          \begin{equation}
+              U\left(\boldsymbol{\beta}\right)=\frac{\partial\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}}
+          \end{equation}
+          is the score function and
+          \begin{equation}
+              A\left(\boldsymbol{\beta}\right)=-\frac{\partial^{2}\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}^{\prime}\partial\boldsymbol{\beta}}
+          \end{equation}
+          is the observed information matrix.
+    \item Fisher’s Scoring Method:
+          \begin{equation}
+              \hat{\boldsymbol{\beta}}_{t+1}=\hat{\boldsymbol{\beta}}_{t}+I^{-1}\left(\hat{\boldsymbol{\beta}}_{t}\right)U\left(\hat{\boldsymbol{\beta}}_{t}\right)\Leftrightarrow I\left(\hat{\boldsymbol{\beta}}_{t}\right)\hat{\boldsymbol{\beta}}_{t+1}=I\left(\hat{\boldsymbol{\beta}}_{t}\right)\hat{\boldsymbol{\beta}}_{t}+U\left(\hat{\boldsymbol{\beta}}_{t}\right)
+          \end{equation}
+          where $U\left(\boldsymbol{\beta}\right)$ is the score function and
+          \begin{equation}
+              I\left(\boldsymbol{\beta}\right)=E\left[A\left(\boldsymbol{\beta}\right)\right]=-E\left[\frac{\partial^{2}\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}^{\prime}\partial\boldsymbol{\beta}}\right]
+          \end{equation}
+          is the Fisher information matrix.
+\end{enumerate}
+
+\subsection{Bayesian Methods}
+
+% Let
+% \begin{equation*}
+%     U\left(\boldsymbol{\beta}\right)=\frac{\partial\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}},\quad A\left(\boldsymbol{\beta}\right)=-\frac{\partial^{2}\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}^{\prime}\partial\boldsymbol{\beta}}
+% \end{equation*}
+% be the score function and observed information matrix.
+
+% If $\hat{\boldsymbol{\beta}}$ is the maximum likelihood estimate, then
+% \begin{equation*}
+%     U\left(\hat{\boldsymbol{\beta}}\right)=\mathbf{0}
+% \end{equation*}
+
+% By mean value theorem,
+% \begin{equation*}
+%     \begin{aligned}
+%                     & U\left(\hat{\boldsymbol{\beta}}\right)-U\left(\boldsymbol{\beta}_{0}\right)=\frac{\partial U\left(\boldsymbol{\beta}^{*}\right)}{\partial\boldsymbol{\beta}}\left(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta}_{0}\right) \\
+%         \Rightarrow & -U\left(\boldsymbol{\beta}_{0}\right)=-A\left(\boldsymbol{\beta}^{*}\right)\left(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta}_{0}\right)
+%     \end{aligned}
+% \end{equation*}
+% where $\boldsymbol{\beta}^{*}\in\left[\boldsymbol{\beta}_{0},\hat{\boldsymbol{\beta}}\right]$. Thus,
+% \begin{equation*}
+%     \hat{\boldsymbol{\beta}}=\boldsymbol{\beta}_{0}+A^{-1}\left(\boldsymbol{\beta}^{*}\right)U\left(\boldsymbol{\beta}_{0}\right)
+% \end{equation*}

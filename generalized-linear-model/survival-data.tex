@@ -1,0 +1,83 @@
+\chapter{Survival Data}
+
+\section{Survival Data}
+
+\begin{definition}[Survival Data]
+
+\end{definition}
+
+\begin{definition}[Survival Function]
+    The survival function\footnote{The survival function is the probability that the time of death is later than some specified time $t$.} is defined to be
+    \begin{equation}
+        S(t)=P(T>t)=\int_{t}^{\infty}f(u)\,\mathrm{d}u=1-F(t) .
+    \end{equation}
+    where $t$ is some specified time, $T$ is a random variable denoting the time of death.
+\end{definition}
+
+\begin{definition}[Lifetime Distribution Function]
+    The lifetime distribution function is defined to be
+    \begin{equation}
+        F(t)=P(T\leq t)
+    \end{equation}
+    If $F$ is differentiable then the derivative, which is the density function of the lifetime distribution\footnote{The function $f$ is sometimes called the event density; it is the rate of death or failure events per unit time.}, is defined to be
+    \begin{equation}
+        f(t)=F^{\prime}(t)=\frac{\mathrm{d}}{\mathrm{d}t}F(t)
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Hazard Function]
+    The Hazard function\footnote{The Hazard function is the event rate at time $t$ conditional on survival until time $t$ or later (that is, $T\geq t$).} is defined to be
+    \begin{equation}
+        \lambda(t)=\lim_{\varepsilon\rightarrow 0^{+}}\left[\frac{P(t\leq T<t+\varepsilon\mid T\geq t)}{\varepsilon}\right]=\frac{f(t)}{S(t)}
+    \end{equation}
+\end{definition}
+
+\begin{property}
+    The relationship among $\lambda(t),f(t),S(t)$,
+    \begin{enumerate}
+        \item
+              \begin{equation}
+                  \lambda(t)=-\frac{\mathrm{d}\log [S(t)]}{\mathrm{d}t}
+              \end{equation}
+        \item
+              \begin{equation}
+                  S(t)=\exp\left[-\int_{0}^{t}\lambda(x)\,\mathrm{d}x\right]
+              \end{equation}
+        \item
+              \begin{equation}
+                  f(t)=\lambda(t)\exp\left[-\int_{0}^{t}\lambda(x)\,\mathrm{d}x\right]
+              \end{equation}
+    \end{enumerate}
+\end{property}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{example}[ Constant Hazards]
+    Suppose
+    \begin{equation}
+        \lambda(t)=\lambda
+    \end{equation}
+    then
+    \begin{gather*}
+        S(t)=\exp\left[-\int_{0}^{t}\lambda(x)\,\mathrm{d}x\right]=\exp\left[-\int_{0}^{t}\lambda\,\mathrm{d}x\right]=\exp(-\lambda t) \\
+        f(t)=\lambda(t)\exp\left[-\int_{0}^{t}\lambda(x)\mathrm{d}x\right]=\lambda\exp\left[-\int_{0}^{t}\lambda\mathrm{d}x\right]=\lambda\exp(-\lambda t)
+    \end{gather*}
+    which is the exponential distribution.
+\end{example}
+
+\begin{example}[ Bathtub Hazards]
+    \begin{equation}
+        \lambda(t)=\alpha t+\frac{\beta}{1+\gamma t}
+    \end{equation}
+\end{example}
+
+\section{Model Assumption}
+
+Let $t_{1},t_{2},\ldots,t_{n}$ be the failure times associated with censor indicator $\delta_{1},\delta_{2},\ldots,\delta_{n}$ and the covariate vectors $\mathbf{x}_{i}$.
+
+Further, let $t_{(1)}\leq t_{(2)}\leq\ldots\leq t_{(m)}$ be the ordered uncensored failure times corresponding to $\delta_{(j)}=1,j=1,2,\ldots,m$, and $x_{(1)},x_{(2)},\ldots,x_{(m)}$ are the associated covariate vectors. Note $(j)$ represents the label for the individual who dies at $t_{(j)}$.
+
+\section{Model Estimation}
+

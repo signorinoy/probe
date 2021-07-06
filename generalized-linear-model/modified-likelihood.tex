@@ -1,0 +1,90 @@
+\chapter{Modified Likelihood}
+
+Seek a modified likelihood function that depends on as few of the nuisance parameters as possible while sacrificing as little information as possible.
+
+\section{Marginal Likelihood}
+
+\section{Conditional Likelihood}
+
+Let $\boldsymbol{\theta}=(\boldsymbol{\varphi},\boldsymbol{\lambda})$, where $\boldsymbol{\varphi}$ is the parameter vector of interest and $\boldsymbol{\lambda}$ is a vector of nuisance parameters. The conditional likelihood can be obtained as follows:
+\begin{enumerate}
+    \item Find the complete sufficient statistic $S_{\boldsymbol{\lambda}}$, respectively for $\boldsymbol{\lambda}$.
+    \item  Construct the conditional log-likelihood
+          \begin{equation}
+              \ell_{c}=\log\left(f_{Y\mid S_{\boldsymbol{\lambda}}}\right)
+          \end{equation}
+          where $f_{Y\mid S_{\boldsymbol{\lambda}}}$ is the conditional distribution of the response $Y$ given $S_{\boldsymbol{\lambda}}$.
+\end{enumerate}
+
+\begin{note}
+    Two cases might occur, that, for fixed $\boldsymbol{\varphi}_{0}$, $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)$ depends on $\boldsymbol{\varphi}_{0}$; or $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)=S_{\boldsymbol{\lambda}}$ is independent of $\boldsymbol{\varphi}_{0}$.
+\end{note}
+
+\begin{example}
+
+\end{example}
+
+\paragraph*{Conditional Likelihood for Exponential Family}
+
+Suppose that the log-likelihood for $\boldsymbol{\theta}=\left(\boldsymbol{\varphi},\boldsymbol{\lambda}\right)$ can be written in the exponential family form
+\begin{equation}
+    \ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\theta}^{\prime}\mathbf{s}-b\left(\boldsymbol{\theta}\right)
+\end{equation}
+
+Also, suppose $\ell\left(\boldsymbol{\theta},\mathbf{y}\right)$ has a decomposition of the form
+\begin{equation}
+    \ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}+\boldsymbol{\lambda}^{\prime}\mathbf{s}_{2}-b(\boldsymbol{\varphi},\boldsymbol{\lambda})
+\end{equation}
+
+\begin{remark}
+    The above decomposition can be achieved only if $\boldsymbol{\varphi}$ is a linear function of $\theta$. The choice of nuisance parameter $\lambda$ is arbitrary and the inferences regarding $\boldsymbol{\varphi}$ should be unaffected by the parameterization chosen for $\lambda$.
+\end{remark}
+
+The conditional likelihood of the data $\mathbf{Y}$ given $\mathbf{s}_{2}$ is
+\begin{equation}
+    \ell\left(\boldsymbol{\varphi}\mid\mathbf{s}_{2}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}-b^{*}\left(\boldsymbol{\varphi},\boldsymbol{\lambda}\right)
+\end{equation}
+which is independent of the nuisance parameter and may be used for inferences regarding $\boldsymbol{\varphi}$.
+
+\begin{example}
+    $Y_{1}\sim P\left(\mu_{1}\right),Y_{2}\sim P\left(\mu_{2}\right)$ are independent. Suppose $\varphi=\log\left(\frac{\mu_{2}}{\mu_{1}}\right)=\log\left(\mu_{2}\right)-\log\left(\mu_{1}\right)$ is the parameter of interest and the nuisance parameter is
+    \begin{enumerate}
+        \item $\lambda_{1}=\log\left(\mu_{1}\right)$.
+        \item
+    \end{enumerate}
+    Then, give the conditional log-likelihood for different nuisance parameter.
+\end{example}
+
+\begin{solution}
+    \begin{enumerate}
+        \item
+              The log-likelihood function in the form of $\left(\varphi,\lambda\right)$ is
+              \begin{equation*}
+                  \begin{aligned}
+                      \ell\left(\phi,\lambda_{1}\right)\propto & \log\left[e^{-\left(\mu_{1}+\mu_{2}\right)}\mu_{1}^{y_{1}}\mu_{2}^{y_{2}}\right]                              \\
+                      =                                        & -\left(\mu_{1}+\mu_{2}\right)+y_{1}\log\left(\mu_{1}\right)+y_{2}\log\left(\mu_{2}\right)                     \\
+                      =                                        & -\mu_{1}\left(1+\frac{\mu_{2}}{\mu_{1}}\right)+y_{1}\log\left(\mu_{1}\right)+y_{2}\log\left(\mu_{1}\right)    \\
+                                                               & -y_{2}\left[\log\left(\mu_{1}\right)-\log\left(\mu_{2}\right)\right]                                          \\
+                      =                                        & -\mathrm{e}^{\lambda_{1}}\left(1+\mathrm{e}^{\varphi}\right)+\left(y_{1}+y_{2}\right)\lambda_{1}-y_{2}\varphi \\
+                      =                                        & s_{1}\varphi+s_{2}\lambda_{1}-b\left(\varphi,\lambda_{1}\right)
+                  \end{aligned}
+              \end{equation*}
+              where $s_{1}=-y_{2},s_{2}=y_{1}+y_{2},b\left(\varphi,\lambda_{1}\right)=e^{\lambda_{1}}\left(1+e^{\varphi}\right)$.
+
+              Then, the conditional distribution of $Y_{1},Y_{2}$ given $S_{2}=Y_{1}+Y_{2}$ is $b\left(S_{2},\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)$, thus,
+              \begin{equation*}
+                  \begin{aligned}
+                      \ell\left(\varphi\mid S_{2}=s_{2}\right)\propto & y_{1}\log\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)+y_{2}\log\left(\frac{\mu_{2}}{\mu_{1}+\mu_{2}}\right)          \\
+                      =                                               & y_{1}\log\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)+y_{2}\log\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)          \\
+                                                                      & -y_{2}\left[\log\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)-\log\left(\frac{\mu_{2}}{\mu_{1}+\mu_{2}}\right)\right] \\
+                      =                                               & \left(y_{1}+y_{2}\right)\log\left(\frac{1}{1+e^{\varphi}}\right)-y_{2}\varphi                                        \\
+                      =                                               & s_{1}\varphi-b^{*}\left(\varphi,s_{2}\right)
+                  \end{aligned}
+              \end{equation*}
+              where $b^{*}\left(\varphi,s_{2}\right)=-s_{2}\log\left(\frac{1}{1+\varphi^{-1}}\right)$.
+    \end{enumerate}
+\end{solution}
+
+\section{Profile Likelihood}
+
+\section{Quasi Likelihood}

@@ -1,0 +1,25 @@
+\chapter{Count Data}
+
+\section{Model Assumption}
+
+Departures from the idealized Poisson model are to be expected. Therefore, we avoid the assumption of Poisson variation and assume only that
+\begin{equation}
+    \operatorname{Var}\left(Y\right)=\sigma^{2}E\left(Y\right)
+\end{equation}
+with link function
+\begin{equation}
+    \log\left(\mu\right)=\eta=\mathbf{x}^{\prime}\boldsymbol{\beta}
+\end{equation}
+where $\mu=E\left(Y\mid\mathbf{X}\right)$.
+
+\section{Model Estimation}
+
+For the response in the Poisson distribution, i.e.
+\begin{equation*}
+    P(Y=y\mid\mu)=\frac{e^{-\mu}\mu^{y}}{y!}
+\end{equation*}
+and the log-likelihood function is
+\begin{equation}
+    \ell\left(\boldsymbol{\beta}\right)\propto\sum_{i=1}^{n}\left(y_{i} \log\left(\mu_{i}\right)-\mu_{i}\right)
+\end{equation}
+where $\mu_{i}=E\left(Y\mid\mathbf{X}=\mathbf{x}_{i}\right)$.
