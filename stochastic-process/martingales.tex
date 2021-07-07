@@ -8,12 +8,23 @@
 
 \begin{example}
     \begin{enumerate}
-        \item
+        \item If $X\in\mathcal{F}$, then
+              \begin{equation*}
+                  E\left(X\mid\mathcal{F}\right)=X.
+              \end{equation*}
+        \item If $X$ is independent of $\mathcal{F}$, then
+              \begin{equation*}
+                  E\left(X\mid\mathcal{F}\right)=E(X).
+              \end{equation*}
+        \item If $\Omega_{1}, \Omega_{2}, \ldots$ is a finite or infinite partition of $\Omega$ into disjoint sets, each of which has positive probability, and let $\mathcal{F}=\sigma\left(\Omega_{1},\Omega_{2},\ldots\right)$, then
+              \begin{equation*}
+                  E\left(X\mid\mathcal{F}\right)=\frac{E\left(X;\Omega_{i}\right)}{P\left(\Omega_{i}\right)}\quad\text { on }\Omega_{i}.
+              \end{equation*}
     \end{enumerate}
 \end{example}
 
 \begin{property}
-    
+
 \end{property}
 
 \section{Martingales}
@@ -36,10 +47,14 @@ Let $\mathcal{F}_{n}$ be a filtration, i.e., an increasing sequence of $\sigma$-
 \end{note}
 
 \begin{example}[ Linear Martingale]
-    
+
 \end{example}
 
 \begin{example}[ Quadratic Martingale]
+
+\end{example}
+
+\begin{example}[ Exponential Martingale]
     
 \end{example}
 
@@ -65,6 +80,26 @@ Let $\mathcal{F}_{n}$ be a filtration, i.e., an increasing sequence of $\sigma$-
         P\left(\max_{1\leq m\leq n}\left|X_{m}\right|\geq x\right)\leq x^{-2}\operatorname{var}\left(X_{n}\right)
     \end{equation}
 \end{note}
+
+\begin{theorem}[Orthogonality of Martingale Increments]
+    
+\end{theorem}
+
+\begin{theorem}[Conditional Variance Formula]
+    
+\end{theorem}
+
+\begin{definition}[Predictable Sequence]
+    
+\end{definition}
+
+\begin{definition}[Stopping Time]
+    
+\end{definition}
+
+\begin{theorem}[Martingale Convergence Theorem]
+    
+\end{theorem}
 
 \section{Doob's Inequality}
 

@@ -283,9 +283,30 @@ be the corresponding increments of the Brownian motion $B(t)$.
     \end{enumerate}
 \end{theorem}
 
-\begin{example}
-
+\begin{example}[ Exponential Martingale]
+    Show that the exponential martingale
+    \begin{equation*}
+        X(t)=\mathrm{e}^{B(t)}\mathrm{e}^{-\frac{t}{2}}
+    \end{equation*}
+    is an It\^o process, and satisfies the equation
+    \begin{equation*}
+        \mathrm{d}X(t)=X(t)\,\mathrm{d}B(t)
+    \end{equation*}
 \end{example}
+\begin{proof}
+    Let $F(t,x)=\mathrm{e}^{x}\mathrm{e}^{-\frac{t}{2}}$, then we have
+    \begin{equation*}
+        F_{t}^{\prime}(t,x)=-\frac{1}{2}F(t,x),\quad F_{x}^{\prime}(t,x)=F(t,x),\quad F_{xx}^{\prime\prime}(t,x)=F(t,x)
+    \end{equation*}
+    thus, by It\^o Formula, we have
+    \begin{equation*}
+        \begin{aligned}
+            \mathrm{d}X(t)= & \mathrm{d}F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\,\mathrm{d}t+F_{x}^{\prime}(t,B(t))\,\mathrm{d}B(t) \\
+            =               & \left(-\frac{1}{2}F(t,B(t))+\frac{1}{2}F(t,B(t))\right)\,\mathrm{d}t+F(t,B(t))\,\mathrm{d}B(t)                                                       \\
+            =               & X(t)\,\mathrm{d}B(t)
+        \end{aligned}
+    \end{equation*}
+\end{proof}
 
 \begin{example}
 
