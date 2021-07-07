@@ -25,20 +25,25 @@ and the cumulative probabilities given $\mathbf{x}_{i}$ be
 \end{equation}
 where $i=1,2,\ldots,n,\quad j=1,2,\ldots,k$.
 
-\subsection{Response Distribution}
+Here,s multinomial distribution is in many ways the most natural distribution to consider in the context of a polytomous response variable. The denisty function of the multinomial distribution is,
+\begin{equation*}
+    P\left(Y_{1}=y_{1},\ldots,Y_{k}=y_{k}\right)=
+    \left\{\begin{array}{ll}
+        \frac{m!}{y_{1}!\cdots y_{k}!}\pi_{1}^{y_{1}}\cdot\ldots\cdot \pi_{k}^{y_{k}}, & \sum_{i=1}^{k}y_{i}=m \\
+        0                                                                          & \text { otherwise }
+    \end{array}\right.
+\end{equation*}
+for non-negative integers $y_{1},\ldots,y_{k}$.
 
-The multinomial distribution is in many ways the most natural distribution to consider in the context of a polytomous response variable.
-
-\subsection{Link Function}
-
-\subsubsection*{Nominal Scale}
+As for the link function, we have
+\paragraph*{Nominal Scale}
 
 \begin{equation}
     \pi_{j}\left(\mathbf{x}_{i}\right)=\frac{\exp \left[\eta_{j}\left(\mathbf{x}_{i}\right)\right]}{\sum_{j=1}^{k} \exp \left[\eta_{j}\left(\mathbf{x}_{i}\right)\right]}
 \end{equation}
 where $\eta_{j}\left(\mathbf{x}_{i}\right)=\eta_{j}\left(\mathbf{x}_{0}\right)+\left(\mathbf{x}_{i}-\mathbf{x}_{0}\right)^{\prime}\boldsymbol{\beta}_{j}+\alpha_{i}$.
 
-\subsubsection*{Ordinal Scale}
+\paragraph*{Ordinal Scale}
 
 \begin{enumerate}
     \item Logistic Scale:
@@ -51,7 +56,7 @@ where $\eta_{j}\left(\mathbf{x}_{i}\right)=\eta_{j}\left(\mathbf{x}_{0}\right)+\
           \end{equation}
 \end{enumerate}
 
-\subsubsection*{Interval Scale}
+\paragraph*{Interval Scale}
 
 Suppose the $j$-th category exits a cardinal number or score, $s_j$, where the difference between scores is a measure of distance between or separation of categories.
 
@@ -65,6 +70,8 @@ Suppose the $j$-th category exits a cardinal number or score, $s_j$, where the d
           \end{equation}
           where $\eta_{j}\left(\mathbf{x}_{i}\right)=\eta_{j}+\left(\mathbf{x}_{i}\boldsymbol{\beta}\right)s_{j}+\alpha_{i}$.
     \item \begin{equation}
-        \sum_{j=1}^{k}\pi_{j}\left(\mathbf{x}_{i}\right)s_{j}=\mathbf{x}_{i}\boldsymbol{\beta}
-    \end{equation}
+              \sum_{j=1}^{k}\pi_{j}\left(\mathbf{x}_{i}\right)s_{j}=\mathbf{x}_{i}\boldsymbol{\beta}
+          \end{equation}
 \end{enumerate}
+
+\section{Model Estimation}

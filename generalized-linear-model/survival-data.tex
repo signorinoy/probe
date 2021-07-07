@@ -2,10 +2,6 @@
 
 \section{Survival Data}
 
-\begin{definition}[Survival Data]
-
-\end{definition}
-
 \begin{definition}[Survival Function]
     The survival function\footnote{The survival function is the probability that the time of death is later than some specified time $t$.} is defined to be
     \begin{equation}
@@ -73,11 +69,68 @@
     \end{equation}
 \end{example}
 
-\section{Model Assumption}
+\section{Estimation of Survival Function}
+
+\paragraph*{Parametric Approach}
+
+Suppose $t_{1},t_{2},\ldots,t_{n}$ are failure times corresponding to censor indicators $\delta_{1},\delta_{2},\ldots,\delta_{n}$. The likelihood function is
+\begin{equation}
+    \begin{aligned}
+        \ell\left(\boldsymbol{\theta}\right)= & \prod_{i=1}^{n}\left[f\left(t_{i}\right)\right]^{\delta_{i}}\left[S\left(t_{i}\right)\right]^{1-\delta_{i}} \\
+        =                                     & \prod_{i=1}^{n}\left(\frac{f\left(t_{i}\right)}{S\left(t_{i}\right)}\right)^{\delta_{i}}S\left(t_{i}\right) \\
+        =                                     & \prod_{i=1}^{n}\left[\lambda\left(t_{i}\right)\right]^{\delta_{i}}S\left(t_{i}\right)
+    \end{aligned}
+\end{equation}
+where $\lambda(t),S(t)$ depends on some parameter $\theta$.
+
+\begin{example}
+
+\end{example}
+
+\paragraph*{Nonparametric Approach}
+
+Then, for $t_{(k)}\leq t<t_{(k+1)}$,
+\begin{equation}
+    \begin{aligned}
+        \hat{S}(t)= & \prod_{j=1}^{k}\left(\frac{n_{j}-d_{j}}{n_{j}}\right)                                                                                             \\
+        =           & \left(1-\frac{d_{1}}{n_{1}}\right)\left(1-\frac{d_{2}}{n_{2}}\right) \cdots\left(1-\frac{d_{k}}{n_{k}}\right)                                     \\
+        \approx     & \left[1-\hat{\lambda}\left(t_{1}\right)\right]\left[1-\hat{\lambda}\left(t_{2}\right)\right] \ldots\left[1-\hat{\lambda}\left(t_{k}\right)\right]
+    \end{aligned}
+\end{equation}
+where $\hat{S}(t)$ is referred to as Kaplan-Meier estimate.
+
+\begin{example}
+
+\end{example}
+
+\section{Proportional Hazards Model}
+
+Suppose $t_{(1)}<t_{(2)}<\ldots<t_{(m)}$ be death times. The number of
+individuals who alive just before time $t_{(j)}$, including those who are about to die at this time, will be denoted $n_{j}$, for $j=1,2,\ldots,m$, and $d_{j}$ will denote the number who die at this time. Thus, we have
+
+\subsection{Model Assumption}
 
 Let $t_{1},t_{2},\ldots,t_{n}$ be the failure times associated with censor indicator $\delta_{1},\delta_{2},\ldots,\delta_{n}$ and the covariate vectors $\mathbf{x}_{i}$.
 
 Further, let $t_{(1)}\leq t_{(2)}\leq\ldots\leq t_{(m)}$ be the ordered uncensored failure times corresponding to $\delta_{(j)}=1,j=1,2,\ldots,m$, and $x_{(1)},x_{(2)},\ldots,x_{(m)}$ are the associated covariate vectors. Note $(j)$ represents the label for the individual who dies at $t_{(j)}$.
 
-\section{Model Estimation}
+The proportional hazards model specifying the hazard at time $t$ for an individual whose covariate vector is $\mathbf{x}$ is given by
+\begin{equation}
+    \lambda(t)=\lambda_{0}(t)\mathrm{e}^{\mathbf{x}^{\prime}\boldsymbol{\beta}}
+\end{equation}
+where $\lambda_{0}(t)$ is referred to as the bașeline hazard function.
 
+\subsection{Model Estimation}
+
+The exact likelihood function is
+\begin{equation}
+    \ell\left[\beta,\lambda_{0}(t)\right]=\prod_{i=1}^{n}\left[\lambda_{i}\left(t_{i}\right)\right]^{\delta_{i}}S\left(t_{i}\right)
+\end{equation}
+depends on both the nonparametric function $\lambda_{0}(t)$ and the parameter $\boldsymbol{\beta}$. Thus, it might be difficult to estimate $\lambda_{0}(t)$ and $\boldsymbol{\beta}$ simultaneously.
+
+Let $R(t)$ to be the set of individuals who are alive and uncensored at a time just prior to $t_{i}$, which is called the rik set.
+
+The partial likelihood function is
+\begin{equation}
+    \ell_{p}(\boldsymbol{\beta})=\prod_{j=1}^{m}\frac{\mathrm{e}^{\mathbf{x}_{(j)}^{\prime}\boldsymbol{\beta}}}{\sum_{l\in R\left(t_{(j)}\right)}\mathrm{e}^{\mathbf{x}_{l}^{\prime}\boldsymbol{\beta}}}=\prod_{i=1}^{n}\left[\frac{\mathrm{e}^{\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}}}{\sum_{l\in R\left(t_{i}\right)}\mathrm{e}^{\mathbf{x}_{l}^{\prime}\boldsymbol{\beta}}}\right]^{\delta_{i}}
+\end{equation}
