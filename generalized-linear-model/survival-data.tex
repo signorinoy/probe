@@ -128,9 +128,8 @@ The exact likelihood function is
 \end{equation}
 depends on both the nonparametric function $\lambda_{0}(t)$ and the parameter $\boldsymbol{\beta}$. Thus, it might be difficult to estimate $\lambda_{0}(t)$ and $\boldsymbol{\beta}$ simultaneously.
 
-Let $R(t)$ to be the set of individuals who are alive and uncensored at a time just prior to $t_{i}$, which is called the rik set.
-
 The partial likelihood function is
 \begin{equation}
     \ell_{p}(\boldsymbol{\beta})=\prod_{j=1}^{m}\frac{\mathrm{e}^{\mathbf{x}_{(j)}^{\prime}\boldsymbol{\beta}}}{\sum_{l\in R\left(t_{(j)}\right)}\mathrm{e}^{\mathbf{x}_{l}^{\prime}\boldsymbol{\beta}}}=\prod_{i=1}^{n}\left[\frac{\mathrm{e}^{\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}}}{\sum_{l\in R\left(t_{i}\right)}\mathrm{e}^{\mathbf{x}_{l}^{\prime}\boldsymbol{\beta}}}\right]^{\delta_{i}}
 \end{equation}
+where $R(t)$ is the set of individuals who are alive and uncensored at a time just prior to $t_{i}$, which is called the rik set.

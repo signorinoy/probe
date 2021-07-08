@@ -10,17 +10,20 @@ with link function
 \begin{equation}
     \eta=g\left(\pi\right)=\log\left(\frac{\pi}{1-\pi}\right)=\mathbf{x}^{\prime}\boldsymbol{\beta}
 \end{equation}
+\begin{remark}
+    
+\end{remark}
 
 \section{Model Estimation}
 
 The likelihood function is
 \begin{equation}
-    f\left(\boldsymbol{\pi}\mid\mathbf{y},\mathbf{X}\right)=\prod_{i=1}^{n}\binom{m_{i}}{y_{i}}\pi_{i}^{y_{i}}\left(1-\pi_{i}\right)^{m_{i}-y_{i}}
+    f\left(\boldsymbol{\pi}\mid\mathbf{X},\mathbf{y}\right)=\prod_{i=1}^{n}\binom{m_{i}}{y_{i}}\pi_{i}^{y_{i}}\left(1-\pi_{i}\right)^{m_{i}-y_{i}}
 \end{equation}
 and the log-likelihood function is
 \begin{equation}
     \begin{aligned}
-        \ell\left(\boldsymbol{\beta}\right)= & \log\left[f\left(\boldsymbol{\pi}\mid\mathbf{y},\mathbf{X}\right)\right]=\sum_{i=1}^{n}\ell_{i}\left(\boldsymbol{\beta}\right)                                 \\
+        \ell\left(\boldsymbol{\beta}\right)= & \log\left[f\left(\boldsymbol{\pi}\mid\mathbf{X},\mathbf{y}\right)\right]=\sum_{i=1}^{n}\ell_{i}\left(\boldsymbol{\beta}\right)                                 \\
         =                                    & \sum_{i=1}^{n}\left\{\log\left[\binom{m_{i}}{y_{i}}\right]+y_{i}\log\left(\pi_{i}\right)+\left(m_{i}-y_{i}\right)\log\left(1-\pi_{i}\right)\right\}            \\
         =                                    & \sum_{i=1}^{n}\left[y_{i}\log\left(\frac{\pi_{i}}{1-\pi_{i}}\right)+m_{i}\log\left(1-\pi_{i}\right)\right]+\sum_{i=1}^{n}\log\left[\binom{m_{i}}{y_{i}}\right]
     \end{aligned}
