@@ -76,15 +76,29 @@
 Suppose $t_{1},t_{2},\ldots,t_{n}$ are failure times corresponding to censor indicators $\delta_{1},\delta_{2},\ldots,\delta_{n}$. The likelihood function is
 \begin{equation}
     \begin{aligned}
-        \ell\left(\boldsymbol{\theta}\right)= & \prod_{i=1}^{n}\left[f\left(t_{i}\right)\right]^{\delta_{i}}\left[S\left(t_{i}\right)\right]^{1-\delta_{i}} \\
-        =                                     & \prod_{i=1}^{n}\left(\frac{f\left(t_{i}\right)}{S\left(t_{i}\right)}\right)^{\delta_{i}}S\left(t_{i}\right) \\
-        =                                     & \prod_{i=1}^{n}\left[\lambda\left(t_{i}\right)\right]^{\delta_{i}}S\left(t_{i}\right)
+        f\left(\boldsymbol{\theta}\mid\mathbf{t},\boldsymbol{\delta}\right)= & \prod_{i=1}^{n}\left[f\left(t_{i}\right)\right]^{\delta_{i}}\left[S\left(t_{i}\right)\right]^{1-\delta_{i}} \\
+        =                                                                    & \prod_{i=1}^{n}\left(\frac{f\left(t_{i}\right)}{S\left(t_{i}\right)}\right)^{\delta_{i}}S\left(t_{i}\right) \\
+        =                                                                    & \prod_{i=1}^{n}\left[\lambda\left(t_{i}\right)\right]^{\delta_{i}}S\left(t_{i}\right)
     \end{aligned}
 \end{equation}
 where $\lambda(t),S(t)$ depends on some parameter $\theta$.
 
 \begin{example}
-
+    Suppose $\boldsymbol{T}$ have exponential density, that,
+    \begin{equation*}
+        f(t)=\lambda \mathrm{e}^{-\lambda t},\quad S(t)=\mathrm{e}^{-\lambda t}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \begin{aligned}
+            \ell(\lambda)= & \log[\ell(\theta)]=\sum_{i=1}^{n}\left[\delta_{i}\log(\lambda)-\lambda t_{i}\right]        \\
+            =              & \left(\sum_{i=1}^{n}\delta_{i}\right)\log(\lambda)-\lambda\left(\sum_{i=1}^{n}t_{i}\right)
+        \end{aligned}
+    \end{equation*}
+    Hence,
+    \begin{equation*}
+        \frac{\partial\ell(\lambda)}{\partial\lambda}=\frac{\sum_{i=1}^{n}\delta_{i}}{\lambda}-\sum_{i=1}^{n}t_{i}=0\Rightarrow\hat{\lambda}=\frac{\sum_{i=1}^{n}\delta_{i}}{\sum_{i=1}^{n}t_{i}}
+    \end{equation*}
 \end{example}
 
 \paragraph*{Nonparametric Approach}
@@ -98,10 +112,6 @@ Then, for $t_{(k)}\leq t<t_{(k+1)}$,
     \end{aligned}
 \end{equation}
 where $\hat{S}(t)$ is referred to as Kaplan-Meier estimate.
-
-\begin{example}
-
-\end{example}
 
 \section{Proportional Hazards Model}
 

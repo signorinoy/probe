@@ -75,6 +75,29 @@ Suppose the log-likelihood function be
 \end{equation}
 where $g$ is the canonical link function and $\eta=\mathbf{X}^{\prime}\boldsymbol{\beta}$.
 
+Let
+\begin{equation*}
+    U\left(\boldsymbol{\beta}\right)=\frac{\partial\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}},\quad A\left(\boldsymbol{\beta}\right)=-\frac{\partial^{2}\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}^{\prime}\partial\boldsymbol{\beta}}
+\end{equation*}
+be the score function and observed information matrix.
+
+If $\hat{\boldsymbol{\beta}}$ is the maximum likelihood estimate, then
+\begin{equation*}
+    U\left(\hat{\boldsymbol{\beta}}\right)=\mathbf{0}
+\end{equation*}
+
+By mean value theorem,
+\begin{equation*}
+    \begin{aligned}
+                    & U\left(\hat{\boldsymbol{\beta}}\right)-U\left(\boldsymbol{\beta}_{0}\right)=\frac{\partial U\left(\boldsymbol{\beta}^{*}\right)}{\partial\boldsymbol{\beta}}\left(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta}_{0}\right) \\
+        \Rightarrow & -U\left(\boldsymbol{\beta}_{0}\right)=-A\left(\boldsymbol{\beta}^{*}\right)\left(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta}_{0}\right)
+    \end{aligned}
+\end{equation*}
+where $\boldsymbol{\beta}^{*}\in\left[\boldsymbol{\beta}_{0},\hat{\boldsymbol{\beta}}\right]$. Thus,
+\begin{equation*}
+    \hat{\boldsymbol{\beta}}=\boldsymbol{\beta}_{0}+A^{-1}\left(\boldsymbol{\beta}^{*}\right)U\left(\boldsymbol{\beta}_{0}\right)
+\end{equation*}
+
 Suppose $\hat{\boldsymbol{\beta}}_{t},\hat{\boldsymbol{\beta}}_{t+1}$ be the maximum likelihood estimate at the t-th and (t+1)-th iterations, respectively. Two algorithms can be used to obtain the maximum likelihood estimate $\hat{\boldsymbol{\beta}}$.
 
 \begin{enumerate}
@@ -103,26 +126,3 @@ Suppose $\hat{\boldsymbol{\beta}}_{t},\hat{\boldsymbol{\beta}}_{t+1}$ be the max
 \end{enumerate}
 
 \subsection{Bayesian Methods}
-
-% Let
-% \begin{equation*}
-%     U\left(\boldsymbol{\beta}\right)=\frac{\partial\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}},\quad A\left(\boldsymbol{\beta}\right)=-\frac{\partial^{2}\ell\left(\boldsymbol{\beta}\right)}{\partial\boldsymbol{\beta}^{\prime}\partial\boldsymbol{\beta}}
-% \end{equation*}
-% be the score function and observed information matrix.
-
-% If $\hat{\boldsymbol{\beta}}$ is the maximum likelihood estimate, then
-% \begin{equation*}
-%     U\left(\hat{\boldsymbol{\beta}}\right)=\mathbf{0}
-% \end{equation*}
-
-% By mean value theorem,
-% \begin{equation*}
-%     \begin{aligned}
-%                     & U\left(\hat{\boldsymbol{\beta}}\right)-U\left(\boldsymbol{\beta}_{0}\right)=\frac{\partial U\left(\boldsymbol{\beta}^{*}\right)}{\partial\boldsymbol{\beta}}\left(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta}_{0}\right) \\
-%         \Rightarrow & -U\left(\boldsymbol{\beta}_{0}\right)=-A\left(\boldsymbol{\beta}^{*}\right)\left(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta}_{0}\right)
-%     \end{aligned}
-% \end{equation*}
-% where $\boldsymbol{\beta}^{*}\in\left[\boldsymbol{\beta}_{0},\hat{\boldsymbol{\beta}}\right]$. Thus,
-% \begin{equation*}
-%     \hat{\boldsymbol{\beta}}=\boldsymbol{\beta}_{0}+A^{-1}\left(\boldsymbol{\beta}^{*}\right)U\left(\boldsymbol{\beta}_{0}\right)
-% \end{equation*}
