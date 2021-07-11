@@ -6,7 +6,7 @@
     \item Central Limit Theorem for dependent Random Variables
 \end{introduction}
 
-\section{Central Limit Theorem}
+\section{Classic Central Limit Theorem}
 
 \subsection{The De Moivre-Laplace Theorem}
 
@@ -129,17 +129,28 @@
 \end{theorem}
 
 \begin{theorem}[Berry-Esseen Theorem]
-    
+    Let $X_{1},X_{2},\ldots,X_{n}$ be i.i.d. with distribution $F$ , which has a mean $\mu$ and a finite third moment $\sigma^{3}$, then there exists a constant $C$ (independent of $F$),
+    \begin{equation}
+        \left|G_{n}(x)-\Phi(x)\right|\leq\frac{C}{\sqrt{n}}\frac{E\left|X_{1}-\mu\right|^{3}}{\sigma^{3}},\quad\forall x.
+    \end{equation}
 \end{theorem}
 
-\begin{proof}
-
-\end{proof}
+\begin{corollary}
+    Under the assumptions of Theorem 51 ,
+    $$
+        G_{n}(x) \rightarrow \Phi(x) \text { as } n \rightarrow \infty
+    $$
+    for any sequence $F_{n}$ with mean $\xi_{n}$ and variance $\sigma_{n}^{2}$ for which
+    $$
+        \frac{E_{n}\left|X_{1}-\xi_{n}\right|^{3}}{\sigma_{n}^{3}}=o(\sqrt{n})
+    $$
+    and thus in particular if $(72)$ is bounded. Here $E_{n}$ denotes the expectation under $F_{n}$.
+\end{corollary}
 
 \section{Central Limit Theorem for independent non-identical Random Variables}
 
 \begin{theorem}[The Liapounov Central Limit Theorem]
-    
+
 \end{theorem}
 
 \section{Central Limit Theorem for dependent Random Variables}
