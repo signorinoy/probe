@@ -1,0 +1,125 @@
+\chapter{Matrix Decompositions}
+
+\section{Spectral Decomposition}
+
+\section{Singular Value Decomposition}
+
+\begin{proposition}[Singular Value Decomposition]
+    For any matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$, we have
+    \begin{equation}
+        \mathbf{A}=\mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^{\prime}
+    \end{equation}
+    where
+    \begin{itemize}
+        \item $\mathbf{U}\in\mathbb{R}^{m\times m}$ is an orthogonal matrix whose columns are the eigenvectors of $\mathbf{A}\mathbf{A}^{\prime}$
+        \item $\mathbf{V}\in\mathbb{R}^{n\times n}$ is an orthogonal matrix whose columns are the eigenvectors of $\mathbf{A}^{\prime}\mathbf{A}$
+        \item $\boldsymbol{\Sigma}\in\mathbb{R}^{m\times n}$ is an all zero matrix except for the first $r$ diagonal elements
+              \begin{equation*}
+                  \sigma_{i}=\boldsymbol{\Sigma}_{ii},\quad i=1,2,\ldots,r
+              \end{equation*}
+              which is called singular values, that are the square roots of the eigenvalues of $\mathbf{A}^{\prime}\mathbf{A}$ and of $\mathbf{A}\mathbf{A}^{\prime}$ (these two matrices have the same eigenvalues)
+    \end{itemize}
+\end{proposition}
+
+\begin{remark}
+    We assume above that the singular values are sorted in descending order and the eigenvectors are sorted according to descending order of their eigenvalues.
+\end{remark}
+
+\begin{proof}
+    Without loss of generality, we assume $m\geq n$. Since for the case $n>m$, can then be established by transposing the SVD of $\mathbf{A}^{\prime}$,
+    \begin{equation*}
+        \mathbf{A}=\left(\mathbf{A}^{\prime}\right)^{\prime}=\left(\mathbf{U}^{\prime}\boldsymbol{\Sigma}\mathbf{V}\right)^{\prime}=\mathbf{V}^{\prime}\left(\mathbf{U}^{\prime}\boldsymbol{\Sigma}\right)^{\prime}=\mathbf{V}^{\prime}\boldsymbol{\Sigma}\mathbf{U}
+    \end{equation*}
+
+    For $m\geq n$, suppose $\operatorname{rank}(A)=r$, and then $\operatorname{rank}\left(\mathbf{A}^{\prime}\mathbf{A}\right)=r$ and the spectral decomposition of $\mathbf{A}^{\prime}\mathbf{A}$ be
+    \begin{equation*}
+        \mathbf{A}^{\prime}\mathbf{A}\mathbf{V}=\mathbf{V}\operatorname{diag}\left(\sigma_{1}^{2},\ldots,\sigma_{r}^{2},0,\ldots,0\right)
+    \end{equation*}
+    where $\sigma_{i}^{2}$ are the eigenvalues of $\mathbf{A}^{\prime}\mathbf{A}$ and the columns of $\mathbf{V}$, denoted $\boldsymbol{v}^{(i)}$, are the corresponding orthonormal eigenvectors.
+
+    Let
+    \begin{equation*}
+        \boldsymbol{u}^{(i)}=\frac{\mathbf{A}\boldsymbol{v}^{(i)}}{\sigma_{i}}
+    \end{equation*}
+    then
+    \begin{gather*}
+        \mathbf{A}^{\prime}\boldsymbol{u}^{(i)}=\frac{\mathbf{A}^{\prime}\mathbf{A}\boldsymbol{v}^{(i)}}{\sigma_{i}}=\sigma_{i}\boldsymbol{v}^{(i)}\Rightarrow                       \\
+        \mathbf{A}\mathbf{A}^{\prime}\boldsymbol{u}^{(i)}=\sigma_{i}\mathbf{A}\boldsymbol{v}^{(i)}=\sigma_{i}^{2}\boldsymbol{u}^{(i)}
+    \end{gather*}
+    implying that $\boldsymbol{u}^{(i)}$ are eigenvectors of $\mathbf{A}\mathbf{A}^{\prime}$ corresponding to eigenvalues $\sigma_{i}^{2}$.
+
+    Since the eigenvectors $\boldsymbol{v}^{(i)}$ are orthonormal, then so are the eigenvectors $\boldsymbol{u}^{(i)}$
+    \begin{equation*}
+        \left(\boldsymbol{u}^{(i)}\right)^{\prime}\boldsymbol{u}^{(j)}=\frac{\left(\boldsymbol{v}^{(i)}\right)^{\prime}\mathbf{A}^{\prime}\mathbf{A}\boldsymbol{v}^{(j)}}{\sigma_{i}^{2}}=\left(\boldsymbol{v}^{(i)}\right)^{\prime}\boldsymbol{v}^{(j)}=\begin{cases}1 & i=j \\ 0 & i \neq j\end{cases}
+    \end{equation*}
+
+    We have thus far a matrix $\mathbf{V}$ whose columns are eigenvectors of $\mathbf{A}^{\prime}\mathbf{A}$ with eigenvalues $\sigma_{i}^{2}$, and a matrix $\mathbf{U}$ whose columns are $r$ eigenvectors of $\mathbf{A}\mathbf{A}^{\prime}$ corresponding to eigenvalues $\sigma_{i}^{2}$.
+
+    We augment the eigenvectors $\boldsymbol{u}^{(i)},i=1,\ldots,r$ with orthonormal vectors $\boldsymbol{u}^{(i)},i=r+1,\ldots,m$ that span $\operatorname{null}\left(\mathbf{A}\mathbf{A}^{\prime}\right)$, and together $\boldsymbol{u}^{(i)},i=1,\ldots,n$ are a full orthonormal set of eigenvectors of $\mathbf{A}\mathbf{A}^{\prime}$ with eigenvalues $\sigma_{i}^{2}$ (with $\sigma_{i}=0$ for $i>r)$.
+
+    Since
+    \begin{equation*}
+        \left[\mathbf{U}^{\prime}\mathbf{A}\mathbf{V}\right]_{ij}=\left(\boldsymbol{u}^{(i)}\right)^{\prime}\mathbf{A}\boldsymbol{v}^{(j)}=\begin{cases}\sigma_{j}\left(\boldsymbol{u}^{(i)}\right)^{\prime}\boldsymbol{u}^{(j)} & i \leq r \\ 0 & i>r\end{cases}
+    \end{equation*}
+    we get
+    \begin{equation*}
+        \mathbf{U}^{\prime}\mathbf{A}\mathbf{V}=\boldsymbol{\Sigma}
+    \end{equation*}
+    where
+    \begin{equation*}
+        \boldsymbol{\Sigma}=\begin{pmatrix}
+            \operatorname{diag}\left(\sigma_{1},\ldots,\sigma_{n}\right) \\
+            \mathbf{0}
+        \end{pmatrix}
+        ,\quad\sigma_{i}=0\text { for } r<i\leq n
+    \end{equation*}
+
+    Consequentially, we get the desired decompositions
+    \begin{equation*}
+        \mathbf{A}=\mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^{\prime}
+    \end{equation*}
+\end{proof}
+
+\subsection{Relationship to Matrix Norm}
+
+\begin{theorem}
+    For any matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$,
+    \begin{equation}
+        \|\mathbf{A}\|_{2}=\sigma_{\max}(\mathbf{A})
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    For any matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$, the SVD implies that,
+    \begin{equation*}
+        \|\mathbf{A}\|_{2}=\sup_{\mathbf{x}\neq 0}\frac{\|\mathbf{A}\mathbf{x}\|_{2}}{\|\mathbf{x}\|_{2}}=\sup_{\mathbf{x}\neq 0}\frac{\left\|\mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^{\prime}\mathbf{x}\right\|_{2}}{\|\mathbf{x}\|_{2}}
+    \end{equation*}
+
+    Since $\mathbf{U}$ is unitary, that is,
+    \begin{equation*}
+        \left\|\mathbf{U}\mathbf{x}\right\|_{2}^{2}=\mathbf{x}^{\prime}\mathbf{U}^{\prime}\mathbf{U}\mathbf{x}^{T}\mathbf{x}=\left\|\mathbf{x}\right\|_{2}^{2},\quad\forall\mathbf{x}\in\mathbb{R}^{m}
+    \end{equation*}
+    thus,
+    \begin{equation*}
+        =\sup_{\mathbf{x}\neq 0}\frac{\left\|\boldsymbol{\Sigma}\mathbf{V}^{\prime}\mathbf{x}\right\|_{2}}{\|\mathbf{x}\|_{2}}
+    \end{equation*}
+
+    Let $\mathbf{y}=\mathbf{V}^{\prime}\mathbf{x}$, and since $\mathbf{V}$ is unitary, we have
+    \begin{equation*}
+        \|\mathbf{y}\|_{2}=\left\|\mathbf{V}^{\prime}\mathbf{x}\right\|_{2}=\|\mathbf{x}\|_{2}=1
+    \end{equation*}
+    thus,
+    \begin{equation*}
+        =\sup_{\mathbf{y}\neq 0}\frac{\|\boldsymbol{\Sigma}\mathbf{y}\|_{2}}{\|\mathbf{V}\mathbf{y}\|_{2}}=\sup_{\mathbf{y}\neq 0}\frac{\left(\sum_{i=1}^{r}\sigma_{i}^{2}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}{\left(\sum_{i=1}^{r}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}\leq\sigma_{\max}(\mathbf{A})
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    For any matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$, suppose $\operatorname{rank}(A)=n$, then
+    \begin{equation}
+        \min_{\|\mathbf{x}\|_{2}=1}\|\mathbf{A}\mathbf{x}\|_{2}=\sigma_{n}(\mathbf{A})
+    \end{equation}
+\end{theorem}
+\begin{remark}
+    If $\operatorname{rank}(\mathbf{A})<n$, then there is an $\mathbf{x}$ such that the minimum is zero.
+\end{remark}
