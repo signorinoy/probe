@@ -1,6 +1,31 @@
 \chapter{Matrix Decompositions}
+\label{chapter:matrix-decompositions}
 
 \section{Spectral Decomposition}
+
+\begin{definition}[Eigenvectors and Eigenvalues]
+    A (non-zero) vector $\mathbf{v}$ of dimension $n$ is an \textbf{eigenvector} of a square $n\times n$ matrix $\mathbf{A}$, if
+    \begin{equation}
+        \mathbf{A}\mathbf{v}=\lambda\mathbf{v}
+    \end{equation}
+    where $\lambda$ is a scalar, termed the \textbf{eigenvalue} corresponding to $\mathbf{v}$.
+\end{definition}
+
+\begin{definition}[Spectral Decomposition]
+    For any $n\times n$ matrix with $n$ linearly independent eigenvectors $q_{i},i=1,\ldots,n$. Then $\mathbf{A}$ can be factorized as
+    \begin{equation*}
+        \mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{-1}
+    \end{equation*}
+    where $\mathbf{Q}$ is the square $n\times n$ matrix whose $i$-th column is the eigenvector $\mathbf{q}_{i}$ of $\mathbf{A}$, and $\boldsymbol{\Lambda}$ is the diagonal matrix whose diagonal elements are the corresponding eigenvalues, $\boldsymbol{\Lambda}=\lambda_{i}$. This factorization is called eigendecomposition or sometimes spectral decomposition.
+\end{definition}
+
+\begin{example}[ Real Symmetric Matrices]
+    As a special case, for every $n\times n$ real symmetric matrix, the eigenvalues are real and the eigenvectors can be chosen real and orthonormal. Thus a real symmetric matrix $\mathbf{A}$ can be decomposed as
+    \begin{equation}
+        \mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\prime}
+    \end{equation}
+    where $\mathbf{Q}$ is an orthogonal matrix whose columns are  eigenvectors of $\mathbf{A}$, and $\boldsymbol{\Lambda}$ is a diagonal matrix whose entries are the eigenvalues of $\mathbf{A}$.
+\end{example}
 
 \section{Singular Value Decomposition}
 
@@ -112,6 +137,7 @@
     \begin{equation*}
         =\sup_{\mathbf{y}\neq 0}\frac{\|\boldsymbol{\Sigma}\mathbf{y}\|_{2}}{\|\mathbf{V}\mathbf{y}\|_{2}}=\sup_{\mathbf{y}\neq 0}\frac{\left(\sum_{i=1}^{r}\sigma_{i}^{2}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}{\left(\sum_{i=1}^{r}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}\leq\sigma_{\max}(\mathbf{A})
     \end{equation*}
+    which takes "$=$", if $\boldsymbol{y}=\left(1,0,\ldots,0\right)^{\prime}$.
 \end{proof}
 
 \begin{theorem}
@@ -120,6 +146,11 @@
         \min_{\|\mathbf{x}\|_{2}=1}\|\mathbf{A}\mathbf{x}\|_{2}=\sigma_{n}(\mathbf{A})
     \end{equation}
 \end{theorem}
+
+\begin{proof}
+    The proof process is analogous to the above theorem.
+\end{proof}
+
 \begin{remark}
     If $\operatorname{rank}(\mathbf{A})<n$, then there is an $\mathbf{x}$ such that the minimum is zero.
 \end{remark}

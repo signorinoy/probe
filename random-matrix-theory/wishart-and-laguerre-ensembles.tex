@@ -1,29 +1,29 @@
 \chapter{Wishart and Laguerre Ensembles}
 
 Suppose $\left\{\mathbf{X}_{n}\right\}$ be a sequence of random vectors defined in $\mathbb{R}^{n}$, such that
-\begin{equation}
+\begin{equation*}
     E\left(\mathbf{X}_{n}\right)=0,\quad E\left(\mathbf{X}_{n} \otimes \mathbf{X}_{n}\right)=\mathrm{I}_{n}
-\end{equation}
+\end{equation*}
 and let $\left(X_{n,k}\right)_{1\leq k\leq n}$ be the components of the random vector $\mathbf{X}_{n}$.
 
 Suppose $\left\{m_{n}\right\}$ be a sequence defined in $\mathbb{N}$ such that
-\begin{equation}
+\begin{equation*}
     0<\underline{\rho}:=\liminf_{n\rightarrow\infty}\frac{n}{m_{n}}\leq\limsup_{n\rightarrow\infty}\frac{n}{m_{n}}=:\bar{\rho}<\infty
-\end{equation}
+\end{equation*}
 
 Let $\mathbf{X}_{n}^{(1)},\ldots,\mathbf{X}_{n}^{\left(m_{n}\right)}$ be i.i.d. copies of $\mathbf{X}_{n}$, and $\mathbb{X}_{n}$ be the $m_{n}\times n$ random matrix with i.i.d. rows $\mathbf{X}_{n}^{(1)},\ldots,\mathbf{X}_{n}^{\left(m_{n}\right)}$, and their empirical covariance matrix is
-\begin{equation}
+\begin{equation*}
     \widehat{\boldsymbol{\Sigma}}_{n}:=\frac{1}{m_{n}}\sum_{k=1}^{m_{n}}\mathbf{X}_{n}^{(k)}\otimes \mathbf{X}_{n}^{(k)}=\frac{1}{m_{n}}\mathbb{X}_{n}^{\prime}\mathbb{X}_{n}
-\end{equation}
+\end{equation*}
 which is the $n\times n$ symmetric positive semidefinite random matrix, and
-\begin{equation}
+\begin{equation*}
     E\widehat{\boldsymbol{\Sigma}}_{n}=\mathbb{E}\left(\mathbf{X}_{n}\otimes\mathbf{X}_{n}\right)=\mathrm{I}_{n}
-\end{equation}
+\end{equation*}
 
 For convenience, we define the random matrix
-\begin{equation}
+\begin{equation*}
     \mathbf{A}_{n}:=m_{n}\widehat{\boldsymbol{\Sigma}}_{n}=\mathbb{X}_{n}^{\prime}\mathbb{X}_{n}=\sum_{k=1}^{m_{n}}\mathbf{X}_{n}^{(k)}\otimes\mathbf{X}_{n}^{(k)}
-\end{equation}
+\end{equation*}
 
 \begin{theorem}
     The eigenvalues of $\mathbf{A}_{n}$ are squares of the singular values of $\mathbb{X}_{n}$, in particularly
@@ -36,52 +36,74 @@ For convenience, we define the random matrix
     \end{equation}
 \end{theorem}
 \begin{remark}
-    proof.
+    The detailed proof can be seen in Chapter \ref{chapter:matrix-decompositions}.
 \end{remark}
 
-Specially, if the random variables $\left(X_{n,l}\right)_{n\geq 1,1\leq l\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}_{n}$ is known as the Wishart distribution.
+\section{Wishart Distribution}
+
+Specially, if the random variables $\left(X_{n,l}\right)_{n\geq 1,1\leq l\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}_{n}$ can be derived from the Wishart distribution.
 
 \begin{definition}[Wishart Distribution]
     Suppose $\mathbf{G}$ is a $p\times n$ matrix, each column of which is independently drawn from a $p$-variate normal distribution with zero mean:
-    \begin{equation}
+    \begin{equation*}
         \mathbf{G}_{i}=\left(g_{i}^{1},\ldots,g_{i}^{p}\right)^{\prime}\sim N_{p}(0,\mathbf{V})
-    \end{equation}
+    \end{equation*}
     Then the Wishart distribution is the probability distribution of the $p\times p$ random matrix,
     \begin{equation}
         \mathbf{S}=\mathbf{G}^{\prime}\mathbf{G}=\sum_{i=1}^{n}\mathbf{G}_{i}\mathbf{G}_{i}^{\prime}
     \end{equation}
     known as the scatter matrix. The Wishart distribution $\mathbf{S}$ can be denoted by
-    \begin{equation}
+    \begin{equation*}
         \mathbf{S}\sim W_{p}(\mathbf{V},n)
-    \end{equation}
+    \end{equation*}
 \end{definition}
+
 \begin{remark}
     If $p=\mathbf{V}=1$ then this distribution is a chi-squared distribution with $n$ degrees of freedom.
 \end{remark}
 
+The Wishart distribution can be characterized by its probability density function. Suppose $\mathbf{X}$ be a $p\times p$ symmetric matrix of random variables that is positive definite, and $\mathbf{V}$ be a (fixed) symmetric positive definite matrix of size $p\times p$.
+
+Then, if $n\geq p$, $\mathbf{X}$ has a Wishart distribution with $n$ degrees of freedom if it has the probability density function
+\begin{equation}
+    f_{\mathbf{X}}(\mathbf{x})=\frac{1}{2^{np/2}\left[\operatorname{det}\left(\mathbf{V}\right)\right]^{n/2}\Gamma_{p}\left(\frac{n}{2}\right)}\operatorname{det}\left(\mathbf{x}\right)^{(n-p-1)/2}\exp\left[-\frac{1}{2}\operatorname{tr}\left(\mathbf{V}^{-1}\mathbf{x}\right)\right]
+\end{equation}
+where $|\mathbf{x}|$ is the determinant of $\mathbf{x}$ and $\Gamma_{p}$ is the multivariate gamma function defined as
+\begin{equation*}
+    \Gamma_{p}\left(\frac{n}{2}\right)=\pi^{p(p-1)/4}\prod_{j=1}^{p}\Gamma\left(\frac{n}{2}-\frac{j-1}{2}\right)
+\end{equation*}
+
+Thus, the probability denisty function of $\widehat{\boldsymbol{\Sigma}}_{n}$ is
+\begin{equation}
+    \frac{m_{n}^{-n(m_{n}-n-1)/2+1}}{2^{m_{n}n/2}\Gamma_{p}\left(\frac{n}{2}\right)}\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}_{n}\right)^{(m_{n}-n-1)/2}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}_{n}\right)\right]
+\end{equation}
+
+\section{Joint Distribution of Eigenvalues}
+
 \begin{theorem}
-    The joint distribution of the eigenvalues of $\widehat{\boldsymbol{\Sigma}}_{n}$ on
-    \begin{equation}
+    The joint eigenvalues density of $\widehat{\boldsymbol{\Sigma}}_{n}$ on
+    \begin{equation*}
         0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty
-    \end{equation}
+    \end{equation*}
     is
     \begin{equation}
-        p\left(\boldsymbol{\lambda}\right)=\tilde{Q}_{n}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
-        \label{eq:jpdf-eigenvalues}
+        p\left(\boldsymbol{\lambda}\right)=\widetilde{Q}_{m_{n}}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
+        \label{eq:joint-pdf-eigenvalues-sigma_n}
     \end{equation}
-    where $\tilde{Q}_{n}$ is the normalization factor.
+    where $\widetilde{Q}_{m_{n}}$ is the normalization factor.
 \end{theorem}
 \begin{proof}
-    For convenience, we simplify $\widehat{\boldsymbol{\Sigma}}_{n}$  to be $\widehat{\boldsymbol{\Sigma}}$, and $\mathbf{X}_{n}$ to be $\mathbf{X}$. And the characteristic function of $\widehat{\boldsymbol{\Sigma}}$, i.e.,
-    \begin{equation}
+    For convenience, we simplify $\widehat{\boldsymbol{\Sigma}}_{n}$  to be $\widehat{\boldsymbol{\Sigma}}$, and $\mathbf{X}_{n}$ to be $\mathbf{X}$.
+
+    Fisrt, we will give the characteristic function of $\widehat{\boldsymbol{\Sigma}}$, i.e.,
+    \begin{equation*}
         \varphi_{\widehat{\boldsymbol{\Sigma}}}\left(\mathbf{P}\right)=E\left[\exp\left(i\sum_{1\leq i\leq j\leq n}P_{ij}\widehat{\boldsymbol{\Sigma}}_{ji}\right)\right]=E\left[\exp\left(i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\right]
-        \label{eq:characteristic-function-wishart-1}
-    \end{equation}
+    \end{equation*}
     where $\left\{P_{ij}\right\}_{1\leq i\leq j\leq n}\in\mathbb{R}^{(n+1)n/2}$ and $\mathbf{P}$ is a real symmetric matrix, that
-    \begin{equation}
-        \mathbf{P}=\left\{\widehat{P}_{ij},\widehat{P}_{ij}=\widehat{P}_{ji}\right\}_{i,j=1}^{n},\quad\widehat{P}_{ij}=\begin{cases}P_{ii}, & i=j \\ P_{i j} / 2, & i<j \end{cases}
-    \end{equation}
-    Thus, we can obtain for (\ref{eq:characteristic-function-wishart-1})
+    \begin{equation*}
+        \mathbf{P}=\left\{\widehat{P}_{ij},\widehat{P}_{ij}=\widehat{P}_{ji}\right\}_{i,j=1}^{n},\quad\widehat{P}_{ij}=\begin{cases}P_{ii}, & i=j \\ P_{ij} / 2, & i<j \end{cases}
+    \end{equation*}
+    Thus, we have
     \begin{equation*}
         \begin{aligned}
             = & \int_{\mathbb{R}^{m_{n}\times n}}\exp\left(i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\cdot(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\left(X_{i}^{(k)}\right)^{2}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}X_{i}^{(k)} \\
@@ -89,9 +111,9 @@ Specially, if the random variables $\left(X_{n,l}\right)_{n\geq 1,1\leq l\leq n}
         \end{aligned}
     \end{equation*}
     where
-    \begin{equation}
+    \begin{equation*}
         \mathbf{Q}=1-\frac{2i}{m_{n}}\mathbf{P}
-    \end{equation}
+    \end{equation*}
 
     Since $\left(X_{l}^{(k)}\right)_{k\geq 1,1\leq l\leq n}$ are i.i.d. standard Gaussians,
     \begin{equation*}
@@ -109,81 +131,133 @@ Specially, if the random variables $\left(X_{n,l}\right)_{n\geq 1,1\leq l\leq n}
     \end{equation}
     where $\{p_{k}\}_{k=1}^{n}$ are the eigenvalues of $\mathbf{P}$.
 
-    By the Wishart distribution, the probability denisty of the real symmetric and positive definite random matrix $\widehat{\boldsymbol{\Sigma}}$ is
+    Then, we will show that the characteristic function of (\ref{eq:joint-pdf-eigenvalues-sigma_n}) conincides with the above function. By the Wishart distribution, the probability denisty of the real symmetric and positive definite random matrix $\widehat{\boldsymbol{\Sigma}}$ is
     \begin{equation}
-        \widetilde{Q}_{n}^{-1}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}_{1}\widehat{\boldsymbol{\Sigma}}
-        \label{eq:characteristic-function-wishart-2}
+        \widetilde{Q}_{m_{n}}^{-1}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
+        \label{eq:wishart-distribution-sigma_n}
     \end{equation}
-    where $\widetilde{Q}_{n}$ is the normalization constant. Then, the characteristic function of (\ref{eq:characteristic-function-wishart-2}), i.e.,
-    \begin{equation}
-        \widetilde{Q}_{n}^{-1}\int_{\mathcal{S}_{n}^{+}}\exp\left[i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}_{1}\widehat{\boldsymbol{\Sigma}}
-    \end{equation}
+    where $\widetilde{Q}_{m_{n}}$ is the normalization constant. Then, the characteristic function of (\ref{eq:wishart-distribution-sigma_n}), i.e.,
+    \begin{equation*}
+        \widetilde{Q}_{m_{n}}^{-1}\int_{\mathcal{S}_{n}^{+}}\exp\left[i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
+    \end{equation*}
     where the integration is over the set $\mathcal{S}_{n}^{+}$ of $n\times n$ real symmetric and positive definite matrices.
 
     Since
-    \begin{equation}
+    \begin{equation*}
         \sum_{k=1}^{n}\lambda_{k}=\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right),\quad\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}=\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}
-    \end{equation}
+    \end{equation*}
     and
-    \begin{equation}
-        \mathrm{d}_{1}\widehat{\boldsymbol{\Sigma}}=\prod_{i<j}\left(\lambda_{i}-\lambda_{j}\right)\,\mathrm{d}\boldsymbol{\lambda}H_{1}\left(\mathrm{d}O\right)
-    \end{equation}
+    \begin{equation*}
+        \mathrm{d}\widehat{\boldsymbol{\Sigma}}=\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda}H_{1}\left(\mathrm{d}O\right)
+    \end{equation*}
     where $H_{1}$ is the normalized Haar measure of $O(n)$, and the integration over $\boldsymbol{\lambda}$ and $O\in O(n)$ are independent.
 
-    Then, we have
+    Since the orthogonal invariance of the density of (\ref{eq:wishart-distribution-sigma_n}), we obtain (\ref{eq:joint-pdf-eigenvalues-sigma_n}), and the characteristic function is
     \begin{equation}
         Q_{n}^{-1}\int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[\sum_{k=1}^{n}\left(i p_{k}-\frac{m_{n}}{2}\right)\lambda_{k}\right]\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda}
-        \label{eq:characteristic-function-wishart-result-2}
+        \label{eq:characteristic-function-wishart}
     \end{equation}
-    where $Q_{n}=n!\widetilde{Q}_{n}$.
+    where $Q_{m_{n}}=m_{n}!\widetilde{Q}_{m_{n}}$.
 
-    If we viewed (\ref{eq:characteristic-function-wishart-result-1}) and (\ref{eq:characteristic-function-wishart-result-2}) as the function of $\{p_{k}\}_{k=1}^{n}\in\mathbb{R}^{n}$, then it is the \textbf{analytic continuation} to the domain
-    \begin{equation}
+    If we viewed (\ref{eq:characteristic-function-wishart-result-1}) and (\ref{eq:characteristic-function-wishart}) as the function of $\{p_{k}\}_{k=1}^{n}\in\mathbb{R}^{n}$, then they can be \textbf{analytic continuation} to the domain
+    \begin{equation*}
         \left\{p_{k}+i p_{k}^{\prime},p_{k}^{\prime}\geq 0\right\}_{k=1}^{n}
-    \end{equation}
+    \end{equation*}
 
-    % prove that $(7.4 .9)$ is equal to $(7.4 .6)$ for $\left\{p_{l}\right\}_{l=1}^{n}$ replaced by $\left\{i p_{l}^{\prime}, p_{l}^{\prime} \geq 0\right\}_{l=1}^{n}$, since this is a set of uniqueness of both analytic functions. We have on this set instead of $(7.4 .10):$
-    % $$
-    %     Q_{n, 1}^{-1} \int_{\left(\mathbb{R}_{+}\right)^{n}} e^{-\frac{n}{2 a^{2}} \sum_{l=1}^{n} q_{l} \lambda_{l}} \prod_{l=1}^{n} \lambda_{l}^{(m-n-1) / 2}|\Delta(\Lambda)| d \Lambda
-    % $$
-    % where $q_{l}=1+2 a^{2} p_{l}^{\prime} / n \geq 1, l=1, \ldots, n .$ Now the change $q_{l} \lambda_{l} \rightarrow \lambda_{l}$ and the
-    % subsequent "lifting" from $\left\{\lambda_{l}\right\}_{l=1}^{n}$ to $\mathcal{S}_{n}^{+}$ bring the integral to
-    % $$
-    %     \prod_{l=1}^{n}\left(1+2 a^{2} p_{l}^{\prime} / n\right) \widetilde{Q}_{n, 1}^{-1} \int_{\mathcal{S}_{n}^{+}} e^{-n \operatorname{Tr} M / 2 a^{2}}(\operatorname{det} M)^{(m-n-1) / 2} d_{1} M
-    % $$
-    % The integral here is equal to $\widetilde{Q}_{n, 1}$, the normalization constant of the probability measure $(7.4 .7)$; hence, the above expression coincides with $(7.4 .6)$ in which $\left\{i p_{l}\right\}_{l=1}^{n}$ are replaced by $\left\{p_{l}^{\prime}\right\}_{l=1}^{n}$.
+    If we replace $\left\{p_{k}\right\}_{k=1}^{n}$ by $\left\{ip_{k}^{\prime},p_{k}^{\prime}\geq 0\right\}_{k=1}^{n}$ on (\ref{eq:characteristic-function-wishart-result-1}), since this is a set of uniqueness of both (\ref{eq:characteristic-function-wishart-result-1}) and (\ref{eq:characteristic-function-wishart}) analytic functions, we have
+    \begin{equation*}
+        Q_{m_{n}}^{-1}\int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[-\frac{m_{n}}{2}\sum_{k=1}^{n}q_{k}\lambda_{k}\right]\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda}
+    \end{equation*}
+    where $q_{k}=1+\frac{2p_{k}^{\prime}}{m_{n}}\geq 1,k=1,\ldots,n$, and since
+    \begin{equation*}
+        \forall i,j\quad\frac{q_{i}}{q_{j}}=\frac{1+\frac{2p_{i}^{\prime}}{m_{n}}}{1+\frac{2p_{j}^{\prime}}{m_{n}}}\rightarrow 1,\quad\text{ as }\quad m_{n}\rightarrow\infty
+    \end{equation*}
+    we have
+    \begin{equation*}
+        \prod_{i<j}\left|q_{i}\lambda_{i}-q_{j}\lambda_{j}\right|=\prod_{i<j}q_{i}\left|\lambda_{i}-\frac{q_{j}}{q_{i}}\lambda_{j}\right|\rightarrow\prod_{k=1}^{n}q_{k}^{(n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|,\quad\text{ as }\quad m_{n}\rightarrow\infty
+    \end{equation*}
+    thus,
+    \begin{equation*}
+        \begin{array}{c}
+            \prod_{k=1}^{n}q_{k}^{-m_{n}/2}\cdot Q_{m_{n}}^{-1}\int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[-\frac{m_{n}}{2}\sum_{k=1}^{n}q_{k}\lambda_{k}\right]\prod_{k=1}^{n}\left(q_{k}\lambda_{k}\right)^{(m_{n}-n-1)/2} \\
+            \prod_{i<j}\left|q_{i}\lambda_{i}-q_{j}\lambda_{j}\right|\,\mathrm{d}\mathbf{q}\boldsymbol{\lambda}
+        \end{array}
+    \end{equation*}
+    Since
+    \begin{equation*}
+        \forall k\quad q_{k}\lambda_{k}\rightarrow\lambda_{k},\quad\text{ as }\quad m_{n}\rightarrow\infty
+    \end{equation*}
+    we can "lifting" from $\left\{\lambda_{k}\right\}_{k=1}^{n}$ to $\mathcal{S}_{n}^{+}$ bring the integral to
+    \begin{equation*}
+        \prod_{k=1}^{n}\left(1+\frac{2p_{k}^{\prime}}{m_{n}}\right)^{-m_{n}/2}\widetilde{Q}_{n}^{-1}\int_{\mathcal{S}_{n}^{+}}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
+    \end{equation*}
+    The integral here is equal to $\widetilde{Q}_{n}$, the normalization constant of the probability measure (\ref{eq:wishart-distribution-sigma_n}).
 
-    % Thus the probability law of the Wishart matrices $(7.1 .1)$ is given by $(7.4 .7)$, and then (4.1.17) implies that the corresponding joint probability density of eigenvalues is given by $(7.4 .2)$ for $\beta=1$.
+    If we replace $\left\{i p_{k}^{\prime}\right\}_{k=1}^{n}$ back by $\left\{p_{k}\right\}_{k=1}^{n}$, then the above expression is
+    \begin{equation*}
+        \prod_{k=1}^{n}\left(1-\frac{2i}{m_n}p_{k}\right)^{-m_{n}/2}
+    \end{equation*}
+    which coincides with (\ref{eq:characteristic-function-wishart-result-1}).
+
+    Thus the probability law of the Wishart matrices of $\boldsymbol{\Sigma}_n$ given by (\ref{eq:wishart-distribution-sigma_n}) implies that the corresponding joint probability density of eigenvalues is given by (\ref{eq:joint-pdf-eigenvalues-sigma_n}) for $\boldsymbol{\Sigma}_n$.
 \end{proof}
 
-\begin{corollary}[Laguerre Orthogonal Ensemble]
-
-\end{corollary}
+The theorem above can be generalized to a larger form, that,
+\begin{definition}[Laguerre Orthogonal Ensemble]
+    For the $n\times n$ Laguerre orthogonal ensembles of statistics, the joint eigenvalues density on
+    \begin{equation*}
+        0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty
+    \end{equation*}
+    for arbitrary parameter $\beta>0$ and $\alpha>-\frac{2}{\beta}$, is
+    \begin{equation}
+        p\left(\boldsymbol{\lambda}\right)=K_{\alpha,\beta}\exp\left(-\frac{\beta}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n} \lambda_{k}^{\frac{\alpha\beta}{2}}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|^{\beta}
+        \label{eq:laguerre-orthogonal-ensemble}
+    \end{equation}
+    where $K_{n,m}$ are normalization constant.
+\end{definition}
 
 \begin{remark}
-    Equation (\ref{eq:jpdf-eigenvalues}) can be written in the standard Boltzmann-Gibbs form, that,
-    \begin{equation}
-        p\left(\boldsymbol{\lambda}\right)\propto\exp\left[-\beta E\left(\boldsymbol{\lambda}\right)\right]
-    \end{equation}
-    where
-    \begin{equation}
-        E\left(\boldsymbol{\lambda}\right)=\frac{1}{2}\sum_{k=1}^{n}\left[\frac{m_{n}}{2}\lambda_{k}-\left(\frac{m_{n}-n+1}{2}\right)\log\lambda_{k}\right]-\frac{1}{2}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
-    \end{equation}
-    and $\beta=1$ since $\widehat{\boldsymbol{\Sigma}}_{n}$ is the real symmetric matrices.
+    Ensemble is often used in physics and the physics-influenced literature. In probability theory, the term \textbf{probability space} is more prevalent.
 \end{remark}
 
-\begin{remark}
-    If these parameters takes continuous values the joint pdf of the eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is said to be the Laguerre Orthogonal Ensemble \footnote{Ensemble is often used in physics and the physics-influenced literature. In probability theory, the term \textbf{probability space} is more prevalent.}.
-\end{remark}
+And Equation (\ref{eq:laguerre-orthogonal-ensemble}) can be written in the standard Boltzmann-Gibbs form, that,
+\begin{equation*}
+    p\left(\boldsymbol{\lambda}\right)\propto\exp\left[-\beta E\left(\boldsymbol{\lambda}\right)\right]
+\end{equation*}
+where
+\begin{equation}
+    E\left(\boldsymbol{\lambda}\right)=\frac{1}{2}\sum_{k=1}^{n}\left(\lambda_{k}-\alpha\log\lambda_{k}\right)-\frac{1}{2}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
+\end{equation}
 
-% \begin{definition}[Canonical Ensemble]
-%     The canonical ensemble gives the probability of the system $X$ being in state $x$ as
-%     \begin{equation}
-%         P(X=x)=\frac{1}{Z(\beta)}\exp(-\beta E(x))
-%     \end{equation}
-%     where $E(x)$ is a function from the space of states to the real numbers, $\beta$ is a free parameter and the normalizing constant $Z(\beta)$ is the partition function.
-% \end{definition}
+For the (\ref{eq:joint-pdf-eigenvalues-sigma_n}), which can be written as (\ref{eq:laguerre-orthogonal-ensemble}) form, that,
+\begin{equation*}
+    \beta=1,\quad\alpha=m_{n}-n-1,\quad K_{\alpha,\beta}=\widetilde{Q}_{m_{n}}^{-1}\exp\left(m_{n}\right).
+\end{equation*}
+
+\section{Average Denisty of  Eigenvalues}
 
 \begin{theorem}[Marchenko-Pastur Theorem]
-
+    If
+    \begin{equation*}
+        \frac{n}{m_{n}}\rightarrow\rho\in(0,\infty),\quad\text{ as }\quad n\rightarrow\infty
+    \end{equation*}
+    and the empirical spectral distribution of $\widehat{\boldsymbol{\Sigma}}_{n}$, is
+    \begin{equation*}
+        \mu=\frac{1}{n}\sum_{k=1}^{n}\delta_{\lambda_{k}}
+    \end{equation*}
+    where $\delta_{\lambda}$ stands for the Dirac mass at $\lambda\in\mathbb{R}$ and $0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty$ are eigenvalues of $\widehat{\boldsymbol{\Sigma}}_{n}$. Then $\mu$ tends weakly with probability 1 to the nonrandom measure, i.e.,
+    \begin{equation}
+        \frac{1}{m_{n}}\sum_{k=1}^{n}\delta_{\lambda_{k}}\stackrel{d}{\rightarrow}\mu_{\rho},\quad\text{ a.s. }
+    \end{equation}
+    where $\mu_{\rho}$ is the Marchenko-Pastur distribution on $\left[a^{-},a^{+}\right]$ with $a^{\pm}=(1\pm\sqrt{\rho})^{2}$ given by
+    \begin{equation}
+        \mu_{\rho}(\mathrm{d}x)=\frac{\rho-1}{\rho}\mathbf{I}_{\rho>1}\delta_{0}+\frac{\sqrt{\left(a^{+}-x\right)\left(x-a^{-}\right)}}{\rho 2\pi x}\mathbf{I}_{\left[a^{-},a^{+}\right]}(x)\,\mathrm{d}x
+    \end{equation}
 \end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+
+\section{Behavior of the Extremal Eigenvalues}
