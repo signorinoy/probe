@@ -90,7 +90,7 @@ Thus, the probability denisty function of $\widehat{\boldsymbol{\Sigma}}_{n}$ is
         p\left(\boldsymbol{\lambda}\right)=\widetilde{Q}_{m_{n}}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
         \label{eq:joint-pdf-eigenvalues-sigma_n}
     \end{equation}
-    where $\widetilde{Q}_{m_{n}}$ is the normalization factor.
+    where $\widetilde{Q}_{m_{n}}$ is the normalization constant.
 \end{theorem}
 \begin{proof}
     For convenience, we simplify $\widehat{\boldsymbol{\Sigma}}_{n}$  to be $\widehat{\boldsymbol{\Sigma}}$, and $\mathbf{X}_{n}$ to be $\mathbf{X}$.
@@ -231,23 +231,26 @@ where
 
 For the (\ref{eq:joint-pdf-eigenvalues-sigma_n}), which can be written as (\ref{eq:laguerre-orthogonal-ensemble}) form, that,
 \begin{equation*}
-    \beta=1,\quad\alpha=m_{n}-n-1,\quad K_{\alpha,\beta}=\widetilde{Q}_{m_{n}}^{-1}\exp\left(m_{n}\right).
+    p\left(\boldsymbol{\lambda}\right)\propto\exp\left[-\beta m_{n}E\left(\boldsymbol{\lambda}\right)\right]
+\end{equation*}
+where $\beta=1$ and
+\begin{equation*}
+    E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
 \end{equation*}
 
 \section{Average Denisty of  Eigenvalues}
+
+Before the proof, we will introduce some concepts.
+
 
 \begin{theorem}[Marchenko-Pastur Theorem]
     If
     \begin{equation*}
         \frac{n}{m_{n}}\rightarrow\rho\in(0,\infty),\quad\text{ as }\quad n\rightarrow\infty
     \end{equation*}
-    and the empirical spectral distribution of $\widehat{\boldsymbol{\Sigma}}_{n}$, is
-    \begin{equation*}
-        \mu=\frac{1}{n}\sum_{k=1}^{n}\delta_{\lambda_{k}}
-    \end{equation*}
-    where $\delta_{\lambda}$ stands for the Dirac mass at $\lambda\in\mathbb{R}$ and $0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty$ are eigenvalues of $\widehat{\boldsymbol{\Sigma}}_{n}$. Then $\mu$ tends weakly with probability 1 to the nonrandom measure, i.e.,
+    and the empirical spectral measure of $\widehat{\boldsymbol{\Sigma}}_{n}$ tends weakly with probability 1 to the nonrandom measure, i.e.,
     \begin{equation}
-        \frac{1}{m_{n}}\sum_{k=1}^{n}\delta_{\lambda_{k}}\stackrel{d}{\rightarrow}\mu_{\rho},\quad\text{ a.s. }
+        \frac{1}{m_{n}}\sum_{k=1}^{n}\delta_{\lambda_{k}(\widehat{\boldsymbol{\Sigma}})}\stackrel{d}{\rightarrow}\mu_{\rho},\quad\text{ a.s. }
     \end{equation}
     where $\mu_{\rho}$ is the Marchenko-Pastur distribution on $\left[a^{-},a^{+}\right]$ with $a^{\pm}=(1\pm\sqrt{\rho})^{2}$ given by
     \begin{equation}
@@ -256,7 +259,17 @@ For the (\ref{eq:joint-pdf-eigenvalues-sigma_n}), which can be written as (\ref{
 \end{theorem}
 
 \begin{proof}
-    
+    The normalization constant of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
+    \begin{equation*}
+        \begin{aligned}
+            \widetilde{Q}_{m_{n}}= & \int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda} \\
+            =                      & \int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[-m_{n}E\left(\boldsymbol{\lambda}\right)\right]\,\mathrm{d}\boldsymbol{\lambda}
+        \end{aligned}
+    \end{equation*}
+    where
+    \begin{equation*}
+        E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
+    \end{equation*}
 \end{proof}
 
 
