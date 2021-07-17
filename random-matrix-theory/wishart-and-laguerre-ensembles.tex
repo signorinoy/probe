@@ -243,6 +243,32 @@ where $\beta=1$ and
 
 Before the proof, we will introduce some concepts.
 
+\begin{definition}[Resolvent]
+    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
+    \begin{equation}
+        \mathbf{Q}_{\mathbf{M}}(z):=\left(\mathbf{M}-z\mathbf{I}_{n}\right)^{-1}
+    \end{equation}
+    where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
+\end{definition}
+
+\begin{definition}[Empirical Spectral Measure]
+    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the spectral measure or empirical spectral measure or empirical spectral distribution (e.s.d.) $\mu_{\mathbf{M}}$ of $\mathbf{M}$ is defined as the normalized counting measure of the eigenvalues $\lambda_{1}(\mathbf{M}),\ldots,\lambda_{n}(\mathbf{M})$ of $\mathbf{M}$, i.e.,
+    \begin{equation}
+        \mu_{\mathbf{M}}:=\frac{1}{n}\sum_{i=1}^{n}\delta_{\lambda_{i}(\mathbf{M})}
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    Since $\int\mu_{\mathbf{M}}\left(\mathrm{d}x\right)=1$, the spectral measure $\mu_{\mathbf{M}}$ of a matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$ (random or not) is a probability measure.
+\end{remark}
+
+\begin{definition}[Stieltjes Transform]
+    For a real probability measure $\mu$ with support $\operatorname{supp}(\mu)$, the Stieltjes transform $m_{\mu}(z)$ is defined as
+    \begin{equation}
+        m_{\mu}(z):=\int\frac{1}{t-z}\mu\left(\mathrm{d}t\right)
+    \end{equation}
+    where $z\in\mathbb{C}\backslash\operatorname{supp}(\mu)$.
+\end{definition}
 
 \begin{theorem}[Marchenko-Pastur Theorem]
     If
