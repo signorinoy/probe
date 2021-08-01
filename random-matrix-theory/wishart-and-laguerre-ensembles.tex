@@ -19,23 +19,23 @@ which is a $n\times n$ symmetric positive semidefinite random matrix, and
 \begin{equation*}
     E\left(\widehat{\boldsymbol{\Sigma}}\right)=\mathbb{E}\left(\mathbf{X}\otimes\mathbf{X}\right)=\mathrm{I}_{n}
 \end{equation*}
+and $\widehat{\boldsymbol{\Sigma}}$ is also called Wishart matrix.
 
 For convenience, we define the random matrix
 \begin{equation*}
     \mathbf{A}:=m_{n}\widehat{\boldsymbol{\Sigma}}=\mathbb{X}^{\prime}\mathbb{X}=\sum_{k=1}^{m_{n}}\mathbf{X}^{(k)}\otimes\mathbf{X}^{(k)}
 \end{equation*}
-which is also called Wishart matrix.
 
-\begin{theorem}
+\begin{note}
     The eigenvalues of $\mathbf{A}$ are squares of the singular values of $\mathbb{X}$, in particularly
-    \begin{equation}
+    \begin{equation*}
         \lambda_{\max}\left(\mathbf{A}\right)=s_{\max}\left(\mathbb{X}\right)^{2}=\max_{\|\mathbf{x}\|=1}\left\|\mathbb{X}\mathbf{x}\right\|^{2}=\left\|\mathbb{X}\right\|_{2}^{2}
-    \end{equation}
+    \end{equation*}
     if $m_{n}\geq n$, then
-    \begin{equation}
+    \begin{equation*}
         \lambda_{\min}\left(\mathbf{A}\right)=s_{\min}\left(\mathbb{X}\right)^{2}=\min_{\|\mathbf{x}\|=1}\left\|\mathbb{X}\mathbf{x}\right\|^{2}=\left\|\mathbb{X}^{-1}\right\|_{2}^{-2}
-    \end{equation}
-\end{theorem}
+    \end{equation*}
+\end{note}
 
 \section{Wishart Distribution}
 
@@ -54,21 +54,20 @@ Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.
     \begin{equation*}
         \mathbf{M}\sim W_{p}\left(\boldsymbol{\Sigma},n\right)
     \end{equation*}
+    If $p=\boldsymbol{\Sigma}=1$, then this distribution is a chi-squared distribution with $n$ degrees of freedom.
 \end{definition}
 
-If $n\geq p$, the probability density function of $\mathbf{M}$ is
-\begin{equation}
-    f\left(\mathbf{M}\right)=\frac{1}{2^{np/2}\left[\operatorname{det}\left(\boldsymbol{\Sigma}\right)\right]^{n/2}\Gamma_{p}\left(\frac{n}{2}\right)}\operatorname{det}\left(\mathbf{M}\right)^{(n-p-1)/2}\exp\left[-\frac{1}{2}\operatorname{tr}\left(\boldsymbol{\Sigma}^{-1}\mathbf{M}\right)\right]
-    \label{eq:pdf-wishart}
-\end{equation}
-with respect to Lebesque measure on the cone of symmetric positive definite matrices. Here, $\Gamma_{p}$ is the multivariate gamma function defined as
-\begin{equation*}
-    \Gamma_{p}\left(\frac{n}{2}\right)=\pi^{p(p-1)/4}\prod_{j=1}^{p}\Gamma\left(\frac{n}{2}-\frac{j-1}{2}\right)
-\end{equation*}
-
-\begin{remark}
-    If $p=\boldsymbol{\Sigma}=1$, then this distribution is a chi-squared distribution with $n$ degrees of freedom.
-\end{remark}
+\begin{note}
+    If $n\geq p$, the probability density function of $\mathbf{M}$ is
+    \begin{equation}
+        f\left(\mathbf{M}\right)=\frac{1}{2^{np/2}\left[\operatorname{det}\left(\boldsymbol{\Sigma}\right)\right]^{n/2}\Gamma_{p}\left(\frac{n}{2}\right)}\operatorname{det}\left(\mathbf{M}\right)^{(n-p-1)/2}\exp\left[-\frac{1}{2}\operatorname{tr}\left(\boldsymbol{\Sigma}^{-1}\mathbf{M}\right)\right]
+        \label{eq:pdf-wishart}
+    \end{equation}
+    with respect to Lebesque measure on the cone of symmetric positive definite matrices. Here, $\Gamma_{p}$ is the multivariate gamma function defined as
+    \begin{equation*}
+        \Gamma_{p}\left(\frac{n}{2}\right)=\pi^{p(p-1)/4}\prod_{j=1}^{p}\Gamma\left(\frac{n}{2}-\frac{j-1}{2}\right)
+    \end{equation*}
+\end{note}
 
 The probability denisty function of $\widehat{\boldsymbol{\Sigma}}$ can be derived from (\ref{eq:pdf-wishart}), since
 \begin{equation*}
@@ -79,20 +78,18 @@ thus,
     \frac{m_{n}^{-n(m_{n}-n-1)/2+1}}{2^{m_{n}n/2}\Gamma_{n}\left(\frac{m_{n}}{2}\right)}\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)^{(m_{n}-n-1)/2}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]
 \end{equation}
 
-\section{Joint Distribution of Eigenvalues}
+\section{Laguerre Ensemble}
 
-\begin{theorem}
-    The joint probability density function of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
-    \begin{equation}
-        p\left(\boldsymbol{\lambda}\right)=\widetilde{Q}_{m_{n}}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
-        \label{eq:jpdf-eigenvalues-sigma}
-    \end{equation}
-    where
-    \begin{equation*}
-        0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty
-    \end{equation*}
-    and $\widetilde{Q}_{m_{n}}$ is the normalization constant.
-\end{theorem}
+The joint probability density function of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
+\begin{equation}
+    p\left(\boldsymbol{\lambda}\right)=\widetilde{Q}_{m_{n}}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
+    \label{eq:jpdf-eigenvalues-sigma}
+\end{equation}
+where
+\begin{equation*}
+    0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty
+\end{equation*}
+and $\widetilde{Q}_{m_{n}}$ is the normalization constant.
 
 \begin{proof}
     Fisrt, we will give the characteristic function of $\widehat{\boldsymbol{\Sigma}}$, i.e.,
@@ -134,9 +131,9 @@ thus,
     Then, we will show that the characteristic function of (\ref{eq:jpdf-eigenvalues-sigma}) conincides with the above function. By the Wishart distribution, the probability denisty of the real symmetric and positive definite random matrix $\widehat{\boldsymbol{\Sigma}}$ is
     \begin{equation}
         \widetilde{Q}_{m_{n}}^{-1}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
-        \label{eq:wishart-distribution-sigma_n}
+        \label{eq:wishart-distribution-sigma}
     \end{equation}
-    where $\widetilde{Q}_{m_{n}}$ is the normalization constant. Then, the characteristic function of (\ref{eq:wishart-distribution-sigma_n}), i.e.,
+    where $\widetilde{Q}_{m_{n}}$ is the normalization constant. Then, the characteristic function of (\ref{eq:wishart-distribution-sigma}), i.e.,
     \begin{equation*}
         \widetilde{Q}_{m_{n}}^{-1}\int_{\mathcal{S}_{n}^{+}}\exp\left[i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
     \end{equation*}
@@ -152,7 +149,7 @@ thus,
     \end{equation*}
     where $H_{1}$ is the normalized Haar measure of $O(n)$, and the integration over $\boldsymbol{\lambda}$ and $O\in O(n)$ are independent.
 
-    Since the orthogonal invariance of the density of (\ref{eq:wishart-distribution-sigma_n}), we obtain (\ref{eq:jpdf-eigenvalues-sigma}), and the characteristic function is
+    Since the orthogonal invariance of the density of (\ref{eq:wishart-distribution-sigma}), we obtain (\ref{eq:jpdf-eigenvalues-sigma}), and the characteristic function is
     \begin{equation}
         Q_{n}^{-1}\int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[\sum_{k=1}^{n}\left(i p_{k}-\frac{m_{n}}{2}\right)\lambda_{k}\right]\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda}
         \label{eq:characteristic-function-wishart}
@@ -191,7 +188,7 @@ thus,
     \begin{equation*}
         \prod_{k=1}^{n}\left(1+\frac{2p_{k}^{\prime}}{m_{n}}\right)^{-m_{n}/2}\widetilde{Q}_{n}^{-1}\int_{\mathcal{S}_{n}^{+}}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
     \end{equation*}
-    The integral here is equal to $\widetilde{Q}_{n}$, the normalization constant of the probability measure (\ref{eq:wishart-distribution-sigma_n}).
+    The integral here is equal to $\widetilde{Q}_{n}$, the normalization constant of the probability measure (\ref{eq:wishart-distribution-sigma}).
 
     If we replace $\left\{i p_{k}^{\prime}\right\}_{k=1}^{n}$ back by $\left\{p_{k}\right\}_{k=1}^{n}$, then the above expression is
     \begin{equation*}
@@ -199,12 +196,11 @@ thus,
     \end{equation*}
     which coincides with (\ref{eq:characteristic-function-wishart-result-1}).
 
-    Thus the probability law of the Wishart matrices of $\boldsymbol{\Sigma}_n$ given by (\ref{eq:wishart-distribution-sigma_n}) implies that the corresponding joint probability density of eigenvalues is given by (\ref{eq:jpdf-eigenvalues-sigma}) for $\boldsymbol{\Sigma}_n$.
+    Thus the probability law of the Wishart matrices of $\boldsymbol{\Sigma}$ given by (\ref{eq:wishart-distribution-sigma}) implies that the corresponding joint probability density of eigenvalues is given by (\ref{eq:jpdf-eigenvalues-sigma}) for $\boldsymbol{\Sigma}$.
 \end{proof}
 
-The theorem above can be generalized to a larger form, that,
 \begin{definition}[Laguerre Orthogonal Ensemble]
-    For the $n\times n$ Laguerre orthogonal ensembles of statistics, the joint probability density function of eigenvalues is
+    For the $n\times n$ Laguerre orthogonal ensembles\footnote{Ensemble is often used in physics and the physics-influenced literature. In probability theory, the term \textbf{probability space} is more prevalent.} of statistics, the joint probability density function of eigenvalues is
     for arbitrary parameter $\beta>0$ and $\alpha>-\frac{2}{\beta}$, is
     \begin{equation}
         p\left(\boldsymbol{\lambda}\right)=K_{\alpha,\beta}\exp\left(-\frac{\beta}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n} \lambda_{k}^{\frac{\alpha\beta}{2}}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|^{\beta}
@@ -216,10 +212,6 @@ The theorem above can be generalized to a larger form, that,
     \end{equation*}
     and $K_{n,m}$ are normalization constant.
 \end{definition}
-
-\begin{remark}
-    Ensemble is often used in physics and the physics-influenced literature. In probability theory, the term \textbf{probability space} is more prevalent.
-\end{remark}
 
 And Equation (\ref{eq:laguerre-orthogonal-ensemble}) can be written in the standard Boltzmann-Gibbs form, that,
 \begin{equation*}
@@ -239,17 +231,9 @@ where $\beta=1$ and
     E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
 \end{equation*}
 
-\section{Average Denisty of  Eigenvalues}
+\section{Marchenko-Pastur Theorem}
 
-Before the proof, we will introduce some concepts.
-
-\begin{definition}[Resolvent]
-    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
-    \begin{equation}
-        \mathbf{Q}_{\mathbf{M}}(z):=\left(\mathbf{M}-z\mathbf{I}_{n}\right)^{-1}
-    \end{equation}
-    where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
-\end{definition}
+In this section, we will invastiage the empirical spectral measure of $\boldsymbol{\Sigma}$, which converges to a nonrandom distribution --- Marchenko-Pastur distribution. Before further proof, we will introduce some basic concepts and tools.
 
 \begin{definition}[Empirical Spectral Measure]
     For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the spectral measure or empirical spectral measure or empirical spectral distribution (e.s.d.) $\mu_{\mathbf{M}}$ of $\mathbf{M}$ is defined as the normalized counting measure of the eigenvalues $\lambda_{1}(\mathbf{M}),\ldots,\lambda_{n}(\mathbf{M})$ of $\mathbf{M}$, i.e.,
@@ -262,6 +246,14 @@ Before the proof, we will introduce some concepts.
     Since $\int\mu_{\mathbf{M}}\left(\mathrm{d}x\right)=1$, the spectral measure $\mu_{\mathbf{M}}$ of a matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$ (random or not) is a probability measure.
 \end{remark}
 
+\begin{definition}[Resolvent]
+    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
+    \begin{equation}
+        \mathbf{Q}_{\mathbf{M}}(z):=\left(\mathbf{M}-z\mathbf{I}_{n}\right)^{-1}
+    \end{equation}
+    where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
+\end{definition}
+
 \begin{definition}[Stieltjes Transform]
     For a real probability measure $\mu$ with support $\operatorname{supp}(\mu)$, the Stieltjes transform $m_{\mu}(z)$ is defined as
     \begin{equation}
@@ -270,6 +262,48 @@ Before the proof, we will introduce some concepts.
     where $z\in\mathbb{C}\backslash\operatorname{supp}(\mu)$.
 \end{definition}
 
+As a transform, $m_{\mu}$ has an inverse formula to recover $\mu$, as per the following result.
+
+\begin{theorem}[Inverse Stieltjes Transform]
+    For $a,b$ continuity points of the probability measure $\mu$, we have
+    \begin{equation}
+        \mu\left([a,b]\right)=\frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+iy)\right]\,\mathrm{d}x
+    \end{equation}
+    Specially, if $\mu$ has a density $f$ at $x$, then
+    \begin{equation}
+        f(x)=\frac{1}{\pi}\lim_{y\downarrow 0}\operatorname{Im}\left[m_{\mu}(x+iy)\right]
+    \end{equation}
+    And, if $\mu$ has an isolated mass at $x$, then
+    \begin{equation}
+        \mu(\{x\})=\lim_{y \downarrow 0}-iy m_{\mu}(x+iy)
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Since
+    \begin{equation*}
+        \left|\frac{y}{(t-x)^{2}+y^{2}}\right|\leq\frac{1}{y},\quad\forall y>0
+    \end{equation*}
+    by Fubini's theorem,
+    \begin{equation*}
+        \begin{aligned}
+            \frac{1}{\pi}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+iy)\right]\,\mathrm{d}x= & \frac{1}{\pi}\int_{a}^{b}\left[\int\frac{y}{(t-x)^{2}+y^{2}}\mu(\mathrm{d}t)\right]\,\mathrm{d}x              \\
+            =                                                                                  & \frac{1}{\pi}\int\left[\int_{a}^{b}\frac{y}{(t-x)^{2}+y^{2}}\,\mathrm{d}x\right]\mu(\mathrm{d}t)              \\
+            =                                                                                  & \frac{1}{\pi} \int\left[\arctan \left(\frac{b-t}{y}\right)-\arctan \left(\frac{a-t}{y}\right)\right] \mu(d t)
+        \end{aligned}
+    \end{equation*}
+
+    As $y\downarrow 0$, the difference in brackets converges either to $\pm \pi$ or 0 depending on the relative position of $a, b$ and $t$.
+
+    By the dominated convergence theorem, the limit, as $y \downarrow 0$, is $\int 1_{[a, b]} \mu(d t)=\mu([a, b])$.
+
+    When $\mu$ has an isolated mass at $x$, say $\mu(d t)=a \delta_{x}(t)$, we similarly have, again by dominated convergence (using in particular $\left.|y(t-x)| \leq \frac{1}{2}\left(y^{2}+(t-x)^{2}\right)\right)$,
+    $$
+        \lim _{y \downarrow 0}-iy m(x+iy)=-\lim _{y \downarrow 0} \int \frac{iy(t-x) \mu(d t)}{(t-x)^{2}+y^{2}}+\lim _{y \downarrow 0} \int \frac{y^{2} \mu(d t)}{(t-x)^{2}+y^{2}}=a .
+    $$
+\end{proof}
+
+With the above tools, we can prove the Marchenko-Pastur Theorem.
 \begin{theorem}[Marchenko-Pastur Theorem]
     If
     \begin{equation*}
@@ -298,6 +332,3 @@ Before the proof, we will introduce some concepts.
         E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
     \end{equation*}
 \end{proof}
-
-
-\section{Behavior of the Extremal Eigenvalues}
