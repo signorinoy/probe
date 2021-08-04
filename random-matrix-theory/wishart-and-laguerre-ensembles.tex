@@ -37,7 +37,7 @@ For convenience, we define the random matrix
     \end{equation*}
 \end{note}
 
-\section{Wishart Distribution}
+\section{Laguerre Orthogonal Ensemble}
 
 Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}$ can be derived from the Wishart distribution.
 
@@ -78,18 +78,18 @@ thus,
     \frac{m_{n}^{-n(m_{n}-n-1)/2+1}}{2^{m_{n}n/2}\Gamma_{n}\left(\frac{m_{n}}{2}\right)}\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)^{(m_{n}-n-1)/2}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]
 \end{equation}
 
-\section{Laguerre Ensemble}
-
-The joint probability density function of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
-\begin{equation}
-    p\left(\boldsymbol{\lambda}\right)=\widetilde{Q}_{m_{n}}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
-    \label{eq:jpdf-eigenvalues-sigma}
-\end{equation}
-where
-\begin{equation*}
-    0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty
-\end{equation*}
-and $\widetilde{Q}_{m_{n}}$ is the normalization constant.
+\begin{theorem}
+    The joint probability density function of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
+    \begin{equation}
+        p\left(\boldsymbol{\lambda}\right)=\widetilde{Q}_{m_{n}}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
+        \label{eq:jpdf-eigenvalues-sigma}
+    \end{equation}
+    where
+    \begin{equation*}
+        0\leq\lambda_{1}\leq\ldots\leq\lambda_{n}<\infty
+    \end{equation*}
+    and $\widetilde{Q}_{m_{n}}$ is the normalization constant.
+\end{theorem}
 
 \begin{proof}
     Fisrt, we will give the characteristic function of $\widehat{\boldsymbol{\Sigma}}$, i.e.,
@@ -235,6 +235,14 @@ where $\beta=1$ and
 
 In this section, we will invastiage the empirical spectral measure of $\boldsymbol{\Sigma}$, which converges to a nonrandom distribution --- Marchenko-Pastur distribution. Before further proof, we will introduce some basic concepts and tools.
 
+\begin{definition}[Resolvent]
+    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
+    \begin{equation}
+        \mathbf{Q}_{\mathbf{M}}(z):=\left(\mathbf{M}-z\mathbf{I}_{n}\right)^{-1}
+    \end{equation}
+    where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
+\end{definition}
+
 \begin{definition}[Empirical Spectral Measure]
     For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the spectral measure or empirical spectral measure or empirical spectral distribution (e.s.d.) $\mu_{\mathbf{M}}$ of $\mathbf{M}$ is defined as the normalized counting measure of the eigenvalues $\lambda_{1}(\mathbf{M}),\ldots,\lambda_{n}(\mathbf{M})$ of $\mathbf{M}$, i.e.,
     \begin{equation}
@@ -246,14 +254,6 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
     Since $\int\mu_{\mathbf{M}}\left(\mathrm{d}x\right)=1$, the spectral measure $\mu_{\mathbf{M}}$ of a matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$ (random or not) is a probability measure.
 \end{remark}
 
-\begin{definition}[Resolvent]
-    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
-    \begin{equation}
-        \mathbf{Q}_{\mathbf{M}}(z):=\left(\mathbf{M}-z\mathbf{I}_{n}\right)^{-1}
-    \end{equation}
-    where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
-\end{definition}
-
 \begin{definition}[Stieltjes Transform]
     For a real probability measure $\mu$ with support $\operatorname{supp}(\mu)$, the Stieltjes transform $m_{\mu}(z)$ is defined as
     \begin{equation}
@@ -262,48 +262,75 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
     where $z\in\mathbb{C}\backslash\operatorname{supp}(\mu)$.
 \end{definition}
 
+\begin{property}
+    The Stieltjes transform is
+    \begin{enumerate}
+        \item complex analytic on $\mathbb{C}\backslash\operatorname{supp}(\mu)$.
+        \item
+    \end{enumerate}
+\end{property}
+
+\begin{note}
+    The important relation between the empirical spectral measure $\mu_{\mathbf{M}}$ of $\mathbf{M}\in\mathbb{R}^{n\times n}$, the Stieltjes transform $m_{\mu_{\mathbf{M}}}(z)$ and the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ lies in the fact that
+    \begin{equation*}
+        m_{\mu_{\mathbf{M}}}(z)=\frac{1}{n}\sum_{i=1}^{n}\int\frac{\delta_{\lambda_{i}(\mathbf{M})}(t)}{t-z}=\frac{1}{n}\sum_{i=1}^{n}\frac{1}{\lambda_{i}(\mathbf{M})-z}=\frac{1}{n}\operatorname{tr}\mathbf{Q}_{\mathbf{M}}(z)
+    \end{equation*}
+\end{note}
+
 As a transform, $m_{\mu}$ has an inverse formula to recover $\mu$, as per the following result.
 
 \begin{theorem}[Inverse Stieltjes Transform]
     For $a,b$ continuity points of the probability measure $\mu$, we have
     \begin{equation}
-        \mu\left([a,b]\right)=\frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+iy)\right]\,\mathrm{d}x
+        \mu\left([a,b]\right)=\frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]\,\mathrm{d}x
     \end{equation}
     Specially, if $\mu$ has a density $f$ at $x$, then
     \begin{equation}
-        f(x)=\frac{1}{\pi}\lim_{y\downarrow 0}\operatorname{Im}\left[m_{\mu}(x+iy)\right]
+        f(x)=\frac{1}{\pi}\lim_{y\downarrow 0}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]
     \end{equation}
     And, if $\mu$ has an isolated mass at $x$, then
     \begin{equation}
-        \mu(\{x\})=\lim_{y \downarrow 0}-iy m_{\mu}(x+iy)
+        \mu(\{x\})=\lim_{y \downarrow 0}-\mathrm{i}y m_{\mu}(x+\mathrm{i}y)
     \end{equation}
 \end{theorem}
 
 \begin{proof}
+    \begin{equation*}
+        \frac{1}{\pi}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]\,\mathrm{d}x=\frac{1}{\pi}\int_{a}^{b}\left[\int\frac{y}{(t-x)^{2}+y^{2}}\mu(\mathrm{d}t)\right]\,\mathrm{d}x
+    \end{equation*}
+    By Fubini's theorem,
+    \begin{equation*}
+        \begin{aligned}
+            = & \frac{1}{\pi}\int\left[\int_{a}^{b}\frac{y}{(t-x)^{2}+y^{2}}\,\mathrm{d}x\right]\mu(\mathrm{d}t)                  \\
+            = & \frac{1}{\pi}\int\left[\arctan\left(\frac{b-t}{y}\right)-\arctan\left(\frac{a-t}{y}\right)\right]\mu(\mathrm{d}t)
+        \end{aligned}
+    \end{equation*}
+
     Since
     \begin{equation*}
         \left|\frac{y}{(t-x)^{2}+y^{2}}\right|\leq\frac{1}{y},\quad\forall y>0
     \end{equation*}
-    by Fubini's theorem,
+    by the dominated convergence theorem,
     \begin{equation*}
-        \begin{aligned}
-            \frac{1}{\pi}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+iy)\right]\,\mathrm{d}x= & \frac{1}{\pi}\int_{a}^{b}\left[\int\frac{y}{(t-x)^{2}+y^{2}}\mu(\mathrm{d}t)\right]\,\mathrm{d}x              \\
-            =                                                                                  & \frac{1}{\pi}\int\left[\int_{a}^{b}\frac{y}{(t-x)^{2}+y^{2}}\,\mathrm{d}x\right]\mu(\mathrm{d}t)              \\
-            =                                                                                  & \frac{1}{\pi} \int\left[\arctan \left(\frac{b-t}{y}\right)-\arctan \left(\frac{a-t}{y}\right)\right] \mu(d t)
-        \end{aligned}
+        \frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]\,\mathrm{d}x=\frac{1}{\pi}\int\lim_{y\downarrow 0}\left[\arctan\left(\frac{b-t}{y}\right)-\arctan\left(\frac{a-t}{y}\right)\right]\mu(\mathrm{d}t)
+    \end{equation*}
+    as $y\downarrow 0$, the difference in brackets converges either to $\pm \pi$ or 0 depending on the relative position of $a,b$ and $t$, thus
+    \begin{equation*}
+        =\int\mathrm{1}_{[a,b]}\mu(\mathrm{d}t)=\mu\left([a,b]\right)
     \end{equation*}
 
-    As $y\downarrow 0$, the difference in brackets converges either to $\pm \pi$ or 0 depending on the relative position of $a, b$ and $t$.
-
-    By the dominated convergence theorem, the limit, as $y \downarrow 0$, is $\int 1_{[a, b]} \mu(d t)=\mu([a, b])$.
-
-    When $\mu$ has an isolated mass at $x$, say $\mu(d t)=a \delta_{x}(t)$, we similarly have, again by dominated convergence (using in particular $\left.|y(t-x)| \leq \frac{1}{2}\left(y^{2}+(t-x)^{2}\right)\right)$,
-    $$
-        \lim _{y \downarrow 0}-iy m(x+iy)=-\lim _{y \downarrow 0} \int \frac{iy(t-x) \mu(d t)}{(t-x)^{2}+y^{2}}+\lim _{y \downarrow 0} \int \frac{y^{2} \mu(d t)}{(t-x)^{2}+y^{2}}=a .
-    $$
+    When $\mu$ has an isolated mass at $x$, i.e., $\mu(d t)=a \delta_{x}(t)$, similarly, since
+    \begin{equation*}
+        |y(t-x)|\leq\frac{1}{2}\left(y^{2}+(t-x)^{2}\right)
+    \end{equation*}
+    by dominated convergence,
+    \begin{equation*}
+        \lim_{y\downarrow 0}-\mathrm{i}ym_{\mu}(x+\mathrm{i}y)=-\lim_{y\downarrow 0}\int\frac{\mathrm{i}y(t-x)\mu(\mathrm{d}t)}{(t-x)^{2}+y^{2}}+\lim_{y\downarrow 0}\int\frac{y^{2}\mu(\mathrm{d}t)}{(t-x)^{2}+y^{2}}=a
+    \end{equation*}
 \end{proof}
 
 With the above tools, we can prove the Marchenko-Pastur Theorem.
+
 \begin{theorem}[Marchenko-Pastur Theorem]
     If
     \begin{equation*}
@@ -332,3 +359,5 @@ With the above tools, we can prove the Marchenko-Pastur Theorem.
         E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
     \end{equation*}
 \end{proof}
+
+\section{Extremal Eigenvalues of}
