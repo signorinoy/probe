@@ -2,7 +2,7 @@
 
 Suppose $\left\{\mathbf{X}\right\}$ be a sequence of random vectors defined in $\mathbb{R}^{n}$, such that
 \begin{equation*}
-    E\left(\mathbf{X}\right)=0,\quad E\left(\mathbf{X}\otimes\mathbf{X}\right)=\mathrm{I}_{n}
+    E\left(\mathbf{X}\right)=0,\quad E\left(\mathbf{X}\otimes\mathbf{X}\right)=\mathbf{I}_{n}
 \end{equation*}
 and let $\left(X_{i}\right)_{1\leq i\leq n}$ be the components of the random vector $\mathbf{X}$.
 
@@ -11,19 +11,19 @@ Suppose $\left\{m_{n}\right\}$ be a sequence defined in $\mathbb{N}$ such that
     0<\underline{\rho}:=\liminf_{n\rightarrow\infty}\frac{n}{m_{n}}\leq\limsup_{n\rightarrow\infty}\frac{n}{m_{n}}=:\bar{\rho}<\infty
 \end{equation*}
 
-Let $\mathbf{X}^{(1)},\ldots,\mathbf{X}^{\left(m_{n}\right)}$ be i.i.d. copies of $\mathbf{X}$, and $\mathbb{X}$ be the $m_{n}\times n$ random matrix with i.i.d. rows $\mathbf{X}^{(1)},\ldots,\mathbf{X}^{\left(m_{n}\right)}$, and their empirical covariance matrix is
+Let $\mathbf{X}_{1},\ldots,\mathbf{X}_{m_{n}}$ be i.i.d. copies of $\mathbf{X}$, and $\mathbb{X}$ be the $m_{n}\times n$ random matrix with i.i.d. rows $\mathbf{X}_{1},\ldots,\mathbf{X}_{m_{n}}$, and their empirical covariance matrix is
 \begin{equation*}
-    \widehat{\boldsymbol{\Sigma}}:=\frac{1}{m_{n}}\sum_{k=1}^{m_{n}}\mathbf{X}^{(k)}\otimes \mathbf{X}^{(k)}=\frac{1}{m_{n}}\mathbb{X}^{\prime}\mathbb{X}
+    \widehat{\boldsymbol{\Sigma}}:=\frac{1}{m_{n}}\sum_{i=1}^{m_{n}}\mathbf{X}_{i}\otimes \mathbf{X}_{i}=\frac{1}{m_{n}}\mathbb{X}^{\prime}\mathbb{X}
 \end{equation*}
 which is a $n\times n$ symmetric positive semidefinite random matrix, and
 \begin{equation*}
-    E\left(\widehat{\boldsymbol{\Sigma}}\right)=\mathbb{E}\left(\mathbf{X}\otimes\mathbf{X}\right)=\mathrm{I}_{n}
+    E\left(\widehat{\boldsymbol{\Sigma}}\right)=\mathbb{E}\left(\mathbf{X}\otimes\mathbf{X}\right)=\mathbf{I}_{n}
 \end{equation*}
 and $\widehat{\boldsymbol{\Sigma}}$ is also called Wishart matrix.
 
 For convenience, we define the random matrix
 \begin{equation*}
-    \mathbf{A}:=m_{n}\widehat{\boldsymbol{\Sigma}}=\mathbb{X}^{\prime}\mathbb{X}=\sum_{k=1}^{m_{n}}\mathbf{X}^{(k)}\otimes\mathbf{X}^{(k)}
+    \mathbf{A}:=m_{n}\widehat{\boldsymbol{\Sigma}}=\mathbb{X}^{\prime}\mathbb{X}=\sum_{i=1}^{m_{n}}\mathbf{X}_{i}\otimes\mathbf{X}_{i}
 \end{equation*}
 
 \begin{note}
@@ -71,7 +71,7 @@ Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.
 
 The probability denisty function of $\widehat{\boldsymbol{\Sigma}}$ can be derived from (\ref{eq:pdf-wishart}), since
 \begin{equation*}
-    \mathbf{A}\sim W_{n}\left(\mathrm{I}_{n},m_{n}\right),\quad\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-n}\operatorname{det}\left(\mathbf{A}\right),\quad\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-1}\operatorname{tr}\left(\mathbf{A}\right)
+    \mathbf{A}\sim W_{n}\left(\mathbf{I}_{n},m_{n}\right),\quad\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-n}\operatorname{det}\left(\mathbf{A}\right),\quad\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-1}\operatorname{tr}\left(\mathbf{A}\right)
 \end{equation*}
 thus,
 \begin{equation}
@@ -94,7 +94,7 @@ thus,
 \begin{proof}
     Fisrt, we will give the characteristic function of $\widehat{\boldsymbol{\Sigma}}$, i.e.,
     \begin{equation*}
-        \varphi_{\widehat{\boldsymbol{\Sigma}}}\left(\mathbf{P}\right)=E\left[\exp\left(i\sum_{1\leq i\leq j\leq n}P_{ij}\widehat{\boldsymbol{\Sigma}}_{ji}\right)\right]=E\left[\exp\left(i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\right]
+        \varphi_{\widehat{\boldsymbol{\Sigma}}}\left(\mathbf{P}\right)=E\left[\exp\left(\imath\sum_{1\leq i\leq j\leq n}P_{ij}\widehat{\boldsymbol{\Sigma}}_{ji}\right)\right]=E\left[\exp\left(\imath\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\right]
     \end{equation*}
     where $\left\{P_{ij}\right\}_{1\leq i\leq j\leq n}\in\mathbb{R}^{(n+1)n/2}$ and $\mathbf{P}$ is a real symmetric matrix, that
     \begin{equation*}
@@ -103,13 +103,13 @@ thus,
     Thus, we have
     \begin{equation*}
         \begin{aligned}
-            = & \int_{\mathbb{R}^{m_{n}\times n}}\exp\left(i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\cdot(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\left(X_{i}^{(k)}\right)^{2}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}X_{i}^{(k)} \\
-            = & \int_{\mathbb{R}^{m_{n}\times n}}(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\sum_{j=1}^{n}\mathbf{Q}_{ij}X_{i}^{(k)}X_{j}^{(k)}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}X_{i}^{(k)}                                                                      \\
+            = & \int_{\mathbb{R}^{m_{n}\times n}}\exp\left(\imath\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\cdot(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\left(X_{i}^{(k)}\right)^{2}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}X_{i}^{(k)} \\
+            = & \int_{\mathbb{R}^{m_{n}\times n}}(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\sum_{j=1}^{n}\mathbf{Q}_{ij}X_{i}^{(k)}X_{j}^{(k)}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}X_{i}^{(k)}
         \end{aligned}
     \end{equation*}
     where
     \begin{equation*}
-        \mathbf{Q}=1-\frac{2i}{m_{n}}\mathbf{P}
+        \mathbf{Q}=\mathbf{I}_{n}-\frac{2\imath}{m_{n}}\mathbf{P}
     \end{equation*}
 
     Since $\left(X_{i}^{(k)}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians,
@@ -123,7 +123,7 @@ thus,
     \end{equation*}
     thus,
     \begin{equation}
-        \left[\operatorname{det}\left(\mathbf{Q}\right)\right]^{-m_{n}/2}=\left[\operatorname{det}\left(1-\frac{2i}{m_{n}}\mathbf{P}\right)\right]^{-m_{n}/2}=\prod_{k=1}^{n}\left(1-\frac{2i}{m_n}p_{k}\right)^{-m_{n}/2}
+        \left[\operatorname{det}\left(\mathbf{Q}\right)\right]^{-m_{n}/2}=\left[\operatorname{det}\left(\mathbf{I}_{n}-\frac{2\imath}{m_{n}}\mathbf{P}\right)\right]^{-m_{n}/2}=\prod_{k=1}^{n}\left(1-\frac{2\imath}{m_n}p_{k}\right)^{-m_{n}/2}
         \label{eq:characteristic-function-wishart-result-1}
     \end{equation}
     where $\{p_{k}\}_{k=1}^{n}$ are the eigenvalues of $\mathbf{P}$.
@@ -135,7 +135,7 @@ thus,
     \end{equation}
     where $\widetilde{Q}_{m_{n}}$ is the normalization constant. Then, the characteristic function of (\ref{eq:wishart-distribution-sigma}), i.e.,
     \begin{equation*}
-        \widetilde{Q}_{m_{n}}^{-1}\int_{\mathcal{S}_{n}^{+}}\exp\left[i\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
+        \widetilde{Q}_{m_{n}}^{-1}\int_{\mathcal{S}_{n}^{+}}\exp\left[\imath\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]\left[\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]^{(m_{n}-n-1)/2}\,\mathrm{d}\widehat{\boldsymbol{\Sigma}}
     \end{equation*}
     where the integration is over the set $\mathcal{S}_{n}^{+}$ of $n\times n$ real symmetric and positive definite matrices.
 
@@ -151,17 +151,17 @@ thus,
 
     Since the orthogonal invariance of the density of (\ref{eq:wishart-distribution-sigma}), we obtain (\ref{eq:jpdf-eigenvalues-sigma}), and the characteristic function is
     \begin{equation}
-        Q_{n}^{-1}\int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[\sum_{k=1}^{n}\left(i p_{k}-\frac{m_{n}}{2}\right)\lambda_{k}\right]\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda}
+        Q_{m_{n}}^{-1}\int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[\sum_{k=1}^{n}\left(\imath p_{k}-\frac{m_{n}}{2}\right)\lambda_{k}\right]\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda}
         \label{eq:characteristic-function-wishart}
     \end{equation}
     where $Q_{m_{n}}=m_{n}!\widetilde{Q}_{m_{n}}$.
 
     If we viewed (\ref{eq:characteristic-function-wishart-result-1}) and (\ref{eq:characteristic-function-wishart}) as the function of $\{p_{k}\}_{k=1}^{n}\in\mathbb{R}^{n}$, then they can be \textbf{analytic continuation} to the domain
     \begin{equation*}
-        \left\{p_{k}+i p_{k}^{\prime},p_{k}^{\prime}\geq 0\right\}_{k=1}^{n}
+        \left\{p_{k}+\imath p_{k}^{\prime},p_{k}^{\prime}\geq 0\right\}_{k=1}^{n}
     \end{equation*}
 
-    If we replace $\left\{p_{k}\right\}_{k=1}^{n}$ by $\left\{ip_{k}^{\prime},p_{k}^{\prime}\geq 0\right\}_{k=1}^{n}$ on (\ref{eq:characteristic-function-wishart-result-1}), since this is a set of uniqueness of both (\ref{eq:characteristic-function-wishart-result-1}) and (\ref{eq:characteristic-function-wishart}) analytic functions, we have
+    If we replace $\left\{p_{k}\right\}_{k=1}^{n}$ by $\left\{\imath p_{k}^{\prime},p_{k}^{\prime}\geq 0\right\}_{k=1}^{n}$ on (\ref{eq:characteristic-function-wishart-result-1}), since this is a set of uniqueness of both (\ref{eq:characteristic-function-wishart-result-1}) and (\ref{eq:characteristic-function-wishart}) analytic functions, we have
     \begin{equation*}
         Q_{m_{n}}^{-1}\int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[-\frac{m_{n}}{2}\sum_{k=1}^{n}q_{k}\lambda_{k}\right]\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda}
     \end{equation*}
@@ -190,9 +190,9 @@ thus,
     \end{equation*}
     The integral here is equal to $\widetilde{Q}_{n}$, the normalization constant of the probability measure (\ref{eq:wishart-distribution-sigma}).
 
-    If we replace $\left\{i p_{k}^{\prime}\right\}_{k=1}^{n}$ back by $\left\{p_{k}\right\}_{k=1}^{n}$, then the above expression is
+    If we replace $\left\{\imath p_{k}^{\prime}\right\}_{k=1}^{n}$ back by $\left\{p_{k}\right\}_{k=1}^{n}$, then the above expression is
     \begin{equation*}
-        \prod_{k=1}^{n}\left(1-\frac{2i}{m_n}p_{k}\right)^{-m_{n}/2}
+        \prod_{k=1}^{n}\left(1-\frac{2\imath}{m_n}p_{k}\right)^{-m_{n}/2}
     \end{equation*}
     which coincides with (\ref{eq:characteristic-function-wishart-result-1}).
 
@@ -200,7 +200,7 @@ thus,
 \end{proof}
 
 \begin{definition}[Laguerre Orthogonal Ensemble]
-    For the $n\times n$ Laguerre orthogonal ensembles\footnote{Ensemble is often used in physics and the physics-influenced literature. In probability theory, the term \textbf{probability space} is more prevalent.} of statistics, the joint probability density function of eigenvalues is
+    For the $n\times n$ Laguerre orthogonal ensembles of statistics, the joint probability density function of eigenvalues is
     for arbitrary parameter $\beta>0$ and $\alpha>-\frac{2}{\beta}$, is
     \begin{equation}
         p\left(\boldsymbol{\lambda}\right)=K_{\alpha,\beta}\exp\left(-\frac{\beta}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n} \lambda_{k}^{\frac{\alpha\beta}{2}}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|^{\beta}
@@ -231,17 +231,11 @@ where $\beta=1$ and
     E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
 \end{equation*}
 
-\section{Marchenko-Pastur Theorem}
+\section{Marčenko-Pastur Theorem}
 
-In this section, we will invastiage the empirical spectral measure of $\boldsymbol{\Sigma}$, which converges to a nonrandom distribution --- Marchenko-Pastur distribution. Before further proof, we will introduce some basic concepts and tools.
+In this section, we will invastiage the empirical spectral measure of $\boldsymbol{\Sigma}$, which converges to a nonrandom distribution --- Marčenko-Pastur distribution. Before further proof, we will introduce some basic concepts and tools.
 
-\begin{definition}[Resolvent]
-    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
-    \begin{equation}
-        \mathbf{Q}_{\mathbf{M}}(z):=\left(\mathbf{M}-z\mathbf{I}_{n}\right)^{-1}
-    \end{equation}
-    where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
-\end{definition}
+\subsection*{Empirical Spectral Measure and Resolvent}
 
 \begin{definition}[Empirical Spectral Measure]
     For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the spectral measure or empirical spectral measure or empirical spectral distribution (e.s.d.) $\mu_{\mathbf{M}}$ of $\mathbf{M}$ is defined as the normalized counting measure of the eigenvalues $\lambda_{1}(\mathbf{M}),\ldots,\lambda_{n}(\mathbf{M})$ of $\mathbf{M}$, i.e.,
@@ -254,6 +248,16 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
     Since $\int\mu_{\mathbf{M}}\left(\mathrm{d}x\right)=1$, the spectral measure $\mu_{\mathbf{M}}$ of a matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$ (random or not) is a probability measure.
 \end{remark}
 
+\begin{definition}[Resolvent]
+    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
+    \begin{equation}
+        \mathbf{Q}_{\mathbf{M}}(z):=\left(\mathbf{M}-z\mathbf{I}_{n}\right)^{-1}
+    \end{equation}
+    where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
+\end{definition}
+
+\subsection*{Stieltjes Transform}
+
 \begin{definition}[Stieltjes Transform]
     For a real probability measure $\mu$ with support $\operatorname{supp}(\mu)$, the Stieltjes transform $m_{\mu}(z)$ is defined as
     \begin{equation}
@@ -263,40 +267,46 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
 \end{definition}
 
 \begin{property}
-    The Stieltjes transform is
+    The Stieltjes transform $m_{\mu}$ has numerous interesting properties:
     \begin{enumerate}
-        \item complex analytic on $\mathbb{C}\backslash\operatorname{supp}(\mu)$.
-        \item
+        \item it is complex analytic on its domain of definition $\mathbb{C} \backslash \operatorname{supp}(\mu)$.
+        \item it is bounded $\left|m_{\mu}(z)\right|\leq 1/\operatorname{dist}(z,\operatorname{supp}(\mu))$.
+        \item it satisfies $\Im[z]>0 \Rightarrow \Im[m(z)]>0$.
+        \item it is an increasing function on all connected components of its restriction to $\mathbb{R}\backslash\operatorname{supp}(\mu)$. % (since $m_{\mu}^{\prime}(x)=\int(t-x)^{-2} \mu(d t)>0$)
+        \item if $\operatorname{supp}(\mu)$ is bounded, $\lim_{x\rightarrow\pm\infty}m_{\mu}(x)=0$.
     \end{enumerate}
 \end{property}
 
-\begin{note}
-    The important relation between the empirical spectral measure $\mu_{\mathbf{M}}$ of $\mathbf{M}\in\mathbb{R}^{n\times n}$, the Stieltjes transform $m_{\mu_{\mathbf{M}}}(z)$ and the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ lies in the fact that
+\begin{remark}
+    Most of the results involve Stieltjes transforms $m_{\mu}(z)$ of a real probability measure with support $\operatorname{supp}(\mu) \subset \mathbb{R} .$ Since Stieltjes transforms are such that $m_{\mu}(z)>0$ for $z<\inf \operatorname{supp}(\mu), m_{\mu}(z)<0$ for $z>\sup \operatorname{supp}(\mu)$ and $\Im[z] \Im\left[m_{\mu}(z)\right]>0$ if $z \in \mathbb{C} \backslash \mathbb{R}$, it will be convenient in the following to consider the set of scalar pairs
     \begin{equation*}
-        m_{\mu_{\mathbf{M}}}(z)=\frac{1}{n}\sum_{i=1}^{n}\int\frac{\delta_{\lambda_{i}(\mathbf{M})}(t)}{t-z}=\frac{1}{n}\sum_{i=1}^{n}\frac{1}{\lambda_{i}(\mathbf{M})-z}=\frac{1}{n}\operatorname{tr}\mathbf{Q}_{\mathbf{M}}(z)
+        \begin{array}{c}
+            \mathcal{Z}(\mathcal{A})=\left\{(z,m)\in\mathcal{A}\times\mathbb{C},(\Im[z]\Im[m]>0\text{ if } \Im[z] \neq 0)\text{ or }\left(m>0\text{ if }z<\inf \mathcal{A}^{c} \cap \mathbb{R}\right)\right. \\
+            \left.\text{ or }\left(m<0\text{ if }z>\sup \mathcal{A}^{c} \cap \mathbb{R}\right)\right\}
+        \end{array}
     \end{equation*}
-\end{note}
+\end{remark}
 
 As a transform, $m_{\mu}$ has an inverse formula to recover $\mu$, as per the following result.
 
-\begin{theorem}[Inverse Stieltjes Transform]
+\begin{theorem}[Inverse Stieltjes Transform] \label{thm:inverse-stieltjes-transform}
     For $a,b$ continuity points of the probability measure $\mu$, we have
     \begin{equation}
-        \mu\left([a,b]\right)=\frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]\,\mathrm{d}x
+        \mu\left([a,b]\right)=\frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\Im\left[m_{\mu}(x+\imath y)\right]\,\mathrm{d}x
     \end{equation}
     Specially, if $\mu$ has a density $f$ at $x$, then
     \begin{equation}
-        f(x)=\frac{1}{\pi}\lim_{y\downarrow 0}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]
+        f(x)=\frac{1}{\pi}\lim_{y\downarrow 0}\Im\left[m_{\mu}(x+\imath y)\right]
     \end{equation}
     And, if $\mu$ has an isolated mass at $x$, then
     \begin{equation}
-        \mu(\{x\})=\lim_{y \downarrow 0}-\mathrm{i}y m_{\mu}(x+\mathrm{i}y)
+        \mu(\{x\})=\lim_{y \downarrow 0}-\imath y m_{\mu}(x+\imath y)
     \end{equation}
 \end{theorem}
 
 \begin{proof}
     \begin{equation*}
-        \frac{1}{\pi}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]\,\mathrm{d}x=\frac{1}{\pi}\int_{a}^{b}\left[\int\frac{y}{(t-x)^{2}+y^{2}}\mu(\mathrm{d}t)\right]\,\mathrm{d}x
+        \frac{1}{\pi}\int_{a}^{b}\Im\left[m_{\mu}(x+\imath y)\right]\,\mathrm{d}x=\frac{1}{\pi}\int_{a}^{b}\left[\int\frac{y}{(t-x)^{2}+y^{2}}\mu(\mathrm{d}t)\right]\,\mathrm{d}x
     \end{equation*}
     By Fubini's theorem,
     \begin{equation*}
@@ -312,7 +322,7 @@ As a transform, $m_{\mu}$ has an inverse formula to recover $\mu$, as per the fo
     \end{equation*}
     by the dominated convergence theorem,
     \begin{equation*}
-        \frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\operatorname{Im}\left[m_{\mu}(x+\mathrm{i}y)\right]\,\mathrm{d}x=\frac{1}{\pi}\int\lim_{y\downarrow 0}\left[\arctan\left(\frac{b-t}{y}\right)-\arctan\left(\frac{a-t}{y}\right)\right]\mu(\mathrm{d}t)
+        \frac{1}{\pi}\lim_{y\downarrow 0}\int_{a}^{b}\Im\left[m_{\mu}(x+\imath y)\right]\,\mathrm{d}x=\frac{1}{\pi}\int\lim_{y\downarrow 0}\left[\arctan\left(\frac{b-t}{y}\right)-\arctan\left(\frac{a-t}{y}\right)\right]\mu(\mathrm{d}t)
     \end{equation*}
     as $y\downarrow 0$, the difference in brackets converges either to $\pm \pi$ or 0 depending on the relative position of $a,b$ and $t$, thus
     \begin{equation*}
@@ -325,39 +335,208 @@ As a transform, $m_{\mu}$ has an inverse formula to recover $\mu$, as per the fo
     \end{equation*}
     by dominated convergence,
     \begin{equation*}
-        \lim_{y\downarrow 0}-\mathrm{i}ym_{\mu}(x+\mathrm{i}y)=-\lim_{y\downarrow 0}\int\frac{\mathrm{i}y(t-x)\mu(\mathrm{d}t)}{(t-x)^{2}+y^{2}}+\lim_{y\downarrow 0}\int\frac{y^{2}\mu(\mathrm{d}t)}{(t-x)^{2}+y^{2}}=a
+        \lim_{y\downarrow 0}-\imath ym_{\mu}(x+\imath y)=-\lim_{y\downarrow 0}\int\frac{\imath y(t-x)\mu(\mathrm{d}t)}{(t-x)^{2}+y^{2}}+\lim_{y\downarrow 0}\int\frac{y^{2}\mu(\mathrm{d}t)}{(t-x)^{2}+y^{2}}=a
     \end{equation*}
 \end{proof}
 
-With the above tools, we can prove the Marchenko-Pastur Theorem.
+\begin{note}
+    The important relation between the empirical spectral measure $\mu_{\mathbf{M}}$ of $\mathbf{M}\in\mathbb{R}^{n\times n}$, the Stieltjes transform $m_{\mu_{\mathbf{M}}}(z)$ and the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ lies in the fact that
+    \begin{equation} \label{eq:relation-between-empirical-spectral-measures-stieltjes-transform-and-its-resolvent}
+        m_{\mu_{\mathbf{M}}}(z)=\frac{1}{n}\sum_{i=1}^{n}\int\frac{\delta_{\lambda_{i}(\mathbf{M})}(t)}{t-z}=\frac{1}{n}\sum_{i=1}^{n}\frac{1}{\lambda_{i}(\mathbf{M})-z}=\frac{1}{n}\operatorname{tr}\mathbf{Q}_{\mathbf{M}}(z)
+    \end{equation}
+\end{note}
 
-\begin{theorem}[Marchenko-Pastur Theorem]
-    If
+\subsection*{Cauchy’s Integral Formula}
+
+The resolvent $\mathbf{Q}_{\mathbf{M}}$ provides access to scalar observations of the eigenspectrum of $\mathbf{M}$ through its linear functionals.
+
+Cauchy’s integral formula provides a connection between the linear functionals of the eigenvalues of $\mathbf{M}$ and the Stieltjes transform $m_{\mu_{\mathbf{M}}}(z)$ through
+\begin{equation}
+    \frac{1}{n}\sum_{i=1}^{n}f\left(\lambda_{i}(\mathbf{M})\right)=-\frac{1}{2\pi\imath n}\oint_{\Gamma}f(z)\operatorname{tr}\left(\mathbf{Q}_{\mathbf{M}}(z)\right)\mathrm{d}z=-\frac{1}{2\pi\imath }\oint_{\Gamma}f(z)m_{\mu_{\mathbf{M}}}(z)\mathrm{d}z
+\end{equation}
+for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\left(\mu_{\mathbf{M}}\right)$, by choosing the contour $\Gamma$ to enclose $\operatorname{supp}\left(\mu_{\mathbf{M}}\right)$ (i.e., all the eigenvalues $\lambda_{i}(\mathbf{M})$).
+
+\subsection*{Matrix Equivalents}
+
+\begin{definition}[Deterministic Equivalent]
+    We say that $\overline{\mathbf{Q}} \in \mathbb{R}^{n \times n}$ is a deterministic equivalent for the symmetric random matrix $\mathbf{Q} \in \mathbb{R}^{n \times n}$ if, for (sequences of) deterministic matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$ and vectors $\mathbf{a}, \mathbf{b} \in \mathbb{R}^{n}$ of unit norms (operator and Euclidean, respectively), we have, as $n \rightarrow \infty$,
+    $$
+        \frac{1}{n} \operatorname{tr} \mathbf{A}(\mathbf{Q}-\overline{\mathbf{Q}}) \rightarrow 0, \quad \mathbf{a}^{\prime}(\mathbf{Q}-\overline{\mathbf{Q}}) \mathbf{b} \rightarrow 0
+    $$
+    where the convergence is either in probability or almost sure.
+\end{definition}
+
+A practical use of deterministic equivalents is to establish that, for a random matrix $\mathbf{M}$ of interest, $\frac{1}{n} \operatorname{tr}\left(\mathbf{Q}_{\mathbf{M}}(z)-\overline{\mathbf{Q}}(z)\right) \rightarrow 0$, say almost surely, for all $z \in \mathcal{C}$ with $\mathcal{C} \subset \mathbb{C}$. Denoting $\bar{m}_{n}(z)=\frac{1}{n} \operatorname{tr} \overline{\mathbf{Q}}(z)$, this convergence implies that the Stieltjes transform of $\mu_{\mathrm{M}}$ "converges" in the sense that $m_{\mu_{\mathrm{M}}}(z)-\bar{m}_{n}(z) \rightarrow 0$.
+
+\begin{definition}[Matrix Equivalents]
+    For $\mathbf{X},\mathbf{Y}\in\mathbb{R}^{n \times n}$ two random or deterministic matrices, we write
+    \begin{equation}
+        \mathbf{X}\leftrightarrow\mathbf{Y}
+    \end{equation}
+    if, for all $\mathbf{A}\in\mathbb{R}^{n\times n}$ and $\mathbf{a},\mathbf{b}\in\mathbb{R}^{n}$ of unit norms (respectively, operator and Euclidean), we have the simultaneous results
+    $$
+        \frac{1}{n} \operatorname{tr} \mathbf{A}(\mathbf{X}-\mathbf{Y}) \rightarrow 0, \quad \mathbf{a}^{\prime}(\mathbf{X}-\mathbf{Y}) \mathbf{b} \rightarrow 0, \quad\|\mathbb{E}[\mathbf{X}-\mathbf{Y}]\| \rightarrow 0
+    $$
+    where, for random quantities, the convergence is either in probability or almost sure.
+\end{definition}
+
+\subsection*{Resolvent and Perturbation Identities}
+
+\begin{lemma}[Resolvent Identity] \label{lem:resolvent-identity}
+    For invertible matrices $\mathbf{A}$ and $\mathbf{B}$, we have
+    \begin{equation}
+        \mathbf{A}^{-1}-\mathbf{B}^{-1}=\mathbf{A}^{-1}\left(\mathbf{B}-\mathbf{A}\right)\mathbf{B}^{-1}
+    \end{equation}
+\end{lemma}
+
+% \begin{lemma}
+%     For $\mathbf{A}\in\mathbb{R}^{p\times n}$ and $\mathbf{B}\in\mathbb{R}^{n\times p}$, we have
+%     \begin{equation}
+%         \mathbf{A}\left(\mathbf{B}\mathbf{A}-z\mathbf{I}_{n}\right)^{-1}=\left(\mathbf{A}\mathbf{B}-z\mathbf{I}_{p}\right)^{-1}\mathbf{A}
+%     \end{equation}
+%     for $z\in\mathbb{C}$ distinct from 0 and from the eigenvalues of $\mathbf{A}\mathbf{B}$.
+% \end{lemma}
+
+\begin{lemma}[Sherman-Morrison] \label{lem:sherman-morrison}
+    For $\mathbf{A}\in\mathbb{R}^{p\times p}$ invertible and $\mathbf{u},\mathbf{v}\in\mathbb{R}^{p}$, $\mathbf{A}+\mathbf{u v}^{\prime}$ is invertible if and only if $1+\mathbf{v}^{\prime} \mathbf{A}^{-1} \mathbf{u} \neq 0$ and
+    $$
+        \left(\mathbf{A}+\mathbf{u v}^{\prime}\right)^{-1}=\mathbf{A}^{-1}-\frac{\mathbf{A}^{-1} \mathbf{u v}^{\prime} \mathbf{A}^{-1}}{1+\mathbf{v}^{\prime} \mathbf{A}^{-1} \mathbf{u}}
+    $$
+    Besides,
+    $$
+        \left(\mathbf{A}+\mathbf{u v}^{\prime}\right)^{-1} \mathbf{u}=\frac{\mathbf{A}^{-1} \mathbf{u}}{1+\mathbf{v}^{\prime} \mathbf{A}^{-1} \mathbf{u}}
+    $$
+\end{lemma}
+
+\begin{lemma}
+    For $\mathbf{A}, \mathbf{M} \in \mathbb{R}^{p \times p}$ symmetric, $\mathbf{u} \in \mathbb{R}^{p}, \tau \in \mathbb{R}$ and $z \in \mathbb{C} \backslash \mathbb{R}$
+    $$
+        \left|\operatorname{tr} \mathbf{A}\left(\mathbf{M}+\tau \mathbf{u u}^{\top}-z \mathbf{I}_{p}\right)^{-1}-\operatorname{tr} \mathbf{A}\left(\mathbf{M}-z \mathbf{I}_{p}\right)^{-1}\right| \leq \frac{\|\mathbf{A}\|}{|\Im(z)|}
+    $$
+    Also, for $\mathbf{A}, \mathbf{M} \in \mathbb{R}^{p \times p}$ symmetric and nonnegative definite, $\mathbf{u} \in \mathbb{R}^{p}, \tau>0$ and $z<0$
+    $$
+        \left|\operatorname{tr} \mathbf{A}\left(\mathbf{M}+\tau \mathbf{u} \mathbf{u}^{\top}-z \mathbf{I}_{p}\right)^{-1}-\operatorname{tr} \mathbf{A}\left(\mathbf{M}-z \mathbf{I}_{p}\right)^{-1}\right| \leq \frac{\|\mathbf{A}\|}{|z|}
+    $$
+\end{lemma}
+
+\begin{lemma}[Quadratic-form-close-to-the-trace] \label{lem:quadratic-form-close-to-the-trace}
+    Let $\mathbf{x} \in \mathbb{R}^{p}$ have i.i.d. entries of zero mean, unit variance and $\mathbb{E}\left[\left|x_{i}\right|^{K}\right] \leq \nu_{K}$ for some $K \geq 1 .$ Then for $\mathbf{A} \in \mathbb{R}^{p \times p}$ and $k \geq 1$
+    $$
+        \mathbb{E}\left[\left|\mathbf{x}^{\prime} \mathbf{A} \mathbf{x}-\operatorname{tr} \mathbf{A}\right|^{k}\right] \leq C_{k}\left[\left(\nu_{4} \operatorname{tr}\left(\mathbf{A} \mathbf{A}^{\prime}\right)\right)^{k / 2}+\nu_{2 k} \operatorname{tr}\left(\mathbf{A} \mathbf{A}^{\prime}\right)^{k / 2}\right]
+    $$
+    for some constant $C_{k}>0$ independent of $p .$ In particular, if $\|\mathbf{A}\| \leq 1$ and the entries of $\mathrm{x}$ have bounded eighth-order moment,
+    $$
+        \mathbb{E}\left[\left(\mathbf{x}^{\prime} \mathbf{A} \mathbf{x}-\operatorname{tr} \mathbf{A}\right)^{4}\right] \leq C p^{2}
+    $$
+    for some $C>0$ independent of $p$, and consequently, as $p \rightarrow \infty$,
+    $$
+        \frac{1}{p} \mathbf{x}^{\prime} \mathbf{A} \mathbf{x}-\frac{1}{p} \operatorname{tr} \mathbf{A} \stackrel{\text { a.s. }}{\longrightarrow} 0
+    $$
+\end{lemma}
+
+\subsection*{Marčenko-Pastur Theorem}
+
+With the above tools, we can prove the Marčenko-Pastur Theorem. Here, we only suppose $\mathbf{X}$ having some smooth tail condition.
+\begin{theorem}[Marčenko-Pastur Theorem]
+    Consider the resolvent
     \begin{equation*}
-        \frac{n}{m_{n}}\rightarrow\rho\in(0,\infty),\quad\text{ as }\quad n\rightarrow\infty
+        \mathbf{Q}(z)=\left(\widehat{\boldsymbol{\Sigma}}-z\mathbf{I}_{n}\right)^{-1}
     \end{equation*}
-    and the empirical spectral measure of $\widehat{\boldsymbol{\Sigma}}$ tends weakly with probability 1 to the nonrandom measure, i.e.,
-    \begin{equation}
-        \frac{1}{m_{n}}\sum_{k=1}^{n}\delta_{\lambda_{k}(\widehat{\boldsymbol{\Sigma}})}\stackrel{d}{\rightarrow}\mu_{\rho},\quad\text{ a.s. }
-    \end{equation}
-    where $\mu_{\rho}$ is the Marchenko-Pastur distribution on $\left[a^{-},a^{+}\right]$ with $a^{\pm}=(1\pm\sqrt{\rho})^{2}$ given by
-    \begin{equation}
-        \mu_{\rho}(\mathrm{d}x)=\frac{\rho-1}{\rho}\mathbf{I}_{\rho>1}\delta_{0}+\frac{\sqrt{\left(a^{+}-x\right)\left(x-a^{-}\right)}}{\rho 2\pi x}\mathbf{I}_{\left[a^{-},a^{+}\right]}(x)\,\mathrm{d}x
-    \end{equation}
+    Then, if
+    \begin{equation*}
+        \frac{n}{m_{n}}\rightarrow\rho\text{ with }\rho\in(0,\infty),\quad\text{ as }n\rightarrow\infty
+    \end{equation*}
+    we have
+    \begin{equation*}
+        \mathbf{Q}(z)\leftrightarrow\overline{\mathbf{Q}}(z),\quad\overline{\mathbf{Q}}(z)=m(z)\mathbf{I}_{n}
+    \end{equation*}
+    with $(z,m(z))$ the unique solution in $\mathcal{Z}\left(\mathbb{C}\backslash\left[(1-\sqrt{\rho})^{2},(1+\sqrt{\rho})^{2}\right]\right)$ be
+    \begin{equation*}
+        zcm^{2}(z)-(1-c-z)m(z)+1=0
+    \end{equation*}
+    where the function $m(z)$ is the Stieltjes transform of the probability measure $\mu$ given explicitly by
+    \begin{equation*}
+        \mu(\mathrm{d}x)=\left(1-\rho^{-1}\right)^{+}\delta_{0}(x)+\frac{\sqrt{\left(x-a_{-}\right)^{+}\left(a_{+}-x\right)^{+}}}{2\pi\rho x}\,\mathrm{d}x
+    \end{equation*}
+    where $a_{\pm}=(1 \pm \sqrt{\rho})^{2}$ and $(x)^{+}=\max (0, x)$, and is known as the Marčenko-Pastur distribution. In particular, with probability one, the empirical spectral measure $\mu_{\widehat{\boldsymbol{\Sigma}}}$ converges weakly to $\mu $.
 \end{theorem}
 
 \begin{proof}
-    The normalization constant of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
+    \paragraph*{Intuitive Idea}
+    Suppose $\overline{\mathbf{Q}}(z)=\mathbf{F}(z)^{-1}$ for some matrix $\mathbf{F}(z)$. To prove $\overline{\mathbf{Q}}(z)$ to be a deterministic equivalent for $\mathbf{Q}(z)$, particularly,
+    \begin{equation*}
+        \frac{1}{n}\operatorname{tr}\mathbf{A}(\mathbf{Q}(z)-\overline{\mathbf{Q}}(z))\rightarrow 0\quad\text{a.s}
+    \end{equation*}
+    where $\mathbf{A}$ is arbitrary, deterministic, and such that $\|\mathbf{A}\|=1$. By Lemma \ref{lem:resolvent-identity}, we have
     \begin{equation*}
         \begin{aligned}
-            \widetilde{Q}_{m_{n}}= & \int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|\,\mathrm{d}\boldsymbol{\lambda} \\
-            =                      & \int_{\left(\mathbb{R}_{+}\right)^{n}}\exp\left[-m_{n}E\left(\boldsymbol{\lambda}\right)\right]\,\mathrm{d}\boldsymbol{\lambda}
+            \mathbf{Q}(z)-\overline{\mathbf{Q}}(z)= & \mathbf{Q}(z)\left(\mathbf{F}(z)+z\mathbf{I}_{n}-\widehat{\boldsymbol{\Sigma}}\right) \overline{\mathbf{Q}}(z)                                         \\
+            =                                       & \mathbf{Q}(z)\left(\mathbf{F}(z)+z\mathbf{I}_{n}-\frac{1}{m_{n}}\sum_{i=1}^{m_{n}}\mathbf{X}_{i}\mathbf{X}_{i}^{\prime}\right)\overline{\mathbf{Q}}(z)
         \end{aligned}
+    \end{equation*}
+    Thus, we turn to prove that,
+    \begin{equation*}
+        \frac{1}{n}\operatorname{tr}\left[\left(\mathbf{F}(z)+z\mathbf{I}_{n}\right)\overline{\mathbf{Q}}(z)\mathbf{A}\mathbf{Q}(z)\right]-\frac{1}{n}\cdot\frac{1}{m_{n}}\sum_{i=1}^{m_{n}}\mathbf{X}_{i}^{\prime}\overline{\mathbf{Q}}(z)\mathbf{A}\mathbf{Q}(z)\mathbf{X}_{i}\rightarrow 0\quad\text{a.s}
+    \end{equation*}
+    By Lemma \ref{lem:sherman-morrison}, we have
+    \begin{equation*}
+        \mathbf{Q}(z)\mathbf{X}_{i}=\frac{\mathbf{Q}_{-i}(z)\mathbf{X}_{i}}{1+\frac{1}{m_{n}}\mathbf{X}_{i}^{\prime}\mathbf{Q}_{-i}(z)\mathbf{X}_{i}}
     \end{equation*}
     where
     \begin{equation*}
-        E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
+        \mathbf{Q}_{-i}(z)=\left(\frac{1}{m_{n}}\sum_{j\neq i}\mathbf{X}_{j}\mathbf{X}_{j}^{\prime}-z\mathbf{I}_{n}\right)^{-1}
     \end{equation*}
+    is independent of $\mathbf{X}_{i}$. By Lemma \ref{lem:quadratic-form-close-to-the-trace}, we have
+    \begin{equation*}
+        \frac{1}{n}\mathbf{X}_{i}^{\prime}\overline{\mathbf{Q}}(z)\mathbf{A}\mathbf{Q}(z)\mathbf{X}_{i}=\frac{\frac{1}{n}\mathbf{X}_{i}^{\prime}\overline{\mathbf{Q}}(z)\mathbf{A}\mathbf{Q}_{-i}(z)\mathbf{X}_{i}}{1+\frac{1}{m_{n}}\mathbf{X}_{i}^{\prime}\mathbf{Q}_{-i}(z)\mathbf{X}_{i}}\simeq\frac{\frac{1}{n}\operatorname{tr}\left[\overline{\mathbf{Q}}(z)\mathbf{A}\mathbf{Q}_{-i}(z)\right]}{1+\frac{1}{m_{n}}\operatorname{tr}\left[\mathbf{Q}_{-i}(z)\right]}
+    \end{equation*}
+    Hence, we need to prove the approximation that
+    \begin{equation*}
+        \frac{1}{n}\operatorname{tr}\left[\left(\mathbf{F}(z)+z\mathbf{I}_{n}\right)\overline{\mathbf{Q}}(z)\mathbf{A}\mathbf{Q}(z)\right]\simeq\frac{\frac{1}{n}\operatorname{tr}\left[\overline{\mathbf{Q}}(z)\mathbf{A}\mathbf{Q}(z)\right]}{1+\frac{1}{m_{n}}\operatorname{tr}\left[\mathbf{Q}(z)\right]}
+    \end{equation*}
+    If $\mathbf{F}(z)$ exist, for the approximation above to hold, $\mathbf{F}(z)$ must be of the type
+    \begin{equation*}
+        \mathbf{F}(z)\simeq\left(-z+\frac{1}{1+\frac{1}{m_{n}}\operatorname{tr}\mathbf{Q}(z)}\right)\mathbf{I}_{n}
+    \end{equation*}
+    By Equation \ref{eq:relation-between-empirical-spectral-measures-stieltjes-transform-and-its-resolvent}, we have,
+    \begin{equation*}
+        m(z)\equiv\frac{1}{n}\operatorname{tr}\left[\overline{\mathbf{Q}}(z)\right]=\frac{1}{n}\operatorname{tr}\left[\mathbf{F}(z)^{-1}\right]
+    \end{equation*}
+    taking $\mathbf{A}=\mathbf{I}_{n}$, we have
+    \begin{equation*}
+        \frac{1}{n}\operatorname{tr}\left[\mathbf{Q}(z)\right]\simeq\frac{1}{n}\operatorname{tr}\left[\overline{\mathbf{Q}}(z)\right]=m(z)=\frac{1}{-z+\frac{1}{1+\frac{n}{m_{n}}\frac{1}{n}\operatorname{tr}\left[\mathbf{Q}(z)\right]}}\simeq\frac{1}{-z+\frac{1}{1+\rho m(z)}}
+    \end{equation*}
+    As $n,m_{n}\rightarrow\infty$, $m(z)$ is solution to
+    \begin{equation*}
+        m(z)=\frac{1}{-z+\frac{1}{1+\rho m(z)}}
+    \end{equation*}
+    or equivalently
+    \begin{equation*}
+        z\rho m^{2}(z)-(1-\rho-z)m(z)+1=0
+    \end{equation*}
+    This equation has two solutions defined via the two values of the complex square root function. Let
+    \begin{equation*}
+        z=r\mathrm{e}^{\imath\theta}\text{ where }r\geq 0,\theta\in[0,2\pi)\Rightarrow\sqrt{z}\in\left\{\pm\sqrt{r}\mathrm{e}^{\imath\theta/2}\right\}
+    \end{equation*}
+    and we can conclude that
+    \begin{equation*}
+        m(z)=\frac{1-\rho-z}{2\rho z}+\frac{\sqrt{\left((1+\sqrt{\rho})^{2}-z\right)\left((1-\sqrt{\rho})^{2}-z\right)}}{2\rho z}
+    \end{equation*}
+    only one of which is such that $\Im[z]\Im[m(z)]>0$ as imposed by the definition of Stieltjes transforms. By the inverse Stieltjes transform theorem, Theorem \ref{thm:inverse-stieltjes-transform}, we find that $m(z)$ is the Stieltjes transform of the measure $\mu$ with
+    \begin{equation*}
+        \mu([a,b])=\frac{1}{\pi}\lim_{\epsilon\downarrow 0}\int_{a}^{b}\Im[m(x+\imath\epsilon)]\,\mathrm{d}x
+    \end{equation*}
+    for all continuity points $a,b\in\mathbb{R}$ of $\mu$. This term under the square root in $m(z)$ being negative only in the set
+    \begin{equation*}
+        \left[(1-\sqrt{\rho})^{2},(1+\sqrt{\rho})^{2}\right]
+    \end{equation*}
+    (and thus of non-real square root), the latter defines the support of the continuous part of the measure $\mu$ with density
+    \begin{equation*}
+        \frac{\sqrt{\left((1+\sqrt{\rho})^{2}-x\right)\left(x-(1-\sqrt{\rho})^{2}\right)}}{2\rho\pi x}
+    \end{equation*}
+    at point $x$ in the set. The case $x=0$ brings a discontinuity in $\mu$ with weight equal to
+    \begin{equation*}
+        \mu(\{0\})=-\lim_{y\downarrow 0}\imath ym(vy)=\frac{\rho-1}{2\rho}\pm\frac{\rho-1}{2\rho}
+    \end{equation*}
+    where the sign is established by a second order development of $z m(z)$ in the neighborhood of zero: that is, "+" for $c>1$ inducing a mass $1-1/\rho$ for $p>n$, or "-" for $c<1$ in which case $\mu(\{0\})=0$ and $\mu$ has no mass at zero.
 \end{proof}
-
-\section{Extremal Eigenvalues of}
