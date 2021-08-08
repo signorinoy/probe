@@ -1,4 +1,4 @@
-\chapter{Sample Covariance Matrices and the Marčenko-Pastur Theorem}
+\chapter{Sample Covariance Matrices}
 
 Suppose $\left\{\mathbf{X}\right\}$ be a sequence of random vectors defined in $\mathbb{R}^{n}$, such that
 \begin{equation*}
@@ -37,9 +37,7 @@ For convenience, we define the random matrix
     \end{equation*}
 \end{note}
 
-\section{Laguerre Orthogonal Ensemble}
-
-Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}$ can be derived from the Wishart distribution.
+\section{Wishart Distribution}
 
 \begin{definition}[Wishart Distribution]
     Suppose $\mathbb{X}$ be a $p\times n$ matrix, each column of which is independently drawn from a $p$-variate normal distribution with zero mean:
@@ -69,7 +67,9 @@ Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.
     \end{equation*}
 \end{note}
 
-The probability denisty function of $\widehat{\boldsymbol{\Sigma}}$ can be derived from (\ref{eq:pdf-wishart}), since
+\section{Laguerre Orthogonal Ensemble}
+
+Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}$ can be derived from the Wishart distribution. The probability denisty function of $\widehat{\boldsymbol{\Sigma}}$ can be derived from (\ref{eq:pdf-wishart}), since
 \begin{equation*}
     \mathbf{A}\sim W_{n}\left(\mathbf{I}_{n},m_{n}\right),\quad\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-n}\operatorname{det}\left(\mathbf{A}\right),\quad\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-1}\operatorname{tr}\left(\mathbf{A}\right)
 \end{equation*}
