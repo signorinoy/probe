@@ -13,7 +13,7 @@
     \end{equation}
 \end{definition}
 
-\begin{example}[ Random Walk]
+\begin{example}[Random Walk]
     Suppose $X_{n}=X_{0}+\xi_{1}+\cdots+\xi_{n}$, where $X_{0}$ is constant, $\xi_{m}\in\mathbb{Z}^{d}$ are independent with distribution $\mu$. Show $X_{n}$ is a Markov chain with transition probability,
     \begin{equation*}
         p\left(i,j\right)=\mu\left(\left\{j-i\right\}\right)
@@ -41,11 +41,11 @@
     $Z_{n}$ is called a Branching process.
 \end{definition}
 
-\begin{note}
+\begin{remark}
     The idea behind the definitions is that $Z_{n}$ is the number of individuals in the $n$-th generation, and each member of the $n$-th generation gives birth independently to an identically distributed number of children.
-\end{note}
+\end{remark}
 
-\begin{example}[ Branching Processes]
+\begin{example}[Branching Processes]
     Show branching process is a Markov chain with transition probability,
     \begin{equation*}
         p(i,j)=P\left(\sum_{k=1}^{i}\xi_{k}=j\right)
@@ -198,7 +198,7 @@ be the number of visits to $y$ at positive times.
     If $y,z\in C_{x}$, then $\rho_{yz}\geq\rho_{yx}\rho_{xz}>0$. If $\rho_{yw}>0$, then $\rho_{xw}\geq\rho_{xy}\rho_{yw}>0$, so $w\in C_{x}$.
 \end{proof}
 
-\begin{example}[ A Seven-state Chain]
+\begin{example}[A Seven-state Chain]
     Consider the transition probability,
     \begin{equation*}
         \begin{array}{cccccccc}

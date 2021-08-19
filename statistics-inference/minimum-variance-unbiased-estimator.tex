@@ -8,9 +8,9 @@
     where $\delta'(\textbf{X})$ is any other unbiased estimator of $g(\theta)$.
 \end{definition}
 
-\begin{note}
+\begin{remark}
     If there exists an unbiased estimator of $g$, the estimand $g$ will be called $U$-estimable.
-\end{note}
+\end{remark}
 
 \begin{enumerate}
     \item If $T(\textbf{X})$ is a complete sufficient statistic, estimator $\delta(\textbf{X})$ that only depends on $T(\textbf{X})$, then for any $U$-estimable function $g(\theta)$ with
@@ -24,7 +24,7 @@
           \end{equation}
 \end{enumerate}
 
-\begin{example}[ Estimating Polynomials of a Normal Variance]
+\begin{example}[Estimating Polynomials of a Normal Variance]
     Let $X_{1},\ldots,X_{n}$ be distributed with joint density
     \begin{equation}
         \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\sum\left(x_{i}-\xi\right)^{2}\right].
@@ -32,7 +32,7 @@
     Discussing the UMVU estimators of $\xi^r$, $\sigma^r$, $\xi/\sigma$.
 \end{example}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}
         \item \textbf{$\sigma$ is known}:
 
@@ -95,13 +95,13 @@
               \end{equation*}
               which means the UMVU estimator of $\xi/\sigma$ is $\bar{X}s_x^{-1}K_{n-1,-1}$.
     \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{example}[ ]
+\begin{example}[]
     Let $X_{1},\ldots,X_{n}$ be i.i.d sample from $U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)$, where $\theta_1\in\mathbb{R},\theta_2\in\mathbb{R}^+$. Discussing the UMVU estimators of $\theta_1,\theta_2$.
 \end{example}
 
-\begin{solution}
+\begin{proof}
     Let $X_{(i)}$ be the i-th order statistic of $X_i$, then $\left(X_{(1)},X_{(n)}\right)$ is the complete and sufficient statistic for $(\theta_1,\theta_2)$. Thus it suffices to find a function $\left(X_{(1)},X_{(n)}\right)$, which is unbiased of $(\theta_1,\theta_2)$.
 
     Let
@@ -135,4 +135,4 @@
     \begin{equation*}
         \hat{\theta_1}=\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)},\quad\hat{\theta_2}=-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}.
     \end{equation*}
-\end{solution}
+\end{proof}

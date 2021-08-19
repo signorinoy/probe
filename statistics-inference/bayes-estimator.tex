@@ -34,9 +34,9 @@ In Bayesian arguments, it is important to keep track of which variables are bein
     \end{itemize}
     Then, $\delta_{\Lambda}\left(x\right)$ is a Bayes Estimator.
 \end{theorem}
-\begin{note}
+\begin{remark}
     Improper prior
-\end{note}
+\end{remark}
 
 \begin{corollary}
     Suppose the assumptions of Theorem \ref{thm:bayes-definition} hold.
@@ -118,7 +118,7 @@ In general, this Bayes estimator under squared error loss is given by
     calculate the Single-Prior Bayes estimator under squared error loss.
 \end{example}
 
-\begin{solution}
+\begin{proof}
     \begin{equation*}
         \begin{aligned}
             p\left(\textbf{X}\mid\mu,\Gamma\right) & =\Gamma^n(2\pi)^{-\frac{n}{2}}\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right], \\
@@ -137,7 +137,7 @@ In general, this Bayes estimator under squared error loss is given by
     \begin{equation*}
         \pi\left(\mu\mid\textbf{X},\Gamma\right)=\frac{h\left(\textbf{X},\mu,\Gamma\right)}{p(\mu\mid\textbf{X})}
     \end{equation*}
-\end{solution}
+\end{proof}
 
 For exponential families
 
@@ -158,9 +158,9 @@ In a Hierarchical Bayes model, rather than specifying the prior distribution as 
 \end{equation}
 where we assume that $\psi\left(\cdot\right)$ is known and not dependent on any other unknown hyperparameters.
 
-\begin{note}
+\begin{remark}
     We can continue this hierarchical modeling and add more stages to the model, but this is not ofthen done in practice.
-\end{note}
+\end{remark}
 
 Given a loss function $L\left(\theta,d\right)$, we would then determine the estimator that minimizes
 \begin{equation} \label{eq:hierarchical-bayes-estimator}
@@ -171,7 +171,7 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
     \pi\left(\theta\mid x\right)=\frac{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma\right)\psi\left(\gamma\right)\mathrm{d}\gamma}{\int\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma\right)\psi\left(\gamma\right)\mathrm{d}\theta\mathrm{d}\gamma}.
 \end{equation*}
 
-\begin{note}
+\begin{remark}
     The posterior distribution can also be writed as
     \begin{equation*}
         \pi\left(\theta\mid x\right)=\int\pi\left(\theta\mid x,\gamma\right)\pi\left(\gamma\mid x\right)\mathrm{d}\gamma,
@@ -181,9 +181,9 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
         \int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta = \int\left[\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x,\gamma\right)\mathrm{d}\theta\right]\pi\left(\gamma\mid x\right)\mathrm{d}\gamma.
     \end{equation*}
     which shows that \textbf{the Hierarchical Bayes estimator can be thought of as a mixture of Single-Prior estimators}.
-\end{note}
+\end{remark}
 
-\begin{example}[ Poisson Hierarchy]
+\begin{example}[Poisson Hierarchy]
     Consider
     \begin{equation}
         \begin{aligned}
@@ -208,9 +208,9 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 
 \end{proof}
 
-\begin{note}
+\begin{remark}
 
-\end{note}
+\end{remark}
 
 \section{Empirical Bayes}
 

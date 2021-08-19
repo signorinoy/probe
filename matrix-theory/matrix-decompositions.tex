@@ -19,7 +19,7 @@
     where $\mathbf{Q}$ is the square $n\times n$ matrix whose $i$-th column is the eigenvector $\mathbf{q}_{i}$ of $\mathbf{A}$, and $\boldsymbol{\Lambda}$ is the diagonal matrix whose diagonal elements are the corresponding eigenvalues, $\boldsymbol{\Lambda}=\lambda_{i}$. This factorization is called eigendecomposition or sometimes spectral decomposition.
 \end{definition}
 
-\begin{example}[ Real Symmetric Matrices]
+\begin{example}[Real Symmetric Matrices]
     As a special case, for every $n\times n$ real symmetric matrix, the eigenvalues are real and the eigenvectors can be chosen real and orthonormal. Thus a real symmetric matrix $\mathbf{A}$ can be decomposed as
     \begin{equation}
         \mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\prime}
@@ -29,7 +29,7 @@
 
 \section{Singular Value Decomposition}
 
-\begin{proposition}[Singular Value Decomposition]
+\begin{definition}[Singular Value Decomposition]
     For any matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$, we have
     \begin{equation}
         \mathbf{A}=\mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^{\prime}
@@ -44,7 +44,7 @@
               \end{equation*}
               which is called singular values, that are the square roots of the eigenvalues of $\mathbf{A}^{\prime}\mathbf{A}$ and of $\mathbf{A}\mathbf{A}^{\prime}$ (these two matrices have the same eigenvalues)
     \end{itemize}
-\end{proposition}
+\end{definition}
 
 \begin{remark}
     We assume above that the singular values are sorted in descending order and the eigenvectors are sorted according to descending order of their eigenvalues.

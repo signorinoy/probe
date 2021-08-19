@@ -20,20 +20,21 @@
 
 \end{proof}
 
-\begin{table}[hpt]
-    \scriptsize
-    \centering
-    \caption{Common Distributions of Exponential Family}
-    \begin{tabular}{ccccccccc}
-        \toprule
-        Distribution & Parameter(s)      & $\theta$                         & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\operatorname{Var}(Y)$                                              \\
-        \midrule
-        Normal       & $N(\mu,\sigma^2)$ & $\mu$                            & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                                               \\
-        Bernoulli    & $\text{Bern}(p)$  & $\log\left(\frac{p}{1-p}\right)$ & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\
-        Poisson      & $P(\mu)$          & $\log(\mu)$                      & $1$          & $\mathrm{e}^{\theta}$           & $1$       & $-\log(y!)$                                                   & $\mathrm{e}^{\theta}$             & $\mathrm{e}^{\theta}$                                                \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+\begin{landscape}
+    \begin{table}[hpt]
+        \centering
+        \caption{Common Distributions of Exponential Family}
+        \begin{tabular}{ccccccccc}
+            \toprule
+            Distribution & Parameter(s)      & $\theta$                         & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\operatorname{Var}(Y)$                            \\
+            \midrule
+            Normal       & $N(\mu,\sigma^2)$ & $\mu$                            & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                             \\
+            Bernoulli    & $\text{Bern}(p)$  & $\log\left(\frac{p}{1-p}\right)$ & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\
+            Poisson      & $P(\mu)$          & $\log(\mu)$                      & $1$          & $\mathrm{e}^{\theta}$           & $1$       & $-\log(y!)$                                                   & $\mathrm{e}^{\theta}$             & $\mathrm{e}^{\theta}$                              \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{landscape}
 
 \section{Model Assumption}
 
@@ -47,9 +48,9 @@ with link function $g$, such that,
 \end{equation}
 where the link function provides the relationship between the linear predictor and the mean of the distribution function. If $\eta=\theta$, the link function is called \textbf{canonical link function}.
 
-\begin{note}
+\begin{remark}
     A generalized linear model (GLM) is a flexible generalization of ordinary linear regression that allows for the response variable to have an error distribution other than the normal distribution.
-\end{note}
+\end{remark}
 
 \begin{table}[hpt]
     \centering

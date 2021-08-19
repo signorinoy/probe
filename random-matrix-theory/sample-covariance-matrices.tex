@@ -72,7 +72,7 @@ For convenience, we define the random matrix
     \end{equation*}
 \end{theorem}
 
-\begin{note}
+\begin{remark}
     Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}$ can be derived from the Wishart distribution. The probability denisty function of $\widehat{\boldsymbol{\Sigma}}$ can be derived from (\ref{eq:pdf-wishart}), since
     \begin{equation*}
         \mathbf{A}\sim W_{n}\left(\mathbf{I}_{n},m_{n}\right),\quad\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-n}\operatorname{det}\left(\mathbf{A}\right),\quad\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-1}\operatorname{tr}\left(\mathbf{A}\right)
@@ -81,7 +81,7 @@ For convenience, we define the random matrix
     \begin{equation}
         f\left(\widehat{\boldsymbol{\Sigma}}\right)=\frac{m_{n}^{-n(m_{n}-n-1)/2+1}}{2^{m_{n}n/2}\Gamma_{n}\left(\frac{m_{n}}{2}\right)}\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)^{(m_{n}-n-1)/2}\exp\left[-\frac{m_{n}}{2}\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)\right]
     \end{equation}
-\end{note}
+\end{remark}
 
 \begin{theorem}
     If the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, the joint probability density function of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
@@ -217,7 +217,7 @@ where
     E\left(\boldsymbol{\lambda}\right)=\frac{1}{2}\sum_{k=1}^{n}\left(\lambda_{k}-\alpha\log\lambda_{k}\right)-\frac{1}{2}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
 \end{equation}
 
-\begin{note}
+\begin{remark}
     For the (\ref{eq:jpdf-eigenvalues-sigma}), which can be written as (\ref{eq:laguerre-orthogonal-ensemble}) form, that,
     \begin{equation*}
         p\left(\boldsymbol{\lambda}\right)\propto\exp\left[-\beta m_{n}E\left(\boldsymbol{\lambda}\right)\right]
@@ -226,7 +226,7 @@ where
     \begin{equation*}
         E\left(\boldsymbol{\lambda}\right)=\frac{m_{n}}{2}\sum_{k=1}^{n}\left[\lambda_{k}-\left(\frac{m_{n}-n-1}{m_{n}}\right)\log\lambda_{k}\right]-\frac{1}{2m_{n}}\sum_{i\neq j}\left|\lambda_{i}-\lambda_{j}\right|
     \end{equation*}
-\end{note}
+\end{remark}
 
 \section{Marčenko-Pastur Theorem}
 
@@ -283,7 +283,11 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
 \end{property}
 
 \begin{remark}
-    Most of the results involve Stieltjes transforms $m_{\mu}(z)$ of a real probability measure with support $\operatorname{supp}(\mu) \subset \mathbb{R} .$ Since Stieltjes transforms are such that $m_{\mu}(z)>0$ for $z<\inf \operatorname{supp}(\mu), m_{\mu}(z)<0$ for $z>\sup \operatorname{supp}(\mu)$ and $\Im[z] \Im\left[m_{\mu}(z)\right]>0$ if $z \in \mathbb{C} \backslash \mathbb{R}$, it will be convenient in the following to consider the set of scalar pairs
+    Most of the results involve Stieltjes transforms $m_{\mu}(z)$ of a real probability measure with support $\operatorname{supp}(\mu) \subset \mathbb{R} .$ Since Stieltjes transforms are such that 
+    \begin{equation*}
+        m_{\mu}(z)>0,\forall z<\inf\operatorname{supp}(\mu),\quad m_{\mu}(z)<0,\forall z>\sup \operatorname{supp}(\mu),\quad\Im[z] \Im\left[m_{\mu}(z)\right]>0,\text{ if }z\in\mathbb{C}\backslash\mathbb{R}
+    \end{equation*}
+    it will be convenient in the following to consider the set of scalar pairs
     \begin{equation*}
         \begin{array}{c}
             \mathcal{Z}(\mathcal{A})=\left\{(z,m)\in\mathcal{A}\times\mathbb{C},(\Im[z]\Im[m]>0\text{ if } \Im[z] \neq 0)\text{ or }\left(m>0\text{ if }z<\inf \mathcal{A}^{c} \cap \mathbb{R}\right)\right. \\
@@ -344,12 +348,12 @@ As a transform, $m_{\mu}$ has an inverse formula to recover $\mu$, as per the fo
     \end{equation*}
 \end{proof}
 
-\begin{note}
+\begin{remark}
     The important relation between the empirical spectral measure $\mu_{\mathbf{M}}$ of $\mathbf{M}\in\mathbb{R}^{n\times n}$, the Stieltjes transform $m_{\mu_{\mathbf{M}}}(z)$ and the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ lies in the fact that
     \begin{equation} \label{eq:relation-between-empirical-spectral-measures-stieltjes-transform-and-its-resolvent}
         m_{\mu_{\mathbf{M}}}(z)=\frac{1}{n}\sum_{i=1}^{n}\int\frac{\delta_{\lambda_{i}(\mathbf{M})}(t)}{t-z}=\frac{1}{n}\sum_{i=1}^{n}\frac{1}{\lambda_{i}(\mathbf{M})-z}=\frac{1}{n}\operatorname{tr}\mathbf{Q}_{\mathbf{M}}(z)
     \end{equation}
-\end{note}
+\end{remark}
 
 \subsection*{Cauchy’s Integral Formula}
 
@@ -369,7 +373,7 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
     where the convergence is either in probability or almost sure.
 \end{definition}
 
-\begin{note}
+\begin{remark}
     A practical use of deterministic equivalents is to establish that, for a random matrix $\mathbf{M}$ of interest, suppose
     \begin{equation*}
         \frac{1}{n}\operatorname{tr}\left(\mathbf{Q}_{\mathbf{M}}(z)-\overline{\mathbf{Q}}(z)\right)\rightarrow 0,\quad\text{a.s.},\quad\forall z\in\mathcal{C} ,\mathcal{C}\subset\mathbb{C}
@@ -379,7 +383,7 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
         m_{\mu_{\mathrm{M}}}(z)-\bar{m}_{n}(z)\rightarrow 0
     \end{equation*}
     where $\bar{m}_{n}(z)=\frac{1}{n}\operatorname{tr}\overline{\mathbf{Q}}(z)$.
-\end{note}
+\end{remark}
 
 \begin{definition}[Matrix Equivalents]
     For $\mathbf{X},\mathbf{Y}\in\mathbb{R}^{n \times n}$ two random or deterministic matrices, we write
