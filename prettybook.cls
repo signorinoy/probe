@@ -7,7 +7,7 @@
 %           Pagestyle Packages
 % ----------------------------------------------------------------------
 
-\RequirePackage{geometry,pdflscape}
+\RequirePackage{geometry,lscape}
 
 % ----------------------------------------------------------------------
 %           Font Packages
