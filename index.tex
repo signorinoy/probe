@@ -3,18 +3,15 @@
 \title{Statistics Learning Lectures}
 \author{Ziyang Gong}
 \date{\today}
-% \version{0.1.0}
-% \extrainfo{Facts are stubborn things, but statistics are pliable. ------ Mark Twain}
-% \cover{cover.png}
-% \logo{logo.png}
-% \hypersetup{
-%     pdftitle={Statistics Learning for Graduate},
-%     pdfauthor={Ziyang Gong},
-%     pdfsubject={Statistics},
-%     pdfcreator={Ziyang Gong},
-%     pdfkeywords={}
-% }
-% \addbibresource{reference.bib}
+
+\hypersetup{
+    pdftitle={Statistics Learning for Graduate},
+    pdfauthor={Ziyang Gong},
+    pdfsubject={Statistics},
+    pdfcreator={Ziyang Gong},
+    pdfkeywords={}
+}
+\addbibresource{reference.bib}
 
 \begin{document}
 
@@ -80,7 +77,11 @@
 \include{machine-learning/decision-tree}
 
 \part{Random Matrix Theory}
-\include{random-matrix-theory/sample-covariance-matrices.tex}
+\include{random-matrix-theory/sample-covariance-matrices}
+
 \appendix
+
+\nocite{*}
+\printbibliography
 
 \end{document}

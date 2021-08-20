@@ -27,12 +27,34 @@
 \definecolor{third}{RGB}{0,174,247}
 
 % ----------------------------------------------------------------------
+%           References Packages
+% ----------------------------------------------------------------------
+
+\RequirePackage{hyperref}
+\hypersetup{
+  breaklinks,
+  unicode,
+  linktoc=all,
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  colorlinks,
+  linkcolor=winered,
+  citecolor=winered,
+  urlcolor=winered,
+  plainpages=false,
+  pdfstartview=FitH,
+  pdfborder={0 0 0},
+  linktocpage
+}
+\RequirePackage{biblatex}
+
+% ----------------------------------------------------------------------
 %           Text Packages
 % ----------------------------------------------------------------------
 
 \RequirePackage{enumerate}
 \RequirePackage[shortlabels,inline]{enumitem}
-\usepackage{marginnote,sidenotes}
+\setlist{nolistsep}
 
 % ----------------------------------------------------------------------
 %           Math Packages
@@ -51,6 +73,13 @@
 \captionsetup{labelfont={bf}}
 \captionsetup[table]{skip=3pt}
 \captionsetup[figure]{skip=3pt}
+
+% ----------------------------------------------------------------------
+%           Additional Enviroments Packages
+% ----------------------------------------------------------------------
+
+\RequirePackage{marginnote,sidenotes}
+\RequirePackage[ruled,vlined,linesnumbered,noresetcount]{algorithm2e}
 
 % ----------------------------------------------------------------------
 %           Specific Environments
@@ -81,7 +110,6 @@
     boxrule=0.5pt,
     fonttitle=\bfseries,
     enhanced,
-    % breakable,
     top=8pt,
     before skip=8pt,
     attach boxed title to top left={
@@ -139,22 +167,4 @@
   common,propstyle,
   IfValueTF={#1}{title={\propositionname~\thetcbcounter\ (#1)}}{title=\propositionname~\thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
-}
-
-
-\RequirePackage{hyperref}
-\hypersetup{
-  breaklinks,
-  unicode,
-  linktoc=all,
-  bookmarksnumbered=true,
-  bookmarksopen=true,
-  colorlinks,
-  linkcolor=winered,
-  citecolor=winered,
-  urlcolor=winered,
-  plainpages=false,
-  pdfstartview=FitH,
-  pdfborder={0 0 0},
-  linktocpage
 }
