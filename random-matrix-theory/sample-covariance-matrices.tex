@@ -232,8 +232,12 @@ where
 
 In this section, we will invastiage the empirical spectral measure of $\boldsymbol{\Sigma}$, which converges to a nonrandom distribution --- Marčenko-Pastur distribution. Before further proof, we will introduce some basic concepts and tools.
 
+\subsection{Preliminary}
+
+\subsubsection{Empirical Spectral Measure}
+
 \begin{definition}[Empirical Spectral Measure]
-    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the spectral measure or empirical spectral measure or empirical spectral distribution (e.s.d.) $\mu_{\mathbf{M}}$ of $\mathbf{M}$ is defined as the normalized counting measure of the eigenvalues $\lambda_{1}(\mathbf{M}),\ldots,\lambda_{n}(\mathbf{M})$ of $\mathbf{M}$, i.e.,
+    For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the spectral measure or empirical spectral measure or empirical spectral distribution (ESD) $\mu_{\mathbf{M}}$ of $\mathbf{M}$ is defined as the normalized counting measure of the eigenvalues $\lambda_{1}(\mathbf{M}),\ldots,\lambda_{n}(\mathbf{M})$ of $\mathbf{M}$, i.e.,
     \begin{equation}
         \mu_{\mathbf{M}}:=\frac{1}{n}\sum_{i=1}^{n}\delta_{\lambda_{i}(\mathbf{M})}
     \end{equation}
@@ -245,13 +249,17 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
             1, & x\in A
         \end{cases}
     \end{equation*}
+    Since $\int\mu_{\mathbf{M}}\left(\mathrm{d}x\right)=1$, the spectral measure $\mu_{\mathbf{M}}$ of a matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$ (random or not) is a probability measure.
 \end{definition}
 
 \begin{remark}
-    Since $\int\mu_{\mathbf{M}}\left(\mathrm{d}x\right)=1$, the spectral measure $\mu_{\mathbf{M}}$ of a matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$ (random or not) is a probability measure.
+    Many important statistics in multivariate analysis can be expressed as functionals of the ESD, such as, for $\mathbf{M}$ be an $n\times n$ positive definite matrix, then
+    \begin{equation}
+        \operatorname{det}(\mathbf{M})=\prod_{i=1}^{n}\lambda_{i}=\exp\left(n\int_{0}^{\infty}\log x\mu_{\mathbf{M}}(\mathrm{d}x)\right)
+    \end{equation}
 \end{remark}
 
-\subsection*{Resolvent}
+\subsubsection{Stieltjes Transform}
 
 \begin{definition}[Resolvent]
     For a symmetric matrix $\mathbf{M}\in\mathbb{R}^{n\times n}$, the resolvent $\mathbf{Q}_{\mathbf{M}}(z)$ of $\mathbf{M}$ is defined as
@@ -260,8 +268,6 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
     \end{equation}
     where $z\in\mathbb{C}$ not eigenvalue of $\mathbf{M}$.
 \end{definition}
-
-\subsection*{Stieltjes Transform}
 
 \begin{definition}[Stieltjes Transform]
     For a real probability measure $\mu$ with support $\operatorname{supp}(\mu)$, the Stieltjes transform $m_{\mu}(z)$ is defined as
@@ -283,7 +289,7 @@ In this section, we will invastiage the empirical spectral measure of $\boldsymb
 \end{property}
 
 \begin{remark}
-    Most of the results involve Stieltjes transforms $m_{\mu}(z)$ of a real probability measure with support $\operatorname{supp}(\mu) \subset \mathbb{R} .$ Since Stieltjes transforms are such that 
+    Most of the results involve Stieltjes transforms $m_{\mu}(z)$ of a real probability measure with support $\operatorname{supp}(\mu) \subset \mathbb{R} .$ Since Stieltjes transforms are such that
     \begin{equation*}
         m_{\mu}(z)>0,\forall z<\inf\operatorname{supp}(\mu),\quad m_{\mu}(z)<0,\forall z>\sup \operatorname{supp}(\mu),\quad\Im[z] \Im\left[m_{\mu}(z)\right]>0,\text{ if }z\in\mathbb{C}\backslash\mathbb{R}
     \end{equation*}
@@ -355,7 +361,7 @@ As a transform, $m_{\mu}$ has an inverse formula to recover $\mu$, as per the fo
     \end{equation}
 \end{remark}
 
-\subsection*{Cauchy’s Integral Formula}
+% \subsubsection{Cauchy’s Integral Formula}
 
 The resolvent $\mathbf{Q}_{\mathbf{M}}$ provides access to scalar observations of the eigenspectrum of $\mathbf{M}$ through its linear functionals. Cauchy’s integral formula provides a connection between the linear functionals of the eigenvalues of $\mathbf{M}$ and the Stieltjes transform $m_{\mu_{\mathbf{M}}}(z)$ through
 \begin{equation}
@@ -363,7 +369,7 @@ The resolvent $\mathbf{Q}_{\mathbf{M}}$ provides access to scalar observations o
 \end{equation}
 for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\left(\mu_{\mathbf{M}}\right)$, by choosing the contour $\Gamma$ to enclose $\operatorname{supp}\left(\mu_{\mathbf{M}}\right)$ (i.e., all the eigenvalues $\lambda_{i}(\mathbf{M})$).
 
-\subsection*{Matrix Equivalents}
+\subsubsection{Matrix Equivalents}
 
 \begin{definition}[Deterministic Equivalent]
     We say that $\overline{\mathbf{Q}} \in \mathbb{R}^{n \times n}$ is a deterministic equivalent for the symmetric random matrix $\mathbf{Q} \in \mathbb{R}^{n \times n}$ if, for (sequences of) deterministic matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$ and vectors $\mathbf{a}, \mathbf{b} \in \mathbb{R}^{n}$ of unit norms (operator and Euclidean, respectively), we have, as $n \rightarrow \infty$,
@@ -397,7 +403,7 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
     where, for random quantities, the convergence is either in probability or almost sure.
 \end{definition}
 
-\subsection*{Resolvent and Perturbation Identities}
+\subsubsection{Resolvent and Perturbation Identities}
 
 \begin{lemma}[Resolvent Identity] \label{lem:resolvent-identity}
     For invertible matrices $\mathbf{A}$ and $\mathbf{B}$, we have
@@ -451,7 +457,7 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
     $$
 \end{lemma}
 
-\subsection*{Marčenko-Pastur Theorem}
+\subsubsection{Marčenko-Pastur Theorem}
 
 With the above tools, we can prove the Marčenko-Pastur Theorem. Here, we only suppose $\mathbf{X}$ having some smooth tail condition.
 \begin{theorem}[Marčenko-Pastur Theorem] \label{thm:marcenko-pastur-theorem}
