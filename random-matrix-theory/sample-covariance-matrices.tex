@@ -1,6 +1,6 @@
 \chapter{Sample Covariance Matrices}
 
-Suppose $\left\{\mathbf{X}\right\}$ be a sequence of random vectors defined in $\mathbb{R}^{n}$, and $\left(X_{i}\right)_{1\leq i\leq n}$ be the components of the random vector $\mathbf{X}$, such that
+Suppose $\left\{\mathbf{X}\right\}$ be a sequence of random vectors defined in $\mathbb{R}^{n}$, and $\left(x_{i}\right)_{1\leq i\leq n}$ be the components of the random vector $\mathbf{X}$, such that
 \begin{equation*}
     E\left(\mathbf{X}\right)=0,\quad E\left(\mathbf{X}\otimes\mathbf{X}\right)=\mathbf{I}_{n}
 \end{equation*}
@@ -73,7 +73,7 @@ For convenience, we define the random matrix
 \end{theorem}
 
 \begin{remark}
-    Specially, if the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}$ can be derived from the Wishart distribution. The probability denisty function of $\widehat{\boldsymbol{\Sigma}}$ can be derived from (\ref{eq:pdf-wishart}), since
+    Specially, if the random variables $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\boldsymbol{\Sigma}}$ can be derived from the Wishart distribution. The probability denisty function of $\widehat{\boldsymbol{\Sigma}}$ can be derived from (\ref{eq:pdf-wishart}), since
     \begin{equation*}
         \mathbf{A}\sim W_{n}\left(\mathbf{I}_{n},m_{n}\right),\quad\operatorname{det}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-n}\operatorname{det}\left(\mathbf{A}\right),\quad\operatorname{tr}\left(\widehat{\boldsymbol{\Sigma}}\right)=m_{n}^{-1}\operatorname{tr}\left(\mathbf{A}\right)
     \end{equation*}
@@ -84,7 +84,7 @@ For convenience, we define the random matrix
 \end{remark}
 
 \begin{theorem}
-    If the random variables $\left(X_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, the joint probability density function of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
+    If the random variables $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, the joint probability density function of eigenvalues of $\widehat{\boldsymbol{\Sigma}}$ is
     \begin{equation}
         p\left(\boldsymbol{\lambda}\right)=\widetilde{Q}_{m_{n},n}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
         \label{eq:jpdf-eigenvalues-sigma}
@@ -108,18 +108,18 @@ For convenience, we define the random matrix
     Thus, we have
     \begin{equation*}
         \begin{aligned}
-            = & \int_{\mathbb{R}^{m_{n}\times n}}\exp\left(\imath\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\cdot(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\left(X_{i}^{(k)}\right)^{2}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}X_{i}^{(k)} \\
-            = & \int_{\mathbb{R}^{m_{n}\times n}}(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\sum_{j=1}^{n}\mathbf{Q}_{ij}X_{i}^{(k)}X_{j}^{(k)}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}X_{i}^{(k)}
+            = & \int_{\mathbb{R}^{m_{n}\times n}}\exp\left(\imath\operatorname{tr}\left(\mathbf{P}\widehat{\boldsymbol{\Sigma}}\right)\right)\cdot(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\left(x_{i}^{(k)}\right)^{2}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}x_{i}^{(k)} \\
+            = & \int_{\mathbb{R}^{m_{n}\times n}}(2\pi)^{-m_{n}n/2}\exp\left(-\frac{1}{2}\sum_{k=1}^{m_{n}}\sum_{i=1}^{n}\sum_{j=1}^{n}\mathbf{Q}_{ij}x_{i}^{(k)}x_{j}^{(k)}\right)\prod_{k=1}^{m_{n}}\prod_{i=1}^{n}\,\mathrm{d}x_{i}^{(k)}
         \end{aligned}
     \end{equation*}
     where
     \begin{equation*}
         \mathbf{Q}=\mathbf{I}_{n}-\frac{2\imath}{m_{n}}\mathbf{P}
     \end{equation*}
-    Since $\left(X_{i}^{(k)}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians,
+    Since $\left(x_{i}^{(k)}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians,
     \begin{equation*}
         \begin{aligned}
-            = & \left[\int_{\mathbb{R}^{n}}(2\pi)^{-n/2}\exp\left(-\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}\mathbf{Q}_{ij}X_{i}X_{j}\right)\prod_{i=1}^{n}\,\mathrm{d}X_{i}\right]^{m_{n}}                                                                                                                         \\
+            = & \left[\int_{\mathbb{R}^{n}}(2\pi)^{-n/2}\exp\left(-\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}\mathbf{Q}_{ij}x_{i}x_{j}\right)\prod_{i=1}^{n}\,\mathrm{d}x_{i}\right]^{m_{n}}                                                                                                                         \\
             = & \left[\int_{\mathbb{R}^{n}}(2\pi)^{-n/2}\exp\left(-\frac{1}{2}\mathbf{X}^{\prime}\mathbf{Q}\mathbf{X}\right)\,\mathrm{d}\mathbf{X}\right]^{m_{n}}                                                                                                                                                 \\
             = & \left[\operatorname{det}\left(\mathbf{Q}\right)^{-\frac{1}{2}}\int_{\mathbb{R}^{n}}(2\pi)^{-n/2}\exp\left(-\frac{1}{2}\left(\mathbf{Q}^{\frac{1}{2}}\mathbf{X}\right)^{\prime}\left(\mathbf{Q}^{\frac{1}{2}}\mathbf{X}\right)\right)\,\mathrm{d}\mathbf{Q}^{\frac{1}{2}}\mathbf{X}\right]^{m_{n}} \\
             = & \left[\operatorname{det}\left(\mathbf{Q}\right)\right]^{-m_{n}/2}
@@ -230,7 +230,7 @@ where
 
 \section{Marčenko-Pastur Theorem}
 
-In this section, we will invastiage the empirical spectral measure of $\boldsymbol{\Sigma}$, which converges to a nonrandom distribution --- Marčenko-Pastur distribution. Before further proof, we will introduce some basic concepts and tools.
+In this section, we will invastiage the empirical spectral measure of $\widehat{\boldsymbol{\Sigma}}$, which converges to a nonrandom distribution --- Marčenko-Pastur distribution. Before further proof, we will introduce some basic concepts and tools.
 
 \subsection{Preliminary}
 
@@ -417,14 +417,6 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
     \end{equation}
 \end{lemma}
 
-% \begin{lemma}
-%     For $\mathbf{A}\in\mathbb{R}^{p\times n}$ and $\mathbf{B}\in\mathbb{R}^{n\times p}$, we have
-%     \begin{equation}
-%         \mathbf{A}\left(\mathbf{B}\mathbf{A}-z\mathbf{I}_{n}\right)^{-1}=\left(\mathbf{A}\mathbf{B}-z\mathbf{I}_{p}\right)^{-1}\mathbf{A}
-%     \end{equation}
-%     for $z\in\mathbb{C}$ distinct from 0 and from the eigenvalues of $\mathbf{A}\mathbf{B}$.
-% \end{lemma}
-
 \begin{lemma}[Sherman-Morrison] \label{lem:sherman-morrison}
     For $\mathbf{A}\in\mathbb{R}^{n\times n}$ invertible and $\mathbf{u},\mathbf{v}\in\mathbb{R}^{n}$, then $\mathbf{A}+\mathbf{u}\mathbf{v}^{\prime}$ is invertible if and only if $1+\mathbf{v}^{\prime}\mathbf{A}^{-1}\mathbf{u}\neq 0$ and
     \begin{equation}
@@ -435,17 +427,6 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
         \left(\mathbf{A}+\mathbf{u}\mathbf{v}^{\prime}\right)^{-1}\mathbf{u}=\frac{\mathbf{A}^{-1}\mathbf{u}}{1+\mathbf{v}^{\prime}\mathbf{A}^{-1}\mathbf{u}}
     \end{equation}
 \end{lemma}
-
-% \begin{lemma}
-%     For $\mathbf{A}, \mathbf{M} \in \mathbb{R}^{p \times p}$ symmetric, $\mathbf{u} \in \mathbb{R}^{p}, \tau \in \mathbb{R}$ and $z \in \mathbb{C} \backslash \mathbb{R}$
-%     $$
-%         \left|\operatorname{tr} \mathbf{A}\left(\mathbf{M}+\tau \mathbf{u u}^{\top}-z \mathbf{I}_{p}\right)^{-1}-\operatorname{tr} \mathbf{A}\left(\mathbf{M}-z \mathbf{I}_{p}\right)^{-1}\right| \leq \frac{\|\mathbf{A}\|}{|\Im(z)|}
-%     $$
-%     Also, for $\mathbf{A}, \mathbf{M} \in \mathbb{R}^{p \times p}$ symmetric and nonnegative definite, $\mathbf{u} \in \mathbb{R}^{p}, \tau>0$ and $z<0$
-%     $$
-%         \left|\operatorname{tr} \mathbf{A}\left(\mathbf{M}+\tau \mathbf{u} \mathbf{u}^{\top}-z \mathbf{I}_{p}\right)^{-1}-\operatorname{tr} \mathbf{A}\left(\mathbf{M}-z \mathbf{I}_{p}\right)^{-1}\right| \leq \frac{\|\mathbf{A}\|}{|z|}
-%     $$
-% \end{lemma}
 
 \begin{lemma}[Quadratic-form-close-to-the-trace] \label{lem:quadratic-form-close-to-the-trace}
     Let $\mathbf{x} \in \mathbb{R}^{p}$ have i.i.d. entries of zero mean, unit variance and $\mathbb{E}\left[\left|x_{i}\right|^{K}\right] \leq \nu_{K}$ for some $K \geq 1 .$ Then for $\mathbf{A} \in \mathbb{R}^{p \times p}$ and $k \geq 1$
@@ -462,7 +443,7 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
     $$
 \end{lemma}
 
-\subsubsection{Marčenko-Pastur Theorem}
+\subsection{Marčenko-Pastur Theorem}
 
 With the above tools, we can prove the Marčenko-Pastur Theorem. Here, we only suppose $\mathbf{X}$ having some smooth tail condition.
 \begin{theorem}[Marčenko-Pastur Theorem] \label{thm:marcenko-pastur-theorem}
@@ -584,25 +565,55 @@ With the above tools, we can prove the Marčenko-Pastur Theorem. Here, we only s
 \begin{remark}
     The asymptotic phenomenon holds not only in the Gaussian case, which also holds
     \begin{enumerate}
-        \item if $\left(X_{n,k}\right)_{n\geq 1,1\leq k\leq n}$ are i.i.d. with finite second moment.
-        \item if for every $n\in\mathbb{N}$ the distribution of the isotropic random vector $X_{n}$ is log-concave, where a probability measure $\mu$ on $\mathbb{R}^{n}$ with density $\varphi$ is log-concave when $\varphi=e^{-V}$ with $V$ convex.
+        \item if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. with finite second moment.
+        \item if $\mathbf{X}$ is isotropic and log-concave\footnote{A probability measure $\mu$ on $\mathbb{R}^{n}$ with density $\varphi$ is log-concave when $\varphi=e^{-V}$ with $V$ convex.} random vector.
     \end{enumerate}
 \end{remark}
 
-\section{Limit of Extreme Eigenvalues}
+\section{Limits of Extreme Eigenvalues}
 
 The weak convergence in Theorem \ref{thm:marcenko-pastur-theorem} does not provide much information at the edge on the behavior of the extremal atoms, and what one can actually extract is that
 \begin{equation}
-    \limsup_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\Sigma}_{n}\right)\leq(1-\sqrt{\rho})^{2}\leq(1+\sqrt{\rho})^{2}\leq\liminf_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\Sigma}_{n}\right)\quad\text{ a.s.}
+    \limsup_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\boldsymbol{\Sigma}}\right)\leq(1-\sqrt{\rho})^{2}\leq(1+\sqrt{\rho})^{2}\leq\liminf_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\boldsymbol{\Sigma}}\right)\quad\text{ a.s.}
 \end{equation}
 where the first inequality is considered only in the case where $m_{n}\geq n$.
 
 The weak convergence above does not provide much information at the edge on the behavior of the extremal atoms. Now, we have more exact result, that if $\left(X_{n,k}\right)_{n\geq 1,1\leq k\leq n}$ are i.i.d. with finite fourth moment then,
-\begin{equation} \label{eq:limit-of-extreme-eigenvalues-of-sample-covariance-matrices}
-    (1-\sqrt{\rho})^{2}=\lim_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\Sigma}_{n}\right)\leq\lim_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\Sigma}_{n}\right)=(1+\sqrt{\rho})^{2}\quad\text{ a.s.}
+\begin{equation} \label{eq:limits-of-extreme-eigenvalues-of-sample-covariance-matrices}
+    (1-\sqrt{\rho})^{2}=\lim_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\boldsymbol{\Sigma}}\right)\leq\lim_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\boldsymbol{\Sigma}}\right)=(1+\sqrt{\rho})^{2}\quad\text{ a.s.}
 \end{equation}
 where the first inequality is considered only in the case where $m_{n}\geq n$.
 
 \begin{remark}
-    The convergence of the smallest eigenvalue in the left hand side of (\ref{eq:limit-of-extreme-eigenvalues-of-sample-covariance-matrices}) holds if $\left(X_{n,k}\right)_{n\geq 1,1\leq k\leq n}$ are i.i.d. with finite second moment.
+    The convergence of the smallest eigenvalue in the left hand side of (\ref{eq:limits-of-extreme-eigenvalues-of-sample-covariance-matrices}) holds if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. with finite second moment.
 \end{remark}
+
+\begin{theorem}
+    If $\bar{\rho}<1$ (in particular $m_{n}>n$ for $n\gg 1$ ) and if the centered isotropic random vector $\mathbf{X}$ is log-concave or if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. then
+    \begin{equation}
+        \liminf_{n\rightarrow\infty}\frac{E\left(\lambda_{\min}\left(\mathbf{A}_{n}\right)\right)}{\left(\sqrt{m_{n}}-\sqrt{n}\right)^{2}}\geq 1
+    \end{equation}
+    If additionally $\lim_{n\rightarrow\infty}\frac{n}{m_{n}}=\rho$ with $\rho \in(0,1)$, in other words $\underline{\rho}=\bar{\rho}\in(0,1)$, then
+    \begin{equation}
+        \lambda_{\min}\left(\widehat{\boldsymbol{\Sigma}}_{n}\right)\stackrel{p}{\longrightarrow}(1-\sqrt{\rho})^{2}\quad\text{ as }n\rightarrow\infty
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}
+    If the centered isotropic random vector $\mathbf{X}$ is log-concave or if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. with finite 4-th moment then
+    \begin{equation}
+        \limsup_{n\rightarrow\infty}\frac{E\left(\lambda_{\max}\left(\mathbf{A}_{n}\right)\right)}{\left(\sqrt{m_{n}}+\sqrt{n}\right)^{2}}\leq 1
+    \end{equation}
+    If additionally $\lim_{n\rightarrow\infty}\frac{n}{m_{n}}=\rho$ with $\rho \in(0,1)$, in other words $\underline{\rho}=\bar{\rho}\in(0,1)$, then
+    \begin{equation}
+        \lambda_{\max}\left(\widehat{\boldsymbol{\Sigma}}_{n}\right)\stackrel{p}{\longrightarrow}(1+\sqrt{\rho})^{2}\quad\text{ as }n\rightarrow\infty
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
