@@ -1,6 +1,6 @@
 \chapter{Generalized Linear Model}
 
-\section{Exponential Family}
+\section{Introduction}
 
 \begin{definition}[Exponential Family] \label{def:exponential-family}
     An exponential family of probability distributions as those distributions whose density is defined to be
@@ -36,8 +36,6 @@
     \end{table}
 \end{landscape}
 
-\section{Model Assumption}
-
 Suppose the response $Y$ has a distribution in the exponential family
 \begin{equation*}
     f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
@@ -66,9 +64,7 @@ where the link function provides the relationship between the linear predictor a
     \end{tabular}
 \end{table}
 
-\section{Model Estimation}
-
-\subsection{Maximum Likelihood}
+\paragraph{Maximum Likelihood}
 
 Suppose the log-likelihood function be
 \begin{equation}
@@ -126,4 +122,138 @@ Suppose $\hat{\boldsymbol{\beta}}_{t},\hat{\boldsymbol{\beta}}_{t+1}$ be the max
           is the Fisher information matrix.
 \end{enumerate}
 
-\subsection{Bayesian Methods}
+\paragraph{Bayesian Methods}
+
+\section{Binary Data}
+
+Suppose
+\begin{equation}
+    Y\sim b\left(m,\pi\right),\quad i=1,2,\ldots,n
+\end{equation}
+with link function
+\begin{equation}
+    \eta=g\left(\pi\right)=\log\left(\frac{\pi}{1-\pi}\right)=\mathbf{x}^{\prime}\boldsymbol{\beta}
+\end{equation}
+\begin{remark}
+
+\end{remark}
+
+The likelihood function is
+\begin{equation}
+    f\left(\boldsymbol{\pi}\mid\mathbf{X},\mathbf{y}\right)=\prod_{i=1}^{n}\binom{m_{i}}{y_{i}}\pi_{i}^{y_{i}}\left(1-\pi_{i}\right)^{m_{i}-y_{i}}
+\end{equation}
+and the log-likelihood function is
+\begin{equation}
+    \begin{aligned}
+        \ell\left(\boldsymbol{\beta}\right)= & \log\left[f\left(\boldsymbol{\pi}\mid\mathbf{X},\mathbf{y}\right)\right]=\sum_{i=1}^{n}\ell_{i}\left(\boldsymbol{\beta}\right)                                 \\
+        =                                    & \sum_{i=1}^{n}\left\{\log\left[\binom{m_{i}}{y_{i}}\right]+y_{i}\log\left(\pi_{i}\right)+\left(m_{i}-y_{i}\right)\log\left(1-\pi_{i}\right)\right\}            \\
+        =                                    & \sum_{i=1}^{n}\left[y_{i}\log\left(\frac{\pi_{i}}{1-\pi_{i}}\right)+m_{i}\log\left(1-\pi_{i}\right)\right]+\sum_{i=1}^{n}\log\left[\binom{m_{i}}{y_{i}}\right]
+    \end{aligned}
+\end{equation}
+where
+\begin{equation}
+    \pi_{i}=\frac{\exp\left(\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}\right)}{1+\exp\left(\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}\right)}
+\end{equation}
+
+Thus,
+\begin{gather*}
+    U_{r}\left(\boldsymbol{\beta}\right)=\sum_{i=1}^{n}\left(y_{i}-m_{i}\pi_{i}\right)x_{ir} \\
+    I_{sr}\left(\boldsymbol{\beta}\right)=\sum_{i=1}^{n}m_{i}\pi_{i}\left(1-\pi_{i}\right)x_{is}x_{ir}
+\end{gather*}
+
+\section{Polytomous Data}
+
+\begin{definition}[Polytomous Data]
+    A response is polytomous, if the response of an individual or item in a study is \textbf{restricted to one of a fixed set of possible values}.
+\end{definition}
+
+\begin{remark}
+    There are two types of scales, pure scales and compound scales \footnote{A bivariate responses with one response ordinal and the other continuous is an example of compound scales.}. For pure scales, there are several types:
+    \begin{enumerate}
+        \item \textbf{Nominal Scale}: a scale used for labeling variables into distinct classifications and does not involve a quantitative value or order.
+        \item \textbf{Ordinal Scale}: a variable measurement scale used to simply depict the order of variables and not the difference between each of the variables.
+        \item \textbf{Interval Scale}: a numerical scale where the order of the variables is known as well as the difference between these variables.
+    \end{enumerate}
+\end{remark}
+
+Let the category probabilities given $\mathbf{x}_{i}$ be
+\begin{equation}
+    \pi_{j}\left(\mathbf{x}_{i}\right)=P\left(Y=y_{j}\mid\mathbf{X}=\mathbf{x}_{i}\right)
+\end{equation}
+and the cumulative probabilities given $\mathbf{x}_{i}$ be
+\begin{equation}
+    r_{j}\left(\mathbf{x}_{i}\right)=P\left(Y\leq\sum_{r\leq j}y_{r}\mid\mathbf{X}=\mathbf{x}_{i}\right)
+\end{equation}
+where $i=1,2,\ldots,n,\quad j=1,2,\ldots,k$.
+
+Here, multinomial distribution is in many ways the most natural distribution to consider in the context of a polytomous response variable. The denisty function of the multinomial distribution is,
+\begin{equation*}
+    P\left(Y_{1}=y_{1},\ldots,Y_{k}=y_{k}\right)=
+    \left\{\begin{array}{ll}
+        \frac{m!}{y_{1}!\cdots y_{k}!}\pi_{1}^{y_{1}}\cdot\ldots\cdot \pi_{k}^{y_{k}}, & \sum_{i=1}^{k}y_{i}=m \\
+        0                                                                              & \text { otherwise }
+    \end{array}\right.
+\end{equation*}
+for non-negative integers $y_{1},\ldots,y_{k}$.
+
+As for the link function, we have
+
+\paragraph*{Nominal Scale}
+
+\begin{equation}
+    \pi_{j}\left(\mathbf{x}_{i}\right)=\frac{\exp \left[\eta_{j}\left(\mathbf{x}_{i}\right)\right]}{\sum_{j=1}^{k} \exp \left[\eta_{j}\left(\mathbf{x}_{i}\right)\right]}
+\end{equation}
+where $\eta_{j}\left(\mathbf{x}_{i}\right)=\eta_{j}\left(\mathbf{x}_{0}\right)+\left(\mathbf{x}_{i}-\mathbf{x}_{0}\right)^{\prime}\boldsymbol{\beta}_{j}+\alpha_{i}$.
+
+\paragraph*{Ordinal Scale}
+
+\begin{enumerate}
+    \item Logistic Scale:
+          \begin{equation}
+              \log\left[\frac{r_{j}\left(\mathbf{x}_{i}\right)}{1-r_{j}\left(\mathbf{x}_{i}\right)}\right]=\theta_{j}-\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}
+          \end{equation}
+    \item Complementary Log-Log Scale:
+          \begin{equation}
+              \log\left\{-\log\left[1-r_{j}\left(\mathbf{x}_{i}\right)\right]\right\}=\theta_{j}-\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}
+          \end{equation}
+\end{enumerate}
+
+\paragraph*{Interval Scale}
+
+Suppose the $j$-th category exits a cardinal number or score, $s_j$, where the difference between scores is a measure of distance between or separation of categories.
+
+\begin{enumerate}
+    \item \begin{equation}
+              \log\left[\frac{r_{j}\left(\mathbf{x}_{i}\right)}{1-r_{j}\left(\mathbf{x}_{i}\right)}\right]=\varsigma_{0}+\varsigma_{1}\left(\frac{s_{j}+s_{j+1}}{2}\right)-\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}-\mathbf{x}_{i}^{\prime}\boldsymbol{\xi}\left(c_{j}-\bar{c}\right)
+          \end{equation}
+          where $c_{j}=\frac{s_{j}+s_{j+1}}{2}$ or $c_{j}=\operatorname{logit}\left(\frac{s_{j}+s_{j+1}}{2}\right)$.
+    \item \begin{equation}
+              \pi_{j}\left(\mathbf{x}_{i}\right)=\frac{\exp \left[\eta_{j}\left(\mathbf{x}_{i}\right)\right]}{\sum_{j=1}^{k} \exp \left[\eta_{j}\left(\mathbf{x}_{i}\right)\right]}
+          \end{equation}
+          where $\eta_{j}\left(\mathbf{x}_{i}\right)=\eta_{j}+\left(\mathbf{x}_{i}^{\prime}\boldsymbol{\beta}\right)s_{j}+\alpha_{i}$.
+    \item \begin{equation}
+              \sum_{j=1}^{k}\pi_{j}\left(\mathbf{x}_{i}\right)s_{j}=\mathbf{x}_{i}\boldsymbol{\beta}
+          \end{equation}
+\end{enumerate}
+
+\section{Count Data}
+
+Departures from the idealized Poisson model are to be expected. Therefore, we avoid the assumption of Poisson variation and assume only that
+\begin{equation}
+    \operatorname{Var}\left(Y\right)=\sigma^{2}E\left(Y\right)
+\end{equation}
+with link function
+\begin{equation}
+    \log\left(\mu\right)=\eta=\mathbf{x}^{\prime}\boldsymbol{\beta}
+\end{equation}
+where $\mu=E\left(Y\mid\mathbf{X}\right)$.
+
+For the response in the Poisson distribution, i.e.
+\begin{equation*}
+    P(Y=y\mid\mu)=\frac{e^{-\mu}\mu^{y}}{y!}
+\end{equation*}
+and the log-likelihood function is
+\begin{equation}
+    \ell\left(\boldsymbol{\beta}\right)\propto\sum_{i=1}^{n}\left(y_{i} \log\left(\mu_{i}\right)-\mu_{i}\right)
+\end{equation}
+where $\mu_{i}=E\left(Y\mid\mathbf{X}=\mathbf{x}_{i}\right)$.

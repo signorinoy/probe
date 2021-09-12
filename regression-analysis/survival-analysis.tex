@@ -1,6 +1,4 @@
-\chapter{Survival Data}
-
-\section{Survival Data}
+\chapter{Survival Analysis}
 
 \begin{definition}[Survival Function]
     The survival function\footnote{The survival function is the probability that the time of death is later than some specified time $t$.} is defined to be
@@ -115,11 +113,6 @@ where $\hat{S}(t)$ is referred to as Kaplan-Meier estimate.
 
 \section{Proportional Hazards Model}
 
-Suppose $t_{(1)}<t_{(2)}<\ldots<t_{(m)}$ be death times. The number of
-individuals who alive just before time $t_{(j)}$, including those who are about to die at this time, will be denoted $n_{j}$, for $j=1,2,\ldots,m$, and $d_{j}$ will denote the number who die at this time. Thus, we have
-
-\subsection{Model Assumption}
-
 Let $t_{1},t_{2},\ldots,t_{n}$ be the failure times associated with censor indicator $\delta_{1},\delta_{2},\ldots,\delta_{n}$ and the covariate vectors $\mathbf{x}_{i}$.
 
 Further, let $t_{(1)}\leq t_{(2)}\leq\ldots\leq t_{(m)}$ be the ordered uncensored failure times corresponding to $\delta_{(j)}=1,j=1,2,\ldots,m$, and $x_{(1)},x_{(2)},\ldots,x_{(m)}$ are the associated covariate vectors. Note $(j)$ represents the label for the individual who dies at $t_{(j)}$.
@@ -129,8 +122,6 @@ The proportional hazards model specifying the hazard at time $t$ for an individu
     \lambda(t)=\lambda_{0}(t)\mathrm{e}^{\mathbf{x}^{\prime}\boldsymbol{\beta}}
 \end{equation}
 where $\lambda_{0}(t)$ is referred to as the bașeline hazard function.
-
-\subsection{Model Estimation}
 
 The exact likelihood function is
 \begin{equation}
