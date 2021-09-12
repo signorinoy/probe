@@ -1,5 +1,7 @@
 \chapter{Kernel Methods}
 
+\section{Positive Definite Kernels}
+
 \begin{definition}[Positive Definite Kernel]
     Let $\mathcal{X}$ be a set, a function $K:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}$ is called a positive definite kernel on $\mathcal{X}$ iff it is
     \begin{enumerate}
@@ -14,6 +16,8 @@
               holds for any $x_{1},\ldots,x_{n}\in\mathcal{X}$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\mathbb{R}$.
     \end{enumerate}
 \end{definition}
+
+\subsection{Construction of the Reproducing Kernel Hilbert Space}
 
 \begin{theorem}[Morse-Aronszajn's Theorem] \label{thm:morse-aronszajn}
     For any set $\mathcal{X}$, suppose $K:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}$ is positive definite, then there is a unique RKHS $\mathcal{H}\subset\mathbb{R}^{\mathcal{X}}$ with reproducing kernel $K$.
@@ -88,10 +92,12 @@
     \end{enumerate}
 \end{proof}
 
-\begin{example}[Common Kernels]
-    \begin{enumerate}
-        \item $K(\mathbf{x},\mathbf{y})=\exp\left(-\frac{\left\|\mathbf{x}-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right),\quad\mathbf{x},\mathbf{y}\in\mathbb{R}^{d}$
-    \end{enumerate}
+\subsection{Examples of Kernels}
+
+\begin{example}[Gaussian Kernel]
+    \begin{equation}
+        K(\mathbf{x},\mathbf{y})=\exp\left(-\frac{\left\|\mathbf{x}-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right),\quad\mathbf{x},\mathbf{y}\in\mathbb{R}^{d}
+    \end{equation}
 \end{example}
 
 \begin{proof}
