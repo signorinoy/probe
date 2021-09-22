@@ -25,9 +25,14 @@ Solving (\ref{eq:unconstrained-minimization-problem}) is equal to finding the so
 \begin{equation*}
     \exists\mathbf{x}^{(0)},\mathbf{x}^{(1)},\ldots\in\operatorname{dom}f,\quad\text{ s.t. }f(\mathbf{x}^{(k)})\rightarrow p^{*},\quad\text{ as }\quad k\rightarrow\infty
 \end{equation*}
-where the initial point $\mathbf{x}^{(0)}$ must lie in $\operatorname{dom}f$, and the sublevel set $$S=\left\{\mathbf{x}\in\operatorname{dom}f\mid f(\mathbf{x})\leq f(\mathbf{x}^{0})\right\}$$ must be closed.
+This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$, where $\epsilon>0$ is some specified tolerance.
 
 \begin{remark}
+    The initial point $\mathbf{x}^{(0)}$ must lie in $\operatorname{dom}f$, and the sublevel set
+    \begin{equation*}
+        S=\left\{\mathbf{x}\in\operatorname{dom}f\mid f(\mathbf{x})\leq f(\mathbf{x}^{(0)})\right\}
+    \end{equation*}
+    must be closed. Any closed function (Definition \ref{def:closed-function})
 \end{remark}
 
 \begin{example}[Quadratic Minimization]
@@ -35,9 +40,7 @@ where the initial point $\mathbf{x}^{(0)}$ must lie in $\operatorname{dom}f$, an
     \begin{equation}
         \min_{\mathbf{x}}\,\frac{1}{2}\mathbf{x}^{\prime}\mathbf{P}\mathbf{x}+\mathbf{q}^{\prime}\mathbf{x}+r \label{eq:quadratic-minimization}
     \end{equation}
-    where $\mathbf{P}\in\mathbb{S}_{+}^{n},\mathbf{q}\in\mathbb{R}^{n}$, and $r\in\mathbb{R}$.
-
-    The optimality condition is
+    where $\mathbf{P}\in\mathbb{S}_{+}^{n},\mathbf{q}\in\mathbb{R}^{n}$, and $r\in\mathbb{R}$. The optimality condition is
     \begin{equation}
         \mathbf{P}\mathbf{x}^{*}+\mathbf{q}=\mathbf{0}
         \label{eq:quadratic-minimization-optimality-condition}
@@ -45,9 +48,18 @@ where the initial point $\mathbf{x}^{(0)}$ must lie in $\operatorname{dom}f$, an
     which is a set of linear equations.
     \begin{enumerate}
         \item If $\mathbf{P}\succ 0$, exists a unique solution $\mathbf{x}^{*}=-\mathbf{P}^{-1}\mathbf{q}$.
-
         \item If $\mathbf{P}$ is not positive definite, any solution of (\ref{eq:quadratic-minimization-optimality-condition}) is optimal for (\ref{eq:quadratic-minimization}).
+        \item If (\ref{eq:quadratic-minimization-optimality-condition}) does not have a solution, then (\ref{eq:quadratic-minimization}) is unbounded.
+    \end{enumerate}
+\end{example}
 
+\begin{proof}
+    \hfill
+    \begin{enumerate}
+        \item
+              Obviously.
+
+        \item
               Since $\mathbf{P}\nsucceq 0$, i.e.,
               \begin{equation*}
                   \exists\mathbf{v},\quad\text{ s.t. }\mathbf{v}^{\prime}\mathbf{P}\mathbf{v}<0
@@ -58,8 +70,7 @@ where the initial point $\mathbf{x}^{(0)}$ must lie in $\operatorname{dom}f$, an
               \end{equation*}
               which converges to $-\infty$ as $t\rightarrow\infty$.
 
-        \item If (\ref{eq:quadratic-minimization-optimality-condition}) does not have a solution, then (\ref{eq:quadratic-minimization}) is unbounded.
-
+        \item
               Since (\ref{eq:quadratic-minimization-optimality-condition}) does not have a solution, i.e.,
               \begin{equation*}
                   \mathbf{q}\notin\mathcal{R}(\mathbf{P})
@@ -74,38 +85,45 @@ where the initial point $\mathbf{x}^{(0)}$ must lie in $\operatorname{dom}f$, an
               \end{equation*}
               which is unbounded below.
     \end{enumerate}
-\end{example}
+\end{proof}
 
 \begin{remark}
     The least-squares problem is a special case of quadratic minimization, that,
-    \begin{equation}
+    \begin{equation*}
         \min_{\mathbf{x}}\,\|\mathbf{A}\mathbf{x}-\mathbf{b}\|_{2}^{2}=\mathbf{x}^{\prime}\left(\mathbf{A}^{\prime}\mathbf{A}\right)\mathbf{x}-2\left(\mathbf{A}^{\prime}\mathbf{b}\right)^{\prime}\mathbf{x}+\mathbf{b}^{\prime}\mathbf{b}
-    \end{equation}
+    \end{equation*}
     The optimality condition is
-    \begin{equation}
+    \begin{equation*}
         \mathbf{A}^{\prime}\mathbf{A}\mathbf{x}^{*}=\mathbf{A}^{\prime}\mathbf{b}
-    \end{equation}
+    \end{equation*}
     are called the normal equations of the least-squares problem.
 \end{remark}
 
 \begin{example}[Unconstrained Geometric Programming]
     The unconstrained geometric program in convex form
-    \begin{equation}
+    \begin{equation*}
         \min_{\mathbf{x}}\,f(\mathbf{x})=\log \left(\sum_{i=1}^{m}\exp\left(\mathbf{a}_{i}^{\prime}\mathbf{x}+b_{i}\right)\right)
-    \end{equation}
+    \end{equation*}
     The optimality condition is
-    \begin{equation}
+    \begin{equation*}
         \nabla f\left(x^{*}\right)=\frac{\sum_{i=1}^{m}\exp\left(\mathbf{a}_{i}^{\prime}\mathbf{x}^{*}+b_{i}\right)\mathbf{a}_{i}}{\sum_{j=1}^{m}\exp\left(\mathbf{a}_{j}^{\prime}\mathbf{x}^{*}+b_{j}\right)}=\mathbf{0}
-    \end{equation}
+    \end{equation*}
     which has no analytical solution, so we must resort to an iterative algorithm. For this problem, $\operatorname{dom} f=\mathbb{R}^{n}$, so any point can be chosen as the initial point $\mathbf{x}^{(0)}$.
 \end{example}
 
 \begin{example}[Analytic Center of Linear Inequalities]
-
+    Consider the optimization problem
+    \begin{equation*}
+        \min_{\mathbf{x}}\,f(x)=-\sum_{i=1}^{m}\log\left(\mathbf{b}_{i}-\mathbf{a}_{i}^{T}\mathbf{x}\right)
+    \end{equation*}
+    where the domain of $f$ is the open set
+    \begin{equation*}
+        \operatorname{dom}f=\left\{\mathbf{x}\mid\mathbf{a}_{i}^{\prime}\mathbf{x}<\mathbf{b}_{i},i=1,\ldots,m\right\}
+    \end{equation*}
 \end{example}
 
 \begin{definition}[Strong Convexity]
-    
+
 \end{definition}
 
 \section{General Descent Method}
