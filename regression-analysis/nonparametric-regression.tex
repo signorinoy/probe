@@ -1,6 +1,8 @@
-\chapter{Kernel Methods}
+\chapter{Nonparametric Regression}
 
-\section{Positive Definite Kernels}
+\section{Kernel Methods}
+
+\subsection{Positive Definite Kernels}
 
 \begin{definition}[Positive Definite Kernel]
     Let $\mathcal{X}$ be a set, a function $K:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}$ is called a positive definite kernel on $\mathcal{X}$ iff it is
@@ -17,7 +19,7 @@
     \end{enumerate}
 \end{definition}
 
-\subsection{Construction of the Reproducing Kernel Hilbert Space}
+\subsubsection{Construction of the Reproducing Kernel Hilbert Space}
 
 \begin{theorem}[Morse-Aronszajn's Theorem] \label{thm:morse-aronszajn}
     For any set $\mathcal{X}$, suppose $K:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}$ is positive definite, then there is a unique RKHS $\mathcal{H}\subset\mathbb{R}^{\mathcal{X}}$ with reproducing kernel $K$.
@@ -92,7 +94,7 @@
     \end{enumerate}
 \end{proof}
 
-\subsection{Examples of Kernels}
+\subsubsection{Examples of Kernels}
 
 \begin{example}[Gaussian Kernel]
     \begin{equation}

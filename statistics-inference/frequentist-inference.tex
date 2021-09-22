@@ -1,4 +1,8 @@
-\chapter{Minimum-Variance Unbiased Estimator}
+\chapter{Frequentist Inference}
+
+\section{Point Estimation}
+
+\subsection{Minimum-Variance Unbiased Estimator}
 
 \begin{definition}[UMVU Estimators]
     An unbiased estimator $\delta(\textbf{X})$ of $g(\theta)$ is the uniform minimum variance unbiased (UMVU) estimator of $g(\theta)$ if
@@ -136,3 +140,128 @@
         \hat{\theta_1}=\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)},\quad\hat{\theta_2}=-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}.
     \end{equation*}
 \end{proof}
+
+\subsection{Maximum Likelihood Estimator}
+
+Suppose that $\textbf{X}_{n}=\left(X_{1},\ldots,X_{n}\right)$, where the $X_{i}$ are i.i.d. with common density $p\left(x;\theta_{0}\right)\in\mathcal{P}=\{p(x;\theta):\theta\in\Theta\}$.
+
+We assume that
+
+\begin{quotation}
+    $\theta_{0}$ is identified in the sense that if $\theta\neq\theta_{0}$ and $\theta\in\Theta$, then $p(x;\theta)\neq p\left(x;\theta_{0}\right)$ with respect to the dominating measure $\mu$.
+\end{quotation}
+
+For fixed $\theta\in\Theta$, the joint density of $\textbf{X}_{n}$ is equal to the product of the individual densities, i.e.,
+
+\begin{equation}
+    p\left(\textbf{X}_{n};\theta\right)=\prod_{i=1}^{n} p\left(x_{i};\theta\right).
+\end{equation}
+
+The maximum likelihood estimate for observed $\textbf{X}_{n}$ is the value $\theta\in\Theta$ which maximizes $L\left(\theta;X_{n}\right):=p\left(\textbf{X}_{n};\theta\right)$, i.e.,
+
+\begin{equation}
+    \hat{\theta}\left(\textbf{X}_{n}\right)=\max_{\theta\in\Theta}L\left(\theta;X_{n}\right).
+\end{equation}
+
+Equivalently, the MLE can be taken to be the maximum of the standardized log-likelihood,
+
+\begin{equation}
+    \frac{l\left(\theta;\textbf{X}_{n}\right)}{n}=\frac{\log L\left(\theta;\textbf{X}_{n}\right)}{n}=\frac{1}{n}\sum_{i=1}^{n}\log p\left(X_{i};\theta\right)=\frac{1}{n}\sum_{i=1}^{n}l\left(\theta;X_{i}\right).
+\end{equation}
+
+Define
+\begin{equation}
+    \begin{gathered}
+        Q\left(\theta;\textbf{X}_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}l\left(\theta;X_{i}\right), \\
+        \hat{\theta}\left(\textbf{X}_{n}\right):=\max_{\theta\in\Theta}Q\left(\theta;\textbf{X}_{n}\right). \\
+    \end{gathered}
+\end{equation}
+
+\subsubsection{Consistency of MLE}
+
+By the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}), we can get,
+
+\begin{equation}
+    \frac{1}{n}\sum^{n}l\left(\theta;X_{i}\right)\stackrel{p}{\rightarrow}E\left[l(\theta;X)\right].
+\end{equation}
+
+Suppose $Q_{0}(\theta)=E\left[l(\theta;X)\right]$, then we will show that $Q_{0}(\theta)$ is maximized at $\theta_{0}$ (i.e., the truth).
+
+\begin{lemma}
+    If $\theta_{0}$ is identified and $E_{\theta_{0}}\left[|\log p(X;\theta)|\right]<\infty,\forall\theta\in\Theta$, then $Q_{0}(\theta)$ is uniquely maximized at $\theta=\theta_{0}$.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}[Consistency of MLE]
+    Suppose that $Q\left(\theta;\textbf{X}_{n}\right)$ is continuous in $\theta$ and there exists a function $Q_{0}(\theta)$ such that
+    \begin{enumerate}
+        \item $Q_{0}(\theta)$ is uniquely maximized at $\theta_{0}$.
+        \item $\Theta$ is compact.
+        \item $Q_{0}(\theta)$ is continuous in $\theta$.
+        \item $Q\left(\theta;\textbf{X}_{n}\right)$ converges uniformly in probability to $Q_{0}(\theta)$.
+    \end{enumerate}
+    then
+    \begin{equation}
+        \hat{\theta}\left(\textbf{X}_{n}\right)\stackrel{p}{\rightarrow}\theta_{0}.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    $\forall\varepsilon>0$, let
+    \begin{equation*}
+        \Theta(\epsilon)=\left\{\theta:\left\|\theta-\theta_{0}\right\|<\epsilon\right\}.
+    \end{equation*}
+
+    Since $\Theta(\epsilon)$ is an open set, then $\Theta\cap\Theta(\epsilon)^{C}$ is a compact set (Assumption 2).
+
+    Since $Q_{0}(\theta)$ is a continuous function (Assumption 3), then
+    \begin{equation*}
+        \theta^{*}:=\sup_{\theta\in\Theta\cap \Theta(\epsilon)^{C}}\left\{Q_{0}(\theta)\right\}
+    \end{equation*}
+    is a achieved for a $\theta$ in the compact set.
+
+    Since $\theta_{0}$ is the unique maximized, let
+    \begin{equation*}
+        Q_{0}\left(\theta_{0}\right)-Q_{0}\left(\theta^{*}\right)=\delta>0.
+    \end{equation*}
+
+    \begin{enumerate}
+        \item For $\theta\in\Theta\cap\Theta(\epsilon)^{C}$. Let $A_n=\left\{\sup_{\theta\in\Theta\cap\Theta(\epsilon)^{C}}\left|Q\left(\theta;\textbf{X}_{n}\right)-Q_{0}(\theta)\right|<\frac{\delta}{2}\right\}$, then
+              \begin{equation*}
+                  \begin{aligned}
+                      A_{n}\Rightarrow Q\left(\theta;\textbf{X}_{n}\right) & <Q_{0}(\theta)+\frac{\delta}{2}                    \\
+                                                                           & \leq Q_{0}\left(\theta^{*}\right)+\frac{\delta}{2} \\
+                                                                           & = Q_{0}\left(\theta_{0}\right)-\frac{\delta}{2}
+                  \end{aligned}
+              \end{equation*}
+        \item For $\theta\in\Theta(\epsilon)$. Let $B_n=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|Q\left(\theta;\boldsymbol{X}_{n}\right)-Q_{0}(\theta)\right|<\frac{\delta}{2}\right\}$, then
+              \begin{equation*}
+                  B_{n}\Rightarrow Q\left(\theta;\boldsymbol{X}_{n}\right)>Q_{0}(\theta)-\frac{\delta}{2},\forall\theta\in\Theta(\epsilon)
+              \end{equation*}
+              By Assumption 1,
+              \begin{equation*}
+                  Q\left(\theta_{0};\boldsymbol{X}_{n}\right)>Q_{0}\left(\theta_{0}\right)-\frac{\delta}{2}
+              \end{equation*}
+    \end{enumerate}
+
+    If both $A_{n}$ and $B_{n}$ hold, then
+    \begin{equation*}
+        \hat{\theta}\in\Theta(\epsilon).
+    \end{equation*}
+
+    By Assumption 4, we can concluded that $P\left(A_{n}\cap B_{n}\right)\rightarrow 1$, so
+    \begin{equation*}
+        P(\hat{\theta}\in\Theta(\epsilon))\rightarrow 1,
+    \end{equation*}
+    which means,
+    \begin{equation*}
+        \hat{\theta}\left(\textbf{X}_{n}\right)\stackrel{p}{\rightarrow}\theta_{0}.
+    \end{equation*}
+\end{proof}
+
+\subsubsection{Asymptotic Normality of MLE}
+
+\subsubsection{Efficiency of MLE}
