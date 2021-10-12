@@ -2,4 +2,94 @@
 
 \section{Jackknife}
 
+Suppose the independent and identically distributed (i.i.d) sample $\boldsymbol{x}=\left(x_{1},x_{2},\ldots,x_{n}\right)^{\prime}$ from an unknown probability distribution $F$ on some probability space $\mathcal{X}$
+\begin{equation}
+    x_{i}\stackrel{\text{iid}}{\sim}F,\quad i=1,2,\ldots,n
+\end{equation}
+and a real-valued statistic $\hat{\theta}$ can be computed by applying some algorithm $s(\cdot)$ to $\mathbf{x}$, that,
+\begin{equation}
+    \hat{\theta}=s(\mathbf{x})
+\end{equation}
+
+Let $\mathbf{x}_{(i)}$ be the sample with $x_{i}$ removed,
+\begin{equation}
+    \mathbf{x}_{(i)}=\left(x_{1},x_{2},\ldots,x_{i-1},x_{i+1},\ldots,x_{n}\right)^{\prime}
+\end{equation}
+and denote the corresponding value of the statistic of interest as
+\begin{equation}
+    \hat{\theta}_{(i)}=s\left(\mathbf{x}_{(i)}\right)
+\end{equation}
+
+\subsection{Bias of $\hat{\theta}$}
+
+For almost all reasonable and practical estimates, we have \begin{equation}
+    \operatorname{Bias}(\hat{\theta})=\operatorname{E}(\hat{\theta})-\theta\rightarrow 0,\quad\text{as }n\rightarrow\infty
+\end{equation}
+Then, it is reasonable to assume a power series of the type
+\begin{equation}
+    \operatorname{E}(\hat{\theta})=\theta+\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots
+\end{equation}
+with some coefficients $\left\{a_{k}\right\}$. And we have
+\begin{equation}
+    \operatorname{E}(\hat{\theta}_{(i)})=\theta+\frac{a_{1}}{n-1}+\frac{a_{2}}{\left(n-1\right)^{2}}+\frac{a_{3}}{\left(n-1\right)^{3}}+\ldots
+\end{equation}
+
+For the sake of a smaller variance, we average all such estimates and let
+\begin{equation}
+    \hat{\theta}_{(\cdot)}=\frac{1}{n}\sum_{i=1}^{n}\hat{\theta}_{(i)}
+\end{equation}
+thus,
+\begin{equation}
+    \operatorname{E}(\hat{\theta}_{(\cdot)})=\theta+\frac{a_{1}}{n-1}+\frac{a_{2}}{\left(n-1\right)^{2}}+\frac{a_{3}}{\left(n-1\right)^{3}}+\ldots
+\end{equation}
+
+By equation and, we have
+\begin{equation}
+    (n-1)\operatorname{E}\left[\hat{\theta}_{(\cdot)}-\hat{\theta}\right]=\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots=\operatorname{Bias}(\hat{\theta})
+\end{equation}
+Hence, we can get the jackknife estimate bias for $\hat{\theta}$ be
+\begin{equation}
+    \widehat{\operatorname{Bias}}_{\text{jack}}=(n-1)\left(\hat{\theta}_{(\cdot)}-\hat{\theta}\right)
+\end{equation}
+
+\begin{remark}
+    It is easy to combine the averaged Jackknife estimator $\hat{\theta}_{(i)}$ with the original $\hat{\theta}$, to kill the main term in the bias of $\hat{\theta}$, thus,
+    \begin{equation}
+        \begin{aligned}
+            \mathbf{E}\left[n\hat{\theta}-(n-1)\hat{\theta}_{(\mathbf{\cdot})}\right] & =\{n\theta-(n-1)\theta\}+\left\{a_{1}-a_{1}\right\}+\left\{\frac{a_{2}}{n}-\frac{a_{2}}{n-1}\right\}+\ldots \\
+                                                                                      & =\theta+\frac{a_{2}}{n(n-1)}+\ldots=\theta+\frac{a_{2}}{n^{2}}+O\left(n^{-3}\right)
+        \end{aligned}
+    \end{equation}
+    This removes the bias in the special case that the bias is $O\left(n^{-1}\right)$ and removes it to $O\left(n^{-2}\right)$ in other cases.
+\end{remark}
+
+\subsection{Variance of $\hat{\theta}$}
+
+The jackknife estimate of variance for $\hat{\theta}$ is
+\begin{equation}
+    \widehat{\operatorname{Var}}_{\text{jack}}=\frac{n-1}{n}\sum_{i=1}^{n}\left(\hat{\theta}_{(i)}-\hat{\theta}_{(\cdot)}\right)^{2},\quad\text{where }\hat{\theta}_{(\cdot)}=\frac{1}{n}\sum_{i=1}^{n}\hat{\theta}_{(i)}
+\end{equation}
+
+\begin{example}[Sample Mean]
+
+\end{example}
+
+\begin{example}[Sample Correlation Coefficient]
+
+\end{example}
+
 \section{Bootstrap}
+
+\subsection{Type of Bootstrap Scheme}
+
+% \subsubsection{Infinitesimal Jackknife}
+
+\subsubsection{Nonparametric Bootstrap}
+
+\subsubsection{Bayesiam Bootstrap}
+
+\subsubsection{Smooth Bootstrap}
+
+\subsubsection{Parametric Bootstrap}
+
+\subsubsection{Block Bootstrap}
