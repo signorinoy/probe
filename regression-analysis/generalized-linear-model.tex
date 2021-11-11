@@ -2,40 +2,6 @@
 
 \section{Introduction}
 
-\begin{definition}[Exponential Family] \label{def:exponential-family}
-    An exponential family of probability distributions as those distributions whose density is defined to be
-    \begin{equation}
-        f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
-    \end{equation}
-\end{definition}
-
-\begin{property}
-    The exponential family have the following properties,
-    \begin{equation*}
-        E(Y)=b^{\prime}(\theta)\quad\operatorname{Var}(Y)=b^{\prime\prime}(\theta)a(\phi).
-    \end{equation*}
-\end{property}
-
-\begin{proof}
-
-\end{proof}
-
-\begin{landscape}
-    \begin{table}[hpt]
-        \centering
-        \caption{Common Distributions of Exponential Family}
-        \begin{tabular}{ccccccccc}
-            \toprule
-            Distribution & Parameter(s)      & $\theta$                         & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\operatorname{Var}(Y)$                            \\
-            \midrule
-            Normal       & $N(\mu,\sigma^2)$ & $\mu$                            & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                             \\
-            Bernoulli    & $\text{Bern}(p)$  & $\log\left(\frac{p}{1-p}\right)$ & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\
-            Poisson      & $P(\mu)$          & $\log(\mu)$                      & $1$          & $\mathrm{e}^{\theta}$           & $1$       & $-\log(y!)$                                                   & $\mathrm{e}^{\theta}$             & $\mathrm{e}^{\theta}$                              \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
-\end{landscape}
-
 Suppose the response $Y$ has a distribution in the exponential family
 \begin{equation*}
     f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
