@@ -3,33 +3,33 @@
 \section{Convex Sets}
 
 \begin{exercise}{Solution set of a quadratic inequality}
-    Let $C\subseteq\mathbf{R}^{n}$ be the solution set of a quadratic inequality,
-    \begin{equation*}
-        C=\{x\in\mathbf{R}^{n}\vert x^{T}Ax+b^{T}x+c\leq 0\}
-    \end{equation*}
-    with $A\in\mathbf{S}^{n}$, $b\in\mathbf{R}^{n}$, and $c\in\mathbf{R}$.
-    \begin{enumerate}
-        \item Show that $C$ is convex if $A\succeq 0$.
-    \end{enumerate}
+	Let $C\subseteq\mathbf{R}^{n}$ be the solution set of a quadratic inequality,
+	\begin{equation*}
+		C=\{x\in\mathbf{R}^{n}\vert x^{T}Ax+b^{T}x+c\leq 0\}
+	\end{equation*}
+	with $A\in\mathbf{S}^{n}$, $b\in\mathbf{R}^{n}$, and $c\in\mathbf{R}$.
+	\begin{enumerate}
+		\item Show that $C$ is convex if $A\succeq 0$.
+	\end{enumerate}
 \end{exercise}
 
 \begin{proof}
-    \begin{enumerate}
-        \item
-              We have to show that $\theta x+(1-\theta)y\in C$ for all $\theta\in[0,1]$ and $x,y\in C$.
-              \begin{equation*}
-                  \begin{aligned}
-                           & (\theta x+(1-\theta)y)^{T}A(\theta x+(1-\theta)y)+b^{T}(\theta x+(1-\theta)y)+c            \\
-                      =    & \theta^2x^TAx+\theta(1-\theta)(y^TAx+x^TAy)+(1-\theta)^2y^TAy+\theta b^Tx+(1-\theta)b^Ty+c \\
-                      =    & \theta^2(x^{T}Ax+b^{T}x+c)+(1-\theta)^2(y^{T}Ay+b^{T}y+c)-\theta^2(b^{T}x+c)               \\
-                           & -(1-\theta)^2(b^{T}y+c)+\theta(1-\theta)(y^TAx+x^TAy)+\theta b^Tx+(1-\theta)b^Ty+c         \\
-                      \leq & -\theta^2(b^{T}x+c)-(1-\theta)^2(b^{T}y+c)+\theta(1-\theta)(y^TAx+x^TAy)                   \\
-                           & +\theta b^Tx+(1-\theta)b^Ty+c                                                              \\
-                      =    & \theta(1-\theta)[(b^Tx+c)+(b^Ty+c)+x^TAx+y^TAy]                                            \\
-                      \leq & \theta(1-\theta)(-x^TAx-y^TAy+x^TAx+y^TAy)\leq 0                                           \\
-                  \end{aligned}
-              \end{equation*}
-              Therefore, $\theta x+(1-\theta)y\in C$, which shows that $C$ is convex if $A\succeq 0$.
-    \end{enumerate}
+	\begin{enumerate}
+		\item
+		      We have to show that $\theta x+(1-\theta)y\in C$ for all $\theta\in[0,1]$ and $x,y\in C$.
+		      \begin{equation*}
+			      \begin{aligned}
+				           & (\theta x+(1-\theta)y)^{T}A(\theta x+(1-\theta)y)+b^{T}(\theta x+(1-\theta)y)+c            \\
+				      =    & \theta^2x^TAx+\theta(1-\theta)(y^TAx+x^TAy)+(1-\theta)^2y^TAy+\theta b^Tx+(1-\theta)b^Ty+c \\
+				      =    & \theta^2(x^{T}Ax+b^{T}x+c)+(1-\theta)^2(y^{T}Ay+b^{T}y+c)-\theta^2(b^{T}x+c)               \\
+				           & -(1-\theta)^2(b^{T}y+c)+\theta(1-\theta)(y^TAx+x^TAy)+\theta b^Tx+(1-\theta)b^Ty+c         \\
+				      \leq & -\theta^2(b^{T}x+c)-(1-\theta)^2(b^{T}y+c)+\theta(1-\theta)(y^TAx+x^TAy)                   \\
+				           & +\theta b^Tx+(1-\theta)b^Ty+c                                                              \\
+				      =    & \theta(1-\theta)[(b^Tx+c)+(b^Ty+c)+x^TAx+y^TAy]                                            \\
+				      \leq & \theta(1-\theta)(-x^TAx-y^TAy+x^TAx+y^TAy)\leq 0                                           \\
+			      \end{aligned}
+		      \end{equation*}
+		      Therefore, $\theta x+(1-\theta)y\in C$, which shows that $C$ is convex if $A\succeq 0$.
+	\end{enumerate}
 
 \end{proof}

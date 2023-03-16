@@ -3,33 +3,33 @@
 \section{Measure Theory}
 
 \begin{exercise}
-    \begin{enumerate}
-        \item Show that if $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$ are $\sigma$ -algebras, then $\cup_{i}\mathcal{F}_{i}$ is an algebra.
-        \item Give an example to show that $\cup_{i}\mathcal{F}_{i}$ need not be a $\sigma$ -algebra.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Show that if $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$ are $\sigma$ -algebras, then $\cup_{i}\mathcal{F}_{i}$ is an algebra.
+		\item Give an example to show that $\cup_{i}\mathcal{F}_{i}$ need not be a $\sigma$ -algebra.
+	\end{enumerate}
 \end{exercise}
 
 \begin{proof}
-    \begin{enumerate}
-        \item
-              \textbf{Complement}: Suppose $A\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A\in\mathcal{F}_{i}$. And each $\mathcal{F}_{i}$ is $\sigma$-algebra,
-              \begin{equation*}
-                  A^c\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
-              \end{equation*}
-              \textbf{Finite Union}: Suppose $A_1,A_2\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A_1\in\mathcal{F}_{i},A_2\in\mathcal{F}_{j}$, such that,
-              \begin{equation*}
-                  A_1,A_2\in\mathcal{F}_{\max(i,j)}.
-              \end{equation*}
-              Since each $\mathcal{F}_{i}$ is $\sigma$-algebra,
-              \begin{equation*}
-                  A_1\cup A_2\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
-              \end{equation*}
-        \item
-              Let $\mathcal{F}_{i}$ be a Borel Set of $[1,2-\frac{1}{i}]$. Suppose $A_i=[1,2-\frac{1}{i}]\in\mathcal{F}_{i}$,
-              \begin{equation*}
-                  \cup_{i}A_{i}=[1,2)\notin\cup_{i}\mathcal{F}_{i}.
-              \end{equation*}
-    \end{enumerate}
+	\begin{enumerate}
+		\item
+		      \textbf{Complement}: Suppose $A\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A\in\mathcal{F}_{i}$. And each $\mathcal{F}_{i}$ is $\sigma$-algebra,
+		      \begin{equation*}
+			      A^c\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
+		      \end{equation*}
+		      \textbf{Finite Union}: Suppose $A_1,A_2\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A_1\in\mathcal{F}_{i},A_2\in\mathcal{F}_{j}$, such that,
+		      \begin{equation*}
+			      A_1,A_2\in\mathcal{F}_{\max(i,j)}.
+		      \end{equation*}
+		      Since each $\mathcal{F}_{i}$ is $\sigma$-algebra,
+		      \begin{equation*}
+			      A_1\cup A_2\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
+		      \end{equation*}
+		\item
+		      Let $\mathcal{F}_{i}$ be a Borel Set of $[1,2-\frac{1}{i}]$. Suppose $A_i=[1,2-\frac{1}{i}]\in\mathcal{F}_{i}$,
+		      \begin{equation*}
+			      \cup_{i}A_{i}=[1,2)\notin\cup_{i}\mathcal{F}_{i}.
+		      \end{equation*}
+	\end{enumerate}
 \end{proof}
 
 \section{Laws of Large Numbers}
@@ -37,90 +37,90 @@
 \section{Central Limit Theorems}
 
 \begin{exercise}
-    Let $g\geq 0$ be continuous. If $X_{n}\stackrel{d}{\rightarrow}X_{\infty},$ then
-    \begin{equation*}
-        \liminf_{n\rightarrow\infty}Eg\left(X_{n}\right)\geq Eg\left(X_{\infty}\right).
-    \end{equation*}
-    \label{ex:fatou-lemma-distribution}
+	Let $g\geq 0$ be continuous. If $X_{n}\stackrel{d}{\rightarrow}X_{\infty},$ then
+	\begin{equation*}
+		\liminf_{n\rightarrow\infty}Eg\left(X_{n}\right)\geq Eg\left(X_{\infty}\right).
+	\end{equation*}
+	\label{ex:fatou-lemma-distribution}
 \end{exercise}
 
 \begin{proof}
-    Let $Y_n\stackrel{d}{=}X_n,1\leq n\leq\infty$ with $Y_n\stackrel{a.s.}{\rightarrow}Y_\infty$ (Lemma \ref{lem:distribution-to-probability}).
-    Since $g\geq 0$ be continuous, $g(Y_n)\stackrel{a.s.}{\rightarrow}g(Y_\infty)$ and $g(Y_n)\geq 0$ (Theorem \ref{thm:continuous-mapping-theorem}), and the Fatou's Lemma (\ref{thm:fatou-lemma}) implies,
-    \begin{equation*}
-        \begin{aligned}
-            \liminf_{n\rightarrow\infty}Eg(X_n)= & \liminf_{n\rightarrow\infty}Eg(Y_n)\geq E\left(\liminf_{n\rightarrow\infty}g(Y_n)\right) \\
-            =                                    & Eg(Y_\infty)=Eg(X_\infty).
-        \end{aligned}
-    \end{equation*}
+	Let $Y_n\stackrel{d}{=}X_n,1\leq n\leq\infty$ with $Y_n\stackrel{a.s.}{\rightarrow}Y_\infty$ (Lemma \ref{lem:distribution-to-probability}).
+	Since $g\geq 0$ be continuous, $g(Y_n)\stackrel{a.s.}{\rightarrow}g(Y_\infty)$ and $g(Y_n)\geq 0$ (Theorem \ref{thm:continuous-mapping-theorem}), and the Fatou's Lemma (\ref{thm:fatou-lemma}) implies,
+	\begin{equation*}
+		\begin{aligned}
+			\liminf_{n\rightarrow\infty}Eg(X_n)= & \liminf_{n\rightarrow\infty}Eg(Y_n)\geq E\left(\liminf_{n\rightarrow\infty}g(Y_n)\right) \\
+			=                                    & Eg(Y_\infty)=Eg(X_\infty).
+		\end{aligned}
+	\end{equation*}
 \end{proof}
 
 \begin{exercise}
-    Suppose $g,h$ are continuous with $g(x)>0$, and $|h(x)|/g(x)\rightarrow 0$ as $|x|\rightarrow\infty$. If $F_{n}\stackrel{d}{\rightarrow}F$ and $\int g(x)\mathrm{d}F_{n}(x)\leq C<\infty,$ then
-    \begin{equation*}
-        \int h(x)\mathrm{d}F_{n}(x) \rightarrow \int h(x)\mathrm{d}F(x).
-    \end{equation*}
+	Suppose $g,h$ are continuous with $g(x)>0$, and $|h(x)|/g(x)\rightarrow 0$ as $|x|\rightarrow\infty$. If $F_{n}\stackrel{d}{\rightarrow}F$ and $\int g(x)\mathrm{d}F_{n}(x)\leq C<\infty,$ then
+	\begin{equation*}
+		\int h(x)\mathrm{d}F_{n}(x) \rightarrow \int h(x)\mathrm{d}F(x).
+	\end{equation*}
 \end{exercise}
 
 \begin{proof}
-    \begin{equation*}
-        \begin{aligned}
-            \left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| = & \left|{\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)+\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)}\right. \\
-                                                                               & \left.{-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)}\right|        \\
-            \leq                                                               & \left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right|          \\
-                                                                               & + \left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right|
-        \end{aligned}.
-    \end{equation*}
+	\begin{equation*}
+		\begin{aligned}
+			\left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| = & \left|{\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)+\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)}\right. \\
+			                                                                   & \left.{-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)}\right|        \\
+			\leq                                                               & \left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right|          \\
+			                                                                   & + \left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right|
+		\end{aligned}.
+	\end{equation*}
 
-    Let $X_n,1\leq n<\infty$, with distribution $F_n$, so that $X_n\stackrel{a.s.}{\rightarrow}X$ (Lemma \ref{lem:distribution-to-probability}).
-    \begin{equation*}
-        \left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right|.
-    \end{equation*}
+	Let $X_n,1\leq n<\infty$, with distribution $F_n$, so that $X_n\stackrel{a.s.}{\rightarrow}X$ (Lemma \ref{lem:distribution-to-probability}).
+	\begin{equation*}
+		\left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right|.
+	\end{equation*}
 
-    By Continuity Mapping Theorem (\ref{thm:continuous-mapping-theorem}), $\lim_{n\rightarrow\infty}\left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right| = 0$.
+	By Continuity Mapping Theorem (\ref{thm:continuous-mapping-theorem}), $\lim_{n\rightarrow\infty}\left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right| = 0$.
 
-    Since
-    \begin{equation*}
-        h(x)I_{x\notin[-M,M]}\leq g(x)\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)},
-    \end{equation*}
-    and by Exercise \ref{ex:fatou-lemma-distribution}
-    \begin{equation*}
-        Eg(X) \leq \liminf_{n\rightarrow\infty}Eg(X_n)=\liminf_{n\rightarrow\infty}\int g(x)\mathrm{d}F_{n}(x)\leq C<\infty,
-    \end{equation*}
-    \begin{equation*}
-        \begin{aligned}
-            \left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\notin[-M,M]}\right| \\
-            \leq 2E\max(h(Xn),h(X))I_{x\notin[-M,M]}\leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}.                                                                    \\
-        \end{aligned}
-    \end{equation*}
+	Since
+	\begin{equation*}
+		h(x)I_{x\notin[-M,M]}\leq g(x)\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)},
+	\end{equation*}
+	and by Exercise \ref{ex:fatou-lemma-distribution}
+	\begin{equation*}
+		Eg(X) \leq \liminf_{n\rightarrow\infty}Eg(X_n)=\liminf_{n\rightarrow\infty}\int g(x)\mathrm{d}F_{n}(x)\leq C<\infty,
+	\end{equation*}
+	\begin{equation*}
+		\begin{aligned}
+			\left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\notin[-M,M]}\right| \\
+			\leq 2E\max(h(Xn),h(X))I_{x\notin[-M,M]}\leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}.                                                                    \\
+		\end{aligned}
+	\end{equation*}
 
-    Hence, let $M\rightarrow\infty$,
-    \begin{equation*}
-        \lim_{n\rightarrow\infty}\left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| \leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}\rightarrow 0,
-    \end{equation*}
-    which means,
-    \begin{equation*}
-        \int h(x)\mathrm{d}F_{n}(x) \rightarrow \int h(x)\mathrm{d}F(x).
-    \end{equation*}
+	Hence, let $M\rightarrow\infty$,
+	\begin{equation*}
+		\lim_{n\rightarrow\infty}\left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| \leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}\rightarrow 0,
+	\end{equation*}
+	which means,
+	\begin{equation*}
+		\int h(x)\mathrm{d}F_{n}(x) \rightarrow \int h(x)\mathrm{d}F(x).
+	\end{equation*}
 \end{proof}
 
 \begin{exercise}
-    Let $X_{1},X_{2},\ldots$ be i.i.d. with $EX_{i}=0$ and $EX_{i}^{2}=\sigma^{2}\in(0,\infty)$. Then
-    \begin{equation*}
-        \sum_{m=1}^{n}X_{m}/\left(\sum_{m=1}^{n}X_{m}^{2}\right)^{1/2}\stackrel{d}{\rightarrow}\chi.
-    \end{equation*}
+	Let $X_{1},X_{2},\ldots$ be i.i.d. with $EX_{i}=0$ and $EX_{i}^{2}=\sigma^{2}\in(0,\infty)$. Then
+	\begin{equation*}
+		\sum_{m=1}^{n}X_{m}/\left(\sum_{m=1}^{n}X_{m}^{2}\right)^{1/2}\stackrel{d}{\rightarrow}\chi.
+	\end{equation*}
 \end{exercise}
 
 \begin{exercise}
-    Show that if $\left|X_{i}\right|\leq M$ and $\sum_{n}\text{Var}\left(X_{n}\right)=\infty$, then
-    \begin{equation*}
-        \left(S_{n}-E S_{n}\right)/\sqrt{\text{Var}\left(S_{n}\right)}\stackrel{d}{\rightarrow}\chi.
-    \end{equation*}
+	Show that if $\left|X_{i}\right|\leq M$ and $\sum_{n}\text{Var}\left(X_{n}\right)=\infty$, then
+	\begin{equation*}
+		\left(S_{n}-E S_{n}\right)/\sqrt{\text{Var}\left(S_{n}\right)}\stackrel{d}{\rightarrow}\chi.
+	\end{equation*}
 \end{exercise}
 
 \begin{exercise}
-    Suppose $EX_{i}=0,EX_{i}^{2}=1$ and $E\left|X_{i}\right|^{2+\delta}\leq C$ for some $0<\delta,C<\infty$. Show that
-    \begin{equation*}
-        S_{n}/\sqrt{n}\stackrel{d}{\rightarrow}\chi.
-    \end{equation*}
+	Suppose $EX_{i}=0,EX_{i}^{2}=1$ and $E\left|X_{i}\right|^{2+\delta}\leq C$ for some $0<\delta,C<\infty$. Show that
+	\begin{equation*}
+		S_{n}/\sqrt{n}\stackrel{d}{\rightarrow}\chi.
+	\end{equation*}
 \end{exercise}

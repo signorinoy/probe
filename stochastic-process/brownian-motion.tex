@@ -1,70 +1,70 @@
 \chapter{Brownian Motion}
 
 \begin{definition}[Brownian Motion (1)]
-    A real-valued stochastic process $B(t),t\geq 0$ is said to be Brownian motion, if
-    \begin{enumerate}
-        \item for any $0=t_{0}\leq t_{1}\leq\ldots\leq t_{n}$ the increments
-              \begin{equation*}
-                  B\left(t_{1}\right)-B\left(t_{0}\right),\ldots,B\left(t_{n}\right)-B\left(t_{n-1}\right)
-              \end{equation*}
-              are independent
-        \item for any $s,t\geq 0$ and Borel sets $A\in\mathbb{R}$,
-              \begin{equation}
-                  P\left(B(s+t)-B(s)\in A\right)=\int_{A}(2\pi t)^{-1/2}\exp\left(-x^{2}/2t\right)\,\mathrm{d}x
-              \end{equation}
-        \item the sample paths $t\rightarrow B(t)$ are a.s. continuous
-    \end{enumerate}
+	A real-valued stochastic process $B(t),t\geq 0$ is said to be Brownian motion, if
+	\begin{enumerate}
+		\item for any $0=t_{0}\leq t_{1}\leq\ldots\leq t_{n}$ the increments
+		      \begin{equation*}
+			      B\left(t_{1}\right)-B\left(t_{0}\right),\ldots,B\left(t_{n}\right)-B\left(t_{n-1}\right)
+		      \end{equation*}
+		      are independent
+		\item for any $s,t\geq 0$ and Borel sets $A\in\mathbb{R}$,
+		      \begin{equation}
+			      P\left(B(s+t)-B(s)\in A\right)=\int_{A}(2\pi t)^{-1/2}\exp\left(-x^{2}/2t\right)\,\mathrm{d}x
+		      \end{equation}
+		\item the sample paths $t\rightarrow B(t)$ are a.s. continuous
+	\end{enumerate}
 \end{definition}
 
 \begin{property}
-    For a one-dimensional Brownian motion, if $B(0)=0$, then we have the following properties
-    \begin{enumerate}
-        \item $EB_{t}=0,\operatorname{Var}\left(B_{t}\right)=t,\quad t\geq 0$.
-        \item $\operatorname{Cov}\left(B_{s},B_{t}\right)=s,\operatorname{Corr}\left(B_{s},B_{t}\right)=\sqrt{\frac{s}{t}},\quad\forall 0\leq s\leq t$.
-    \end{enumerate}
+	For a one-dimensional Brownian motion, if $B(0)=0$, then we have the following properties
+	\begin{enumerate}
+		\item $EB_{t}=0,\operatorname{Var}\left(B_{t}\right)=t,\quad t\geq 0$.
+		\item $\operatorname{Cov}\left(B_{s},B_{t}\right)=s,\operatorname{Corr}\left(B_{s},B_{t}\right)=\sqrt{\frac{s}{t}},\quad\forall 0\leq s\leq t$.
+	\end{enumerate}
 \end{property}
 
 \begin{proof}
-    \begin{enumerate}
-        \item Since $B_{t}=B_{t}-B_{0}\sim N(0, t)$, then we have
-              \begin{equation*}
-                  EB_{t}=0,\operatorname{Var}\left(B_{t}\right)=t
-              \end{equation*}
-        \item Suppose $0\leq s\leq t$,
-              \begin{equation*}
-                  \operatorname{Cov}\left(B_{s}, B_{t}\right)=E\left[\left(B_{s}-EB_{s}\right)\left(B_{t}-EB_{t}\right)\right]=EB_{s}B_{t}
-              \end{equation*}
-              Let $B_{t}=\left(B_{t}-B_{s}\right)+B_{s}$, we have
-              \begin{equation*}
-                  \begin{aligned}
-                      EB_{s}B_{t} & =E\left[B_{s}\cdot\left(\left(B_{t}-B_{s}\right)+B_{s}\right)\right] \\
-                                  & =E\left[B_{s}\cdot\left(B_{t}-B_{s}\right)\right]+EB_{s}^{2}
-                  \end{aligned}
-              \end{equation*}
-              Since $B_{s}=B_{s}-B_{0}$ and $B_{t}-B_{s}$ are independent,
-              \begin{equation*}
-                  E\left[B_{s} \cdot\left(B_{t}-B_{s}\right)\right]=EB_{s} \cdot E\left[B_{t}-B_{s}\right]=0
-              \end{equation*}
-              Thus
-              \begin{equation*}
-                  \operatorname{Cov}\left(B_{s}, B_{t}\right)=EB_{s}^{2}=s
-              \end{equation*}
-              And
-              \begin{equation*}
-                  \operatorname{Corr}\left(B_{s},B_{t}\right)=\frac{\operatorname{Cov}\left(B_{s},B_{t}\right)}{\sigma_{B_{s}}\sigma_{B_{t}}}=\frac{s}{\sqrt{st}}=\sqrt{\frac{s}{t}}
-              \end{equation*}
-    \end{enumerate}
+	\begin{enumerate}
+		\item Since $B_{t}=B_{t}-B_{0}\sim N(0, t)$, then we have
+		      \begin{equation*}
+			      EB_{t}=0,\operatorname{Var}\left(B_{t}\right)=t
+		      \end{equation*}
+		\item Suppose $0\leq s\leq t$,
+		      \begin{equation*}
+			      \operatorname{Cov}\left(B_{s}, B_{t}\right)=E\left[\left(B_{s}-EB_{s}\right)\left(B_{t}-EB_{t}\right)\right]=EB_{s}B_{t}
+		      \end{equation*}
+		      Let $B_{t}=\left(B_{t}-B_{s}\right)+B_{s}$, we have
+		      \begin{equation*}
+			      \begin{aligned}
+				      EB_{s}B_{t} & =E\left[B_{s}\cdot\left(\left(B_{t}-B_{s}\right)+B_{s}\right)\right] \\
+				                  & =E\left[B_{s}\cdot\left(B_{t}-B_{s}\right)\right]+EB_{s}^{2}
+			      \end{aligned}
+		      \end{equation*}
+		      Since $B_{s}=B_{s}-B_{0}$ and $B_{t}-B_{s}$ are independent,
+		      \begin{equation*}
+			      E\left[B_{s} \cdot\left(B_{t}-B_{s}\right)\right]=EB_{s} \cdot E\left[B_{t}-B_{s}\right]=0
+		      \end{equation*}
+		      Thus
+		      \begin{equation*}
+			      \operatorname{Cov}\left(B_{s}, B_{t}\right)=EB_{s}^{2}=s
+		      \end{equation*}
+		      And
+		      \begin{equation*}
+			      \operatorname{Corr}\left(B_{s},B_{t}\right)=\frac{\operatorname{Cov}\left(B_{s},B_{t}\right)}{\sigma_{B_{s}}\sigma_{B_{t}}}=\frac{s}{\sqrt{st}}=\sqrt{\frac{s}{t}}
+		      \end{equation*}
+	\end{enumerate}
 \end{proof}
 
 A second equivalent definition of Brownian motion are as followed,
 
 \begin{definition}[Brownian Motion (2)]
-    A real-valued stochastic process $B(t),t\geq 0$, \textbf{starting from $0$}, is said to be Brownian motion, if
-    \begin{enumerate}
-        \item $B(t)$ is a Gaussian process\footnote{Gaussian process, i.e., all its finite dimensional distributions are multivariate normal.}
-        \item $\forall s,t\geq 0,EB_{s}=0$ and $EB_{s}B_{t}=s\wedge t$
-        \item the sample paths $t\rightarrow B(t)$ are a.s. continuous
-    \end{enumerate}
+	A real-valued stochastic process $B(t),t\geq 0$, \textbf{starting from $0$}, is said to be Brownian motion, if
+	\begin{enumerate}
+		\item $B(t)$ is a Gaussian process\footnote{Gaussian process, i.e., all its finite dimensional distributions are multivariate normal.}
+		\item $\forall s,t\geq 0,EB_{s}=0$ and $EB_{s}B_{t}=s\wedge t$
+		\item the sample paths $t\rightarrow B(t)$ are a.s. continuous
+	\end{enumerate}
 \end{definition}
 
 \section{Markov Properties}
@@ -72,165 +72,165 @@ A second equivalent definition of Brownian motion are as followed,
 \section{Martingales}
 
 \begin{example}[Quadratic Martingale]
-    Suppose $B_{t}$ is a Brownian motion, then $$B_{t}^{2}-t$$ is a martingale.
+	Suppose $B_{t}$ is a Brownian motion, then $$B_{t}^{2}-t$$ is a martingale.
 \end{example}
 
 \begin{proof}
-    Let $B_{t}^{2}=\left(B_{s}+B_{t}-B_{s}\right)^{2}$, we have
-    \begin{equation*}
-        \begin{aligned}
-            E_{x}\left(B_{t}^{2}\mid\mathcal{F}_{s}\right) & =E_{x}\left(B_{s}^{2}+2 B_{s}\left(B_{t}-B_{s}\right)+\left(B_{t}-B_{s}\right)^{2} \mid \mathcal{F}_{s}\right)                            \\
-                                                           & =B_{s}^{2}+2 B_{s} E_{x}\left(B_{t}-B_{s} \mid \mathcal{F}_{s}\right)+E_{x}\left(\left(B_{t}-B_{s}\right)^{2} \mid \mathcal{F}_{s}\right) \\
-                                                           & =B_{s}^{2}+0+(t-s)
-        \end{aligned}
-    \end{equation*}
-    since $B_{t}-B_{s}$ is independent of $\mathcal{F}_{s}$ and has mean 0 and variance $t-s$.
+	Let $B_{t}^{2}=\left(B_{s}+B_{t}-B_{s}\right)^{2}$, we have
+	\begin{equation*}
+		\begin{aligned}
+			E_{x}\left(B_{t}^{2}\mid\mathcal{F}_{s}\right) & =E_{x}\left(B_{s}^{2}+2 B_{s}\left(B_{t}-B_{s}\right)+\left(B_{t}-B_{s}\right)^{2} \mid \mathcal{F}_{s}\right)                            \\
+			                                               & =B_{s}^{2}+2 B_{s} E_{x}\left(B_{t}-B_{s} \mid \mathcal{F}_{s}\right)+E_{x}\left(\left(B_{t}-B_{s}\right)^{2} \mid \mathcal{F}_{s}\right) \\
+			                                               & =B_{s}^{2}+0+(t-s)
+		\end{aligned}
+	\end{equation*}
+	since $B_{t}-B_{s}$ is independent of $\mathcal{F}_{s}$ and has mean 0 and variance $t-s$.
 \end{proof}
 
 \begin{example}[Exponential Martingale]
-    Suppose $B_{t}$ is a Brownian motion, then $$\exp\left(\theta B_{t}-\left(\theta^{2}t/2\right)\right)$$ is a martingale.
+	Suppose $B_{t}$ is a Brownian motion, then $$\exp\left(\theta B_{t}-\left(\theta^{2}t/2\right)\right)$$ is a martingale.
 \end{example}
 
 \begin{proof}
-    Let $B_{t}=B_{t}-B_{s}+B_{s}$, then
-    \begin{equation*}
-        \begin{aligned}
-            E_{x}\left(\exp\left(\theta B_{t}\right)\mid\mathcal{F}_{s}\right) & =\exp \left(\theta B_{s}\right)E\left(\exp\left(\theta\left(B_{t}-B_{s}\right)\right)\mid\mathcal{F}_{s}\right) \\
-                                                                               & =\exp\left(\theta B_{s}\right)\exp\left(\theta^{2}(t-s)/2\right)
-        \end{aligned}
-    \end{equation*}
-    since $B_{t}-B_{s}$ is independent of $\mathcal{F}_{s}$ and has mean 0 and variance $t-s$. Thus
-    \begin{equation*}
-        \begin{aligned}
-            E_{x}\left(\exp\left(\theta B_{t}-\left(\theta^{2}t/2\right)\right)\mid\mathcal{F}_{s}\right) & =E_{x}\left(\exp\left(\theta B_{t}\right)\mid\mathcal{F}_{s}\right)\cdot\exp\left(-\left(\theta^{2}t/2\right)\right) \\
-                                                                                                          & =\exp\left(\theta B_{s}-\left(\theta^{2}s/2\right)\right)
-        \end{aligned}
-    \end{equation*}
+	Let $B_{t}=B_{t}-B_{s}+B_{s}$, then
+	\begin{equation*}
+		\begin{aligned}
+			E_{x}\left(\exp\left(\theta B_{t}\right)\mid\mathcal{F}_{s}\right) & =\exp \left(\theta B_{s}\right)E\left(\exp\left(\theta\left(B_{t}-B_{s}\right)\right)\mid\mathcal{F}_{s}\right) \\
+			                                                                   & =\exp\left(\theta B_{s}\right)\exp\left(\theta^{2}(t-s)/2\right)
+		\end{aligned}
+	\end{equation*}
+	since $B_{t}-B_{s}$ is independent of $\mathcal{F}_{s}$ and has mean 0 and variance $t-s$. Thus
+	\begin{equation*}
+		\begin{aligned}
+			E_{x}\left(\exp\left(\theta B_{t}-\left(\theta^{2}t/2\right)\right)\mid\mathcal{F}_{s}\right) & =E_{x}\left(\exp\left(\theta B_{t}\right)\mid\mathcal{F}_{s}\right)\cdot\exp\left(-\left(\theta^{2}t/2\right)\right) \\
+			                                                                                              & =\exp\left(\theta B_{s}-\left(\theta^{2}s/2\right)\right)
+		\end{aligned}
+	\end{equation*}
 \end{proof}
 
 \begin{theorem}[Lévy's Martingale Characterization]
-    Let $B(t),t\geq 0$, be a real-valued stochastic process and let $\mathcal{F}_{t}=\sigma\left(B_{s},s\leq t\right)$ be the filtration generated by it. Then $B(t)$ is a Brownian motion if and only if
-    \begin{enumerate}
-        \item $B(0)=0$ a.s.
-        \item the sample paths $t\rightarrow B(t)$ are continuous a.s.
-        \item $B(t)$ is a martingale with respect to $\mathcal{F}_{t}$
-        \item $|B(t)|^{2}-t$ is a martingale with respect to $\mathcal{F}_{t}$
-    \end{enumerate}
+	Let $B(t),t\geq 0$, be a real-valued stochastic process and let $\mathcal{F}_{t}=\sigma\left(B_{s},s\leq t\right)$ be the filtration generated by it. Then $B(t)$ is a Brownian motion if and only if
+	\begin{enumerate}
+		\item $B(0)=0$ a.s.
+		\item the sample paths $t\rightarrow B(t)$ are continuous a.s.
+		\item $B(t)$ is a martingale with respect to $\mathcal{F}_{t}$
+		\item $|B(t)|^{2}-t$ is a martingale with respect to $\mathcal{F}_{t}$
+	\end{enumerate}
 \end{theorem}
 
 \section{Sample Paths}
 
 Let $0=t_{0}^{n}<t_{1}^{n}<\cdots<t_{n}^{n}=T$, where $t_{i}^{n}=\frac{iT}{n}$ be a partition of the interval $[0,T]$ into $n$ equal parts, and
 \begin{equation}
-    \Delta_{i}^{n}B=B\left(t_{i+1}^{n}\right)-B\left(t_{i}^{n}\right)
+	\Delta_{i}^{n}B=B\left(t_{i+1}^{n}\right)-B\left(t_{i}^{n}\right)
 \end{equation}
 be the corresponding increments of the Brownian motion $B(t)$.
 
 \begin{theorem} \label{thm:limited-square-variation}
-    \begin{equation}
-        \lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\quad\text { in }\quad L^{2}
-    \end{equation}
+	\begin{equation}
+		\lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\quad\text { in }\quad L^{2}
+	\end{equation}
 \end{theorem}
 
 \begin{proof}
-    Since the increments $\Delta_{i}^{n}B$ are independent and
-    \begin{equation*}
-        E\left(\Delta_{i}^{n}B\right)=0,\quad E\left(\left(\Delta_{i}^{n}B\right)^{2}\right)=\frac{T}{n},\quad E\left(\left(\Delta_{i}^{n}B\right)^{4}\right)=\frac{3T^{2}}{n^{2}}
-    \end{equation*}
-    it follows that
-    \begin{equation*}
-        \begin{aligned}
-            E\left(\left[\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}-T\right]^{2}\right)= & E\left(\left[\sum_{i=0}^{n-1}\left(\left(\Delta_{i}^{n}B\right)^{2}-\frac{T}{n}\right)\right]^{2}\right)                                                   \\
-            =                                                                                  & \sum_{i=0}^{n-1}E\left[\left(\left(\Delta_{i}^{n}B\right)^{2}-\frac{T}{n}\right)^{2}\right]                                                                \\
-            =                                                                                  & \sum_{i=0}^{n-1}\left[E\left(\left(\Delta_{i}^{n}B\right)^{4}\right)-\frac{2T}{n}E\left(\left(\Delta_{i}^{n}B\right)^{2}\right)+\frac{T^{2}}{n^{2}}\right] \\
-            =                                                                                  & \sum_{i=0}^{n-1}\left[\frac{3T^{2}}{n^{2}}-\frac{2T^{2}}{n^{2}}+\frac{T^{2}}{n^{2}}\right]                                                                 \\
-            =                                                                                  & \frac{2T^{2}}{n}\rightarrow 0,\quad n\rightarrow\infty
-        \end{aligned}
-    \end{equation*}
+	Since the increments $\Delta_{i}^{n}B$ are independent and
+	\begin{equation*}
+		E\left(\Delta_{i}^{n}B\right)=0,\quad E\left(\left(\Delta_{i}^{n}B\right)^{2}\right)=\frac{T}{n},\quad E\left(\left(\Delta_{i}^{n}B\right)^{4}\right)=\frac{3T^{2}}{n^{2}}
+	\end{equation*}
+	it follows that
+	\begin{equation*}
+		\begin{aligned}
+			E\left(\left[\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}-T\right]^{2}\right)= & E\left(\left[\sum_{i=0}^{n-1}\left(\left(\Delta_{i}^{n}B\right)^{2}-\frac{T}{n}\right)\right]^{2}\right)                                                   \\
+			=                                                                                  & \sum_{i=0}^{n-1}E\left[\left(\left(\Delta_{i}^{n}B\right)^{2}-\frac{T}{n}\right)^{2}\right]                                                                \\
+			=                                                                                  & \sum_{i=0}^{n-1}\left[E\left(\left(\Delta_{i}^{n}B\right)^{4}\right)-\frac{2T}{n}E\left(\left(\Delta_{i}^{n}B\right)^{2}\right)+\frac{T^{2}}{n^{2}}\right] \\
+			=                                                                                  & \sum_{i=0}^{n-1}\left[\frac{3T^{2}}{n^{2}}-\frac{2T^{2}}{n^{2}}+\frac{T^{2}}{n^{2}}\right]                                                                 \\
+			=                                                                                  & \frac{2T^{2}}{n}\rightarrow 0,\quad n\rightarrow\infty
+		\end{aligned}
+	\end{equation*}
 \end{proof}
 
 \begin{definition}[Variation]
-    The variation of a function $f:[0,T]\rightarrow\mathbb{R}$ is defined to be
-    \begin{equation}
-        \limsup_{\Delta t\rightarrow 0}\sum_{i=0}^{n-1}\left|f\left(t_{i+1}\right)-f\left(t_{i}\right)\right|
-    \end{equation}
-    where $t=\left(t_{0},t_{1},\ldots,t_{n}\right)$ is a partition of $[0,T]$, i.e. $0=t_{0}<t_{1}<\cdots<t_{n}=T$, and where
-    \begin{equation}
-        \Delta t=\max_{i=0,\ldots,n-1}\left|t_{i+1}-t_{i}\right|
-    \end{equation}
+	The variation of a function $f:[0,T]\rightarrow\mathbb{R}$ is defined to be
+	\begin{equation}
+		\limsup_{\Delta t\rightarrow 0}\sum_{i=0}^{n-1}\left|f\left(t_{i+1}\right)-f\left(t_{i}\right)\right|
+	\end{equation}
+	where $t=\left(t_{0},t_{1},\ldots,t_{n}\right)$ is a partition of $[0,T]$, i.e. $0=t_{0}<t_{1}<\cdots<t_{n}=T$, and where
+	\begin{equation}
+		\Delta t=\max_{i=0,\ldots,n-1}\left|t_{i+1}-t_{i}\right|
+	\end{equation}
 \end{definition}
 
 \begin{theorem}
-    The variation of the paths of $B(t)$ is infinite a.s..
+	The variation of the paths of $B(t)$ is infinite a.s..
 \end{theorem}
 
 \begin{proof}
-    Consider the sequence of partitions $t^{n}=\left(t_{0}^{n},t_{1}^{n},\ldots,t_{n}^{n}\right)$ of $[0,T]$ into $n$ equal parts. Then
-    \begin{equation*}
-        \sum_{i=0}^{n-1}\left|\Delta_{i}^{n}B\right|^{2}\leq\left(\max_{i=0,\ldots,n-1}\left|\Delta_{i}^{n}B\right|\right)\sum_{i=0}^{n-1}\left|\Delta_{i}^{n}B\right|
-    \end{equation*}
+	Consider the sequence of partitions $t^{n}=\left(t_{0}^{n},t_{1}^{n},\ldots,t_{n}^{n}\right)$ of $[0,T]$ into $n$ equal parts. Then
+	\begin{equation*}
+		\sum_{i=0}^{n-1}\left|\Delta_{i}^{n}B\right|^{2}\leq\left(\max_{i=0,\ldots,n-1}\left|\Delta_{i}^{n}B\right|\right)\sum_{i=0}^{n-1}\left|\Delta_{i}^{n}B\right|
+	\end{equation*}
 
-    Since the paths of $B(t)$ are a.s. continuous on $[0,T]$,
-    \begin{equation*}
-        \lim_{n\rightarrow\infty}\left(\max_{i=0,\ldots,n-1}\left|\Delta_{i}^{n}B\right|\right)=0\quad\text{ a.s. }
-    \end{equation*}
+	Since the paths of $B(t)$ are a.s. continuous on $[0,T]$,
+	\begin{equation*}
+		\lim_{n\rightarrow\infty}\left(\max_{i=0,\ldots,n-1}\left|\Delta_{i}^{n}B\right|\right)=0\quad\text{ a.s. }
+	\end{equation*}
 
-    By Theorem \ref{thm:limited-square-variation}, we have
-    \begin{equation*}
-        \lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\quad\text { in }\quad L^{2}
-    \end{equation*}
-    Since every sequence of random variables convergent in $L^{2}$ has a subsequence convergent a.s. There is a subsequence $t^{n_{k}}=\left(t_{0}^{n_{k}},t_{1}^{n_{k}},\ldots,t_{n_{k}}^{n_{k}}\right)$ of partitions such that
-    \begin{equation*}
-        \lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|^{2}=T\quad\text{ a.s. }
-    \end{equation*}
+	By Theorem \ref{thm:limited-square-variation}, we have
+	\begin{equation*}
+		\lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\quad\text { in }\quad L^{2}
+	\end{equation*}
+	Since every sequence of random variables convergent in $L^{2}$ has a subsequence convergent a.s. There is a subsequence $t^{n_{k}}=\left(t_{0}^{n_{k}},t_{1}^{n_{k}},\ldots,t_{n_{k}}^{n_{k}}\right)$ of partitions such that
+	\begin{equation*}
+		\lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|^{2}=T\quad\text{ a.s. }
+	\end{equation*}
 
-    Since
-    \begin{equation*}
-        \sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|\geq\frac{\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|^{2}}{\max_{i=0,\ldots,n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|}
-    \end{equation*}
-    hence,
-    \begin{equation*}
-        \lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|=\infty\quad\text{ a.s. }
-    \end{equation*}
-    while
-    \begin{equation*}
-        \lim_{k\rightarrow\infty}\Delta t^{n_{k}}=\lim_{k\rightarrow\infty}\frac{T}{n_{k}}=0
-    \end{equation*}
+	Since
+	\begin{equation*}
+		\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|\geq\frac{\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|^{2}}{\max_{i=0,\ldots,n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|}
+	\end{equation*}
+	hence,
+	\begin{equation*}
+		\lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|=\infty\quad\text{ a.s. }
+	\end{equation*}
+	while
+	\begin{equation*}
+		\lim_{k\rightarrow\infty}\Delta t^{n_{k}}=\lim_{k\rightarrow\infty}\frac{T}{n_{k}}=0
+	\end{equation*}
 \end{proof}
 
 \section{It\^o Stochastic Calculus}
 
 \begin{definition}[It\^o Stochastic Integral]
-    For any $T>0$ we shall denote by $M_{T}^{2}$ the space of all stochastic processes $f(t), t \geq 0$ such that
-    \begin{equation*}
-        1_{[0,T)}f\in M^{2}
-    \end{equation*}
-    The It\^o stochastic integral (from $0$ to $T$ ) of $f\in M_{T}^{2}$ is defined by
-    \begin{equation}
-        I_{T}(f)=I\left(1_{[0,T)}f\right)
-    \end{equation}
-    which can be denoted by
-    \begin{equation}
-        \int_{0}^{T}f(t)\,\mathrm{d}B(t)
-    \end{equation}
+	For any $T>0$ we shall denote by $M_{T}^{2}$ the space of all stochastic processes $f(t), t \geq 0$ such that
+	\begin{equation*}
+		1_{[0,T)}f\in M^{2}
+	\end{equation*}
+	The It\^o stochastic integral (from $0$ to $T$ ) of $f\in M_{T}^{2}$ is defined by
+	\begin{equation}
+		I_{T}(f)=I\left(1_{[0,T)}f\right)
+	\end{equation}
+	which can be denoted by
+	\begin{equation}
+		\int_{0}^{T}f(t)\,\mathrm{d}B(t)
+	\end{equation}
 \end{definition}
 
 \begin{property}
-    The It\^o Stochastic Integral has the following properties:
-    \begin{enumerate}
-        \item Linearity: For $\forall f,g\in M_{t}^{2}$, $\forall \alpha,\beta\in\mathbb{R}$,
-              \begin{equation}
-                  \int_{0}^{t}(\alpha f(r)+\beta g(r))\,\mathrm{d}B(r)=\alpha \int_{0}^{t}f(r)\,\mathrm{d}B(r)+\beta\int_{0}^{t}g(r)\,\mathrm{d}B(r)
-              \end{equation}
-        \item Isometry: For $\forall f\in M_{t}^{2}$,
-              \begin{equation}
-                  E\left(\left|\int_{0}^{t}f(r)\,\mathrm{d}B(r)\right|^{2}\right)=E\left(\int_{0}^{t}|f(r)|^{2}\,\mathrm{d}r\right)
-              \end{equation}
-        \item Martingale Property: For $\forall f\in M_{t}^{2}$ and  $\forall 0\leq s<t$ ,
-              \begin{equation}
-                  E\left(\int_{0}^{t}f(r)\,\mathrm{d}B(r)\mid\mathcal{F}_{s}\right)=\int_{0}^{s}f(r)\,\mathrm{d}B(r)
-              \end{equation}
-    \end{enumerate}
+	The It\^o Stochastic Integral has the following properties:
+	\begin{enumerate}
+		\item Linearity: For $\forall f,g\in M_{t}^{2}$, $\forall \alpha,\beta\in\mathbb{R}$,
+		      \begin{equation}
+			      \int_{0}^{t}(\alpha f(r)+\beta g(r))\,\mathrm{d}B(r)=\alpha \int_{0}^{t}f(r)\,\mathrm{d}B(r)+\beta\int_{0}^{t}g(r)\,\mathrm{d}B(r)
+		      \end{equation}
+		\item Isometry: For $\forall f\in M_{t}^{2}$,
+		      \begin{equation}
+			      E\left(\left|\int_{0}^{t}f(r)\,\mathrm{d}B(r)\right|^{2}\right)=E\left(\int_{0}^{t}|f(r)|^{2}\,\mathrm{d}r\right)
+		      \end{equation}
+		\item Martingale Property: For $\forall f\in M_{t}^{2}$ and  $\forall 0\leq s<t$ ,
+		      \begin{equation}
+			      E\left(\int_{0}^{t}f(r)\,\mathrm{d}B(r)\mid\mathcal{F}_{s}\right)=\int_{0}^{s}f(r)\,\mathrm{d}B(r)
+		      \end{equation}
+	\end{enumerate}
 \end{property}
 
 \begin{proof}
@@ -238,69 +238,69 @@ be the corresponding increments of the Brownian motion $B(t)$.
 \end{proof}
 
 \begin{definition}[Itô Process]
-    A stochastic process $\xi(t),t\geq 0$ is said to be an Itô process if it has a.s. continuous paths and can be represented as
-    \begin{equation}
-        \xi(T)=\xi(0)+\int_{0}^{T}a(t)\,\mathrm{d}t+\int_{0}^{T}b(t)\,\mathrm{d}B(t)\quad\text { a.s. }
-    \end{equation}
-    where $b(t)$ is a process belonging to $M_{T}^{2}$ for all $T>0$ and $a(t)$ is a process adapted to the filtration $\mathcal{F}_{t}$ such that
-    \begin{equation}
-        \int_{0}^{T}|a(t)|\,\mathrm{d}t<\infty\quad\text { a.s. } \label{eq:condition-of-process-adapted-to-filtration}
-    \end{equation}
-    for all $T\geq 0$.
-    The Itô process is denoted by
-    \begin{equation}
-        \mathrm{d}\xi(t)=a(t)\,\mathrm{d}t+b(t)\,\mathrm{d}B(t)
-    \end{equation}
+	A stochastic process $\xi(t),t\geq 0$ is said to be an Itô process if it has a.s. continuous paths and can be represented as
+	\begin{equation}
+		\xi(T)=\xi(0)+\int_{0}^{T}a(t)\,\mathrm{d}t+\int_{0}^{T}b(t)\,\mathrm{d}B(t)\quad\text { a.s. }
+	\end{equation}
+	where $b(t)$ is a process belonging to $M_{T}^{2}$ for all $T>0$ and $a(t)$ is a process adapted to the filtration $\mathcal{F}_{t}$ such that
+	\begin{equation}
+		\int_{0}^{T}|a(t)|\,\mathrm{d}t<\infty\quad\text { a.s. } \label{eq:condition-of-process-adapted-to-filtration}
+	\end{equation}
+	for all $T\geq 0$.
+	The Itô process is denoted by
+	\begin{equation}
+		\mathrm{d}\xi(t)=a(t)\,\mathrm{d}t+b(t)\,\mathrm{d}B(t)
+	\end{equation}
 \end{definition}
 
 \begin{remark}
-    The class of all adapted processes $a(t)$ satisfying \ref{eq:condition-of-process-adapted-to-filtration} for some $T>0$ will be denoted by $\mathcal{L}_{T}^{1}$.
+	The class of all adapted processes $a(t)$ satisfying \ref{eq:condition-of-process-adapted-to-filtration} for some $T>0$ will be denoted by $\mathcal{L}_{T}^{1}$.
 \end{remark}
 
 \begin{theorem}[It\^o Formula]
-    Suppose $F\left(t,x\right)$ is a real-valued function with continuous partial derivatives $F_{t}^{\prime}\left(t,x\right)$, $F_{x}^{\prime}\left(t,x\right)$ and $F_{xx}^{\prime\prime}\left(t,x\right)$ for all $t\geq 0$ and $x\in\mathbb{R}$.
-    \begin{enumerate}
-        \item If $\xi(t)$ be an It\^o process
-              \begin{equation*}
-                  \xi(t)=\xi(0)+\int_{0}^{t}a(s)\,\mathrm{d}s+\int_{0}^{t}b(s)\,\mathrm{d}B(s)
-              \end{equation*}
-              and the process $b(t)F_{x}^{\prime}(t,\xi(t))$ belongs to $M_{T}^{2}$ for all $T\geq 0$. Then $F(t,\xi(t))$ is an It\^o process such that
-              \begin{equation}
-                  \begin{aligned}
-                      \mathrm{d}F(t,\xi(t))= & \left(F_{t}^{\prime}(t,\xi(t))+F_{x}^{\prime}(t,\xi(t))a(t)+\frac{1}{2}F_{xx}^{\prime\prime}(t,\xi(t))b(t)^{2}\right)\,\mathrm{d}t \\
-                                             & +F_{x}^{\prime}(t,\xi(t))b(t)\,\mathrm{d}B(t)
-                  \end{aligned}
-              \end{equation}
-        \item If $\xi(t)$ be an Brownian Motion, such that $\xi(t)=B(t)$, and the process $F_{x}^{\prime}(t,B(t))$ belongs to $M_{T}^{2}$ for all $T \geq 0$. Then $F(t,B(t))$ is an It\^o process such that
-              \begin{equation}
-                  \mathrm{d}F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\,\mathrm{d}t+F_{x}^{\prime}(t,B(t))\,\mathrm{d}B(t)
-              \end{equation}
-    \end{enumerate}
+	Suppose $F\left(t,x\right)$ is a real-valued function with continuous partial derivatives $F_{t}^{\prime}\left(t,x\right)$, $F_{x}^{\prime}\left(t,x\right)$ and $F_{xx}^{\prime\prime}\left(t,x\right)$ for all $t\geq 0$ and $x\in\mathbb{R}$.
+	\begin{enumerate}
+		\item If $\xi(t)$ be an It\^o process
+		      \begin{equation*}
+			      \xi(t)=\xi(0)+\int_{0}^{t}a(s)\,\mathrm{d}s+\int_{0}^{t}b(s)\,\mathrm{d}B(s)
+		      \end{equation*}
+		      and the process $b(t)F_{x}^{\prime}(t,\xi(t))$ belongs to $M_{T}^{2}$ for all $T\geq 0$. Then $F(t,\xi(t))$ is an It\^o process such that
+		      \begin{equation}
+			      \begin{aligned}
+				      \mathrm{d}F(t,\xi(t))= & \left(F_{t}^{\prime}(t,\xi(t))+F_{x}^{\prime}(t,\xi(t))a(t)+\frac{1}{2}F_{xx}^{\prime\prime}(t,\xi(t))b(t)^{2}\right)\,\mathrm{d}t \\
+				                             & +F_{x}^{\prime}(t,\xi(t))b(t)\,\mathrm{d}B(t)
+			      \end{aligned}
+		      \end{equation}
+		\item If $\xi(t)$ be an Brownian Motion, such that $\xi(t)=B(t)$, and the process $F_{x}^{\prime}(t,B(t))$ belongs to $M_{T}^{2}$ for all $T \geq 0$. Then $F(t,B(t))$ is an It\^o process such that
+		      \begin{equation}
+			      \mathrm{d}F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\,\mathrm{d}t+F_{x}^{\prime}(t,B(t))\,\mathrm{d}B(t)
+		      \end{equation}
+	\end{enumerate}
 \end{theorem}
 
 \begin{example}[Exponential Martingale]
-    Show that the exponential martingale
-    \begin{equation*}
-        X(t)=\mathrm{e}^{B(t)}\mathrm{e}^{-\frac{t}{2}}
-    \end{equation*}
-    is an It\^o process, and satisfies the equation
-    \begin{equation*}
-        \mathrm{d}X(t)=X(t)\,\mathrm{d}B(t)
-    \end{equation*}
+	Show that the exponential martingale
+	\begin{equation*}
+		X(t)=\mathrm{e}^{B(t)}\mathrm{e}^{-\frac{t}{2}}
+	\end{equation*}
+	is an It\^o process, and satisfies the equation
+	\begin{equation*}
+		\mathrm{d}X(t)=X(t)\,\mathrm{d}B(t)
+	\end{equation*}
 \end{example}
 \begin{proof}
-    Let $F(t,x)=\mathrm{e}^{x}\mathrm{e}^{-\frac{t}{2}}$, then we have
-    \begin{equation*}
-        F_{t}^{\prime}(t,x)=-\frac{1}{2}F(t,x),\quad F_{x}^{\prime}(t,x)=F(t,x),\quad F_{xx}^{\prime\prime}(t,x)=F(t,x)
-    \end{equation*}
-    thus, by It\^o Formula, we have
-    \begin{equation*}
-        \begin{aligned}
-            \mathrm{d}X(t)= & \mathrm{d}F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\,\mathrm{d}t+F_{x}^{\prime}(t,B(t))\,\mathrm{d}B(t) \\
-            =               & \left(-\frac{1}{2}F(t,B(t))+\frac{1}{2}F(t,B(t))\right)\,\mathrm{d}t+F(t,B(t))\,\mathrm{d}B(t)                                                       \\
-            =               & X(t)\,\mathrm{d}B(t)
-        \end{aligned}
-    \end{equation*}
+	Let $F(t,x)=\mathrm{e}^{x}\mathrm{e}^{-\frac{t}{2}}$, then we have
+	\begin{equation*}
+		F_{t}^{\prime}(t,x)=-\frac{1}{2}F(t,x),\quad F_{x}^{\prime}(t,x)=F(t,x),\quad F_{xx}^{\prime\prime}(t,x)=F(t,x)
+	\end{equation*}
+	thus, by It\^o Formula, we have
+	\begin{equation*}
+		\begin{aligned}
+			\mathrm{d}X(t)= & \mathrm{d}F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\,\mathrm{d}t+F_{x}^{\prime}(t,B(t))\,\mathrm{d}B(t) \\
+			=               & \left(-\frac{1}{2}F(t,B(t))+\frac{1}{2}F(t,B(t))\right)\,\mathrm{d}t+F(t,B(t))\,\mathrm{d}B(t)                                                       \\
+			=               & X(t)\,\mathrm{d}B(t)
+		\end{aligned}
+	\end{equation*}
 \end{proof}
 
 \begin{example}

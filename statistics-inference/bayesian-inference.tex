@@ -7,62 +7,62 @@ We shall look for some estimators that make the risk function $R\left(\theta,\de
 This chapter will discuss the first method, also known as, Bayes Estimator.
 
 \begin{definition}[Bayes Estimator] \label{def:bayes-estimator}
-    The Bayes Estimator $\delta$ with respect to $\Lambda$ is minimizing the Bayes Risk of $\delta$
-    \begin{equation}
-        r\left(\Lambda, \delta\right)=\int R\left(\theta, \delta\right) \mathrm{d} \Lambda\left(\theta\right)
-    \end{equation}
-    where $\Lambda$ is the probability distribution.
+	The Bayes Estimator $\delta$ with respect to $\Lambda$ is minimizing the Bayes Risk of $\delta$
+	\begin{equation}
+		r\left(\Lambda, \delta\right)=\int R\left(\theta, \delta\right) \mathrm{d} \Lambda\left(\theta\right)
+	\end{equation}
+	where $\Lambda$ is the probability distribution.
 \end{definition}
 
 In Bayesian arguments, it is important to keep track of which variables are being conditioned on. Hence, the notations are as followed:
 \begin{itemize}
-    \item The density of $X$ will be denoted by $X \sim f\left(x \mid \theta\right)$.
-    \item The prior distribution will be denoted by $\Pi \sim \pi\left(\theta \mid \lambda\right)$ or $\Lambda \sim \gamma\left(\lambda\right)$, where $\lambda$ is another parameter (sometimes called a hyperparameter).
-    \item The posterior distribution, which calculate the conditional distributions as that of $\theta$ given $x$ and $\lambda$, or $\lambda$ given $x$, which is denoted by $\Pi \sim \pi\left(\theta \mid x, \lambda\right)$ or $\Lambda \sim \gamma\left(\lambda \mid x\right)$, that is
-          \begin{equation}
-              \pi\left(\theta \mid x, \lambda\right) = \frac{f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right)}{m\left(x \mid \lambda\right)},
-          \end{equation}
-          where marginal distributions $m\left(x \mid \lambda\right) = \int f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right) \mathrm{d} \theta$.
+	\item The density of $X$ will be denoted by $X \sim f\left(x \mid \theta\right)$.
+	\item The prior distribution will be denoted by $\Pi \sim \pi\left(\theta \mid \lambda\right)$ or $\Lambda \sim \gamma\left(\lambda\right)$, where $\lambda$ is another parameter (sometimes called a hyperparameter).
+	\item The posterior distribution, which calculate the conditional distributions as that of $\theta$ given $x$ and $\lambda$, or $\lambda$ given $x$, which is denoted by $\Pi \sim \pi\left(\theta \mid x, \lambda\right)$ or $\Lambda \sim \gamma\left(\lambda \mid x\right)$, that is
+	      \begin{equation}
+		      \pi\left(\theta \mid x, \lambda\right) = \frac{f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right)}{m\left(x \mid \lambda\right)},
+	      \end{equation}
+	      where marginal distributions $m\left(x \mid \lambda\right) = \int f\left(x \mid \theta\right) \pi\left(\theta \mid \lambda\right) \mathrm{d} \theta$.
 \end{itemize}
 
 \begin{theorem} \label{thm:bayes-definition}
-    Let $\Theta$ have distribution $\Lambda$, and given $\Theta=\theta$, let $X$ have distribution $P_{\theta}$. Suppose, the following assumptions hold for the problem of estimating $g\left(\Theta\right)$ with non-negative loss function $L\left(\theta,d\right)$,
-    \begin{itemize}
-        \item There exists an estimator $\delta_0$ with finite risk.
-        \item For almost all $x$, there exists a value $\delta_{\Lambda}\left(x\right)$ minimizing
-              \begin{equation}
-                  E\{L[\Theta,\delta\left(x\right)] \mid X=x\}.
-              \end{equation}
-    \end{itemize}
-    Then, $\delta_{\Lambda}\left(x\right)$ is a Bayes Estimator.
+	Let $\Theta$ have distribution $\Lambda$, and given $\Theta=\theta$, let $X$ have distribution $P_{\theta}$. Suppose, the following assumptions hold for the problem of estimating $g\left(\Theta\right)$ with non-negative loss function $L\left(\theta,d\right)$,
+	\begin{itemize}
+		\item There exists an estimator $\delta_0$ with finite risk.
+		\item For almost all $x$, there exists a value $\delta_{\Lambda}\left(x\right)$ minimizing
+		      \begin{equation}
+			      E\{L[\Theta,\delta\left(x\right)] \mid X=x\}.
+		      \end{equation}
+	\end{itemize}
+	Then, $\delta_{\Lambda}\left(x\right)$ is a Bayes Estimator.
 \end{theorem}
 \begin{remark}
-    Improper prior
+	Improper prior
 \end{remark}
 
 \begin{corollary}
-    Suppose the assumptions of Theorem \ref{thm:bayes-definition} hold.
-    \begin{enumerate}
-        \item If $L\left(\theta,d\right)=[d-g\left(\theta\right)]^2$, then
-              \begin{equation}
-                  \delta_{\Lambda}\left(x\right)=E[g\left(\Theta\right) \mid x].
-              \end{equation}
-        \item If $L\left(\theta,d\right)=w\left(\theta\right)[d-g\left(\theta\right)]^2$, then
-              \begin{equation}
-                  \delta_{\Lambda}\left(x\right)=\frac{E[w\left(\theta\right)g\left(\Theta\right) \mid x]}{E[w\left(\theta\right) \mid x]}.
-              \end{equation}
-        \item If $L\left(\theta,d\right)=|d-g\left(\theta\right)|$, then $\delta_\Lambda\left(x\right)$ is any median of the conditional distribution of $\Theta$ given $x$.
-        \item If
-              \begin{equation*}
-                  L(\theta, d)=\left\{
-                  \begin{array}{l}
-                      0 \text { when }|d-\theta| \leq c \\
-                      1 \text { when }|d-\theta|>c
-                  \end{array}
-                  \right.,
-              \end{equation*}
-              then $\delta_\Lambda\left(x\right)$ is the midpoint of the interval $I$ of length $2c$ which maxmizes $P\left(\Theta\in I\mid x\right)$.
-    \end{enumerate}
+	Suppose the assumptions of Theorem \ref{thm:bayes-definition} hold.
+	\begin{enumerate}
+		\item If $L\left(\theta,d\right)=[d-g\left(\theta\right)]^2$, then
+		      \begin{equation}
+			      \delta_{\Lambda}\left(x\right)=E[g\left(\Theta\right) \mid x].
+		      \end{equation}
+		\item If $L\left(\theta,d\right)=w\left(\theta\right)[d-g\left(\theta\right)]^2$, then
+		      \begin{equation}
+			      \delta_{\Lambda}\left(x\right)=\frac{E[w\left(\theta\right)g\left(\Theta\right) \mid x]}{E[w\left(\theta\right) \mid x]}.
+		      \end{equation}
+		\item If $L\left(\theta,d\right)=|d-g\left(\theta\right)|$, then $\delta_\Lambda\left(x\right)$ is any median of the conditional distribution of $\Theta$ given $x$.
+		\item If
+		      \begin{equation*}
+			      L(\theta, d)=\left\{
+			      \begin{array}{l}
+				      0 \text { when }|d-\theta| \leq c \\
+				      1 \text { when }|d-\theta|>c
+			      \end{array}
+			      \right.,
+		      \end{equation*}
+		      then $\delta_\Lambda\left(x\right)$ is the midpoint of the interval $I$ of length $2c$ which maxmizes $P\left(\Theta\in I\mid x\right)$.
+	\end{enumerate}
 \end{corollary}
 
 \begin{proof}
@@ -70,75 +70,75 @@ In Bayesian arguments, it is important to keep track of which variables are bein
 \end{proof}
 
 \begin{theorem}
-    Necessiary condition for Bayes Estimator
+	Necessiary condition for Bayes Estimator
 \end{theorem}
 
 Methodologies have been developed to deal with the difficulty which sometimes incorporate frequentist measures to assess the choic of $\Lambda$.
 
 \begin{itemize}
-    \item Empirical Bayes.
-    \item Hierarchical Bayes.
-    \item Robust Bayes.
-    \item Objective Bayes.
+	\item Empirical Bayes.
+	\item Hierarchical Bayes.
+	\item Robust Bayes.
+	\item Objective Bayes.
 \end{itemize}
 
 \subsection{Single-Prior Bayes}
 
 The Single-Prior Bayes model in a general form as
 \begin{equation}
-    \begin{aligned}
-        X\mid\theta      & \sim f\left(x\mid\theta\right),         \\
-        \Theta\mid\gamma & \sim \pi\left(\theta\mid\lambda\right),
-    \end{aligned}
-    \label{eq:single-prior-bayes}
+	\begin{aligned}
+		X\mid\theta      & \sim f\left(x\mid\theta\right),         \\
+		\Theta\mid\gamma & \sim \pi\left(\theta\mid\lambda\right),
+	\end{aligned}
+	\label{eq:single-prior-bayes}
 \end{equation}
 where we assume that the functional form of the prior and the value of $\lambda$ is known (we will write it as $\gamma=\gamma_0)$.
 
 Given a loss function $L\left(\theta,d\right)$, we would then determine the estimator that minimizes
 \begin{equation}
-    \int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta,
+	\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta,
 \end{equation}
 where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 \begin{equation*}
-    \pi\left(\theta\mid x\right)=\frac{f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)}{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}.
+	\pi\left(\theta\mid x\right)=\frac{f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)}{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}.
 \end{equation*}
 
 In general, this Bayes estimator under squared error loss is given by
 \begin{equation}
-    E\left(\Theta\mid x\right) = \frac{\int\theta f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}.
+	E\left(\Theta\mid x\right) = \frac{\int\theta f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma_0\right)\mathrm{d}\theta}.
 \end{equation}
 
 \begin{example}
-    Consider
-    \begin{equation*}
-        \begin{aligned}
-            X_i    & \stackrel{\text{i.i.d}}{\sim}N(\mu,\Gamma^{-1}),\quad i=1,2,\ldots,n \\
-            \mu    & \sim N(0,1),                                                         \\
-            \Gamma & \sim\text{Gamma}(2,1),
-        \end{aligned}
-    \end{equation*}
-    calculate the Single-Prior Bayes estimator under squared error loss.
+	Consider
+	\begin{equation*}
+		\begin{aligned}
+			X_i    & \stackrel{\text{i.i.d}}{\sim}N(\mu,\Gamma^{-1}),\quad i=1,2,\ldots,n \\
+			\mu    & \sim N(0,1),                                                         \\
+			\Gamma & \sim\text{Gamma}(2,1),
+		\end{aligned}
+	\end{equation*}
+	calculate the Single-Prior Bayes estimator under squared error loss.
 \end{example}
 
 \begin{proof}
-    \begin{equation*}
-        \begin{aligned}
-            p\left(\textbf{X}\mid\mu,\Gamma\right) & =\Gamma^n(2\pi)^{-\frac{n}{2}}\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right], \\
-            p(\mu)                                 & =\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{\mu^2}{2}\right),                            \\
-            p(\Gamma)                              & =\frac{1}{\Gamma(2)}\Gamma\exp\left(-\Gamma\right).
-        \end{aligned}
-    \end{equation*}
+	\begin{equation*}
+		\begin{aligned}
+			p\left(\textbf{X}\mid\mu,\Gamma\right) & =\Gamma^n(2\pi)^{-\frac{n}{2}}\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right], \\
+			p(\mu)                                 & =\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{\mu^2}{2}\right),                            \\
+			p(\Gamma)                              & =\frac{1}{\Gamma(2)}\Gamma\exp\left(-\Gamma\right).
+		\end{aligned}
+	\end{equation*}
 
-    Therefore,
-    \begin{equation*}
-        h\left(\textbf{X},\mu,\Gamma\right)=C\Gamma^n\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right]\exp\left(-\frac{\mu^2}{2}\right)\Gamma\exp\left(-\Gamma\right),
-    \end{equation*}
-    where $C=\frac{(2\pi)^{-\frac{n+1}{2}}}{\Gamma(2)}$.
+	Therefore,
+	\begin{equation*}
+		h\left(\textbf{X},\mu,\Gamma\right)=C\Gamma^n\exp\left[-2\Gamma^2\sum_{i=1}^{n}(x_i-\mu)^2\right]\exp\left(-\frac{\mu^2}{2}\right)\Gamma\exp\left(-\Gamma\right),
+	\end{equation*}
+	where $C=\frac{(2\pi)^{-\frac{n+1}{2}}}{\Gamma(2)}$.
 
-    For $\mu$, we have
-    \begin{equation*}
-        \pi\left(\mu\mid\textbf{X},\Gamma\right)=\frac{h\left(\textbf{X},\mu,\Gamma\right)}{p(\mu\mid\textbf{X})}
-    \end{equation*}
+	For $\mu$, we have
+	\begin{equation*}
+		\pi\left(\mu\mid\textbf{X},\Gamma\right)=\frac{h\left(\textbf{X},\mu,\Gamma\right)}{p(\mu\mid\textbf{X})}
+	\end{equation*}
 \end{proof}
 
 For exponential families
@@ -151,59 +151,58 @@ For exponential families
 
 In a Hierarchical Bayes model, rather than specifying the prior distribution as a single function, we specify it in a \textbf{hierarchy}. Thus, the Hierarchical Bayes model in a general form as
 \begin{equation}
-    \begin{aligned}
-        X\mid\theta      & \sim f\left(x\mid\theta\right),         \\
-        \Theta\mid\gamma & \sim \pi\left(\theta\mid\lambda\right), \\
-        \Gamma           & \sim \psi\left(\gamma\right),
-    \end{aligned}
-    \label{eq:hierarchical-bayes}
+	\begin{aligned}
+		X\mid\theta      & \sim f\left(x\mid\theta\right),         \\
+		\Theta\mid\gamma & \sim \pi\left(\theta\mid\lambda\right), \\
+		\Gamma           & \sim \psi\left(\gamma\right),
+	\end{aligned}
+	\label{eq:hierarchical-bayes}
 \end{equation}
 where we assume that $\psi\left(\cdot\right)$ is known and not dependent on any other unknown hyperparameters.
 
 \begin{remark}
-    We can continue this hierarchical modeling and add more stages to the model, but this is not ofthen done in practice.
+	We can continue this hierarchical modeling and add more stages to the model, but this is not ofthen done in practice.
 \end{remark}
 
 Given a loss function $L\left(\theta,d\right)$, we would then determine the estimator that minimizes
 \begin{equation} \label{eq:hierarchical-bayes-estimator}
-    \int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta,
+	\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta,
 \end{equation}
 where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 \begin{equation*}
-    \pi\left(\theta\mid x\right)=\frac{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma\right)\psi\left(\gamma\right)\mathrm{d}\gamma}{\int\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma\right)\psi\left(\gamma\right)\mathrm{d}\theta\mathrm{d}\gamma}.
+	\pi\left(\theta\mid x\right)=\frac{\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma\right)\psi\left(\gamma\right)\mathrm{d}\gamma}{\int\int f\left(x\mid\theta\right)\pi\left(\theta\mid\gamma\right)\psi\left(\gamma\right)\mathrm{d}\theta\mathrm{d}\gamma}.
 \end{equation*}
 
 \begin{remark}
-    The posterior distribution can also be writed as
-    \begin{equation*}
-        \pi\left(\theta\mid x\right)=\int\pi\left(\theta\mid x,\gamma\right)\pi\left(\gamma\mid x\right)\mathrm{d}\gamma,
-    \end{equation*}
-    where $\pi\left(\gamma\mid x\right)$ is the posterior distribution of $\Gamma$, unconditional on $\theta$. The equation \ref{eq:hierarchical-bayes-estimator} can be writed as
-    \begin{equation*}
-        \int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta = \int\left[\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x,\gamma\right)\mathrm{d}\theta\right]\pi\left(\gamma\mid x\right)\mathrm{d}\gamma.
-    \end{equation*}
-    which shows that \textbf{the Hierarchical Bayes estimator can be thought of as a mixture of Single-Prior estimators}.
+	The posterior distribution can also be writed as
+	\begin{equation*}
+		\pi\left(\theta\mid x\right)=\int\pi\left(\theta\mid x,\gamma\right)\pi\left(\gamma\mid x\right)\mathrm{d}\gamma,
+	\end{equation*}
+	where $\pi\left(\gamma\mid x\right)$ is the posterior distribution of $\Gamma$, unconditional on $\theta$. The equation \ref{eq:hierarchical-bayes-estimator} can be writed as
+	\begin{equation*}
+		\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\mathrm{d}\theta = \int\left[\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x,\gamma\right)\mathrm{d}\theta\right]\pi\left(\gamma\mid x\right)\mathrm{d}\gamma.
+	\end{equation*}
+	which shows that \textbf{the Hierarchical Bayes estimator can be thought of as a mixture of Single-Prior estimators}.
 \end{remark}
 
 \begin{example}[Poisson Hierarchy]
-    Consider
-    \begin{equation}
-        \begin{aligned}
-            X_i\mid\lambda & \stackrel{\text{i.i.d}}{\sim} \text{Poisson}\left(\lambda\right),\quad i=1,2\ldots,n \\
-            \lambda\mid b  & \sim \text{Gamma}\left(a,b\right), \text{ a known},                                  \\
-            \frac{1}{b}    & \sim \text{Gamma}\left(k,\tau\right),                                                \\
-        \end{aligned}
-    \end{equation}
-    calculate the Hierarchical Bayes estimator under squared error loss.
+	Consider
+	\begin{equation}
+		\begin{aligned}
+			X_i\mid\lambda & \stackrel{\text{i.i.d}}{\sim} \text{Poisson}\left(\lambda\right),\quad i=1,2\ldots,n \\
+			\lambda\mid b  & \sim \text{Gamma}\left(a,b\right), \text{ a known},                                  \\
+			\frac{1}{b}    & \sim \text{Gamma}\left(k,\tau\right),                                                \\
+		\end{aligned}
+	\end{equation}
+	calculate the Hierarchical Bayes estimator under squared error loss.
 \end{example}
 
-
 \begin{theorem}
-    For the Hierarchical Bayes model (\ref{eq:hierarchical-bayes}),
-    \begin{equation}
-        K\left[\pi\left(\lambda\mid x\right),\psi\left(\lambda\right)\right] < K\left[\pi\left(\theta\mid x\right),\pi\left(\theta\right)\right],
-    \end{equation}
-    where $K$ is the Kullback-Leibler information for discrimination between two densities.
+	For the Hierarchical Bayes model (\ref{eq:hierarchical-bayes}),
+	\begin{equation}
+		K\left[\pi\left(\lambda\mid x\right),\psi\left(\lambda\right)\right] < K\left[\pi\left(\theta\mid x\right),\pi\left(\theta\right)\right],
+	\end{equation}
+	where $K$ is the Kullback-Leibler information for discrimination between two densities.
 \end{theorem}
 
 \begin{proof}

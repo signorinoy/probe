@@ -6,121 +6,121 @@
 
 Suppose that $\mathbf{X}_{n}=\left(x_{1},\ldots,x_{n}\right)$, within a parametric family
 \begin{equation}
-    p\left(x;\theta_{0}\right)\in\mathcal{P}=\left\{p(x;\theta):\theta\in\Theta\right\}
+	p\left(x;\theta_{0}\right)\in\mathcal{P}=\left\{p(x;\theta):\theta\in\Theta\right\}
 \end{equation}
+
 The maximum likelihood estimate for observed $\mathbf{X}_{n}$ is the value $\theta\in\Theta$ which maximizes $L\left(\theta;X_{n}\right):=p\left(\mathbf{X}_{n};\theta\right)$, i.e.,
 \begin{equation}
-    \hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}L\left(\theta;\mathbf{X}_{n}\right).
+	\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}L\left(\theta;\mathbf{X}_{n}\right).
 \end{equation}
 
 In practice, it is often convenient to work with the natural logarithm of the likelihood function, called the log-likelihood:
 \begin{equation}
-    \ell\left(\theta;\mathbf{X}_{n}\right)=\ln L\left(\theta;\mathbf{X}_{n}\right)
+	\ell\left(\theta;\mathbf{X}_{n}\right)=\ln L\left(\theta;\mathbf{X}_{n}\right)
 \end{equation}
 Since the logarithm is a monotonic function, the maximum of $\ell\left(\theta;\mathbf{X}_{n}\right)$ occurs at the same value of $\theta$ as does the maximum of $L\left(\theta;\mathbf{X}_{n}\right)$
 
 If the data are independent and identically distributed, then we have
 \begin{equation}
-    \hat{\ell}\left(\theta;\mathbf{X}_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)
+	\hat{\ell}\left(\theta;\mathbf{X}_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)
 \end{equation}
 this being the sample analogue of the expected log-likelihood $\ell(\theta)=\mathbb{E}\left[\ln p\left(x_{i} \mid \theta\right)\right]$, where this expectation is taken with respect to the true density.
 
-
 \begin{equation}
-    \hat{\theta}_{\text{MLE}}:=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)
+	\hat{\theta}_{\text{MLE}}:=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)
 \end{equation}
 
 \paragraph{Consistency}
 
 To establish consistency, the following conditions are sufficient:
 \begin{enumerate}
-    \item Identification of the model: $\theta_{0}$ is identified in the sense that if $\theta\neq\theta_{0}$ and $\theta\in\Theta$, then $p(x;\theta)\neq p\left(x;\theta_{0}\right)$ with respect to the dominating measure $\mu$.
-    \item Compactness: the parameter space $\Theta$ of the model is compact.
-    \item Continuity: the function $\ln p(x\mid\theta)$ is continuous in $\theta$ for almost all values of $x$:
-          \begin{equation}
-              P\left[\ln p(x\mid\theta)\in C^{0}(\Theta)\right]=1
-          \end{equation}
-    \item Dominance: there exists $D(x)$ integrable with respect to the distribution $p\left(x\mid\theta_{0}\right)$ such that $|\ln p\left(x\mid\theta\right)|<D(x)$ for all $\theta\in \Theta$.
+	\item Identification of the model: $\theta_{0}$ is identified in the sense that if $\theta\neq\theta_{0}$ and $\theta\in\Theta$, then $p(x;\theta)\neq p\left(x;\theta_{0}\right)$ with respect to the dominating measure $\mu$.
+	\item Compactness: the parameter space $\Theta$ of the model is compact.
+	\item Continuity: the function $\ln p(x\mid\theta)$ is continuous in $\theta$ for almost all values of $x$:
+	      \begin{equation}
+		      P\left[\ln p(x\mid\theta)\in C^{0}(\Theta)\right]=1
+	      \end{equation}
+	\item Dominance: there exists $D(x)$ integrable with respect to the distribution $p\left(x\mid\theta_{0}\right)$ such that $|\ln p\left(x\mid\theta\right)|<D(x)$ for all $\theta\in \Theta$.
 \end{enumerate}
 
 \begin{lemma}
-    If $\theta_{0}$ is identified and $E_{\theta_{0}}\left[|\ln p(x;\theta)|\right]<\infty,\forall\theta\in\Theta$, then $\ell(\theta)$ is uniquely maximized at $\theta=\theta_{0}$.
+	If $\theta_{0}$ is identified and $E_{\theta_{0}}\left[|\ln p(x;\theta)|\right]<\infty,\forall\theta\in\Theta$, then $\ell(\theta)$ is uniquely maximized at $\theta=\theta_{0}$.
 \end{lemma}
 
 \begin{proof}
-    % By the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}), we have,
-    % \begin{equation}
-    %     \hat{\ell}\left(\theta;\mathbf{X}_{n}\right)=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)\stackrel{p}{\rightarrow}E\left[\ln p\left(x_{i}\mid \theta\right)\right]=\ell(\theta)
-    % \end{equation}
-    By the strict version of Jensen's inequality, for random variable $a=\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}$ with $\theta\neq\theta_{0}$,
-    \begin{equation}
-        \ell\left(\theta_{0}\right)-\ell(\theta)=E_{\theta_{0}}\left\{-\ln\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]\right\}>-\ln E_{\theta_{0}}\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]=-\ln \left[\int f(z \mid \theta) \mathrm{d} z\right]=0
-    \end{equation}
+	% By the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}), we have,
+	% \begin{equation}
+	%     \hat{\ell}\left(\theta;\mathbf{X}_{n}\right)=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)\stackrel{p}{\rightarrow}E\left[\ln p\left(x_{i}\mid \theta\right)\right]=\ell(\theta)
+	% \end{equation}
+	By the strict version of Jensen's inequality, for random variable $a=\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}$ with $\theta\neq\theta_{0}$,
+	\begin{equation}
+		\ell\left(\theta_{0}\right)-\ell(\theta)=E_{\theta_{0}}\left\{-\ln\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]\right\}>-\ln E_{\theta_{0}}\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]=-\ln \left[\int f(z \mid \theta) \mathrm{d} z\right]=0
+	\end{equation}
 \end{proof}
 
 \begin{theorem}[Consistency of MLE]
-    Under the Assumption (1)-(4), we have
-    \begin{equation}
-        \hat{\theta}_{\text{MLE}}\stackrel{p}{\rightarrow}\theta_{0}
-    \end{equation}
+	Under the Assumption (1)-(4), we have
+	\begin{equation}
+		\hat{\theta}_{\text{MLE}}\stackrel{p}{\rightarrow}\theta_{0}
+	\end{equation}
 \end{theorem}
 
 \begin{proof}
-    Suppose
-    \begin{equation*}
-        \Theta(\epsilon)=\left\{\theta:\left\|\theta-\theta_{0}\right\|<\epsilon\right\},\quad\forall\varepsilon>0
-    \end{equation*}
+	Suppose
+	\begin{equation*}
+		\Theta(\epsilon)=\left\{\theta:\left\|\theta-\theta_{0}\right\|<\epsilon\right\},\quad\forall\varepsilon>0
+	\end{equation*}
 
-    Since $Q_{0}(\theta)$ is a continuous function, thus
-    \begin{equation*}
-        \theta^{*}:=\sup_{\theta\in\Theta\cap \Theta(\epsilon)^{C}}\left\{\ell(\theta)\right\}
-    \end{equation*}
-    is a achieved for a $\theta$ in the compact set $\theta\in\Theta\cap \Theta(\epsilon)^{C}$ (For open set $\Theta(\epsilon)$, $\Theta\cap\Theta(\epsilon)^{C}$ is a compact set). And $\theta_{0}$ is the unique maximized,
-    \begin{equation*}
-        \exists\delta>0,\quad\ell\left(\theta_{0}\right)-\ell\left(\theta^{*}\right)=\delta
-    \end{equation*}
+	Since $Q_{0}(\theta)$ is a continuous function, thus
+	\begin{equation*}
+		\theta^{*}:=\sup_{\theta\in\Theta\cap \Theta(\epsilon)^{C}}\left\{\ell(\theta)\right\}
+	\end{equation*}
+	is a achieved for a $\theta$ in the compact set $\theta\in\Theta\cap \Theta(\epsilon)^{C}$ (For open set $\Theta(\epsilon)$, $\Theta\cap\Theta(\epsilon)^{C}$ is a compact set). And $\theta_{0}$ is the unique maximized,
+	\begin{equation*}
+		\exists\delta>0,\quad\ell\left(\theta_{0}\right)-\ell\left(\theta^{*}\right)=\delta
+	\end{equation*}
 
-    \begin{enumerate}
-        \item For $\theta\in\Theta\cap\Theta(\epsilon)^{C}$. suppose
-              \begin{equation}
-                  A_{n}=\left\{\sup_{\theta\in\Theta\cap\Theta(\epsilon)^{C}}\left|\hat{\ell}\left(\theta;\textbf{X}_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
-              \end{equation}
-              then,
-              \begin{equation}
-                  A_{n}\Longrightarrow\hat{\ell}\left(\theta;\textbf{X}_{n}\right)<\ell(\theta)+\frac{\delta}{2}\leq \ell\left(\theta^{*}\right)+\frac{\delta}{2}=\ell\left(\theta_{0}\right)-\frac{\delta}{2}
-              \end{equation}
-        \item For $\theta\in\Theta(\epsilon)$, suppose
-              \begin{equation}
-                  B_{n}=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
-              \end{equation}
-              then
-              \begin{equation}
-                  B_{n}\Longrightarrow\forall\theta\in\Theta(\epsilon),\,\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)>\ell(\theta)-\frac{\delta}{2}
-              \end{equation}
-    \end{enumerate}
+	\begin{enumerate}
+		\item For $\theta\in\Theta\cap\Theta(\epsilon)^{C}$. suppose
+		      \begin{equation}
+			      A_{n}=\left\{\sup_{\theta\in\Theta\cap\Theta(\epsilon)^{C}}\left|\hat{\ell}\left(\theta;\textbf{X}_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
+		      \end{equation}
+		      then,
+		      \begin{equation}
+			      A_{n}\Longrightarrow\hat{\ell}\left(\theta;\textbf{X}_{n}\right)<\ell(\theta)+\frac{\delta}{2}\leq \ell\left(\theta^{*}\right)+\frac{\delta}{2}=\ell\left(\theta_{0}\right)-\frac{\delta}{2}
+		      \end{equation}
+		\item For $\theta\in\Theta(\epsilon)$, suppose
+		      \begin{equation}
+			      B_{n}=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
+		      \end{equation}
+		      then
+		      \begin{equation}
+			      B_{n}\Longrightarrow\forall\theta\in\Theta(\epsilon),\,\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)>\ell(\theta)-\frac{\delta}{2}
+		      \end{equation}
+	\end{enumerate}
 
-    By the uniform law of large numbers, the dominance condition together with continuity establish the uniform convergence in probability of the log-likelihood:
-    \begin{equation}
-        \sup_{\theta\in\Theta}|\hat{\ell}(\theta;\mathbf{X}_{n})-\ell(\theta)|\stackrel{p}{\rightarrow}0
-    \end{equation}
-    Thus, we can concluded that
-    \begin{equation}
-        P\left(A_{n}\cap B_{n}\right)\rightarrow 1
-    \end{equation}
+	By the uniform law of large numbers, the dominance condition together with continuity establish the uniform convergence in probability of the log-likelihood:
+	\begin{equation}
+		\sup_{\theta\in\Theta}|\hat{\ell}(\theta;\mathbf{X}_{n})-\ell(\theta)|\stackrel{p}{\rightarrow}0
+	\end{equation}
+	Thus, we can concluded that
+	\begin{equation}
+		P\left(A_{n}\cap B_{n}\right)\rightarrow 1
+	\end{equation}
 
-    Within the definition
-    \begin{equation}
-        \hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)
-    \end{equation}
-    we have,
-    \begin{equation*}
-        A_{n}\cap B_{n}\Longrightarrow\hat{\theta}_{\text{MLE}}\in\Theta(\epsilon)
-    \end{equation*}
-    
-    Hence,
-    \begin{equation*}
-        \forall\varepsilon>0,\,P\left[\hat{\theta}_{\text{MLE}}\in\Theta(\epsilon)\right]\rightarrow 1\Longrightarrow\hat{\theta}_{\text{MLE}}\stackrel{p}{\rightarrow}\theta_{0}
-    \end{equation*}
+	Within the definition
+	\begin{equation}
+		\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)
+	\end{equation}
+	we have,
+	\begin{equation*}
+		A_{n}\cap B_{n}\Longrightarrow\hat{\theta}_{\text{MLE}}\in\Theta(\epsilon)
+	\end{equation*}
+
+	Hence,
+	\begin{equation*}
+		\forall\varepsilon>0,\,P\left[\hat{\theta}_{\text{MLE}}\in\Theta(\epsilon)\right]\rightarrow 1\Longrightarrow\hat{\theta}_{\text{MLE}}\stackrel{p}{\rightarrow}\theta_{0}
+	\end{equation*}
 \end{proof}
 
 \paragraph{Asymptotic Normality}
@@ -137,79 +137,79 @@ Seek a modified likelihood function that depends on as few of the nuisance param
 
 Let $\boldsymbol{\theta}=(\boldsymbol{\varphi},\boldsymbol{\lambda})$, where $\boldsymbol{\varphi}$ is the parameter vector of interest and $\boldsymbol{\lambda}$ is a vector of nuisance parameters. The conditional likelihood can be obtained as follows:
 \begin{enumerate}
-    \item Find the complete sufficient statistic $S_{\boldsymbol{\lambda}}$, respectively for $\boldsymbol{\lambda}$.
-    \item  Construct the conditional log-likelihood
-          \begin{equation}
-              \ell_{c}=\ln\left(f_{Y\mid S_{\boldsymbol{\lambda}}}\right)
-          \end{equation}
-          where $f_{Y\mid S_{\boldsymbol{\lambda}}}$ is the conditional distribution of the response $Y$ given $S_{\boldsymbol{\lambda}}$.
+	\item Find the complete sufficient statistic $S_{\boldsymbol{\lambda}}$, respectively for $\boldsymbol{\lambda}$.
+	\item  Construct the conditional log-likelihood
+	      \begin{equation}
+		      \ell_{c}=\ln\left(f_{Y\mid S_{\boldsymbol{\lambda}}}\right)
+	      \end{equation}
+	      where $f_{Y\mid S_{\boldsymbol{\lambda}}}$ is the conditional distribution of the response $Y$ given $S_{\boldsymbol{\lambda}}$.
 \end{enumerate}
 
 \begin{remark}
-    Two cases might occur, that, for fixed $\boldsymbol{\varphi}_{0}$, $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)$ depends on $\boldsymbol{\varphi}_{0}$; or $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)=S_{\boldsymbol{\lambda}}$ is independent of $\boldsymbol{\varphi}_{0}$.
-    \begin{enumerate}
-        \item Independent:
-        \item Dependent:
-    \end{enumerate}
+	Two cases might occur, that, for fixed $\boldsymbol{\varphi}_{0}$, $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)$ depends on $\boldsymbol{\varphi}_{0}$; or $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)=S_{\boldsymbol{\lambda}}$ is independent of $\boldsymbol{\varphi}_{0}$.
+	\begin{enumerate}
+		\item Independent:
+		\item Dependent:
+	\end{enumerate}
 \end{remark}
 
 Suppose that the log-likelihood for $\boldsymbol{\theta}=\left(\boldsymbol{\varphi},\boldsymbol{\lambda}\right)$ can be written in the exponential family form
 \begin{equation}
-    \ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\theta}^{\prime}\mathbf{s}-b\left(\boldsymbol{\theta}\right)
+	\ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\theta}^{\prime}\mathbf{s}-b\left(\boldsymbol{\theta}\right)
 \end{equation}
 
 Also, suppose $\ell\left(\boldsymbol{\theta},\mathbf{y}\right)$ has a decomposition of the form
 \begin{equation}
-    \ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}+\boldsymbol{\lambda}^{\prime}\mathbf{s}_{2}-b(\boldsymbol{\varphi},\boldsymbol{\lambda})
+	\ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}+\boldsymbol{\lambda}^{\prime}\mathbf{s}_{2}-b(\boldsymbol{\varphi},\boldsymbol{\lambda})
 \end{equation}
 
 \begin{remark}
-    The above decomposition can be achieved only if $\boldsymbol{\varphi}$ is a linear function of $\theta$. The choice of nuisance parameter $\lambda$ is arbitrary and the inferences regarding $\boldsymbol{\varphi}$ should be unaffected by the parameterization chosen for $\lambda$.
+	The above decomposition can be achieved only if $\boldsymbol{\varphi}$ is a linear function of $\theta$. The choice of nuisance parameter $\lambda$ is arbitrary and the inferences regarding $\boldsymbol{\varphi}$ should be unaffected by the parameterization chosen for $\lambda$.
 \end{remark}
 
 The conditional likelihood of the data $\mathbf{Y}$ given $\mathbf{s}_{2}$ is
 \begin{equation}
-    \ell\left(\boldsymbol{\varphi}\mid\mathbf{s}_{2}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}-b^{*}\left(\boldsymbol{\varphi},\boldsymbol{\lambda}\right)
+	\ell\left(\boldsymbol{\varphi}\mid\mathbf{s}_{2}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}-b^{*}\left(\boldsymbol{\varphi},\boldsymbol{\lambda}\right)
 \end{equation}
 which is independent of the nuisance parameter and may be used for inferences regarding $\boldsymbol{\varphi}$.
 
 \begin{example}
-    $Y_{1}\sim P\left(\mu_{1}\right),Y_{2}\sim P\left(\mu_{2}\right)$ are independent. Suppose $\varphi=\ln\left(\frac{\mu_{2}}{\mu_{1}}\right)=\ln\left(\mu_{2}\right)-\ln\left(\mu_{1}\right)$ is the parameter of interest and the nuisance parameter is
-    \begin{enumerate}
-        \item $\lambda_{1}=\ln\left(\mu_{1}\right)$.
-        \item
-    \end{enumerate}
-    Then, give the conditional log-likelihood for different nuisance parameter.
+	$Y_{1}\sim P\left(\mu_{1}\right),Y_{2}\sim P\left(\mu_{2}\right)$ are independent. Suppose $\varphi=\ln\left(\frac{\mu_{2}}{\mu_{1}}\right)=\ln\left(\mu_{2}\right)-\ln\left(\mu_{1}\right)$ is the parameter of interest and the nuisance parameter is
+	\begin{enumerate}
+		\item $\lambda_{1}=\ln\left(\mu_{1}\right)$.
+		\item
+	\end{enumerate}
+	Then, give the conditional log-likelihood for different nuisance parameter.
 \end{example}
 
 \begin{proof}
-    \begin{enumerate}
-        \item
-              The log-likelihood function in the form of $\left(\varphi,\lambda\right)$ is
-              \begin{equation*}
-                  \begin{aligned}
-                      \ell\left(\phi,\lambda_{1}\right)\propto & \ln\left[e^{-\left(\mu_{1}+\mu_{2}\right)}\mu_{1}^{y_{1}}\mu_{2}^{y_{2}}\right]                               \\
-                      =                                        & -\left(\mu_{1}+\mu_{2}\right)+y_{1}\ln\left(\mu_{1}\right)+y_{2}\ln\left(\mu_{2}\right)                       \\
-                      =                                        & -\mu_{1}\left(1+\frac{\mu_{2}}{\mu_{1}}\right)+y_{1}\ln\left(\mu_{1}\right)+y_{2}\ln\left(\mu_{1}\right)      \\
-                                                               & -y_{2}\left[\ln\left(\mu_{1}\right)-\ln\left(\mu_{2}\right)\right]                                            \\
-                      =                                        & -\mathrm{e}^{\lambda_{1}}\left(1+\mathrm{e}^{\varphi}\right)+\left(y_{1}+y_{2}\right)\lambda_{1}-y_{2}\varphi \\
-                      =                                        & s_{1}\varphi+s_{2}\lambda_{1}-b\left(\varphi,\lambda_{1}\right)
-                  \end{aligned}
-              \end{equation*}
-              where $s_{1}=-y_{2},s_{2}=y_{1}+y_{2},b\left(\varphi,\lambda_{1}\right)=e^{\lambda_{1}}\left(1+e^{\varphi}\right)$.
+	\begin{enumerate}
+		\item
+		      The log-likelihood function in the form of $\left(\varphi,\lambda\right)$ is
+		      \begin{equation*}
+			      \begin{aligned}
+				      \ell\left(\phi,\lambda_{1}\right)\propto & \ln\left[e^{-\left(\mu_{1}+\mu_{2}\right)}\mu_{1}^{y_{1}}\mu_{2}^{y_{2}}\right]                               \\
+				      =                                        & -\left(\mu_{1}+\mu_{2}\right)+y_{1}\ln\left(\mu_{1}\right)+y_{2}\ln\left(\mu_{2}\right)                       \\
+				      =                                        & -\mu_{1}\left(1+\frac{\mu_{2}}{\mu_{1}}\right)+y_{1}\ln\left(\mu_{1}\right)+y_{2}\ln\left(\mu_{1}\right)      \\
+				                                               & -y_{2}\left[\ln\left(\mu_{1}\right)-\ln\left(\mu_{2}\right)\right]                                            \\
+				      =                                        & -\mathrm{e}^{\lambda_{1}}\left(1+\mathrm{e}^{\varphi}\right)+\left(y_{1}+y_{2}\right)\lambda_{1}-y_{2}\varphi \\
+				      =                                        & s_{1}\varphi+s_{2}\lambda_{1}-b\left(\varphi,\lambda_{1}\right)
+			      \end{aligned}
+		      \end{equation*}
+		      where $s_{1}=-y_{2},s_{2}=y_{1}+y_{2},b\left(\varphi,\lambda_{1}\right)=e^{\lambda_{1}}\left(1+e^{\varphi}\right)$.
 
-              Then, the conditional distribution of $Y_{1},Y_{2}$ given $S_{2}=Y_{1}+Y_{2}$ is $b\left(S_{2},\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)$, thus,
-              \begin{equation*}
-                  \begin{aligned}
-                      \ell\left(\varphi\mid S_{2}=s_{2}\right)\propto & y_{1}\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)+y_{2}\ln\left(\frac{\mu_{2}}{\mu_{1}+\mu_{2}}\right)          \\
-                      =                                               & y_{1}\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)+y_{2}\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)          \\
-                                                                      & -y_{2}\left[\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)-\ln\left(\frac{\mu_{2}}{\mu_{1}+\mu_{2}}\right)\right] \\
-                      =                                               & \left(y_{1}+y_{2}\right)\ln\left(\frac{1}{1+e^{\varphi}}\right)-y_{2}\varphi                                       \\
-                      =                                               & s_{1}\varphi-b^{*}\left(\varphi,s_{2}\right)
-                  \end{aligned}
-              \end{equation*}
-              where $b^{*}\left(\varphi,s_{2}\right)=-s_{2}\ln\left(\frac{1}{1+\varphi^{-1}}\right)$.
-    \end{enumerate}
+		      Then, the conditional distribution of $Y_{1},Y_{2}$ given $S_{2}=Y_{1}+Y_{2}$ is $b\left(S_{2},\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)$, thus,
+		      \begin{equation*}
+			      \begin{aligned}
+				      \ell\left(\varphi\mid S_{2}=s_{2}\right)\propto & y_{1}\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)+y_{2}\ln\left(\frac{\mu_{2}}{\mu_{1}+\mu_{2}}\right)          \\
+				      =                                               & y_{1}\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)+y_{2}\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)          \\
+				                                                      & -y_{2}\left[\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)-\ln\left(\frac{\mu_{2}}{\mu_{1}+\mu_{2}}\right)\right] \\
+				      =                                               & \left(y_{1}+y_{2}\right)\ln\left(\frac{1}{1+e^{\varphi}}\right)-y_{2}\varphi                                       \\
+				      =                                               & s_{1}\varphi-b^{*}\left(\varphi,s_{2}\right)
+			      \end{aligned}
+		      \end{equation*}
+		      where $b^{*}\left(\varphi,s_{2}\right)=-s_{2}\ln\left(\frac{1}{1+\varphi^{-1}}\right)$.
+	\end{enumerate}
 \end{proof}
 
 \subsubsection{Profile Likelihood}
@@ -219,138 +219,138 @@ which is independent of the nuisance parameter and may be used for inferences re
 \section{Minimum-Variance Unbiased Estimator}
 
 \begin{definition}[UMVU Estimators]
-    An unbiased estimator $\delta(\textbf{X})$ of $g(\theta)$ is the uniform minimum variance unbiased (UMVU) estimator of $g(\theta)$ if
-    \begin{equation}
-        \text{Var}_{\theta}\delta(\textbf{X})\leq\text{Var}_{\theta}\delta'(\textbf{X}),\quad\forall\theta\in\Theta,
-    \end{equation}
-    where $\delta'(\textbf{X})$ is any other unbiased estimator of $g(\theta)$.
+	An unbiased estimator $\delta(\textbf{X})$ of $g(\theta)$ is the uniform minimum variance unbiased (UMVU) estimator of $g(\theta)$ if
+	\begin{equation}
+		\text{Var}_{\theta}\delta(\textbf{X})\leq\text{Var}_{\theta}\delta'(\textbf{X}),\quad\forall\theta\in\Theta,
+	\end{equation}
+	where $\delta'(\textbf{X})$ is any other unbiased estimator of $g(\theta)$.
 \end{definition}
 
 \begin{remark}
-    If there exists an unbiased estimator of $g$, the estimand $g$ will be called $U$-estimable.
+	If there exists an unbiased estimator of $g$, the estimand $g$ will be called $U$-estimable.
 \end{remark}
 
 \begin{enumerate}
-    \item If $T(\textbf{X})$ is a complete sufficient statistic, estimator $\delta(\textbf{X})$ that only depends on $T(\textbf{X})$, then for any $U$-estimable function $g(\theta)$ with
-          \begin{equation}
-              E_{\theta}\delta(T(\textbf{X}))=g(\theta),\quad\forall\theta\in\Theta,
-          \end{equation}
-          hence, $\delta(T(\textbf{X}))$ is the unique UMVU estimator of $g(\theta)$.
-    \item If $T(\textbf{X})$ is a complete sufficient statistic and $\delta({\textbf{X}})$ is any unbiased estimator of $g(\theta)$, then the UMVU estimator of $g(\theta)$ can be obtained by
-          \begin{equation}
-              E\left[\delta(\textbf{X})\mid T(\textbf{X})\right].
-          \end{equation}
+	\item If $T(\textbf{X})$ is a complete sufficient statistic, estimator $\delta(\textbf{X})$ that only depends on $T(\textbf{X})$, then for any $U$-estimable function $g(\theta)$ with
+	      \begin{equation}
+		      E_{\theta}\delta(T(\textbf{X}))=g(\theta),\quad\forall\theta\in\Theta,
+	      \end{equation}
+	      hence, $\delta(T(\textbf{X}))$ is the unique UMVU estimator of $g(\theta)$.
+	\item If $T(\textbf{X})$ is a complete sufficient statistic and $\delta({\textbf{X}})$ is any unbiased estimator of $g(\theta)$, then the UMVU estimator of $g(\theta)$ can be obtained by
+	      \begin{equation}
+		      E\left[\delta(\textbf{X})\mid T(\textbf{X})\right].
+	      \end{equation}
 \end{enumerate}
 
 \begin{example}[Estimating Polynomials of a Normal Variance]
-    Let $X_{1},\ldots,X_{n}$ be distributed with joint density
-    \begin{equation}
-        \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\sum\left(x_{i}-\xi\right)^{2}\right].
-    \end{equation}
-    Discussing the UMVU estimators of $\xi^r$, $\sigma^r$, $\xi/\sigma$.
+	Let $X_{1},\ldots,X_{n}$ be distributed with joint density
+	\begin{equation}
+		\frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\sum\left(x_{i}-\xi\right)^{2}\right].
+	\end{equation}
+	Discussing the UMVU estimators of $\xi^r$, $\sigma^r$, $\xi/\sigma$.
 \end{example}
 
 \begin{proof}
-    \begin{enumerate}
-        \item \textbf{$\sigma$ is known}:
+	\begin{enumerate}
+		\item \textbf{$\sigma$ is known}:
 
-              Since $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ is the complete sufficient statistic of $X_i$, and
-              \begin{equation*}
-                  E(\bar{X})=\xi,
-              \end{equation*}
-              then the UMVU estimator of $\xi$ is $\bar{X}$.
+		      Since $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ is the complete sufficient statistic of $X_i$, and
+		      \begin{equation*}
+			      E(\bar{X})=\xi,
+		      \end{equation*}
+		      then the UMVU estimator of $\xi$ is $\bar{X}$.
 
-              Therefore, the UMVU estimator of $\xi^r$ is $\bar{X}^r$ and the UMVU estimator of $\xi/\sigma$ is $\bar{X}/\sigma$.
+		      Therefore, the UMVU estimator of $\xi^r$ is $\bar{X}^r$ and the UMVU estimator of $\xi/\sigma$ is $\bar{X}/\sigma$.
 
-        \item \textbf{$\xi$ is known}:
+		\item \textbf{$\xi$ is known}:
 
-              Since $s^r=\sum\left(x_{i}-\xi\right)^r$ is the complete sufficient statistic of $X_i$.
+		      Since $s^r=\sum\left(x_{i}-\xi\right)^r$ is the complete sufficient statistic of $X_i$.
 
-              Assume
-              \begin{equation*}
-                  E\left[\frac{s^r}{\sigma^r}\right]=\frac{1}{K_{n,r}},
-              \end{equation*}
-              where $K_{n,r}$ is a constant depends on $n,r$.
+		      Assume
+		      \begin{equation*}
+			      E\left[\frac{s^r}{\sigma^r}\right]=\frac{1}{K_{n,r}},
+		      \end{equation*}
+		      where $K_{n,r}$ is a constant depends on $n,r$.
 
-              Since $s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)$, then
-              \begin{equation*}
-                  E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\mathrm{d}x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
-              \end{equation*}
-              therefore,
-              \begin{equation*}
-                  K_{n,r}=\frac{\Gamma(\frac{n}{2})}{2^{\frac{r}{2}}\cdot\Gamma\left(\frac{n+r}{2}\right)}.
-              \end{equation*}
+		      Since $s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)$, then
+		      \begin{equation*}
+			      E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\mathrm{d}x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
+		      \end{equation*}
+		      therefore,
+		      \begin{equation*}
+			      K_{n,r}=\frac{\Gamma(\frac{n}{2})}{2^{\frac{r}{2}}\cdot\Gamma\left(\frac{n+r}{2}\right)}.
+		      \end{equation*}
 
-              Hence,
-              \begin{equation*}
-                  E\left[s^rK_{n,r}\right]=\sigma^r \text{ and } E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
-              \end{equation*}
-              which means the UMVU estimator of $\sigma^r$ is $s^rK_{n,r}$ and the UMVU estimator of $\xi/\sigma$ is $\xi s^{-1}K_{n,-1}$.
+		      Hence,
+		      \begin{equation*}
+			      E\left[s^rK_{n,r}\right]=\sigma^r \text{ and } E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
+		      \end{equation*}
+		      which means the UMVU estimator of $\sigma^r$ is $s^rK_{n,r}$ and the UMVU estimator of $\xi/\sigma$ is $\xi s^{-1}K_{n,-1}$.
 
-        \item \textbf{Both $\xi$ and $\sigma$ is unknown}:
+		\item \textbf{Both $\xi$ and $\sigma$ is unknown}:
 
-              Since $(\bar{X},s_x^r)$ are the complete sufficient statistic of $X_i$, where $s_x^2=\sum\left(x_{i}-\bar{X}\right)^r$.
+		      Since $(\bar{X},s_x^r)$ are the complete sufficient statistic of $X_i$, where $s_x^2=\sum\left(x_{i}-\bar{X}\right)^r$.
 
-              Since $s_x^2/\sigma^2\sim\chi^2(n-1)$, then
-              \begin{equation*}
-                  E\left[\frac{s_x^r}{\sigma^r}\right]=\frac{1}{K_{n-1,r}}.
-              \end{equation*}
+		      Since $s_x^2/\sigma^2\sim\chi^2(n-1)$, then
+		      \begin{equation*}
+			      E\left[\frac{s_x^r}{\sigma^r}\right]=\frac{1}{K_{n-1,r}}.
+		      \end{equation*}
 
-              Hence,
-              \begin{equation*}
-                  E\left[s_x^rK_{n-1,r}\right]=\sigma^r,
-              \end{equation*}
-              which means the UMVU estimator of $\sigma^r$ is $s_x^rK_{n-1,r}$,
-              and
-              \begin{equation*}
-                  E(\bar{X}^r)=\xi^r,
-              \end{equation*}
-              which means the UMVU estimator of $\xi^r$ is $\bar{X}^r$.
+		      Hence,
+		      \begin{equation*}
+			      E\left[s_x^rK_{n-1,r}\right]=\sigma^r,
+		      \end{equation*}
+		      which means the UMVU estimator of $\sigma^r$ is $s_x^rK_{n-1,r}$,
+		      and
+		      \begin{equation*}
+			      E(\bar{X}^r)=\xi^r,
+		      \end{equation*}
+		      which means the UMVU estimator of $\xi^r$ is $\bar{X}^r$.
 
-              Since $\bar{X}$ and $s_x^r$ are independent, then
-              \begin{equation*}
-                  E[\bar{X}s_x^{-1}K_{n-1,-1}]=\xi/\sigma
-              \end{equation*}
-              which means the UMVU estimator of $\xi/\sigma$ is $\bar{X}s_x^{-1}K_{n-1,-1}$.
-    \end{enumerate}
+		      Since $\bar{X}$ and $s_x^r$ are independent, then
+		      \begin{equation*}
+			      E[\bar{X}s_x^{-1}K_{n-1,-1}]=\xi/\sigma
+		      \end{equation*}
+		      which means the UMVU estimator of $\xi/\sigma$ is $\bar{X}s_x^{-1}K_{n-1,-1}$.
+	\end{enumerate}
 \end{proof}
 
 \begin{example}[]
-    Let $X_{1},\ldots,X_{n}$ be i.i.d sample from $U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)$, where $\theta_1\in\mathbb{R},\theta_2\in\mathbb{R}^+$. Discussing the UMVU estimators of $\theta_1,\theta_2$.
+	Let $X_{1},\ldots,X_{n}$ be i.i.d sample from $U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)$, where $\theta_1\in\mathbb{R},\theta_2\in\mathbb{R}^+$. Discussing the UMVU estimators of $\theta_1,\theta_2$.
 \end{example}
 
 \begin{proof}
-    Let $X_{(i)}$ be the i-th order statistic of $X_i$, then $\left(X_{(1)},X_{(n)}\right)$ is the complete and sufficient statistic for $(\theta_1,\theta_2)$. Thus it suffices to find a function $\left(X_{(1)},X_{(n)}\right)$, which is unbiased of $(\theta_1,\theta_2)$.
+	Let $X_{(i)}$ be the i-th order statistic of $X_i$, then $\left(X_{(1)},X_{(n)}\right)$ is the complete and sufficient statistic for $(\theta_1,\theta_2)$. Thus it suffices to find a function $\left(X_{(1)},X_{(n)}\right)$, which is unbiased of $(\theta_1,\theta_2)$.
 
-    Let
-    \begin{equation*}
-        Y_i=\frac{X_i-(\theta_1-\theta_2)}{2\theta_2}\sim U(0,1),
-    \end{equation*}
-    and
-    \begin{equation*}
-        Y_{(i)}=\frac{X_{(i)}-(\theta_1-\theta_2)}{2\theta_2},
-    \end{equation*}
-    be the i-th order statistic of $Y_i$, then we got
-    \begin{equation*}
-        \begin{aligned}
-            E[X_{(1)}] & = 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2)                           \\
-                       & = 2\theta_2\int_{0}^{1}ny(1-y)^{n-1}\mathrm{d}y+(\theta_1-\theta_2) \\
-                       & = \theta_1-\frac{3n+1}{n+1}\theta_2                                 \\
-            E[X_{(n)}] & = 2\theta_2E[Y_{(n)}]+(\theta_1-\theta_2)                           \\
-                       & = 2\theta_2\int_{0}^{1}ny^{n}\mathrm{d}y+(\theta_1-\theta_2)        \\
-                       & = \theta_1+\frac{n-1}{n+1}\theta_2                                  \\
-        \end{aligned}.
-    \end{equation*}
+	Let
+	\begin{equation*}
+		Y_i=\frac{X_i-(\theta_1-\theta_2)}{2\theta_2}\sim U(0,1),
+	\end{equation*}
+	and
+	\begin{equation*}
+		Y_{(i)}=\frac{X_{(i)}-(\theta_1-\theta_2)}{2\theta_2},
+	\end{equation*}
+	be the i-th order statistic of $Y_i$, then we got
+	\begin{equation*}
+		\begin{aligned}
+			E[X_{(1)}] & = 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2)                           \\
+			           & = 2\theta_2\int_{0}^{1}ny(1-y)^{n-1}\mathrm{d}y+(\theta_1-\theta_2) \\
+			           & = \theta_1-\frac{3n+1}{n+1}\theta_2                                 \\
+			E[X_{(n)}] & = 2\theta_2E[Y_{(n)}]+(\theta_1-\theta_2)                           \\
+			           & = 2\theta_2\int_{0}^{1}ny^{n}\mathrm{d}y+(\theta_1-\theta_2)        \\
+			           & = \theta_1+\frac{n-1}{n+1}\theta_2                                  \\
+		\end{aligned}.
+	\end{equation*}
 
-    Thus,
-    \begin{equation*}
-        \begin{aligned}
-            \theta_1 & = E\left[\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)}\right], \\
-            \theta_2 & = E\left[-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}\right], \\
-        \end{aligned}
-    \end{equation*}
-    which means the UMVU estimator is
-    \begin{equation*}
-        \hat{\theta_1}=\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)},\quad\hat{\theta_2}=-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}.
-    \end{equation*}
+	Thus,
+	\begin{equation*}
+		\begin{aligned}
+			\theta_1 & = E\left[\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)}\right], \\
+			\theta_2 & = E\left[-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}\right], \\
+		\end{aligned}
+	\end{equation*}
+	which means the UMVU estimator is
+	\begin{equation*}
+		\hat{\theta_1}=\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)},\quad\hat{\theta_2}=-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}.
+	\end{equation*}
 \end{proof}
