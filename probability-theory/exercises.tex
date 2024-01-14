@@ -56,25 +56,25 @@
 \end{proof}
 
 \begin{exercise}
-	Suppose $g,h$ are continuous with $g(x)>0$, and $|h(x)|/g(x)\rightarrow 0$ as $|x|\rightarrow\infty$. If $F_{n}\stackrel{d}{\rightarrow}F$ and $\int g(x)\mathrm{d}F_{n}(x)\leq C<\infty,$ then
+	Suppose $g,h$ are continuous with $g(x)>0$, and $|h(x)|/g(x)\rightarrow 0$ as $|x|\rightarrow\infty$. If $F_{n}\stackrel{d}{\rightarrow}F$ and $\int g(x)\dif F_{n}(x)\leq C<\infty,$ then
 	\begin{equation*}
-		\int h(x)\mathrm{d}F_{n}(x) \rightarrow \int h(x)\mathrm{d}F(x).
+		\int h(x)\dif F_{n}(x) \rightarrow \int h(x)\dif F(x).
 	\end{equation*}
 \end{exercise}
 
 \begin{proof}
 	\begin{equation*}
 		\begin{aligned}
-			\left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| = & \left|{\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)+\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)}\right. \\
-			                                                                   & \left.{-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)}\right|        \\
-			\leq                                                               & \left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right|          \\
-			                                                                   & + \left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right|
+			\left|\int h(x)\dif F_{n}(x)-\int h(x)\dif F(x)\right| = & \left|{\int_{x\in[-M,M]}h(x)\dif F_{n}(x)+\int_{x\notin[-M,M]}h(x)\dif F_{n}(x)}\right. \\
+			                                                         & \left.{-\int_{x\in[-M,M]}h(x)\dif F(x)-\int_{x\notin[-M,M]}h(x)\dif F(x)}\right|        \\
+			\leq                                                     & \left|\int_{x\in[-M,M]}h(x)\dif F_{n}(x)-\int_{x\in[-M,M]}h(x)\dif F(x)\right|          \\
+			                                                         & + \left|\int_{x\notin[-M,M]}h(x)\dif F_{n}(x)-\int_{x\notin[-M,M]}h(x)\dif F(x)\right|
 		\end{aligned}.
 	\end{equation*}
 
 	Let $X_n,1\leq n<\infty$, with distribution $F_n$, so that $X_n\stackrel{a.s.}{\rightarrow}X$ (Lemma \ref{lem:distribution-to-probability}).
 	\begin{equation*}
-		\left|\int_{x\in[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\in[-M,M]}h(x)\mathrm{d}F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right|.
+		\left|\int_{x\in[-M,M]}h(x)\dif F_{n}(x)-\int_{x\in[-M,M]}h(x)\dif F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right|.
 	\end{equation*}
 
 	By Continuity Mapping Theorem (\ref{thm:continuous-mapping-theorem}), $\lim_{n\rightarrow\infty}\left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right| = 0$.
@@ -85,22 +85,22 @@
 	\end{equation*}
 	and by Exercise \ref{ex:fatou-lemma-distribution}
 	\begin{equation*}
-		Eg(X) \leq \liminf_{n\rightarrow\infty}Eg(X_n)=\liminf_{n\rightarrow\infty}\int g(x)\mathrm{d}F_{n}(x)\leq C<\infty,
+		Eg(X) \leq \liminf_{n\rightarrow\infty}Eg(X_n)=\liminf_{n\rightarrow\infty}\int g(x)\dif F_{n}(x)\leq C<\infty,
 	\end{equation*}
 	\begin{equation*}
 		\begin{aligned}
-			\left|\int_{x\notin[-M,M]}h(x)\mathrm{d}F_{n}(x)-\int_{x\notin[-M,M]}h(x)\mathrm{d}F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\notin[-M,M]}\right| \\
-			\leq 2E\max(h(Xn),h(X))I_{x\notin[-M,M]}\leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}.                                                                    \\
+			\left|\int_{x\notin[-M,M]}h(x)\dif F_{n}(x)-\int_{x\notin[-M,M]}h(x)\dif F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\notin[-M,M]}\right| \\
+			\leq 2E\max(h(Xn),h(X))I_{x\notin[-M,M]}\leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}.                                                          \\
 		\end{aligned}
 	\end{equation*}
 
 	Hence, let $M\rightarrow\infty$,
 	\begin{equation*}
-		\lim_{n\rightarrow\infty}\left|\int h(x)\mathrm{d}F_{n}(x)-\int h(x)\mathrm{d}F(x)\right| \leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}\rightarrow 0,
+		\lim_{n\rightarrow\infty}\left|\int h(x)\dif F_{n}(x)-\int h(x)\dif F(x)\right| \leq 2C\sup_{x\notin[-M,M]}\frac{h(x)}{g(x)}\rightarrow 0,
 	\end{equation*}
 	which means,
 	\begin{equation*}
-		\int h(x)\mathrm{d}F_{n}(x) \rightarrow \int h(x)\mathrm{d}F(x).
+		\int h(x)\dif F_{n}(x) \rightarrow \int h(x)\dif F(x).
 	\end{equation*}
 \end{proof}
 

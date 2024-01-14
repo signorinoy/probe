@@ -62,10 +62,10 @@
 	\end{equation*}
 \end{proof}
 
-Suppose $(S, \mathcal{S})$ be a measurable space, which will be the state space for our Markov chain.
+Suppose $(S, \mathcal{S})$ is a measurable space, which will be the state space for our Markov chain.
 
 \begin{definition}[Transition Probability]
-	A function $p:S\times\mathcal{S}\rightarrow\mathbf{R}$ is said to be a transition probability, if
+	A function $p:S\times\mathcal{S}\rightarrow\bbR$ is said to be a transition probability, if
 	\begin{enumerate}
 		\item For each $x\in S$, $A\rightarrow p(x,A)$ is a probability measure on $(S,\mathcal{S})$
 		\item For each $A\in\mathcal{S}$, $x\rightarrow p(x,A)$ is a measurable function
@@ -81,7 +81,7 @@ Suppose $(S, \mathcal{S})$ be a measurable space, which will be the state space 
 \begin{remark}
 	Given a transition probability $p$ and an initial distribution $\mu$ on $(S,\mathcal{S})$, the consistent set of finite dimensional distributions is
 	\begin{equation}
-		P\left(X_{j}\in B_{j},0\leq j\leq n\right)=\int_{B_{0}}\mu\left(\,\mathrm{d}x_{0}\right)\int_{B_{1}}p\left(x_{0},\,\mathrm{d}x_{1}\right)\cdots\int_{B_{n}}p\left(x_{n-1},\,\mathrm{d}x_{n}\right)
+		P\left(X_{j}\in B_{j},0\leq j\leq n\right)=\int_{B_{0}}\mu\left(\dif x_{0}\right)\int_{B_{1}}p\left(x_{0},\dif x_{1}\right)\cdots\int_{B_{n}}p\left(x_{n-1},\dif x_{n}\right)
 		F    \end{equation}
 \end{remark}
 
@@ -212,7 +212,7 @@ be the number of visits to $y$ at positive times.
 			\mathbf{7} & 0          & 0          & 0          & 1          & 0          & 0          & 0
 		\end{array}
 	\end{equation*}
-	try to identify the states that are recurrent and those that are transient.
+	try to identify the recurrent states and those that are transient.
 \end{example}
 
 \begin{proof}

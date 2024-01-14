@@ -5,32 +5,32 @@
 \begin{definition}[Unconstrained Minimization Problem]
 	The unconstrained minimization problem is defined to be
 	\begin{equation}
-		\min_{\mathbf{x}}f(\mathbf{x})
+		\min_{\bfx}f(\bfx)
 		\label{eq:unconstrained-minimization-problem}
 	\end{equation}
-	where $f:\mathbf{R}^n\rightarrow\mathbf{R}$ is convex and twice continuously differentiable.
+	where $f:\bbR^n\rightarrow\bbR$ is convex and twice continuously differentiable.
 \end{definition}
 
-Assume the problem is solvable, i.e., there exists an optimal point $\mathbf{x}^{*}$, such that,
+Assume the problem is solvable, i.e., there exists an optimal point $\bfx^{*}$, such that,
 \begin{equation*}
-	f(\mathbf{x}^{*})=\inf_{\mathbf{x}}f(\mathbf{x})
+	f(\bfx^{*})=\inf_{\bfx}f(\bfx)
 \end{equation*}
-and denote it by $p^{*}$. Since $f$ is differentiable and convex, the point $\mathbf{x}^{*}$ be the optimal. if and only if
+and denote it by $p^{*}$. Since $f$ is differentiable and convex, the point $\bfx^{*}$ is optimal. if and only if
 \begin{equation}
-	\nabla f(\mathbf{x}^{*})=0
+	\nabla f(\bfx^{*})=0
 	\label{eq:optimal-condition-of-unconstrained-minimization-problem}
 \end{equation}
 
 Solving (\ref{eq:unconstrained-minimization-problem}) is equal to finding the solution of (\ref{eq:optimal-condition-of-unconstrained-minimization-problem}), thus (\ref{eq:unconstrained-minimization-problem}) can be solved by analytic solution of (\ref{eq:optimal-condition-of-unconstrained-minimization-problem}) in a few cases, but usually can be solved by an iterative algorithm, i.e.,
 \begin{equation*}
-	\exists\mathbf{x}^{(0)},\mathbf{x}^{(1)},\ldots\in\operatorname{dom}f,\quad\text{ s.t. }f(\mathbf{x}^{(k)})\rightarrow p^{*},\quad\text{ as }\quad k\rightarrow\infty
+	\exists\bfx^{(0)},\bfx^{(1)},\ldots\in\operatorname{dom}f,\quad\text{ s.t. }f(\bfx^{(k)})\rightarrow p^{*},\quad\text{ as }\quad k\rightarrow\infty
 \end{equation*}
 This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$, where $\epsilon>0$ is some specified tolerance.
 
 \begin{remark}
-	The initial point $\mathbf{x}^{(0)}$ must lie in $\operatorname{dom}f$, and the sublevel set
+	The initial point $\bfx^{(0)}$ must lie in $\operatorname{dom}f$, and the sublevel set
 	\begin{equation*}
-		S=\left\{\mathbf{x}\in\operatorname{dom}f\mid f(\mathbf{x})\leq f(\mathbf{x}^{(0)})\right\}
+		S=\left\{\bfx\in\operatorname{dom}f\mid f(\bfx)\leq f(\bfx^{(0)})\right\}
 	\end{equation*}
 	must be closed. Any closed function (Definition \ref{def:closed-function})
 \end{remark}
@@ -38,17 +38,17 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 \begin{example}[Quadratic Minimization]
 	The general convex quadratic minimization problem has the form
 	\begin{equation}
-		\min_{\mathbf{x}}\,\frac{1}{2}\mathbf{x}^{\prime}\mathbf{P}\mathbf{x}+\mathbf{q}^{\prime}\mathbf{x}+r \label{eq:quadratic-minimization}
+		\min_{\bfx}\,\frac{1}{2}\bfx^{\top}\bfP\bfx+\bfq^{\prime}\bfx+r \label{eq:quadratic-minimization}
 	\end{equation}
-	where $\mathbf{P}\in\mathbb{S}_{+}^{n},\mathbf{q}\in\mathbb{R}^{n}$, and $r\in\mathbb{R}$. The optimality condition is
+	where $\bfP\in\mathbb{S}_{+}^{n},\bfq\in\bbR^{n}$, and $r\in\bbR$. The optimality condition is
 	\begin{equation}
-		\mathbf{P}\mathbf{x}^{*}+\mathbf{q}=\mathbf{0}
+		\bfP\bfx^{*}+\bfq=\bfzero
 		\label{eq:quadratic-minimization-optimality-condition}
 	\end{equation}
 	which is a set of linear equations.
 	\begin{enumerate}
-		\item If $\mathbf{P}\succ 0$, exists a unique solution $\mathbf{x}^{*}=-\mathbf{P}^{-1}\mathbf{q}$.
-		\item If $\mathbf{P}$ is not positive definite, any solution of (\ref{eq:quadratic-minimization-optimality-condition}) is optimal for (\ref{eq:quadratic-minimization}).
+		\item If $\bfP\succ 0$, exists a unique solution $\bfx^{*}=-\bfP^{-1}\bfq$.
+		\item If $\bfP$ is not positive definite, any solution of (\ref{eq:quadratic-minimization-optimality-condition}) is optimal for (\ref{eq:quadratic-minimization}).
 		\item If (\ref{eq:quadratic-minimization-optimality-condition}) does not have a solution, then (\ref{eq:quadratic-minimization}) is unbounded.
 	\end{enumerate}
 \end{example}
@@ -60,28 +60,28 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 		      Obviously.
 
 		\item
-		      Since $\mathbf{P}\nsucceq 0$, i.e.,
+		      Since $\bfP\nsucceq 0$, i.e.,
 		      \begin{equation*}
-			      \exists\mathbf{v},\quad\text{ s.t. }\mathbf{v}^{\prime}\mathbf{P}\mathbf{v}<0
+			      \exists\bfv,\quad\text{ s.t. }\bfv^{\prime}\bfP\bfv<0
 		      \end{equation*}
-		      Let $\mathbf{x}=t\mathbf{v}$, we have
+		      Let $\bfx=t\bfv$, we have
 		      \begin{equation*}
-			      f\left(\mathbf{x}\right)=t^{2}\left(\mathbf{v}^{\prime}\mathbf{P}\mathbf{v}/2\right)+t\left(\mathbf{q}^{\prime}\mathbf{v}\right)+r
+			      f\left(\bfx\right)=t^{2}\left(\bfv^{\prime}\bfP\bfv/2\right)+t\left(\bfq^{\prime}\bfv\right)+r
 		      \end{equation*}
 		      which converges to $-\infty$ as $t\rightarrow\infty$.
 
 		\item
 		      Since (\ref{eq:quadratic-minimization-optimality-condition}) does not have a solution, i.e.,
 		      \begin{equation*}
-			      \mathbf{q}\notin\mathcal{R}(\mathbf{P})
+			      \bfq\notin\mathcal{R}(\bfP)
 		      \end{equation*}
 		      Let
 		      \begin{equation*}
-			      \mathbf{q}=\tilde{\mathbf{q}}+\mathbf{v}
+			      \bfq=\tilde{\bfq}+\bfv
 		      \end{equation*}
-		      where $\tilde{\mathbf{q}}$ is the Euclidean projection of $\mathbf{q}$ onto $\mathcal{R}(\mathbf{P})$, and $\mathbf{v}=\mathbf{q}-\tilde{\mathbf{q}}$. And $\mathbf{v}$ is nonzero and orthogonal to $\mathcal{R}(\mathbf{P})$, i.e., $\mathbf{v}^{\prime}\mathbf{P}\mathbf{v}=0$. If we take $\mathbf{x}=t\mathbf{v}$, we have
+		      where $\tilde{\bfq}$ is the Euclidean projection of $\bfq$ onto $\mathcal{R}(\bfP)$, and $\bfv=\bfq-\tilde{\bfq}$. And $\bfv$ is nonzero and orthogonal to $\mathcal{R}(\bfP)$, i.e., $\bfv^{\prime}\bfP\bfv=0$. If we take $\bfx=t\bfv$, we have
 		      \begin{equation*}
-			      f(\mathbf{x})=t\mathbf{q}^{\prime}\mathbf{v}+r=t(\tilde{\mathbf{q}}+\mathbf{v})^{\prime}\mathbf{v}+r=t(\mathbf{v}^{\prime}\mathbf{v})+r
+			      f(\bfx)=t\bfq^{\prime}\bfv+r=t(\tilde{\bfq}+\bfv)^{\prime}\bfv+r=t(\bfv^{\prime}\bfv)+r
 		      \end{equation*}
 		      which is unbounded below.
 	\end{enumerate}
@@ -90,11 +90,11 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 \begin{remark}
 	The least-squares problem is a special case of quadratic minimization, that,
 	\begin{equation*}
-		\min_{\mathbf{x}}\,\|\mathbf{A}\mathbf{x}-\mathbf{b}\|_{2}^{2}=\mathbf{x}^{\prime}\left(\mathbf{A}^{\prime}\mathbf{A}\right)\mathbf{x}-2\left(\mathbf{A}^{\prime}\mathbf{b}\right)^{\prime}\mathbf{x}+\mathbf{b}^{\prime}\mathbf{b}
+		\min_{\bfx}\,\|\bfA\bfx-\bfb\|_{2}^{2}=\bfx^{\top}\left(\bfA^{\prime}\bfA\right)\bfx-2\left(\bfA^{\prime}\bfb\right)^{\prime}\bfx+\bfb^{\prime}\bfb
 	\end{equation*}
 	The optimality condition is
 	\begin{equation*}
-		\mathbf{A}^{\prime}\mathbf{A}\mathbf{x}^{*}=\mathbf{A}^{\prime}\mathbf{b}
+		\bfA^{\prime}\bfA\bfx^{*}=\bfA^{\prime}\bfb
 	\end{equation*}
 	are called the normal equations of the least-squares problem.
 \end{remark}
@@ -102,23 +102,23 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 \begin{example}[Unconstrained Geometric Programming]
 	The unconstrained geometric program in convex form
 	\begin{equation*}
-		\min_{\mathbf{x}}\,f(\mathbf{x})=\log \left(\sum_{i=1}^{m}\exp\left(\mathbf{a}_{i}^{\prime}\mathbf{x}+b_{i}\right)\right)
+		\min_{\bfx}\,f(\bfx)=\log \left(\sum_{i=1}^{m}\exp\left(\bfa_{i}^{\prime}\bfx+b_{i}\right)\right)
 	\end{equation*}
 	The optimality condition is
 	\begin{equation*}
-		\nabla f\left(x^{*}\right)=\frac{\sum_{i=1}^{m}\exp\left(\mathbf{a}_{i}^{\prime}\mathbf{x}^{*}+b_{i}\right)\mathbf{a}_{i}}{\sum_{j=1}^{m}\exp\left(\mathbf{a}_{j}^{\prime}\mathbf{x}^{*}+b_{j}\right)}=\mathbf{0}
+		\nabla f\left(x^{*}\right)=\frac{\sum_{i=1}^{m}\exp\left(\bfa_{i}^{\prime}\bfx^{*}+b_{i}\right)\bfa_{i}}{\sum_{j=1}^{m}\exp\left(\bfa_{j}^{\prime}\bfx^{*}+b_{j}\right)}=\bfzero
 	\end{equation*}
-	which has no analytical solution, so we must resort to an iterative algorithm. For this problem, $\operatorname{dom} f=\mathbb{R}^{n}$, so any point can be chosen as the initial point $\mathbf{x}^{(0)}$.
+	which has no analytical solution, so we must resort to an iterative algorithm. For this problem, $\operatorname{dom} f=\bbR^{n}$, so any point can be chosen as the initial point $\bfx^{(0)}$.
 \end{example}
 
 \begin{example}[Analytic Center of Linear Inequalities]
 	Consider the optimization problem
 	\begin{equation*}
-		\min_{\mathbf{x}}\,f(x)=-\sum_{i=1}^{m}\log\left(\mathbf{b}_{i}-\mathbf{a}_{i}^{T}\mathbf{x}\right)
+		\min_{\bfx}\,f(x)=-\sum_{i=1}^{m}\log\left(\bfb_{i}-\bfa_{i}^{T}\bfx\right)
 	\end{equation*}
 	where the domain of $f$ is the open set
 	\begin{equation*}
-		\operatorname{dom}f=\left\{\mathbf{x}\mid\mathbf{a}_{i}^{\prime}\mathbf{x}<\mathbf{b}_{i},i=1,\ldots,m\right\}
+		\operatorname{dom}f=\left\{\bfx\mid\bfa_{i}^{\prime}\bfx<\bfb_{i},i=1,\ldots,m\right\}
 	\end{equation*}
 \end{example}
 
@@ -159,14 +159,14 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 
 \begin{example}[Extended Rosenbrock Function]
 	\begin{equation}
-		\min_{\mathbf{x}}\,f(\mathbf{x})=\sum_{i=1}^{n}r_{i}^{2}(\mathbf{x})
+		\min_{\bfx}\,f(\bfx)=\sum_{i=1}^{n}r_{i}^{2}(\bfx)
 	\end{equation}
 	where $n$ is even, and
 	\begin{equation}
-		r_{i}(\mathbf{x})=\begin{cases}
+		r_{i}(\bfx)=\begin{cases}
 			10(x_{2k}-x_{2k-1}^{2}), & i=2k-1 \\
 			1-x_{2k-1},              & i=2k   \\
 		\end{cases}
 	\end{equation}
-	The minimum point is $\mathbf{x}^{*}=(1,1,\ldots,1)^{\prime}$, the initial point is $\mathbf{x}_{0}=(-1.2,1,\ldots,-1.2,1)^{\prime}$.
+	The minimum point is $\bfx^{*}=(1,1,\ldots,1)^{\prime}$, the initial point is $\bfx_{0}=(-1.2,1,\ldots,-1.2,1)^{\prime}$.
 \end{example}

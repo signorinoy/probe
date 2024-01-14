@@ -1,0 +1,21 @@
+\chapter{Semi-supervised Learning}
+
+\section{Assumptions}
+
+\begin{enumerate}
+	\item \textbf{Smoothness assumption}:
+	\item \textbf{Low-density assumption}:
+	\item \textbf{Manifold assumption}:
+\end{enumerate}
+
+\begin{remark}
+	For regression problems, the low-density assumption does not hold, since the decision boundary does not exist.
+\end{remark}
+
+VAT (Virtual Adversarial Training):
+
+\begin{equation*}
+	\bbE_{(\bfx,y)\sim p_{l}(\bfx,y)}\ell(\bfx,y)+\lambda\cdot\bbE_{\bfx\sim p_{u}(\bfx)}\bbE_{\tilde{\bfx}\sim q(\tilde{\bfx}\mid\bfx)}D_{\text{KL}}(p_{\theta}(y\mid\bfx)\|p_{\theta}(y\mid\tilde{\bfx}))
+\end{equation*}
+
+\textbf{Covariance shift} may be a point?

@@ -4,30 +4,30 @@
 
 \subsection{Classical Likelihood Estimator}
 
-Suppose that $\mathbf{X}_{n}=\left(x_{1},\ldots,x_{n}\right)$, within a parametric family
+Suppose that $\bfx_{n}=\left(x_{1},\ldots,x_{n}\right)$, within a parametric family
 \begin{equation}
 	p\left(x;\theta_{0}\right)\in\mathcal{P}=\left\{p(x;\theta):\theta\in\Theta\right\}
 \end{equation}
 
-The maximum likelihood estimate for observed $\mathbf{X}_{n}$ is the value $\theta\in\Theta$ which maximizes $L\left(\theta;X_{n}\right):=p\left(\mathbf{X}_{n};\theta\right)$, i.e.,
+The maximum likelihood estimate for observed $\bfx_{n}$ is the value $\theta\in\Theta$ which maximizes $L\left(\theta;X_{n}\right):=p\left(\bfx_{n};\theta\right)$, i.e.,
 \begin{equation}
-	\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}L\left(\theta;\mathbf{X}_{n}\right).
+	\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}L\left(\theta;\bfx_{n}\right).
 \end{equation}
 
 In practice, it is often convenient to work with the natural logarithm of the likelihood function, called the log-likelihood:
 \begin{equation}
-	\ell\left(\theta;\mathbf{X}_{n}\right)=\ln L\left(\theta;\mathbf{X}_{n}\right)
+	\ell\left(\theta;\bfx_{n}\right)=\ln L\left(\theta;\bfx_{n}\right)
 \end{equation}
-Since the logarithm is a monotonic function, the maximum of $\ell\left(\theta;\mathbf{X}_{n}\right)$ occurs at the same value of $\theta$ as does the maximum of $L\left(\theta;\mathbf{X}_{n}\right)$
+Since the logarithm is a monotonic function, the maximum of $\ell\left(\theta;\bfx_{n}\right)$ occurs at the same value of $\theta$ as does the maximum of $L\left(\theta;\bfx_{n}\right)$
 
 If the data are independent and identically distributed, then we have
 \begin{equation}
-	\hat{\ell}\left(\theta;\mathbf{X}_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)
+	\hat{\ell}\left(\theta;\bfx_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)
 \end{equation}
-this being the sample analogue of the expected log-likelihood $\ell(\theta)=\mathbb{E}\left[\ln p\left(x_{i} \mid \theta\right)\right]$, where this expectation is taken with respect to the true density.
+this being the sample analog of the expected log-likelihood $\ell(\theta)=\bbE\left[\ln p\left(x_{i} \mid \theta\right)\right]$, where this expectation is taken to the true density.
 
 \begin{equation}
-	\hat{\theta}_{\text{MLE}}:=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)
+	\hat{\theta}_{\text{MLE}}:=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\bfx_{n}\right)
 \end{equation}
 
 \paragraph{Consistency}
@@ -50,11 +50,11 @@ To establish consistency, the following conditions are sufficient:
 \begin{proof}
 	% By the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}), we have,
 	% \begin{equation}
-	%     \hat{\ell}\left(\theta;\mathbf{X}_{n}\right)=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)\stackrel{p}{\rightarrow}E\left[\ln p\left(x_{i}\mid \theta\right)\right]=\ell(\theta)
+	%     \hat{\ell}\left(\theta;\bfx_{n}\right)=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)\stackrel{p}{\rightarrow}E\left[\ln p\left(x_{i}\mid \theta\right)\right]=\ell(\theta)
 	% \end{equation}
 	By the strict version of Jensen's inequality, for random variable $a=\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}$ with $\theta\neq\theta_{0}$,
 	\begin{equation}
-		\ell\left(\theta_{0}\right)-\ell(\theta)=E_{\theta_{0}}\left\{-\ln\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]\right\}>-\ln E_{\theta_{0}}\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]=-\ln \left[\int f(z \mid \theta) \mathrm{d} z\right]=0
+		\ell\left(\theta_{0}\right)-\ell(\theta)=E_{\theta_{0}}\left\{-\ln\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]\right\}>-\ln E_{\theta_{0}}\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]=-\ln \left[\int f(z \mid \theta) \dif z\right]=0
 	\end{equation}
 \end{proof}
 
@@ -91,26 +91,26 @@ To establish consistency, the following conditions are sufficient:
 		      \end{equation}
 		\item For $\theta\in\Theta(\epsilon)$, suppose
 		      \begin{equation}
-			      B_{n}=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
+			      B_{n}=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|\hat{\ell}\left(\theta;\bfx_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
 		      \end{equation}
 		      then
 		      \begin{equation}
-			      B_{n}\Longrightarrow\forall\theta\in\Theta(\epsilon),\,\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)>\ell(\theta)-\frac{\delta}{2}
+			      B_{n}\Longrightarrow\forall\theta\in\Theta(\epsilon),\,\hat{\ell}\left(\theta;\bfx_{n}\right)>\ell(\theta)-\frac{\delta}{2}
 		      \end{equation}
 	\end{enumerate}
 
-	By the uniform law of large numbers, the dominance condition together with continuity establish the uniform convergence in probability of the log-likelihood:
+	By the uniform law of large numbers, the dominance condition together with continuity establishes the uniform convergence in the probability of the log-likelihood:
 	\begin{equation}
-		\sup_{\theta\in\Theta}|\hat{\ell}(\theta;\mathbf{X}_{n})-\ell(\theta)|\stackrel{p}{\rightarrow}0
+		\sup_{\theta\in\Theta}|\hat{\ell}(\theta;\bfx_{n})-\ell(\theta)|\stackrel{p}{\rightarrow}0
 	\end{equation}
-	Thus, we can concluded that
+	Thus, we can conclude that
 	\begin{equation}
 		P\left(A_{n}\cap B_{n}\right)\rightarrow 1
 	\end{equation}
 
 	Within the definition
 	\begin{equation}
-		\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\mathbf{X}_{n}\right)
+		\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\bfx_{n}\right)
 	\end{equation}
 	we have,
 	\begin{equation*}
@@ -135,32 +135,32 @@ Seek a modified likelihood function that depends on as few of the nuisance param
 
 \subsubsection{Conditional Likelihood}
 
-Let $\boldsymbol{\theta}=(\boldsymbol{\varphi},\boldsymbol{\lambda})$, where $\boldsymbol{\varphi}$ is the parameter vector of interest and $\boldsymbol{\lambda}$ is a vector of nuisance parameters. The conditional likelihood can be obtained as follows:
+Let $\boldsymbol{\theta}=(\boldsymbol{\varphi},\bfLambda)$, where $\boldsymbol{\varphi}$ is the parameter vector of interest and $\bfLambda$ is a vector of nuisance parameters. The conditional likelihood can be obtained as follows:
 \begin{enumerate}
-	\item Find the complete sufficient statistic $S_{\boldsymbol{\lambda}}$, respectively for $\boldsymbol{\lambda}$.
+	\item Find the complete sufficient statistic $S_{\bfLambda}$, respectively for $\bfLambda$.
 	\item  Construct the conditional log-likelihood
 	      \begin{equation}
-		      \ell_{c}=\ln\left(f_{Y\mid S_{\boldsymbol{\lambda}}}\right)
+		      \ell_{c}=\ln\left(f_{Y\mid S_{\bfLambda}}\right)
 	      \end{equation}
-	      where $f_{Y\mid S_{\boldsymbol{\lambda}}}$ is the conditional distribution of the response $Y$ given $S_{\boldsymbol{\lambda}}$.
+	      where $f_{Y\mid S_{\bfLambda}}$ is the conditional distribution of the response $Y$ given $S_{\bfLambda}$.
 \end{enumerate}
 
 \begin{remark}
-	Two cases might occur, that, for fixed $\boldsymbol{\varphi}_{0}$, $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)$ depends on $\boldsymbol{\varphi}_{0}$; or $S_{\boldsymbol{\lambda}}\left(\boldsymbol{\varphi}_{0}\right)=S_{\boldsymbol{\lambda}}$ is independent of $\boldsymbol{\varphi}_{0}$.
+	Two cases might occur, that, for fixed $\boldsymbol{\varphi}_{0}$, $S_{\bfLambda}\left(\boldsymbol{\varphi}_{0}\right)$ depends on $\boldsymbol{\varphi}_{0}$; or $S_{\bfLambda}\left(\boldsymbol{\varphi}_{0}\right)=S_{\bfLambda}$ is independent of $\boldsymbol{\varphi}_{0}$.
 	\begin{enumerate}
 		\item Independent:
 		\item Dependent:
 	\end{enumerate}
 \end{remark}
 
-Suppose that the log-likelihood for $\boldsymbol{\theta}=\left(\boldsymbol{\varphi},\boldsymbol{\lambda}\right)$ can be written in the exponential family form
+Suppose that the log-likelihood for $\boldsymbol{\theta}=\left(\boldsymbol{\varphi},\bfLambda\right)$ can be written in the exponential family form
 \begin{equation}
 	\ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\theta}^{\prime}\mathbf{s}-b\left(\boldsymbol{\theta}\right)
 \end{equation}
 
 Also, suppose $\ell\left(\boldsymbol{\theta},\mathbf{y}\right)$ has a decomposition of the form
 \begin{equation}
-	\ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}+\boldsymbol{\lambda}^{\prime}\mathbf{s}_{2}-b(\boldsymbol{\varphi},\boldsymbol{\lambda})
+	\ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}+\bfLambda^{\prime}\mathbf{s}_{2}-b(\boldsymbol{\varphi},\bfLambda)
 \end{equation}
 
 \begin{remark}
@@ -169,7 +169,7 @@ Also, suppose $\ell\left(\boldsymbol{\theta},\mathbf{y}\right)$ has a decomposit
 
 The conditional likelihood of the data $\mathbf{Y}$ given $\mathbf{s}_{2}$ is
 \begin{equation}
-	\ell\left(\boldsymbol{\varphi}\mid\mathbf{s}_{2}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}-b^{*}\left(\boldsymbol{\varphi},\boldsymbol{\lambda}\right)
+	\ell\left(\boldsymbol{\varphi}\mid\mathbf{s}_{2}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}-b^{*}\left(\boldsymbol{\varphi},\bfLambda\right)
 \end{equation}
 which is independent of the nuisance parameter and may be used for inferences regarding $\boldsymbol{\varphi}$.
 
@@ -179,7 +179,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 		\item $\lambda_{1}=\ln\left(\mu_{1}\right)$.
 		\item
 	\end{enumerate}
-	Then, give the conditional log-likelihood for different nuisance parameter.
+	Then, give the conditional log-likelihood for different nuisance parameters.
 \end{example}
 
 \begin{proof}
@@ -274,7 +274,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 
 		      Since $s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)$, then
 		      \begin{equation*}
-			      E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\mathrm{d}x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
+			      E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\dif x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
 		      \end{equation*}
 		      therefore,
 		      \begin{equation*}
@@ -316,11 +316,11 @@ which is independent of the nuisance parameter and may be used for inferences re
 \end{proof}
 
 \begin{example}[]
-	Let $X_{1},\ldots,X_{n}$ be i.i.d sample from $U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)$, where $\theta_1\in\mathbb{R},\theta_2\in\mathbb{R}^+$. Discussing the UMVU estimators of $\theta_1,\theta_2$.
+	Let $X_{1},\ldots,X_{n}$ be i.i.d sample from $U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)$, where $\theta_1\in\bbR,\theta_2\in\bbR^+$. Discussing the UMVU estimators of $\theta_1,\theta_2$.
 \end{example}
 
 \begin{proof}
-	Let $X_{(i)}$ be the i-th order statistic of $X_i$, then $\left(X_{(1)},X_{(n)}\right)$ is the complete and sufficient statistic for $(\theta_1,\theta_2)$. Thus it suffices to find a function $\left(X_{(1)},X_{(n)}\right)$, which is unbiased of $(\theta_1,\theta_2)$.
+	Let $X_{(i)}$ be the $i$-th order statistic of $X_i$, then $\left(X_{(1)},X_{(n)}\right)$ is the complete and sufficient statistic for $(\theta_1,\theta_2)$. Thus it suffices to find a function $\left(X_{(1)},X_{(n)}\right)$, which is unbiased of $(\theta_1,\theta_2)$.
 
 	Let
 	\begin{equation*}
@@ -330,15 +330,15 @@ which is independent of the nuisance parameter and may be used for inferences re
 	\begin{equation*}
 		Y_{(i)}=\frac{X_{(i)}-(\theta_1-\theta_2)}{2\theta_2},
 	\end{equation*}
-	be the i-th order statistic of $Y_i$, then we got
+	be the $i$-th order statistic of $Y_i$, then we got
 	\begin{equation*}
 		\begin{aligned}
-			E[X_{(1)}] & = 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2)                           \\
-			           & = 2\theta_2\int_{0}^{1}ny(1-y)^{n-1}\mathrm{d}y+(\theta_1-\theta_2) \\
-			           & = \theta_1-\frac{3n+1}{n+1}\theta_2                                 \\
-			E[X_{(n)}] & = 2\theta_2E[Y_{(n)}]+(\theta_1-\theta_2)                           \\
-			           & = 2\theta_2\int_{0}^{1}ny^{n}\mathrm{d}y+(\theta_1-\theta_2)        \\
-			           & = \theta_1+\frac{n-1}{n+1}\theta_2                                  \\
+			E[X_{(1)}] & = 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2)                      \\
+			           & = 2\theta_2\int_{0}^{1}ny(1-y)^{n-1}\dif y+(\theta_1-\theta_2) \\
+			           & = \theta_1-\frac{3n+1}{n+1}\theta_2                            \\
+			E[X_{(n)}] & = 2\theta_2E[Y_{(n)}]+(\theta_1-\theta_2)                      \\
+			           & = 2\theta_2\int_{0}^{1}ny^{n}\dif y+(\theta_1-\theta_2)        \\
+			           & = \theta_1+\frac{n-1}{n+1}\theta_2                             \\
 		\end{aligned}.
 	\end{equation*}
 

@@ -45,7 +45,7 @@ How to prove that functions are measurable?
 \subsection{Definition of Distributions}
 
 \begin{definition}[Distribution]
-	A distribution of random variable $X$ is a probability function $P:\mathcal{R}\rightarrow\mathbb{R}$ by setting
+	A distribution of random variable $X$ is a probability function $P:\mathcal{R}\rightarrow\bbR$ by setting
 	\begin{equation}
 		\mu(A)=P(X\in A)=P\left(X^{-1}(A)\right),\quad\text{for}A\in\mathcal{R}.
 	\end{equation}
@@ -61,7 +61,7 @@ How to prove that functions are measurable?
 \begin{definition}[Density Function]
 	If the distribution function $F(x)=P(X\leq x)$ has the form
 	\begin{equation*}
-		F(x)=\int_{-\infty}^{x}f(y)\mathrm{d}y,
+		F(x)=\int_{-\infty}^{x}f(y)\dif y,
 	\end{equation*}
 	that $X$ has density function $f$.
 \end{definition}
@@ -104,14 +104,14 @@ How to prove that functions are measurable?
 \subsubsection{Exponential Family}
 
 \begin{definition}[Exponential Family] \label{def:exponential-family}
-	An exponential family of probability distributions as those distributions whose density is defined to be
+	An exponential family of probability distributions is those distributions whose density is defined to be
 	\begin{equation}
 		f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
 	\end{equation}
 \end{definition}
 
 \begin{property}
-	The exponential family have the following properties,
+	The exponential family has the following properties,
 	\begin{equation*}
 		E(Y)=b^{\prime}(\theta)\quad\operatorname{Var}(Y)=b^{\prime\prime}(\theta)a(\phi).
 	\end{equation*}
@@ -247,15 +247,15 @@ The definition of independence can be extended to the infinite collection.
 	\begin{enumerate}
 		\item If $X$ and $Y$ are independent, $F(x)=P(X\leq x)$, and $G(y)=P(Y\leq y)$, then
 		      \begin{equation}
-			      P(X+Y\leq z)=\int F(z-y)\mathrm{d}G(y).
+			      P(X+Y\leq z)=\int F(z-y)\dif G(y).
 		      \end{equation}
 		\item If $X$ and $Y$ are independent,  $X$ with density $f$ and $Y$ with distribution function $G$, then $X+Y$ has density
 		      \begin{equation}
-			      h(x)=\int f(x-y)\mathrm{d}G(y).
+			      h(x)=\int f(x-y)\dif G(y).
 		      \end{equation}
 		      Suppose $Y$ has density $g$, the last formula can be written as
 		      \begin{equation}
-			      h(x)=\int f(x-y)g(y)\mathrm{d}y.
+			      h(x)=\int f(x-y)g(y)\dif y.
 		      \end{equation}
 		\item If $X$ and $Y$ are independent, integral-valued random variables, then
 		      \begin{equation}
@@ -269,7 +269,7 @@ The definition of independence can be extended to the infinite collection.
 \begin{lemma}
 	If $Y>0$ and $p>0$, then
 	\begin{equation}
-		E(Y^p)=\int_{0}^{\infty}py^{p-1}P(Y>y)\mathrm{d}y.
+		E(Y^p)=\int_{0}^{\infty}py^{p-1}P(Y>y)\dif y.
 	\end{equation}
 \end{lemma}
 
@@ -278,14 +278,14 @@ The definition of independence can be extended to the infinite collection.
 \subsection{Definition of Characteristic Functions}
 
 \begin{definition}[Characteristic Function] \label{def:characteristic-function}
-	If $X$ is a random variable, we define its characteristic function (ch.f) by
+	If $X$ is a random variable, we define its characteristic function (ch. f) by
 	\begin{equation}
 		\varphi(t)=E\left(e^{itX}\right)=E\left(\cos tX\right)+i E\left(\sin tX\right).
 	\end{equation}
 \end{definition}
 
 \begin{remark}
-	Eular Equation.
+	Euler Equation.
 \end{remark}
 
 \subsection{Properties of Characteristic Functions}
@@ -310,7 +310,7 @@ The definition of independence can be extended to the infinite collection.
 
 The characteristic function uniquely determines the distribution. This and more is provided by:
 \begin{theorem}[The Inversion Formula]
-	Let $\varphi(t)=\int e^{itx}\mu(\mathrm{d}x)$ where $\mu$ is a probability measure. If $a<b$, then
+	Let $\varphi(t)=\int e^{itx}\mu(\dif x)$ where $\mu$ is a probability measure. If $a<b$, then
 	\begin{equation}
 		\lim _{T \rightarrow \infty}(2 \pi)^{-1} \int_{-T}^{T} \frac{e^{-i t a}-e^{-i t b}}{i t} \varphi(t) d t=\mu(a, b)+\frac{1}{2} \mu(\{a, b\})
 	\end{equation}
@@ -321,9 +321,9 @@ The characteristic function uniquely determines the distribution. This and more 
 \end{proof}
 
 \begin{theorem}
-	If $\int|\varphi(t)|\mathrm{d}t<\infty$, then $\mu$ has bounded continuous density
+	If $\int|\varphi(t)|\dif t<\infty$, then $\mu$ has bounded continuous density
 	\begin{equation}
-		f(y)=\frac{1}{2\pi}\int e^{-ity}\varphi(t) \mathrm{d}t.
+		f(y)=\frac{1}{2\pi}\int e^{-ity}\varphi(t) \dif t.
 	\end{equation}
 \end{theorem}
 
@@ -336,7 +336,7 @@ The characteristic function uniquely determines the distribution. This and more 
 \begin{theorem}
 	If $\int|x|^{n}\mu(d x)<\infty,$ then its characteristic function $\varphi$ has a continuous derivative of order $n$ given by
 	\begin{equation}
-		\varphi^{(n)}(t)=\int(i x)^{n}e^{itx}\mu(\mathrm{d}x).
+		\varphi^{(n)}(t)=\int(i x)^{n}e^{itx}\mu(\dif x).
 	\end{equation}
 \end{theorem}
 

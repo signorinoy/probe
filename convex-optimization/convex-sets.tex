@@ -5,7 +5,7 @@
 \subsection{Affine Sets}
 
 \begin{definition}[Affine Set]
-	A nonempty set $C$ is said to be \textbf{affine set}, if $$\forall x_1,x_2\in C, \theta\in\mathbf{R}, \theta x_1+(1-\theta)x_2\in C.$$
+	A nonempty set $C$ is said to be \textbf{affine set}, if $$\forall x_1,x_2\in C, \theta\in\bbR, \theta x_1+(1-\theta)x_2\in C.$$
 \end{definition}
 
 \subsection{Convex Sets}
@@ -35,19 +35,19 @@
 \section{Some Important Examples}
 
 \begin{definition}[Hyperplane]
-	A hyperplane is defined to be $$\{x|a^Tx=b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
+	A hyperplane is defined to be $$\{x|a^{\top}x=b\},$$ where $a\in\bbR^n,a\neq 0,b\in\bbR$.
 \end{definition}
 
 \begin{definition}[Halfspace]
-	A hyperplane is defined to be $$\{x|a^Tx\leq b\},$$ where $a\in\mathbf{R}^n,a\neq 0,b\in\mathbf{R}$.
+	A hyperplane is defined to be $$\{x|a^{\top}x\leq b\},$$ where $a\in\bbR^n,a\neq 0,b\in\bbR$.
 \end{definition}
 
 \begin{definition}[(Euclidean) Ball]
-	A (Euclidean) ball in $\mathbf{R}^n$ with center $x_c$ and radius $r$ is defined to be $$B(x_c,r)=\{x\vert\|x-x_c\|_2\leq r\}=\{x_c+ru\vert\|u\|_2\leq 1\},$$ where $r>0$.
+	A (Euclidean) ball in $\bbR^n$ with center $x_c$ and radius $r$ is defined to be $$B(x_c,r)=\{x\vert\|x-x_c\|_2\leq r\}=\{x_c+ru\vert\|u\|_2\leq 1\},$$ where $r>0$.
 \end{definition}
 
 \begin{definition}[Ellipsoid]
-	A Ellipsoid in $\mathbf{R}^n$ with center $x_c$ is defined to be $$\mathcal{E}=\{x\vert(x-x_c)^TP^{-1}(x-x_c)\leq 1\}=\{x_c+Au\vert \|u_2\|\leq 1\},$$ where $P\in\mathbf{S}^{n}_{++}$ (symmetric positive definite).
+	A Ellipsoid in $\bbR^n$ with center $x_c$ is defined to be $$\mathcal{E}=\{x\vert(x-x_c)^{\top}P^{-1}(x-x_c)\leq 1\}=\{x_c+Au\vert \|u_2\|\leq 1\},$$ where $P\in\bbS^{n}_{++}$ (symmetric positive definite).
 \end{definition}
 
 \section{Generalized Inequalities}
@@ -55,7 +55,7 @@
 \subsection{Definition of Generalized Inequalities}
 
 \begin{definition}[Proper Cone] \label{def:proper-cone}
-	A cone $K\subseteq\mathbf{R}^n$ is said to be proper cone, if
+	A cone $K\subseteq\bbR^n$ is said to be a proper cone, if
 	\begin{itemize}
 		\item $K$ is convex.
 		\item $K$ is closed.
@@ -65,7 +65,7 @@
 \end{definition}
 
 \begin{definition}[Generalized Inequalities] \label{def:generalized-inequalities}
-	The partial ordering on $\mathbf{R}^n$ defined by proper cone $K$, if
+	The partial ordering on $\bbR^n$ defined by proper cone $K$, if
 	\begin{equation}
 		y-x\in K,
 	\end{equation}
@@ -73,7 +73,7 @@
 	\begin{equation}
 		x\preceq_{K}y\text{ or }y\succeq_{K}x.
 	\end{equation}
-	The strict partial ordering on $\mathbf{R}^n$ defined by proper cone $K$, if
+	The strict partial ordering on $\bbR^n$ defined by proper cone $K$, if
 	\begin{equation}
 		y-x\in\text{ int }K,
 	\end{equation}
@@ -84,7 +84,7 @@
 \end{definition}
 
 \begin{remark}
-	When $K=\mathbf{R}_{+}$, the partial ordering $\preceq_{K}$ is the usual ordering $\leq$ on $\mathbf{R}$, and the strict partial ordering $\prec_{K}$ is the usual strict ordering $<$ on $\mathbf{R}$.
+	When $K=\bbR_{+}$, the partial ordering $\preceq_{K}$ is the usual ordering $\leq$ on $\bbR$, and the strict partial ordering $\prec_{K}$ is the usual strict ordering $<$ on $\bbR$.
 \end{remark}
 
 \subsection{Properties of Generalized Inequalities}

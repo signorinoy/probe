@@ -3,13 +3,13 @@
 \begin{theorem}
 	The minimizer of
 	\begin{equation*}
-		f^{*}(X)=\arg\min_{f}\mathbb{E}\left\{\left[1-f(X)Y\right]_{+}\mid X=x\right\}
+		f^{*}(X)=\arg\min_{f}\bbE\left\{\left[1-f(X)Y\right]_{+}\mid X=x\right\}
 	\end{equation*}
 	is the sign of $f(x)=\log\frac{p(x)}{1-p(x)}$, i.e., $\text{sgn}\left[p(x)-\frac{1}{2}\right]$.
 \end{theorem}
 
 \begin{proof}
-	For the hinge loss function, that,
+	For the hinge loss function,
 	\begin{equation*}
 		\begin{aligned}
 			  & E\left\{\left[1-Yg(X)\right]_{+}\mid X=x\right\}                                                   \\

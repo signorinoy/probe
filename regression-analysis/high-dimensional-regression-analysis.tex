@@ -16,5 +16,22 @@
 \end{corollary}
 
 \begin{proof}
-    
+	By Lemma 6.2, for
+	\begin{equation*}
+		\mcF=\left\{\max_{1\leq j\leq p}2|\bfvareps^{\top}\bfX^{(j)}|/n\leq\lambda_{0}\right\},
+	\end{equation*}
+	we have for all $t>0$,
+	\begin{equation*}
+		\Pr(\mcF)=1-2\exp\left[-t^{2}/2\right],\quad\text{where}\quad\lambda_{0}=2\sigma\sqrt{\frac{t^{2}+2\log p}{n}}.
+	\end{equation*}
+
+	As in the proof of corollary 6.2, if $\hat{\sigma}>\sigma$, then we have $\lambda\geq 2\lambda_{0}$, and
+	\begin{equation*}
+		\Pr(\mcF\cap\{\hat{\sigma}>\sigma\})=1-\Pr(\mcF^{c}\cup\{\hat{\sigma}\leq\sigma\})\geq 1-\Pr(\mcF^{c})-\Pr(\hat{\sigma}\leq\sigma)=1-\alpha,
+	\end{equation*}
+	where $\alpha=2\exp\left[-t^{2}/2\right]+\Pr(\hat{\sigma}\leq\sigma)$. And since the compatibility condition holds, according to Theorem 6.1, we have
+	\begin{equation*}
+		\left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n+\lambda\left\|\hat{\bfbeta}-\bfbeta^{0}\right\|_{1}\leq 4 \lambda^{2}s_{0}/\phi_{0}^{2},
+	\end{equation*}
+	with probability at least $1-\alpha$.
 \end{proof}

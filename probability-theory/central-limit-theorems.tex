@@ -34,7 +34,7 @@
 \begin{theorem}[The De Moivre-Laplace Theorem] \label{thm:de-moivre-laplace}
 	Let $X_{1}, X_{2}, \ldots$ be i.i.d. with $P\left(X_{1}=1\right)=P\left(X_{1}=-1\right)=1 / 2$ and let $S_{n}=X_{1}+\cdots+X_{n}$. If $a<b$, then as $m \rightarrow \infty$
 	\begin{equation}
-		P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \mathrm{d} x.
+		P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \dif x.
 	\end{equation}
 \end{theorem}
 
@@ -96,12 +96,12 @@
 	\end{equation*}
 	where $2\mathbb{Z} / \sqrt{2 n} = \left\{2z/\sqrt{2n} : z\in\mathbb{Z}\right\}$. As $n\rightarrow\infty$, the sum just shown is
 	\begin{equation*}
-		\approx \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \mathrm{d} x.
+		\approx \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \dif x.
 	\end{equation*}
 	To remove the restriction to even integers, observe $S_{2 n +1}=S_{2 n} \pm 1$.\\
 	Let $m=2n$, as $m\rightarrow\infty$,
 	\begin{equation*}
-		P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \mathrm{d} x.
+		P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \dif x.
 	\end{equation*}
 \end{proof}
 

@@ -8,9 +8,9 @@
 			      B\left(t_{1}\right)-B\left(t_{0}\right),\ldots,B\left(t_{n}\right)-B\left(t_{n-1}\right)
 		      \end{equation*}
 		      are independent
-		\item for any $s,t\geq 0$ and Borel sets $A\in\mathbb{R}$,
+		\item for any $s,t\geq 0$ and Borel sets $A\in\bbR$,
 		      \begin{equation}
-			      P\left(B(s+t)-B(s)\in A\right)=\int_{A}(2\pi t)^{-1/2}\exp\left(-x^{2}/2t\right)\,\mathrm{d}x
+			      P\left(B(s+t)-B(s)\in A\right)=\int_{A}(2\pi t)^{-1/2}\exp\left(-x^{2}/2t\right)\dif x
 		      \end{equation}
 		\item the sample paths $t\rightarrow B(t)$ are a.s. continuous
 	\end{enumerate}
@@ -56,12 +56,12 @@
 	\end{enumerate}
 \end{proof}
 
-A second equivalent definition of Brownian motion are as followed,
+A second equivalent definition of Brownian motion is as follows,
 
 \begin{definition}[Brownian Motion (2)]
 	A real-valued stochastic process $B(t),t\geq 0$, \textbf{starting from $0$}, is said to be Brownian motion, if
 	\begin{enumerate}
-		\item $B(t)$ is a Gaussian process\footnote{Gaussian process, i.e., all its finite dimensional distributions are multivariate normal.}
+		\item $B(t)$ is a Gaussian process\footnote{Gaussian process, i.e., all its finite-dimensional distributions are multivariate normal.}
 		\item $\forall s,t\geq 0,EB_{s}=0$ and $EB_{s}B_{t}=s\wedge t$
 		\item the sample paths $t\rightarrow B(t)$ are a.s. continuous
 	\end{enumerate}
@@ -150,7 +150,7 @@ be the corresponding increments of the Brownian motion $B(t)$.
 \end{proof}
 
 \begin{definition}[Variation]
-	The variation of a function $f:[0,T]\rightarrow\mathbb{R}$ is defined to be
+	The variation of a function $f:[0,T]\rightarrow\bbR$ is defined to be
 	\begin{equation}
 		\limsup_{\Delta t\rightarrow 0}\sum_{i=0}^{n-1}\left|f\left(t_{i+1}\right)-f\left(t_{i}\right)\right|
 	\end{equation}
@@ -211,24 +211,24 @@ be the corresponding increments of the Brownian motion $B(t)$.
 	\end{equation}
 	which can be denoted by
 	\begin{equation}
-		\int_{0}^{T}f(t)\,\mathrm{d}B(t)
+		\int_{0}^{T}f(t)\dif B(t)
 	\end{equation}
 \end{definition}
 
 \begin{property}
 	The It\^o Stochastic Integral has the following properties:
 	\begin{enumerate}
-		\item Linearity: For $\forall f,g\in M_{t}^{2}$, $\forall \alpha,\beta\in\mathbb{R}$,
+		\item Linearity: For $\forall f,g\in M_{t}^{2}$, $\forall \alpha,\beta\in\bbR$,
 		      \begin{equation}
-			      \int_{0}^{t}(\alpha f(r)+\beta g(r))\,\mathrm{d}B(r)=\alpha \int_{0}^{t}f(r)\,\mathrm{d}B(r)+\beta\int_{0}^{t}g(r)\,\mathrm{d}B(r)
+			      \int_{0}^{t}(\alpha f(r)+\beta g(r))\dif B(r)=\alpha \int_{0}^{t}f(r)\dif B(r)+\beta\int_{0}^{t}g(r)\dif B(r)
 		      \end{equation}
 		\item Isometry: For $\forall f\in M_{t}^{2}$,
 		      \begin{equation}
-			      E\left(\left|\int_{0}^{t}f(r)\,\mathrm{d}B(r)\right|^{2}\right)=E\left(\int_{0}^{t}|f(r)|^{2}\,\mathrm{d}r\right)
+			      E\left(\left|\int_{0}^{t}f(r)\dif B(r)\right|^{2}\right)=E\left(\int_{0}^{t}|f(r)|^{2}\dif r\right)
 		      \end{equation}
 		\item Martingale Property: For $\forall f\in M_{t}^{2}$ and  $\forall 0\leq s<t$ ,
 		      \begin{equation}
-			      E\left(\int_{0}^{t}f(r)\,\mathrm{d}B(r)\mid\mathcal{F}_{s}\right)=\int_{0}^{s}f(r)\,\mathrm{d}B(r)
+			      E\left(\int_{0}^{t}f(r)\dif B(r)\mid\mathcal{F}_{s}\right)=\int_{0}^{s}f(r)\dif B(r)
 		      \end{equation}
 	\end{enumerate}
 \end{property}
@@ -240,16 +240,16 @@ be the corresponding increments of the Brownian motion $B(t)$.
 \begin{definition}[Itô Process]
 	A stochastic process $\xi(t),t\geq 0$ is said to be an Itô process if it has a.s. continuous paths and can be represented as
 	\begin{equation}
-		\xi(T)=\xi(0)+\int_{0}^{T}a(t)\,\mathrm{d}t+\int_{0}^{T}b(t)\,\mathrm{d}B(t)\quad\text { a.s. }
+		\xi(T)=\xi(0)+\int_{0}^{T}a(t)\dif t+\int_{0}^{T}b(t)\dif B(t)\quad\text { a.s. }
 	\end{equation}
 	where $b(t)$ is a process belonging to $M_{T}^{2}$ for all $T>0$ and $a(t)$ is a process adapted to the filtration $\mathcal{F}_{t}$ such that
 	\begin{equation}
-		\int_{0}^{T}|a(t)|\,\mathrm{d}t<\infty\quad\text { a.s. } \label{eq:condition-of-process-adapted-to-filtration}
+		\int_{0}^{T}|a(t)|\dif t<\infty\quad\text { a.s. } \label{eq:condition-of-process-adapted-to-filtration}
 	\end{equation}
 	for all $T\geq 0$.
 	The Itô process is denoted by
 	\begin{equation}
-		\mathrm{d}\xi(t)=a(t)\,\mathrm{d}t+b(t)\,\mathrm{d}B(t)
+		\dif\xi(t)=a(t)\dif t+b(t)\dif B(t)
 	\end{equation}
 \end{definition}
 
@@ -258,22 +258,22 @@ be the corresponding increments of the Brownian motion $B(t)$.
 \end{remark}
 
 \begin{theorem}[It\^o Formula]
-	Suppose $F\left(t,x\right)$ is a real-valued function with continuous partial derivatives $F_{t}^{\prime}\left(t,x\right)$, $F_{x}^{\prime}\left(t,x\right)$ and $F_{xx}^{\prime\prime}\left(t,x\right)$ for all $t\geq 0$ and $x\in\mathbb{R}$.
+	Suppose $F\left(t,x\right)$ is a real-valued function with continuous partial derivatives $F_{t}^{\prime}\left(t,x\right)$, $F_{x}^{\prime}\left(t,x\right)$ and $F_{xx}^{\prime\prime}\left(t,x\right)$ for all $t\geq 0$ and $x\in\bbR$.
 	\begin{enumerate}
 		\item If $\xi(t)$ be an It\^o process
 		      \begin{equation*}
-			      \xi(t)=\xi(0)+\int_{0}^{t}a(s)\,\mathrm{d}s+\int_{0}^{t}b(s)\,\mathrm{d}B(s)
+			      \xi(t)=\xi(0)+\int_{0}^{t}a(s)\dif s+\int_{0}^{t}b(s)\dif B(s)
 		      \end{equation*}
 		      and the process $b(t)F_{x}^{\prime}(t,\xi(t))$ belongs to $M_{T}^{2}$ for all $T\geq 0$. Then $F(t,\xi(t))$ is an It\^o process such that
 		      \begin{equation}
 			      \begin{aligned}
-				      \mathrm{d}F(t,\xi(t))= & \left(F_{t}^{\prime}(t,\xi(t))+F_{x}^{\prime}(t,\xi(t))a(t)+\frac{1}{2}F_{xx}^{\prime\prime}(t,\xi(t))b(t)^{2}\right)\,\mathrm{d}t \\
-				                             & +F_{x}^{\prime}(t,\xi(t))b(t)\,\mathrm{d}B(t)
+				      \dif F(t,\xi(t))= & \left(F_{t}^{\prime}(t,\xi(t))+F_{x}^{\prime}(t,\xi(t))a(t)+\frac{1}{2}F_{xx}^{\prime\prime}(t,\xi(t))b(t)^{2}\right)\dif t \\
+				                        & +F_{x}^{\prime}(t,\xi(t))b(t)\dif B(t)
 			      \end{aligned}
 		      \end{equation}
 		\item If $\xi(t)$ be an Brownian Motion, such that $\xi(t)=B(t)$, and the process $F_{x}^{\prime}(t,B(t))$ belongs to $M_{T}^{2}$ for all $T \geq 0$. Then $F(t,B(t))$ is an It\^o process such that
 		      \begin{equation}
-			      \mathrm{d}F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\,\mathrm{d}t+F_{x}^{\prime}(t,B(t))\,\mathrm{d}B(t)
+			      \dif F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\dif t+F_{x}^{\prime}(t,B(t))\dif B(t)
 		      \end{equation}
 	\end{enumerate}
 \end{theorem}
@@ -285,7 +285,7 @@ be the corresponding increments of the Brownian motion $B(t)$.
 	\end{equation*}
 	is an It\^o process, and satisfies the equation
 	\begin{equation*}
-		\mathrm{d}X(t)=X(t)\,\mathrm{d}B(t)
+		\dif X(t)=X(t)\dif B(t)
 	\end{equation*}
 \end{example}
 \begin{proof}
@@ -296,9 +296,9 @@ be the corresponding increments of the Brownian motion $B(t)$.
 	thus, by It\^o Formula, we have
 	\begin{equation*}
 		\begin{aligned}
-			\mathrm{d}X(t)= & \mathrm{d}F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\,\mathrm{d}t+F_{x}^{\prime}(t,B(t))\,\mathrm{d}B(t) \\
-			=               & \left(-\frac{1}{2}F(t,B(t))+\frac{1}{2}F(t,B(t))\right)\,\mathrm{d}t+F(t,B(t))\,\mathrm{d}B(t)                                                       \\
-			=               & X(t)\,\mathrm{d}B(t)
+			\dif X(t)= & \dif F(t,B(t))=\left(F_{t}^{\prime}(t,B(t))+\frac{1}{2}F_{xx}^{\prime\prime}(t,B(t))\right)\dif t+F_{x}^{\prime}(t,B(t))\dif B(t) \\
+			=          & \left(-\frac{1}{2}F(t,B(t))+\frac{1}{2}F(t,B(t))\right)\dif t+F(t,B(t))\dif B(t)                                                  \\
+			=          & X(t)\dif B(t)
 		\end{aligned}
 	\end{equation*}
 \end{proof}
