@@ -4,30 +4,30 @@
 
 \begin{exercise}
 	\begin{enumerate}
-		\item Show that if $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$ are $\sigma$ -algebras, then $\cup_{i}\mathcal{F}_{i}$ is an algebra.
-		\item Give an example to show that $\cup_{i}\mathcal{F}_{i}$ need not be a $\sigma$ -algebra.
+		\item Show that if $\mcF_{1}\subset \mcF_{2}\subset\ldots$ are $\sigma$ -algebras, then $\cup_{i}\mcF_{i}$ is an algebra.
+		\item Give an example to show that $\cup_{i}\mcF_{i}$ need not be a $\sigma$ -algebra.
 	\end{enumerate}
 \end{exercise}
 
 \begin{proof}
 	\begin{enumerate}
 		\item
-		      \textbf{Complement}: Suppose $A\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A\in\mathcal{F}_{i}$. And each $\mathcal{F}_{i}$ is $\sigma$-algebra,
+		      \textbf{Complement}: Suppose $A\in\cup_{i}\mcF_{i}$, since $\mcF_{1}\subset \mcF_{2}\subset\ldots$, assume $A\in\mcF_{i}$. And each $\mcF_{i}$ is $\sigma$-algebra,
 		      \begin{equation*}
-			      A^c\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
+			      A^c\in\mcF_{i}\subset\cup_{i}\mcF_{i}.
 		      \end{equation*}
-		      \textbf{Finite Union}: Suppose $A_1,A_2\in\cup_{i}\mathcal{F}_{i}$, since $\mathcal{F}_{1}\subset \mathcal{F}_{2}\subset\ldots$, assume $A_1\in\mathcal{F}_{i},A_2\in\mathcal{F}_{j}$, such that,
+		      \textbf{Finite Union}: Suppose $A_1,A_2\in\cup_{i}\mcF_{i}$, since $\mcF_{1}\subset \mcF_{2}\subset\ldots$, assume $A_1\in\mcF_{i},A_2\in\mcF_{j}$, such that,
 		      \begin{equation*}
-			      A_1,A_2\in\mathcal{F}_{\max(i,j)}.
+			      A_1,A_2\in\mcF_{\max(i,j)}.
 		      \end{equation*}
-		      Since each $\mathcal{F}_{i}$ is $\sigma$-algebra,
+		      Since each $\mcF_{i}$ is $\sigma$-algebra,
 		      \begin{equation*}
-			      A_1\cup A_2\in\mathcal{F}_{i}\subset\cup_{i}\mathcal{F}_{i}.
+			      A_1\cup A_2\in\mcF_{i}\subset\cup_{i}\mcF_{i}.
 		      \end{equation*}
 		\item
-		      Let $\mathcal{F}_{i}$ be a Borel Set of $[1,2-\frac{1}{i}]$. Suppose $A_i=[1,2-\frac{1}{i}]\in\mathcal{F}_{i}$,
+		      Let $\mcF_{i}$ be a Borel Set of $[1,2-\frac{1}{i}]$. Suppose $A_i=[1,2-\frac{1}{i}]\in\mcF_{i}$,
 		      \begin{equation*}
-			      \cup_{i}A_{i}=[1,2)\notin\cup_{i}\mathcal{F}_{i}.
+			      \cup_{i}A_{i}=[1,2)\notin\cup_{i}\mcF_{i}.
 		      \end{equation*}
 	\end{enumerate}
 \end{proof}

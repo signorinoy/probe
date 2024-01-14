@@ -24,31 +24,31 @@ Let $X_{1},\ldots,X_{n}\sim F$ where $F(x)=\mathbb{P}(X\leq x)$ is a distributio
 \subsection{Positive Definite Kernels}
 
 \begin{definition}[Positive Definite Kernel]
-	Let $\mathcal{X}$ be a set, a function $K:\mathcal{X}\times\mathcal{X}\rightarrow\bbR$ is called a positive definite kernel on $\mathcal{X}$ iff it is
+	Let $\mcX$ be a set, a function $K:\mcX\times\mcX\rightarrow\bbR$ is called a positive definite kernel on $\mcX$ if and only if it is
 	\begin{enumerate}
 		\item symmetric, that is,
 		      \begin{equation}
-			      K\left(\bfx,\bfx^{\prime}\right)=K\left(\bfx^{\prime},\bfx\right),\quad\forall\bfx,\bfx^{\prime}\in\mathcal{X}
+			      K\left(\bfx,\bfx^{\prime}\right)=K\left(\bfx^{\prime},\bfx\right),\quad\forall\bfx,\bfx^{\prime}\in\mcX
 		      \end{equation}
 		\item positive definite, that is,
 		      \begin{equation}
 			      \sum_{i=1}^{n}\sum_{j=1}^{n}c_{i}c_{j}K\left(\bfx_{i},\bfx_{j}\right)\geq 0,
 		      \end{equation}
-		      holds for any $x_{1},\ldots,x_{n}\in\mathcal{X}$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR$.
+		      holds for any $x_{1},\ldots,x_{n}\in\mcX$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR$.
 	\end{enumerate}
 \end{definition}
 
 \subsubsection{Construction of the Reproducing Kernel Hilbert Space}
 
 \begin{theorem}[Morse-Aronszajn's Theorem] \label{thm:morse-aronszajn}
-	For any set $\mathcal{X}$, suppose $K:\mathcal{X}\times\mathcal{X}\rightarrow\bbR$ is positive definite, then there is a unique RKHS $\mathcal{H}\subset\bbR^{\mathcal{X}}$ with reproducing kernel $K$.
+	For any set $\mcX$, suppose $K:\mcX\times\mcX\rightarrow\bbR$ is positive definite, then there is a unique RKHS $\mathcal{H}\subset\bbR^{\mcX}$ with reproducing kernel $K$.
 \end{theorem}
 
 \begin{proof}
 	\begin{enumerate}
 		\item How to build a valid pre-RKHS $\mathcal{H}_{0}$?
 
-		      Consider the vector space $\mathcal{H}_{0}\subset\mathcal{R}^{\mathcal{X}}$ spanned by the functions $\left\{K\left(\cdot,\bfx\right)\right\}_{\bfx\in\mathcal{X}}$. For any $f,g\in\mathcal{H}_{0}$, suppose
+		      Consider the vector space $\mathcal{H}_{0}\subset\mathcal{R}^{\mcX}$ spanned by the functions $\left\{K\left(\cdot,\bfx\right)\right\}_{\bfx\in\mcX}$. For any $f,g\in\mathcal{H}_{0}$, suppose
 		      \begin{equation*}
 			      f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\bfx_{i}\right),\quad g=\sum_{j=1}^{n}b_{j}K\left(\cdot,\mathbf{y}_{j}\right)
 		      \end{equation*}
@@ -58,7 +58,7 @@ Let $X_{1},\ldots,X_{n}\sim F$ where $F(x)=\mathbb{P}(X\leq x)$ is a distributio
 			      \label{eq:definition-pre-rkhs-inner-product}
 		      \end{equation}
 
-		      Let $\bfx\in\mathcal{X}$,
+		      Let $\bfx\in\mcX$,
 		      \begin{equation*}
 			      \left\langle f,K\left(\cdot,\bfx\right)\right\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i} K\left(\bfx,\bfx_{i}\right)=f(\bfx)
 			      \label{eq:reproducing-kernel}
@@ -102,7 +102,7 @@ Let $X_{1},\ldots,X_{n}\sim F$ where $F(x)=\mathbb{P}(X\leq x)$ is a distributio
 					            \begin{equation*}
 						            \langle f,f\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i}f=0
 					            \end{equation*}
-				            \item["$\Leftarrow$"] For $\forall\bfx\in\mathcal{X}$, by Cauchy-Schwarz Inequality, we have,
+				            \item["$\Leftarrow$"] For $\forall\bfx\in\mcX$, by Cauchy-Schwarz Inequality, we have,
 					            \begin{equation*}
 						            |f(\bfx)|=\left|\left\langle f,K\left(,\cdot{\bfx}\right)\right\rangle_{\mathcal{H}_{0}}\right|\leq\|f\|_{\mathcal{H}_{0}}\cdot K\left(\bfx,\bfx\right)^{\frac{1}{2}}
 					            \end{equation*}
@@ -174,6 +174,6 @@ Let $X_{1},\ldots,X_{n}\sim F$ where $F(x)=\mathbb{P}(X\leq x)$ is a distributio
 				      =                                                                      & \left\langle\sum_{i=1}^{n}c_{i}\Phi\left(\bfx_{i}\right),\sum_{i=1}^{n}c_{i}\Phi\left(\bfx_{i}\right)\right\rangle\geq 0
 			      \end{aligned}
 		      \end{equation*}
-		      for any $x_{1},\ldots,x_{n}\in\mathcal{X}$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR$, i.e., $K(\bfx,\mathbf{y})$ is positive definite.
+		      for any $x_{1},\ldots,x_{n}\in\mcX$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR$, i.e., $K(\bfx,\mathbf{y})$ is positive definite.
 	\end{enumerate}
 \end{proof}

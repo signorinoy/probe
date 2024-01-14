@@ -12,20 +12,20 @@
 \section{Probability Space}
 
 \begin{definition}[Probability Space]
-	A probability space is a triple $(\Omega,\mathcal{F},P)$ consisting of:
+	A probability space is a triple $(\Omega,\mcF,P)$ consisting of:
 	\begin{enumerate}
 		\item the sample space $\Omega$: an arbitrary non-empty set.
-		\item the $\sigma$-algebra $\mathcal{F}\subseteq 2^{\Omega}$: a set of subsets of $\Omega$, called events.
-		\item the probability measure $P:\mathcal{F} \rightarrow[0,1]$: a function on $\mathcal{F}$ which is a measure function.
+		\item the $\sigma$-algebra $\mcF\subseteq 2^{\Omega}$: a set of subsets of $\Omega$, called events.
+		\item the probability measure $P:\mcF \rightarrow[0,1]$: a function on $\mcF$ which is a measure function.
 	\end{enumerate}
 \end{definition}
 
 \section{Random Variables}
 
 \begin{definition}[Random Variable]
-	A random variable is a measurable function $X:\Omega\rightarrow S$ from a set of possible outcomes $(\Omega,\mathcal{F})$ to a measurable space $(S,\mathcal{S})$, that is,
+	A random variable is a measurable function $X:\Omega\rightarrow S$ from a set of possible outcomes $(\Omega,\mcF)$ to a measurable space $(S,\mathcal{S})$, that is,
 	\begin{equation}
-		X^{-1}(B)\equiv\{\omega:X(\omega)\in B\}\in\mathcal{F}\quad \forall B\in\mathcal{S}.
+		X^{-1}(B)\equiv\{\omega:X(\omega)\in B\}\in\mcF\quad \forall B\in\mathcal{S}.
 	\end{equation}
 	Typically, $(S,\mathcal{S})=(R^d,\mathcal{R}^d)\quad(d>1)$.
 \end{definition}
@@ -33,7 +33,7 @@
 How to prove that functions are measurable?
 
 \begin{theorem}
-	If $\{\omega:X(\omega)\in A\}\in\mathcal{F}$ for all $A\in\mathcal{A}$ and $\mathcal{A}$ generates $\mathcal{S}$, then $X$ is measurable.
+	If $\{\omega:X(\omega)\in A\}\in\mcF$ for all $A\in\mathcal{A}$ and $\mathcal{A}$ generates $\mathcal{S}$, then $X$ is measurable.
 \end{theorem}
 
 \begin{enumerate}
@@ -127,11 +127,12 @@ How to prove that functions are measurable?
 		\caption{Common Distributions of Exponential Family}
 		\begin{tabular}{ccccccccc}
 			\toprule
-			Distribution & Parameter(s)      & $\theta$                         & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\operatorname{Var}(Y)$                            \\
+			Distribution & Parameter(s)           & $\theta$                                & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\operatorname{Var}(Y)$                            \\
 			\midrule
-			Normal       & $N(\mu,\sigma^2)$ & $\mu$                            & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                             \\
-			Bernoulli    & $\text{Bern}(p)$  & $\log\left(\frac{p}{1-p}\right)$ & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\
-			Poisson      & $P(\mu)$          & $\log(\mu)$                      & $1$          & $\mathrm{e}^{\theta}$           & $1$       & $-\log(y!)$                                                   & $\mathrm{e}^{\theta}$             & $\mathrm{e}^{\theta}$                              \\
+			Normal       & $N(\mu,\sigma^2)$      & $\mu$                                   & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                             \\
+			Bernoulli    & $\text{Bern}(p)$       & $\log\left(\frac{p}{1-p}\right)$        & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\
+			Poisson      & $P(\mu)$               & $\log(\mu)$                             & $1$          & $\mathrm{e}^{\theta}$           & $1$       & $-\log(y!)$                                                   & $\mathrm{e}^{\theta}$             & $\mathrm{e}^{\theta}$                              \\
+			Gamma        & $\Gamma(\alpha,\beta)$ & $\log\left(\frac{\alpha}{\beta}\right)$ & $1$          & $-\log(-\theta)$                & $1$       & $-\log\left(\Gamma(\alpha)\right)+(\alpha-1)\log(y)-y$        & $\frac{\alpha}{\beta}$            & $\frac{\alpha}{\beta^{2}}$                         \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
@@ -179,7 +180,7 @@ How to prove that functions are measurable?
 		      \begin{equation}
 			      P(X\in C,Y\in D)=P(X\in C)P(Y\in D).
 		      \end{equation}
-		\item Two $\sigma$-fields $\mathcal{F}$ and $\mathcal{G}$ are independent if for all $A\in\mathcal{F}$ and $B\in\mathcal{G}$ the events $A$ and $B$ are independent.
+		\item Two $\sigma$-fields $\mcF$ and $\mathcal{G}$ are independent if for all $A\in\mcF$ and $B\in\mathcal{G}$ the events $A$ and $B$ are independent.
 	\end{enumerate}
 \end{definition}
 
@@ -188,7 +189,7 @@ The second definition is a special case of the third.
 \begin{theorem}
 	\begin{enumerate}
 		\item If $X$ and $Y$ are independent then $\sigma(X)$ and $\sigma(Y)$ are independent.
-		\item Conversely, if $\mathcal{F}$ and $\mathcal{G}$ are independent, $X\in\mathcal{F}$ and $Y\in\mathcal{G}$, then $X$ and $Y$ are independent.
+		\item Conversely, if $\mcF$ and $\mathcal{G}$ are independent, $X\in\mcF$ and $Y\in\mathcal{G}$, then $X$ and $Y$ are independent.
 	\end{enumerate}
 \end{theorem}
 
@@ -206,7 +207,7 @@ The definition of independence can be extended to the infinite collection.
 \begin{definition}
 	An infinite collection of objects ($\sigma$-fields, random variables, or sets) is said to be independent if every finite subcollection is,
 	\begin{enumerate}
-		\item $\sigma$-fields $\mathcal{F}_{1},\mathcal{F}_{2},\ldots,\mathcal{F}_{n}$ are independent if whenever $A_{i}\in\mathcal{F}_{i}$ for $i=1, \ldots,n$, we have
+		\item $\sigma$-fields $\mcF_{1},\mcF_{2},\ldots,\mcF_{n}$ are independent if whenever $A_{i}\in\mcF_{i}$ for $i=1, \ldots,n$, we have
 		      \begin{equation}
 			      P\left(\cap_{i=1}^{n}A_{i}\right)=\prod_{i=1}^{n}P\left(A_{i}\right).
 		      \end{equation}

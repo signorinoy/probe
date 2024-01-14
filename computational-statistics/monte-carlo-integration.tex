@@ -1,0 +1,38 @@
+\chapter{Monte Carlo Integration}
+
+Suppose we want to estimate the expectation of a function $h(x)$ for a probability distribution $\pi(x)$, i.e., we want to estimate
+\begin{equation}
+	\mu=\bbE_{\pi}[h(x)]=\int h(x)\pi(x)\dif x.
+\end{equation}
+
+\section{Monte Carlo Integration}
+
+If we can sample from $\pi(x)$, then we can use the Monte Carlo integration method as follows:
+\begin{equation}
+	\hat{\mu}=\frac{1}{N}\sum_{i=1}^{N}h(x_{i}),
+\end{equation}
+where $x_{i}\sim\pi(x),\quad i=1,\ldots,N$.
+
+\section{Importance Sampling}
+
+Importance sampling is a variance reduction technique that can be used when sampling from a distribution $\pi(x)$ is difficult, but sampling from a distribution $g(x)$ is easy. The idea is to sample from $g(x)$ and then reweight the samples so that they are distributed according to $\pi(x)$.
+
+If the probability distribution $\pi(x)$ is difficult to sample from, we can find a proposal distribution $g(x)$. Then the Importance sampling method is as follows:
+
+\begin{algorithm}[H]
+	\caption{Importance Sampling Method}
+	\KwIn{Proposal distribution $g(x)$, number of samples $N$}
+	\For{$i=1,\ldots,N$}{
+		Draw a sample $x_{i}\sim g(x)$\;
+		Compute $w_{i}=\frac{\pi(x_{i})}{g(x_{i})}$\;
+	}
+	Calculate $\hat{\mu}=\frac{1}{N}\sum_{i=1}^{N}w_{i}h(x_{i})$\;
+	\KwOut{Estimate $\hat{\mu}$}
+\end{algorithm}
+
+\paragraph{Normalized Importance Sampling}
+
+If we do not know the normalization constant of $\pi(x)$, we can use the normalized importance sampling method as follows:
+\begin{equation}
+	\hat{\mu}=\frac{\sum_{i=1}^{N}w_{i}h(x_{i})}{\sum_{i=1}^{N}w_{i}}.
+\end{equation}

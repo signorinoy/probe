@@ -8,17 +8,17 @@
 
 \begin{example}
 	\begin{enumerate}
-		\item If $X\in\mathcal{F}$, then
+		\item If $X\in\mcF$, then
 		      \begin{equation*}
-			      E\left(X\mid\mathcal{F}\right)=X.
+			      E\left(X\mid\mcF\right)=X.
 		      \end{equation*}
-		\item If $X$ is independent of $\mathcal{F}$, then
+		\item If $X$ is independent of $\mcF$, then
 		      \begin{equation*}
-			      E\left(X\mid\mathcal{F}\right)=E(X).
+			      E\left(X\mid\mcF\right)=E(X).
 		      \end{equation*}
-		\item If $\Omega_{1}, \Omega_{2}, \ldots$ is a finite or infinite partition of $\Omega$ into disjoint sets, each of which has positive probability, and let $\mathcal{F}=\sigma\left(\Omega_{1},\Omega_{2},\ldots\right)$, then
+		\item If $\Omega_{1}, \Omega_{2}, \ldots$ is a finite or infinite partition of $\Omega$ into disjoint sets, each of which has a positive probability, and let $\mcF=\sigma\left(\Omega_{1},\Omega_{2},\ldots\right)$, then
 		      \begin{equation*}
-			      E\left(X\mid\mathcal{F}\right)=\frac{E\left(X;\Omega_{i}\right)}{P\left(\Omega_{i}\right)}\quad\text { on }\Omega_{i}.
+			      E\left(X\mid\mcF\right)=\frac{E\left(X;\Omega_{i}\right)}{P\left(\Omega_{i}\right)}\quad\text { on }\Omega_{i}.
 		      \end{equation*}
 	\end{enumerate}
 \end{example}
@@ -29,21 +29,21 @@
 
 \section{Martingales}
 
-Let $\mathcal{F}_{n}$ be a filtration, i.e., an increasing sequence of $\sigma$-fields.
+Let $\mcF_{n}$ be a filtration, i.e., an increasing sequence of $\sigma$-fields.
 \begin{definition}[Martingale]
-	A sequence $\left\{X_{n}\right\}$ of real-valued random variables  is said to be a martingale with respect to $\mathcal{F}_{n}$, if
+	A sequence $\left\{X_{n}\right\}$ of real-valued random variables  is said to be a martingale for $\mcF_{n}$, if
 	\begin{enumerate}
 		\item $X_{n}$ is integrable, i.e., $E\left|X_{n}\right|<\infty$
-		\item $X_{n}$ is adapted to $\mathcal{F}_{n}$, i.e., $\forall n,X_{n}\in \mathcal{F}_{n}$
+		\item $X_{n}$ is adapted to $\mcF_{n}$, i.e., $\forall n,X_{n}\in \mcF_{n}$
 		\item $X_{n}$ satisfies the martingale condition, i.e.,
 		      \begin{equation}
-			      E\left(X_{n+1}\mid\mathcal{F}_{n}\right)=X_{n},\quad\forall n
+			      E\left(X_{n+1}\mid\mcF_{n}\right)=X_{n},\quad\forall n
 		      \end{equation}
 	\end{enumerate}
 \end{definition}
 
 \begin{remark}
-	If in the last definition $=$ is replaced by $\leq$ or $\geq$, then $X$ is said to be a supermartingale or submartingale, respectively.
+	If in the last definition, $=$ is replaced by $\leq$ or $\geq$, then $X$ is said to be a supermartingale or submartingale, respectively.
 \end{remark}
 
 \begin{example}[Linear Martingale]
@@ -59,17 +59,17 @@ Let $\mathcal{F}_{n}$ be a filtration, i.e., an increasing sequence of $\sigma$-
 \end{example}
 
 \begin{example}[Random Walk]
-	Suppose $X_{n}=X_{0}+\xi_{1}+\cdots+\xi_{n}$, where $X_{0}$ is constant, $\xi_{m}$ are independent and have $E\xi_{m}=0,\sigma_{m}^{2}=E\xi_{m}^{2}<\infty$. Let $\mathcal{F}_{n}=\sigma\left(\xi_{1},\ldots,\xi_{n}\right)$ for $n\geq 1$ and take $\mathcal{F}_{0}=\{\emptyset, \Omega\}$. Show $X_{n}$ is a martingale, and $X_{n}^{2}$ is a submartingale.
+	Suppose $X_{n}=X_{0}+\xi_{1}+\cdots+\xi_{n}$, where $X_{0}$ is constant, $\xi_{m}$ are independent and have $E\xi_{m}=0,\sigma_{m}^{2}=E\xi_{m}^{2}<\infty$. Let $\mcF_{n}=\sigma\left(\xi_{1},\ldots,\xi_{n}\right)$ for $n\geq 1$ and take $\mcF_{0}=\{\emptyset, \Omega\}$. Show $X_{n}$ is a martingale, and $X_{n}^{2}$ is a submartingale.
 \end{example}
 
 \begin{proof}
 	It is obvious that,
 	\begin{equation*}
-		E\left|X_{n}\right|<\infty,\quad X_{n}\in\mathcal{F}_{n}
+		E\left|X_{n}\right|<\infty,\quad X_{n}\in\mcF_{n}
 	\end{equation*}
-	Since $\xi_{n+1}$ is independent of $\mathcal{F}_{n}$, so using the linearity of conditional expectation, (4.1.1), and Example 4.1.4,
+	Since $\xi_{n+1}$ is independent of $\mcF_{n}$, so using the linearity of conditional expectation, (4.1.1), and Example 4.1.4,
 	\begin{equation*}
-		E\left(X_{n+1}\mid\mathcal{F}_{n}\right)=E\left(X_{n}\mid\mathcal{F}_{n}\right)+E\left(\xi_{n+1}\mid\mathcal{F}_{n}\right)=X_{n}+E\xi_{n+1}=X_{n}
+		E\left(X_{n+1}\mid\mcF_{n}\right)=E\left(X_{n}\mid\mcF_{n}\right)+E\left(\xi_{n+1}\mid\mcF_{n}\right)=X_{n}+E\xi_{n+1}=X_{n}
 	\end{equation*}
 	So $X_{n}$ is a martingale, and Theorem 4.2.6 implies $X_{n}^{2}$ is a submartingale.
 \end{proof}

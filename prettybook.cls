@@ -79,7 +79,7 @@
 % ----------------------------------------------------------------------
 
 \RequirePackage{marginnote,sidenotes}
-\RequirePackage[ruled,vlined,linesnumbered,noresetcount]{algorithm2e}
+\RequirePackage[ruled,vlined,linesnumbered]{algorithm2e}
 
 % ----------------------------------------------------------------------
 %           Specific Environments

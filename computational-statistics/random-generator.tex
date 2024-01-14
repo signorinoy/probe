@@ -1,0 +1,122 @@
+\chapter{Random Generator}
+
+Random number generator is a key component in computational statistics. It is used to generate random numbers from a given probability distribution. In this chapter, we will introduce some basic concepts and algorithms of random number generation.
+
+\section{Uniform Random Number Generation}
+
+\section{Non-uniform Random Number Generation}
+
+For non-uniform random number generation
+
+\subsection{Inversion Method}
+
+\begin{theorem}
+	Let $X$ be a random variable with cumulative distribution function $F(x)$, then $F(x)$ is a non-decreasing function and $F(x)\in[0,1]$. Let $U\sim\mcU(0,1)$ be a random variable with uniform distribution on $(0,1)$, then
+	\begin{equation}
+		F^{-1}(U)\sim F.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	Since $F(x)$ is a non-decreasing function, it is invertible. Let $Y=F^{-1}(U)$, then
+	\begin{equation*}
+		\Pr(Y\leq y)=\Pr(F^{-1}(U)\leq y)=\Pr(U\leq F(y))=F(y).
+	\end{equation*}
+\end{proof}
+
+\begin{example}[Normal Distribution]
+	Let $X\sim\mcN(0,1)$ be a random variable with standard normal distribution, then the cumulative distribution function of $X$ is
+	\begin{equation}
+		F(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}\exp\left(-\frac{t^{2}}{2}\right)\dif t.
+	\end{equation}
+	Since there is no closed form of the inverse of $F(x)$, we can use the approximation form:
+	\begin{equation}
+		F^{-1}(u)\approx t-\frac{a_{0}-a_{1}t}{1+b_{1}t+b_{2}t^{2}},
+	\end{equation}
+	where $t=\sqrt{-2\log u}$. % TODO: complete this example
+\end{example}
+
+\subsection{Rejection Sampling Method}
+
+The inversion method is a general method to generate random numbers from a given probability distribution. However, it is not always easy to find the inverse of the cumulative distribution function. In this case, we can use the rejection sampling method.
+
+Suppose we want to generate random numbers from a probability distribution $f(x)$, which is not easy to sample from. We can find a proposal distribution $g(x)$, which is easy to sample from and satisfies
+\begin{equation}
+	\exists M>0,\quad f(x)\leq Mg(x).
+\end{equation}
+
+Then the rejection sampling method is as follows:
+
+\begin{algorithm}[H]
+	\caption{Rejection Sampling Method}
+	\KwIn{Proposal distribution $g(x)$, constant $M$}
+	Draw a sample $x\sim g(x)$ and $u\sim\mcU(0,1)$\;
+	\If{$u\leq \frac{f(x)}{Mg(x)}$}{
+		Accept $x$\;
+	} \Else{
+		Reject $x$ and go to step 1\;
+	}
+	\KwOut{Sample $x$}
+\end{algorithm}
+
+\begin{theorem}
+	The rejection sampling method generates a sample $x$ from the probability distribution $f(x)$.
+\end{theorem}
+
+\begin{proof}
+	Let $I=1$ if $x$ is accepted and $I=0$ if $x$ is rejected. Then the probability of accepting $x$ given $x$ is
+	\begin{equation*}
+		\Pr(I=1\mid x)=\Pr(u\leq \frac{f(x)}{Mg(x)})=\frac{f(x)}{Mg(x)}.
+	\end{equation*}
+	Thus, the probability of accepting $x$ is
+	\begin{equation*}
+		\Pr(x\mid I=1)=\frac{\Pr(x,I=1)}{\Pr(I=1)}=\frac{\Pr(x)\Pr(I=1\mid x)}{\int \Pr(x)\Pr(I=1\mid x)\dif x}=\frac{f(x)/M}{\int f(x)/M\dif x}=f(x).
+	\end{equation*}
+\end{proof}
+
+\section{Markov Chain Monte Carlo}
+
+Markov Chain Monte Carlo (MCMC) is a class of algorithms for sampling from a probability distribution based on constructing a Markov chain that has the desired distribution as its equilibrium distribution. The state of the chain after several steps is then used as a sample of the desired distribution. The quality of the sample improves as a function of the number of steps.
+
+\subsection{Metropolis-Hastings Sampling}
+
+We want to sample from a distribution $\pi(x)$, where $x\in \mcX$.
+
+\paragraph*{Random Walk Metropolis-Hastings Sampling}
+
+\begin{algorithm}
+	\caption{Random Walk Metropolis-Hastings Sampling}
+	\KwIn{Initial state $x^{(0)}$, number of iterations $N$}
+	\For{$i = 1, \ldots, N$}{
+		Sample $y\sim\mcN(x^{(i-1)}, \Sigma)$\;
+		Compute $\alpha = \min\left\{1, \frac{\pi(y)}{\pi(x^{(i-1)})}\right\}$\;
+		Sample $u \sim \mcU(0, 1)$\;
+		\eIf{$u < \alpha$}{
+			$x^{(i)} = y$\;
+		}{
+			$x^{(i)} = x^{(i-1)}$\;
+		}
+	}
+	\KwOut{Samples $x^{(1)},\ldots,x^{(N)}$}
+\end{algorithm}
+
+\begin{remark}
+	It is usually difficult to sample from a high-dimensional distribution due to the rejection progressively increasing with the dimensionality.
+\end{remark}
+
+\subsection{Gibbs Sampling}
+
+Gibbs sampling is a special case of Metropolis-Hastings sampling. It is applicable when the joint distribution is not known explicitly or is difficult to sample from directly, but the conditional distribution of each variable is known and easier to sample from. Gibbs sampling only attempts transitions in the coordinate axis direction, using the conditional distribution of the current point to determine the next step's proposal distribution. All proposal samples are accepted without rejection, resulting in potentially higher efficiency.
+
+Let $\bfx=(x_{1},\ldots,x_{d})^{\top}$ be a random vector with joint distribution $\pi(\bfx)$, and let $\pi(x_{i}|\bfx_{-i})$ be the conditional distribution of $x_{i}$ given $\bfx_{-i}=(x_{1},\ldots,x_{i-1},x_{i+1},\ldots,x_{d})^{\top}$. The Gibbs sampling algorithm is as follows:
+\begin{algorithm}
+	\caption{Gibbs Sampling}
+	\KwIn{Initial state $\bfx^{(0)}$, number of iterations $N$, burn-in period $B$}
+	\For{$i = 1, \ldots, N$}{
+	\For{$j = 1, \ldots, d$}{
+	Sample $x_{j}^{(i)}\sim\pi(x_{j}|x_{1}^{(i)},\ldots,x_{j-1}^{(i)},x_{j+1}^{(i-1)},\ldots,x_{d}^{(i-1)})$\;
+	}
+	$\bfx^{(i)}=(x_{1}^{(i)},\ldots,x_{d}^{(i)})^{\top}$\;
+	}
+	\KwOut{Samples $\bfx^{(B+1)},\ldots,\bfx^{(N)}$}
+\end{algorithm}

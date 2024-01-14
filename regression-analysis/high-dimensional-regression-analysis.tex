@@ -1,7 +1,71 @@
 \chapter{High Dimensional Regression Analysis}
 
+\section{Lasso for Linear Regression}
+
+If $p>n$, then the least squares estimator is not unique. In this case, we can use the lasso to select a unique estimator. The lasso estimator is defined as
+\begin{equation}
+	\label{eq:lasso-estimator}
+	\hat{\bfbeta}_{\text{lasso}}:=\underset{\bfbeta\in\bbR^{p}}{\arg\min}\left\{\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}+\lambda\left\|\bfbeta\right\|_{1}\right\},
+\end{equation}
+where $\lambda>0$ is a tuning parameter. In addition, the optimization problem \eqref{eq:lasso-estimator} can be rewritten as
+\begin{equation*}
+	\hat{\bfbeta}_{\text{lasso}}:=\underset{\bfbeta\in\bbR^{p}:\left\|\bfbeta\right\|_{1}\leq R}{\arg\min}\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2},
+\end{equation*}
+with a one-to-one correspondence between $\lambda$ and $R$.
+
+\subsection{Numerical Algorithms}
+
+The lasso estimator can be computed by the following numerical algorithms.
+
+\subsubsection{Cyclic Coordinate Descent}
+
+Cyclic coordinate descent is an iterative algorithm. At each iteration, we update one coordinate of $\bfbeta$ while fixing all other coordinates.
+The cyclic coordinate descent algorithm for the lasso is given in Algorithm \ref{alg:coordinate-descent-for-lasso}.
+
+\begin{algorithm}[H]
+	\caption{Cyclic Coordinate Descent for the Lasso Estimator}
+	\label{alg:coordinate-descent-for-lasso}
+	\KwIn{Data $\left\{\left(\bfX_{i},y_{i}\right)\right\}_{i=1}^{n}$, tuning parameter $\lambda>0$, initial value $\bfbeta^{(0)}\in\bbR^{p}$, and tolerance $\epsilon>0$.}
+	$\bfr \leftarrow \bfy-\bfX\bfbeta^{(0)}$\;
+	\While{$\left\|\bfbeta^{(t)}-\bfbeta^{(t-1)}\right\|_{\infty}>\epsilon$}{
+	\For{$j=1,\ldots,p$}{
+		$\beta_{j}^{(t+1)}\leftarrow\frac{S_{\lambda}\left(\bfX_{j}^{\top}\bfr/n\right)}{\bfX_{j}^{\top}\bfX_{j}/n}$\;
+		$\bfr\leftarrow\bfr+\left(\beta_{j}^{(t+1)}-\beta_{j}^{(t)}\right)\bfX_{j}$\;
+	}
+	}
+	\KwOut{Estimate $\hat{\bfbeta}_{\text{lasso}}$.}
+\end{algorithm}
+
+\subsection{Selection of the Tuning Parameter}
+
+\subsubsection{K-Fold Cross-Validation}
+
+\section{Theory for the Lasso}
+
+Let $\bfbeta^{0}$ be the true parameter vector, and let $\hat{\bfbeta}$ be the lasso estimator. We assume that the design matrix $\bfX$ is orthogonal, i.e., $\bfX^{\top}\bfX=\bfI_{p}$, and that the noise vector $\bfvareps$ is a random vector with mean zero and covariance matrix $\sigma^{2}\bfI_{n}$.
+We further denote $S_{0}:=\left\{j:\beta_{j}^{0}\neq 0\right\}$ as the active set, and $s_{0}:=\left|S_{0}\right|$ as the cardinality of the active set. We also denote $\phi_{0}:=\min_{j\in S_{0}}\left|\beta_{j}^{0}\right|$ as the minimum absolute value of the nonzero coefficients.
+
+In this section, we will give two properties of the lasso estimator:
+\begin{enumerate}
+	\item Prediction Error:
+	\begin{equation*}
+		\left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n\leq 2\sigma^{2}s_{0}\left(\frac{\lambda}{\phi_{0}}\right)^{2},
+	\end{equation*}
+\end{enumerate}
+
+\begin{lemma}[Basic Inequality]
+	\label{lem:basic-inequality}
+	\begin{equation*}
+		\left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n+\lambda\left\|\hat{\bfbeta}\right\|_{1}\leq 2\bfvareps^{\top}\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)/n+\lambda\left\|\bfbeta^{0}\right\|_{1}.
+	\end{equation*}
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
 \begin{corollary}
-	Assume that $\hat{\sigma}_j^{2}=1$ for all $j$ and that the compatibility condition holds for $S_{0}$, with $\hat{\bfSigma}$ normalized in this way. For some $t>0$, let the regularization parameter be
+	Assume that $\hat{\sigma}_j^{2}=1$ for all $j$ and that the compatibility condition holds for $S_{0}$, with $\hat{\bfSigma}$ normalized in this way. For some $t>0$, let the regularization parameter by
 	\begin{equation*}
 		\lambda:=4\hat{\sigma}\sqrt{\frac{t^{2}+2\log p}{n}},
 	\end{equation*}
@@ -35,3 +99,64 @@
 	\end{equation*}
 	with probability at least $1-\alpha$.
 \end{proof}
+
+\section{Other Lasso-Type Estimators}
+
+\subsection{Adaptive Lasso}
+
+The adaptive lasso estimator is defined as
+\begin{equation*}
+	\hat{\bfbeta}_{\text{adaptive}}:=\underset{\bfbeta\in\bbR^{p}}{\arg\min}\left\{\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}+\lambda\sum_{j=1}^{p}\frac{\left|\beta_{j}\right|}{\hat{\sigma}_{j}}\right\},
+\end{equation*}
+where $\lambda>0$ is a tuning parameter, and $\hat{\sigma}_{j}$ is an estimator of $\sigma_{j}$.
+
+\subsection{Elastic Net}
+
+The elastic net estimator is defined as
+\begin{equation*}
+	\hat{\bfbeta}_{\text{elastic}}:=\underset{\bfbeta\in\bbR^{p}}{\arg\min}\left\{\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}+\lambda_{1}\left\|\bfbeta\right\|_{1}+\lambda_{2}\left\|\bfbeta\right\|_{2}^{2}\right\},
+\end{equation*}
+where $\lambda_{1},\lambda_{2}>0$ are tuning parameters.
+
+\subsection{Group Lasso}
+
+The group lasso estimator is defined as
+\begin{equation*}
+	\hat{\bfbeta}_{\text{group}}:=\underset{\bfbeta\in\bbR^{p}}{\arg\min}\left\{\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}+\lambda\sum_{g=1}^{G}\sqrt{p_{g}}\left\|\bfbeta_{g}\right\|_{2}\right\},
+\end{equation*}
+where $\lambda>0$ is a tuning parameter, and $\bfbeta_{g}$ is the subvector of $\bfbeta$ corresponding to the $g$th group.
+
+\subsection{Fused Lasso}
+
+The fused lasso estimator is defined as
+\begin{equation*}
+	\hat{\bfbeta}_{\text{fused}}:=\underset{\bfbeta\in\bbR^{p}}{\arg\min}\left\{\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}+\lambda\sum_{j=1}^{p-1}\left|\beta_{j+1}-\beta_{j}\right|\right\},
+\end{equation*}
+
+\section{Nonconvex Penalties}
+
+The main drawback of the lasso estimator is that it is a biased estimator. To reduce the bias, we can use nonconvex penalties, such as the smoothly clipped absolute deviation (SCAD) penalty and the minimax concave penalty (MCP).
+
+\subsection{SCAD}
+
+The SCAD penalty is defined as
+\begin{equation*}
+	\psi_{\text{SCAD}}(\beta):=\left\{\begin{array}{ll}
+		\lambda\beta,                                                                                  & \text{if}\quad\left|\beta\right|\leq\lambda,           \\
+		\frac{\left(a\lambda-\left|\beta\right|\right)_{+}}{(a-1)\lambda},                             & \text{if}\quad\lambda<\left|\beta\right|\leq a\lambda, \\
+		\frac{1}{(a-1)\lambda^{2}}\left[(a+1)\lambda^{2}-2a\lambda\left|\beta\right|+\beta^{2}\right], & \text{if}\quad a\lambda<\left|\beta\right|,
+	\end{array}\right.
+\end{equation*}
+where $a>2$ is a constant.
+
+\subsection{MCP}
+
+The MCP penalty is defined as
+\begin{equation*}
+	\psi_{\text{MCP}}(\beta):=\left\{\begin{array}{ll}
+		\lambda\beta,                                         & \text{if}\quad\left|\beta\right|\leq\lambda,           \\
+		\frac{\left|\beta\right|^{2}}{2(a-1)},                & \text{if}\quad\lambda<\left|\beta\right|\leq a\lambda, \\
+		\frac{a\lambda\left|\beta\right|-\lambda^{2}/2}{a-1}, & \text{if}\quad a\lambda<\left|\beta\right|,
+	\end{array}\right.
+\end{equation*}
+where $a>1$ is a constant.

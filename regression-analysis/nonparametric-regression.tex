@@ -4,19 +4,19 @@
 
 \subsection{Introduction}
 
-Suppose $\mathcal{X}$ be the input space, $\mathcal{Y}$ be the output space, $\mathcal{D}$ be some (almost) completely unknown probability distribution on $\mathcal{X}\times\mathcal{Y}$. Given the $n$ i.i.d observed data, which sampled from an unknown distribution $\mathcal{D}$, that,
+Suppose $\mcX$ be the input space, $\mathcal{Y}$ be the output space, $\mathcal{D}$ be some (almost) completely unknown probability distribution on $\mcX\times\mathcal{Y}$. Given the $n$ i.i.d observed data, which sampled from an unknown distribution $\mathcal{D}$, that,
 \begin{equation}
 	S:=\left\{(\bfx_{1},y_{1}),\ldots,(\bfx_{n},y_{n})\right\}\subseteq\mathcal{D}
 \end{equation}
-and the goal of us is to estimate the functional relationship between $\mathcal{X}$ and $\mathcal{Y}$.
+and the goal of us is to estimate the functional relationship between $\mcX$ and $\mathcal{Y}$.
 
-To formalize the problem, we now aim at finding a predictor function $f^{*}$ among the function space $\mathcal{F}:=\left\{f:\mathcal{X}\rightarrow\mathcal{Y}\right\}$ based on the observed data $S$, which minimizes the true risk
+To formalize the problem, we now aim at finding a predictor function $f^{*}$ among the function space $\mcF:=\left\{f:\mcX\rightarrow\mathcal{Y}\right\}$ based on the observed data $S$, which minimizes the true risk
 \begin{equation} \label{eq:true-risk}
 	R[f]:=\bbE_{\mathcal{D}}\left[L\left(y,f(\bfx)\right)\right]
 \end{equation}
 where $L:\mathcal{Y}\times\mathcal{Y}\rightarrow\bbR$ is an arbitrary convex loss function, typically assumed that the smaller $L\left(y,f(\bfx)\right)$ is, the better the approximation of $y$ is. Thus, we are trying to find a predictor $f^{*}$ with risk close to the optimal risk
 \begin{equation}
-	R^{*}:=\inf\left\{R[f]\mid f:\mathcal{X}\rightarrow\mathcal{Y}\right\}
+	R^{*}:=\inf\left\{R[f]\mid f:\mcX\rightarrow\mathcal{Y}\right\}
 \end{equation}
 % However, for many practical algorithms, it is often observed that the true risk \eqref{eq:true-risk} is not too far from the empirical error.
 
@@ -24,12 +24,12 @@ Finding the predictor function $f^{*}$ which minimizing the empirical risk
 \begin{equation}
 	R_{\text{emp}}(f)=\frac{1}{n}\sum_{i=1}^{n}L\left(y_{i},f(\textbf{x}_{i})\right)
 \end{equation}
-is a natural thing for us to be trying to do. However, as it is known to all, just minimizing the empirical risk is suicidal, which almost certainly leads to overfitting. Minimizing $R_{\text{emp}}$ only makes sense if we simultaneously somehow restrict ourselves to the $\mathcal{F}$, which are of just the right level of complexity. One way to do this is by explicitly restricting the function space $\mathcal{F}$ to a "simple" space, as in structural risk minimization, which is to introduce a penalty functional $\Omega[f]$ that somehow measures the complexity of each function $f\in\mathcal{F}$, and to minimize the regularized risk
+is a natural thing for us to be trying to do. However, as it is known to all, just minimizing the empirical risk is suicidal, which almost certainly leads to overfitting. Minimizing $R_{\text{emp}}$ only makes sense if we simultaneously somehow restrict ourselves to the $\mcF$, which are of just the right level of complexity. One way to do this is by explicitly restricting the function space $\mcF$ to a "simple" space, as in structural risk minimization, which is to introduce a penalty functional $\Omega[f]$ that somehow measures the complexity of each function $f\in\mcF$, and to minimize the regularized risk
 \begin{equation}
 	R_{\text{reg}}[f]=R_{\text{emp}}[f]+\Omega[f]
 \end{equation}
 
-In this report, we restrict the predictor function $f\in\mathcal{F}$ among the reproducing kernel Hilbert space $\mathcal{H}$, and the regularized risk has the form
+In this report, we restrict the predictor function $f\in\mcF$ among the reproducing kernel Hilbert space $\mathcal{H}$, and the regularized risk has the form
 \begin{equation}
 	\label{eq:regularized-risk-of-rkhs}
 	R_{\text{reg}}[f]=\frac{1}{n}\sum_{i=1}^{n}L\left(y_{i},f(\bfx_{i})\right)+\frac{\lambda}{2}\|f\|_{\mathcal{H}}^{2}
@@ -149,7 +149,7 @@ Then, we will show that the algorithm we studied in this paper satisfied the def
 		\end{aligned}
 	\end{equation}
 
-	By the Cauchy-Schwarz inequality, we can see that, for any $f,f^{\prime}\in\mathcal{H}$ and any $\bfx\in\mathcal{X}$,
+	By the Cauchy-Schwarz inequality, we can see that, for any $f,f^{\prime}\in\mathcal{H}$ and any $\bfx\in\mcX$,
 	\begin{equation}
 		\left|f(\bfx)-f^{\prime}(\bfx)\right|=\left|\left\langle f-f^{\prime},k(\bfx,\cdot)\right\rangle\right|\leq\left\|f-f^{\prime}\right\|_{\mathcal{H}}\left\|k(\bfx,\cdot)\right\|_{\mathcal{H}}\leq\kappa\left\|f-f^{\prime}\right\|_{\mathcal{H}}
 	\end{equation}
