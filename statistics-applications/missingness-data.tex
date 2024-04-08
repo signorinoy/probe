@@ -181,7 +181,7 @@ The likelihood of $\theta$ ignoring the missingness mechanism is defined to be
 \end{example}
 
 \begin{example}[Incomplete Exponential Sample]
-	Suppose we have an incomplete univariate exponential sample with $y_{(0)}=\left(y_{1},\ldots,y_{r}\right)^{\mathrm{T}}$ observed and $y_{(1)}=\left(y_{r+1},\ldots,y_{n}\right)^{\mathrm{T}}$ missing. Thus, $m=\left(m_{1},\ldots,m_{n}\right)^{\mathrm{T}}$, where $m_{i}=0,i=1,\ldots,r$ and $m_{i}=1,i=r+1,\ldots,n$.
+	Suppose we have an incomplete univariate exponential sample with $y_{(0)}=\left(y_{1},\ldots,y_{r}\right)^{\top}$ observed and $y_{(1)}=\left(y_{r+1},\ldots,y_{n}\right)^{\top}$ missing. Thus, $m=\left(m_{1},\ldots,m_{n}\right)^{\top}$, where $m_{i}=0,i=1,\ldots,r$ and $m_{i}=1,i=r+1,\ldots,n$.
 
 	The likelihood of the ignorable missingness mechanism is
 	\begin{equation}
@@ -356,12 +356,12 @@ Hence, the EM algorithm for likelihood-based inference with missing data is
 \begin{example}[Multivariate Normal Sample]
 	Let $y=\left(y_{i j}\right)$, where $i=1, \ldots, n$, $j=1, \ldots, p$, be a matrix representing an independent and identically distributed sample of $n$ units from the multivariate normal distribution with mean vector $\mu=\left(\mu_{1}, \ldots, \mu_{p}\right)$ and covariance matrix $\Sigma=(\sigma_{j k})$, $j=1, \ldots, p$; $k=1,\ldots, p$. Thus, $y_{i j}$ represents the value of the jth variable for the ith unit in the sample. The density of $y$ is
 	\begin{equation}
-		f_{Y}(y\mid\mu,\Sigma)=(2 \pi)^{-n p / 2}|\Sigma|^{-n / 2} \exp \left\{-\frac{1}{2} \sum_{i=1}^{n}\left(y_{i}-\mu\right) \Sigma^{-1}\left(y_{i}-\mu\right)^{\mathrm{T}}\right\}.
+		f_{Y}(y\mid\mu,\Sigma)=(2 \pi)^{-n p / 2}|\Sigma|^{-n / 2} \exp \left\{-\frac{1}{2} \sum_{i=1}^{n}\left(y_{i}-\mu\right) \Sigma^{-1}\left(y_{i}-\mu\right)^{\top}\right\}.
 	\end{equation}
 
 	The loglikelihood of $\theta=(\mu, \Sigma)$ is then
 	\begin{equation}
-		\ell_{Y}(\mu, \Sigma \mid y)=-\frac{n}{2}\ln |\Sigma|-\frac{1}{2} \sum_{i=1}^{n}\left(y_{i}-\mu\right) \Sigma^{-1}\left(y_{i}-\mu\right)^{\mathrm{T}}
+		\ell_{Y}(\mu, \Sigma \mid y)=-\frac{n}{2}\ln |\Sigma|-\frac{1}{2} \sum_{i=1}^{n}\left(y_{i}-\mu\right) \Sigma^{-1}\left(y_{i}-\mu\right)^{\top}
 	\end{equation}
 
 	Maximizing above equation with respect to $\theta$ and $\Sigma$ gives the ML estimate
@@ -376,7 +376,7 @@ Hence, the EM algorithm for likelihood-based inference with missing data is
 
 	The log-likelihood based on the observed data is then
 	\begin{equation}
-		\ell\left(\mu, \Sigma \mid Y_{(0)}\right)=-\frac{1}{2} \sum_{i=1}^{n} \ln \left|\Sigma_{(0), i}\right|-\frac{1}{2} \sum_{i=1}^{n}\left(y_{(0), i}-\mu_{(0), i}\right)^{\mathrm{T}} \Sigma_{(0), i}^{-1}\left(y_{(0), i}-\mu_{(0), i}\right),
+		\ell\left(\mu, \Sigma \mid Y_{(0)}\right)=-\frac{1}{2} \sum_{i=1}^{n} \ln \left|\Sigma_{(0), i}\right|-\frac{1}{2} \sum_{i=1}^{n}\left(y_{(0), i}-\mu_{(0), i}\right)^{\top} \Sigma_{(0), i}^{-1}\left(y_{(0), i}-\mu_{(0), i}\right),
 	\end{equation}
 	where $\mu_{(0), i}$ and $\Sigma_{(0), i}$ are the mean and covariance matrix of the observed components of $Y$ for unit $i$.
 
@@ -475,12 +475,12 @@ Hence, the EM algorithm for likelihood-based inference with missing data is
 		      \begin{equation}
 			      \begin{aligned}
 				      E\left(y_{i} \mid X, Y_{(0)}, \theta^{(t)}\right)=     & \left\{\begin{array}{ll}
-					                                                                      y_{i},                                 & \text { if } y_{i} \text { is observed } \\
-					                                                                      \beta^{(t)} \tilde{x}_{i}^{\mathrm{T}} & \text { if } y_{i} \text { is missing }
-				                                                                      \end{array}\right.                                                                                                             \\
+					                                                                      y_{i},                           & \text { if } y_{i} \text { is observed } \\
+					                                                                      \beta^{(t)} \tilde{x}_{i}^{\top} & \text { if } y_{i} \text { is missing }
+				                                                                      \end{array}\right.                                                                                      \\
 				      E\left(y_{i}^{2} \mid X, Y_{(0)}, \theta^{(t)}\right)= & \left\{\begin{array}{ll}
-					                                                                      y_{i}^{2},                                                                & \text { if } y_{i} \text { is observed } \\
-					                                                                      \left(\beta^{(t)} \tilde{x}_{i}^{\mathrm{T}}\right)^{2}+\sigma^{(t)^{2}}, & \text { if } y_{i} \text { is missing }
+					                                                                      y_{i}^{2},                                                          & \text { if } y_{i} \text { is observed } \\
+					                                                                      \left(\beta^{(t)} \tilde{x}_{i}^{\top}\right)^{2}+\sigma^{(t)^{2}}, & \text { if } y_{i} \text { is missing }
 				                                                                      \end{array}\right.,
 			      \end{aligned}
 		      \end{equation}
@@ -497,7 +497,7 @@ Hence, the EM algorithm for likelihood-based inference with missing data is
 \end{example}
 
 \begin{example}[Finite Mixture Linear Regression]
-	
+
 \end{example}
 
 \section{Missing Not At Random Models}

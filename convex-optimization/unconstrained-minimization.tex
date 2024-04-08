@@ -134,6 +134,38 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 
 \section{Newton's Method}
 
+ (Smoothness Hessian) Suppose the Hessians of $f$ are Lipschitz continuous, i.e.,
+\begin{equation}
+	\|\nabla^{2}f(\bfx)-\nabla^{2}f(\bfy)\|_{2}\leq L\|\bfx-\bfy\|_{2}
+	\label{eq:smoothness-hessian}
+\end{equation}
+
+\begin{algorithm}[htbp]
+	\caption{Damped Newton Method}
+	\KwIn{Initial point $\bfx_0\in\dom f$, tolerance $\epsilon>0$}
+	\KwOut{}
+	\Repeat{}{
+		Compute the Newton step and decrement
+		\begin{equation*}
+			\Delta\bfx_{\text{nt}}:=-\nabla^{2}
+		\end{equation*}
+	}
+\end{algorithm}
+
+\begin{theorem}
+	Under the condition , there exist $0<\eta<m^{2}/L$ and $\gamma>0$, for the damped Newton method, we have
+	\begin{itemize}
+		\item If $\|\nabla^{2}f(\bfx^{(k)})\|\geq\eta$, then
+		      \begin{equation*}
+			      f(\bfx^{(k+1)})-f(\bfx^{(k)})\leq-\gamma.
+		      \end{equation*}
+		\item If $\|\nabla^{2}f(\bfx^{(k)})\|<\eta$, then the backtracking line search select $t^{(k)}=1$, and
+		      \begin{equation*}
+			      \frac{L}{2m^{2}}\|\nabla f(\bfx^{(k+1)})\|_{2}\leq \left(\frac{L}{2m^{2}}\|\nabla f(\bfx^{(k)})\|_{2}\right)^{2}.
+		      \end{equation*}
+	\end{itemize}
+\end{theorem}
+
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{cccc}

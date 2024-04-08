@@ -5,11 +5,11 @@
 If $p>n$, then the least squares estimator is not unique. In this case, we can use the lasso to select a unique estimator. The lasso estimator is defined as
 \begin{equation}
 	\label{eq:lasso-estimator}
-	\hat{\bfbeta}_{\text{lasso}}:=\underset{\bfbeta\in\bbR^{p}}{\arg\min}\left\{\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}+\lambda\left\|\bfbeta\right\|_{1}\right\},
+	\hat{\bfbeta}_{\text{lasso}}:=\underset{\bfbeta\in\bbR^{p}}{\arg\min}\left\{\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}/n+\lambda\left\|\bfbeta\right\|_{1}\right\},
 \end{equation}
 where $\lambda>0$ is a tuning parameter. In addition, the optimization problem \eqref{eq:lasso-estimator} can be rewritten as
 \begin{equation*}
-	\hat{\bfbeta}_{\text{lasso}}:=\underset{\bfbeta\in\bbR^{p}:\left\|\bfbeta\right\|_{1}\leq R}{\arg\min}\frac{1}{2n}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2},
+	\hat{\bfbeta}_{\text{lasso}}:=\underset{\bfbeta\in\bbR^{p}:\left\|\bfbeta\right\|_{1}\leq R}{\arg\min}\left\|\bfy-\bfX\bfbeta\right\|_{2}^{2}/n,
 \end{equation*}
 with a one-to-one correspondence between $\lambda$ and $R$.
 
@@ -45,12 +45,16 @@ The cyclic coordinate descent algorithm for the lasso is given in Algorithm \ref
 Let $\bfbeta^{0}$ be the true parameter vector, and let $\hat{\bfbeta}$ be the lasso estimator. We assume that the design matrix $\bfX$ is orthogonal, i.e., $\bfX^{\top}\bfX=\bfI_{p}$, and that the noise vector $\bfvareps$ is a random vector with mean zero and covariance matrix $\sigma^{2}\bfI_{n}$.
 We further denote $S_{0}:=\left\{j:\beta_{j}^{0}\neq 0\right\}$ as the active set, and $s_{0}:=\left|S_{0}\right|$ as the cardinality of the active set. We also denote $\phi_{0}:=\min_{j\in S_{0}}\left|\beta_{j}^{0}\right|$ as the minimum absolute value of the nonzero coefficients.
 
-In this section, we will give two properties of the lasso estimator:
+In this section, we will discuss two important properties of the lasso estimator:
 \begin{enumerate}
 	\item Prediction Error:
-	\begin{equation*}
-		\left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n\leq 2\sigma^{2}s_{0}\left(\frac{\lambda}{\phi_{0}}\right)^{2},
-	\end{equation*}
+	      \begin{equation*}
+		      \left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n\lesssim \frac{\log p}{n}s_{0}, \quad\text{ with }s_{0}=o(n/\log p).
+	      \end{equation*}
+	\item $l_{1}$-Error:
+	      \begin{equation*}
+		      \left\|\hat{\bfbeta}-\bfbeta^{0}\right\|_{1}\lesssim\sqrt{\frac{\log p}{n}}s_{0}, \quad\text{ with }s_{0}=o(\sqrt{n/\log p}).
+	      \end{equation*}
 \end{enumerate}
 
 \begin{lemma}[Basic Inequality]
@@ -61,7 +65,14 @@ In this section, we will give two properties of the lasso estimator:
 \end{lemma}
 
 \begin{proof}
-
+	Since $\hat{\bfbeta}$ is the minimizer of the objective function in \eqref{eq:lasso-estimator}, we have
+	\begin{equation*}
+		\left\|\bfy-\bfX\hat{\bfbeta}\right\|_{2}^{2}/n+\lambda\left\|\hat{\bfbeta}\right\|_{1}\leq\left\|\bfy-\bfX\bfbeta^{0}\right\|_{2}^{2}/n+\lambda\left\|\bfbeta^{0}\right\|_{1}.
+	\end{equation*}
+	By rearranging the terms, we have
+	\begin{equation*}
+		\left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n+\lambda\left\|\hat{\bfbeta}\right\|_{1}\leq 2\bfvareps^{\top}\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)/n+\lambda\left\|\bfbeta^{0}\right\|_{1}.
+	\end{equation*}
 \end{proof}
 
 \begin{corollary}

@@ -1,0 +1,54 @@
+\chapter{Multivariate Extensions}
+
+\section{Applications}
+
+\subsection{Inference for the diﬀerence of two mean vectors}
+
+\begin{equation*}
+	T_{mn}=\left[(\bfeta-\bfxi)-(\bar{\bfY}-\bar{\bfX})\right]^{\top}\left(\frac{1}{m}\hat{\bfSigma}+\frac{1}{n}\hat{\bfGamma}\right)^{-1}[(\bfeta-\bfxi)-(\bar{\bfY}-\bar{\bfX})]\leq C_{k},
+\end{equation*}
+
+Univariate case:
+\begin{equation*}
+	T_{mn}=\frac{(\bar{Y}-\bar{X})/\sqrt{\frac{1}{m}+\frac{1}{n}}}{\sqrt{\left[\sum_{i}\left(X_i-\bar{X}\right)^2+\sum_{j}\left(Y_j-\bar{Y}\right)^2\right]/(m+n-2)}}
+\end{equation*}
+
+Since
+\begin{equation*}
+	\frac{(\bar{Y}-\bar{X})-(\eta-\xi)}{\sqrt{\frac{\sigma^{2}}{m}+\frac{\gamma^{2}}{n}}}\sim\mathcal{N}(0,1)
+\end{equation*}
+and
+\begin{equation*}
+	\frac{\sum_{i}\left(X_i-\bar{X}\right)^2}{\sigma^{2}}+\frac{\sum_{j}\left(Y_j-\bar{Y}\right)^2}{\gamma^{2}}\sim\chi^{2}_{m+n-2},
+\end{equation*}
+then, we have
+\begin{equation*}
+	T_{mn}^{\prime}=\frac{\frac{(\bar{Y}-\bar{X})-(\eta-\xi)}{\sqrt{\frac{\sigma^{2}}{m}+\frac{\gamma^{2}}{n}}}}{\sqrt{\left(\frac{\sum_{i}\left(X_i-\bar{X}\right)^2}{\sigma^{2}}+\frac{\sum_{j}\left(Y_j-\bar{Y}\right)^2}{\gamma^{2}}\right)/(m+n-2)}}\sim t_{m+n-2}.
+\end{equation*}
+
+Under the null hypothesis, we have
+\begin{equation*}
+	\begin{aligned}
+		T_{mn}^{\prime}= & T_{mn}\cdot\sqrt{\frac{\sum_{i}\left(X_i-\bar{X}\right)^2+\sum_{j}\left(Y_j-\bar{Y}\right)^2}{\gamma^{2}\sum_{i}\left(X_i-\bar{X}\right)^2+\sigma^{2}\sum_{j}\left(Y_j-\bar{Y}\right)^2}}\cdot\sqrt{\frac{(m+n)\sigma^{2}\gamma^{2}}{n\sigma^{2}+m\gamma^{2}}}.
+	\end{aligned}
+\end{equation*}
+It is easy to see that
+\begin{gather*}
+	\sum_{i}\left(X_i-\bar{X}\right)^2+\sum_{j}\left(Y_j-\bar{Y}\right)^2\rightarrow_{p} m\sigma^{2}+n\gamma^{2},\\
+	\gamma^{2}\sum_{i}\left(X_i-\bar{X}\right)^2+\sigma^{2}\sum_{j}\left(Y_j-\bar{Y}\right)^2\rightarrow_{p} (m+n)\sigma^{2}\gamma^{2}>0,
+\end{gather*}
+and by the continuous mapping theorem with the fact that $m/(m+n)\rightarrow\rho$, we have
+\begin{equation*}
+	\sqrt{\frac{\sum_{i}\left(X_i-\bar{X}\right)^2+\sum_{j}\left(Y_j-\bar{Y}\right)^2}{\gamma^{2}\sum_{i}\left(X_i-\bar{X}\right)^2+\sigma^{2}\sum_{j}\left(Y_j-\bar{Y}\right)^2}}\cdot\sqrt{\frac{(m+n)\sigma^{2}\gamma^{2}}{n\sigma^{2}+m\gamma^{2}}}\rightarrow_{p}\sqrt{\frac{\rho\sigma^{2}+(1-\rho)\gamma^{2}}{(1-\rho)\sigma^{2}+\rho\gamma^{2}}}.
+\end{equation*}
+
+\begin{proof}
+	\begin{equation*}
+		\Pr\left(T_{mn}\leq C_{k}\right)\rightarrow\gamma,\quad\text{ as }m\text{ and }n\rightarrow\infty
+	\end{equation*}
+
+	For convenience, suppose $m<n$, then we define
+	\begin{equation*}
+		\bfZ_{i}=\bfX_{i}-\sqrt{\frac{m}{n}}Y_{i}+\frac{m}{\sqrt{mn}}
+	\end{equation*}
+\end{proof}
