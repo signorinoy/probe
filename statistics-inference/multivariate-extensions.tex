@@ -2,10 +2,54 @@
 
 \section{Applications}
 
-\subsection{Inference for the diﬀerence of two mean vectors}
+\subsection{Mean vector}
+
+Let $\bfX_{i}$, $i=1,\ldots,n$ be drawn from a $p$-dimensional distribution with mean vector $\bfmu$ and covariance matrix $\bfSigma$. The sample mean vector is given by
+\begin{equation*}
+	\bar{\bfX}=\frac{1}{n}\sum_{i=1}^{n}\bfX_{i}.
+\end{equation*}
+
+By the multivariate central limit theorem, we have
+\begin{equation*}
+	\sqrt{n}(\bar{\bfX}-\bfmu)\xrightarrow{d}\mcN(\bfzero,\bfSigma).
+\end{equation*}
+Applying the continuous mapping theorem and Theorem \ref{thm:mvn-properties}, we obtain
+\begin{equation*}
+	n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\sim\chi^{2}_{p}.
+\end{equation*}
+
+If $\bfSigma$ is known, then the confidence region for $\bfmu$ with confidence level $1-\alpha$ is given by
+\begin{equation*}
+	n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\leq C_{p},
+\end{equation*}
+where
+\begin{equation*}
+	\int_{0}^{C_{p}}\chi^{2}_{p}(t)\dif t=1-\alpha.
+\end{equation*}
+
+In applications where $\bfSigma$ is unknown, we can use the sample covariance matrix $\widehat{\bfSigma}$ to replace $\bfSigma$, and $\widehat{\bfSigma}^{-1}$ is a consistent estimator of $\bfSigma^{-1}$. This leads to the following confidence region for $\bfmu$:
+\begin{equation*}
+	n(\bar{\bfX}-\bfmu)^{\top}\widehat{\bfSigma}^{-1}(\bar{\bfX}-\bfmu)\leq C_{p},
+\end{equation*}
+which provides asymptotically valid confidence regions for $\bfmu$ at level $1-\alpha$ for any non-singular $\bfSigma$ and fixed shape of distribution $F$.
+
+\begin{proof}
+	To show that
+	\begin{equation*}
+		\Pr\left(n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\leq C_{p}\right)\rightarrow1-\alpha,\quad\text{ as }n\rightarrow\infty.
+	\end{equation*}
+\end{proof}
+
+\begin{remark}
+	If $\bfX_{i}$, $i=1,\ldots,n$ are drawn from a $p$-dimensional multivariate normal distribution, the exact distribution of $n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)$ is a Hotelling's $T^{2}$ distribution with parameters $p$ and $n-1$.
+\end{remark}
+
+We next consider the power of
+
+\subsection{Difference of two mean vectors}
 
 \begin{equation*}
-	T_{mn}=\left[(\bfeta-\bfxi)-(\bar{\bfY}-\bar{\bfX})\right]^{\top}\left(\frac{1}{m}\hat{\bfSigma}+\frac{1}{n}\hat{\bfGamma}\right)^{-1}[(\bfeta-\bfxi)-(\bar{\bfY}-\bar{\bfX})]\leq C_{k},
+	T_{mn}=\left[(\bfeta-\bfxi)-(\bar{\bfY}-\bar{\bfX})\right]^{\top}\left(\frac{1}{m}\hat{\bfSigma}+\frac{1}{n}\hat{\bfGamma}\right)^{-1}[(\bfeta-\bfxi)-(\bar{\bfY}-\bar{\bfX})]\leq C_{p},
 \end{equation*}
 
 Univariate case:
@@ -52,3 +96,72 @@ and by the continuous mapping theorem with the fact that $m/(m+n)\rightarrow\rho
 		\bfZ_{i}=\bfX_{i}-\sqrt{\frac{m}{n}}Y_{i}+\frac{m}{\sqrt{mn}}
 	\end{equation*}
 \end{proof}
+
+\subsection{Simple Linear Regression}
+
+Suppose
+\begin{equation*}
+	\bfX_{i}=\bfalpha+\bfv_{i}\bfbeta+\bfvareps_{i},\quad i=1,\ldots,n
+\end{equation*}
+where $\bfv_{i}$ is a $p$-dimensional vector of known constants, and $\bfvareps_{i}$ is a $p$-dimensional random vector with mean $\bfzero$ and covariance matrix $\bfSigma$. The least squares estimator of $\bfalpha$ and $\bfbeta$ are given by
+\begin{equation*}
+	\hat{\beta}_{j}=\frac{\sum_{i}(X_{i,j}-\bar{X}_{j})(v_{i,j}-\bar{v}_{j})}{\sum_{i}(v_{i,j}-\bar{v}_{j})^{2}},\quad\hat{\alpha}_{j}=\bar{X}_{j}-\hat{\beta}_{j}\bar{v}_{j}.
+\end{equation*}
+where $\bar{\bfX}=\frac{1}{n}\sum_{i}\bfX_{i}$ and $\bar{\bfv}=\frac{1}{n}\sum_{i}\bfv_{i}$.
+
+Denote
+\begin{equation*}
+	d_{n,j}^{(i)}=\frac{v_{i,j}-\bar{v}_{j}}{\sqrt{\sum_{i}(v_{i,j}-\bar{v}_{j})^{2}}}.
+\end{equation*}
+We can rewrite the least squares estimator as
+\begin{equation*}
+	\widehat{\beta}_{j}-\beta_{j}=\frac{\sum_{i}d_{n,j}^{(i)}\left[(X_{i,j}-\bar{X}_{j})-\bbE(X_{i,j}-\bar{X}_{j})\right]}{\sqrt{\sum_{i}(v_{i,j}-\bar{v}_{j})^{2}}},
+\end{equation*}
+
+By Theorem, we have
+\begin{equation*}
+	\left(\sqrt{\sum_{i}(v_{i,1}-\bar{v}_{1})^{2}}(\hat{\beta}_{1}-\beta_{1}),\ldots,\sqrt{\sum_{i}(v_{i,p}-\bar{v}_{p})^{2}}(\hat{\beta}_{p}-\beta_{p})\right)^{\top}\xrightarrow{d}\mcN(\bfzero,\bfSigma).
+\end{equation*}
+
+\subsection{Multinomial One-Sample Test}
+
+Consider a sequence of $n$ independent multinomial trials with $k+1$ categories, where the probability of the $i$-th category is $p_{i}$, $i=1,\ldots,k+1$.
+
+Let us now consider testing the hypothesis
+\begin{equation*}
+	H_{0}:p_i=p_i^{(0)},\quad i=1,\ldots,k+1
+\end{equation*}
+against the alternatives that $p_{i}\neq p_{i}^{(0)}$ for at least some $i$. The standard test for this problem is Pearson's $\chi^2$-test, which rejects $H_{0}$ when
+\begin{equation*}
+	Q=n\sum_{i=1}^{k+1}\left(\frac{Y_i}{n}-p_i^{(0)}\right)^2/p_i^{(0)}\geq C_k,
+\end{equation*}
+
+The asymptotic distribution of $Q$ is $\chi^{2}_{k}$ under $H_{0}$.
+
+\begin{proof}
+	It follows from (5.4.14) and Theorem \ref{thm:mvn-properties} that
+\begin{equation}
+	\label{eq:multinomial-test-chi2}
+	n\sum_{i=1}^{k}\sum_{j=1}^{k}a_{ij}\left(\frac{Y_i}{n}-p_i^{(0)}\right)\left(\frac{Y_j}{n}-p_j^{(0)}\right)\xrightarrow{L}\chi_k^2,
+	\end{equation}
+	where
+	\begin{equation*}
+		a_{ij}=\begin{cases}
+			\frac{1}{p_{i}^{(0)}}+\frac{1}{p_{k+1}^{(0)}} & \text{if }i=j,\\
+			\frac{1}{p_{k+1}^{(0)}} & \text{if }i\neq j.
+		\end{cases}
+	\end{equation*}
+
+	The left side of \eqref{eq:multinomial-test-chi2} can be written as
+	\begin{equation*}
+		n\sum_{i=1}^{k}\frac{1}{p_i^{(0)}}\left(\frac{Y_i}{n}-p_i^{(0)}\right)^2+\frac{n}{p_{k+1}^{(0)}}\sum_{i=1}^{k}\sum_{j=1}^k\left(\frac{Y_i}{n}-p_i^{(0)}\right)\left(\frac{Y_j}{n}-p_j^{(0)}\right),
+	\end{equation*}
+	The last term is equal to
+	\begin{equation*}
+	n\left[\sum_{i=1}^k\left(\frac{Y_i}{n}-p_i^{(0)}\right)\right]^2/p_{k+1}^{(0)}=n\left(\frac{Y_{k+1}}{n}-p_{k+1}^{(0)}\right)^2/p_{k+1}^{(0)},
+	\end{equation*}
+	and completes the proof.
+\end{proof}
+
+\subsection{Contingency Table}
+

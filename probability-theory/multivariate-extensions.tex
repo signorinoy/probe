@@ -1,0 +1,60 @@
+\chapter{Multivariate Extensions}
+
+
+\section{Multivariate Distributions}
+
+\subsection{Multivariate Normal Distribution}
+
+\begin{definition}[Multivariate Normal Distribution]
+	The multivariate normal distribution of a $p$-dimensional random vector $\bfX$ can be written as:
+	\begin{equation*}
+		\bfX\sim\mcN(\bfmu,\bfSigma)
+	\end{equation*}
+	where $\bfmu$ is a $p$-dimensional mean vector and $\bfSigma$ is a $p\times p$ covariance matrix. Furthermore, the probability density function of $\bfX$ is:
+	\begin{equation*}
+		p(\bfX)=\frac{1}{(2\pi)^{p/2}|\bfSigma|^{1/2}}\exp\left(-\frac{1}{2}(\bfX-\bfmu)^{\top}\bfSigma^{-1}(\bfX-\bfmu)\right).
+	\end{equation*}
+\end{definition}
+
+\begin{theorem}
+	\label{thm:mvn-properties}
+	Suppose $\bfX\sim\mcN(\bfmu,\bfSigma)$, then:
+	\begin{enumerate}
+		\item $\bfSigma^{-1/2}(\bfX-\bfmu)\sim\mcN(\bfzero,\bfI)$.
+		\item $(\bfX-\bfmu)^{\top}\bfSigma^{-1}(\bfX-\bfmu)\sim\chi^{2}_{p}$.
+	\end{enumerate}
+\end{theorem}
+
+\subsection{Wishart Distribution}
+
+\begin{definition}[Wishart Distribution]
+	The Wishart distribution is a generalization of the chi-squared distribution to multiple dimensions. If $\bfZ$ is a $p\times n$ matrix with each column drawn from a multivariate normal distribution $\mcN(\bfzero,\bfSigma)$, then the quadratic form $\bfX$ has a Wishart distribution (with parameters $\bfSigma$, and $n$):
+	\begin{equation*}
+		\bfX=\bfZ\bfZ^{\top}\sim W_{p}(\bfSigma,n).
+	\end{equation*}
+	Furthermore, the probability density function of $\bfX$ is:
+	\begin{equation*}
+		p(\bfX)=\frac{|\bfX|^{(n-p-1)/2}\exp\left(-\frac{1}{2}\tr(\bfSigma^{-1}\bfX)\right)}{2^{np/2}|\bfSigma|^{n/2}\Gamma_{p}(n/2)}
+	\end{equation*}
+\end{definition}
+
+\subsection{Hotelling's T-squared Distribution}
+
+\begin{definition}[Hotelling's $T^{2}$ Distribution]
+	If the vector $\bfd$ is Gaussian multivariate-distributed with zero mean and unit covariance matrix $\mcN\left(\bfzero_p,\bfI_{p}\right)$ and $\bfM$ is a $p\times p$ matrix with unit scale matrix and $m$ degrees of freedom with a Wishart distribution $W\left(\bfI_{p},m\right)$, then the quadratic form $X$ has a Hotelling distribution (with parameters $p$ and $m$):
+	\begin{equation*}
+		X=m\bfd^{\top}\bfM^{-1}\bfd\sim T^2(p,m) .
+	\end{equation*}
+
+	Furthermore, if a random variable $X$ has Hotelling's $T$-squared distribution, $X \sim T_{p,m}^2$, then:
+	\begin{equation*}
+		\frac{m-p+1}{pm}X\sim F_{p,m-p+1}
+	\end{equation*}
+	where $F_{p,m-p+1}$ is the $F$-distribution with parameters $p$ and $m-p+1$.
+\end{definition}
+
+\section{Convergence of Random Vectors}
+
+\begin{example}[Multinomial]
+    
+\end{example}
