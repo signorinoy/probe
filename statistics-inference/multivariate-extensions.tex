@@ -140,15 +140,15 @@ The asymptotic distribution of $Q$ is $\chi^{2}_{k}$ under $H_{0}$.
 
 \begin{proof}
 	It follows from (5.4.14) and Theorem \ref{thm:mvn-properties} that
-\begin{equation}
-	\label{eq:multinomial-test-chi2}
-	n\sum_{i=1}^{k}\sum_{j=1}^{k}a_{ij}\left(\frac{Y_i}{n}-p_i^{(0)}\right)\left(\frac{Y_j}{n}-p_j^{(0)}\right)\xrightarrow{L}\chi_k^2,
+	\begin{equation}
+		\label{eq:multinomial-test-chi2}
+		n\sum_{i=1}^{k}\sum_{j=1}^{k}a_{ij}\left(\frac{Y_i}{n}-p_i^{(0)}\right)\left(\frac{Y_j}{n}-p_j^{(0)}\right)\xrightarrow{L}\chi_k^2,
 	\end{equation}
 	where
 	\begin{equation*}
 		a_{ij}=\begin{cases}
-			\frac{1}{p_{i}^{(0)}}+\frac{1}{p_{k+1}^{(0)}} & \text{if }i=j,\\
-			\frac{1}{p_{k+1}^{(0)}} & \text{if }i\neq j.
+			\frac{1}{p_{i}^{(0)}}+\frac{1}{p_{k+1}^{(0)}} & \text{if }i=j,     \\
+			\frac{1}{p_{k+1}^{(0)}}                       & \text{if }i\neq j.
 		\end{cases}
 	\end{equation*}
 
@@ -158,10 +158,9 @@ The asymptotic distribution of $Q$ is $\chi^{2}_{k}$ under $H_{0}$.
 	\end{equation*}
 	The last term is equal to
 	\begin{equation*}
-	n\left[\sum_{i=1}^k\left(\frac{Y_i}{n}-p_i^{(0)}\right)\right]^2/p_{k+1}^{(0)}=n\left(\frac{Y_{k+1}}{n}-p_{k+1}^{(0)}\right)^2/p_{k+1}^{(0)},
+		n\left[\sum_{i=1}^k\left(\frac{Y_i}{n}-p_i^{(0)}\right)\right]^2/p_{k+1}^{(0)}=n\left(\frac{Y_{k+1}}{n}-p_{k+1}^{(0)}\right)^2/p_{k+1}^{(0)},
 	\end{equation*}
 	and completes the proof.
 \end{proof}
 
 \subsection{Contingency Table}
-
