@@ -108,7 +108,7 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 \end{example}
 
 \begin{theorem}
-	\label{thm:multivariate-convergence-in-distribution-by-linear-combinations}
+	\label{thm:convergence-in-distribution-by-linear-combinations}
 	A necessary and sufficient condition for
 	\begin{equation*}
 		(X_{1}^{(n)},\ldots,X_k^{(n)})\stackrel{d}{\rightarrow}(X_{1},\ldots,X_k),
@@ -141,7 +141,7 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 \end{example}
 
 \begin{proof}
-	To prove this result, it is by Theorem \ref{thm:multivariate-convergence-in-distribution-by-linear-combinations} enough to show that
+	To prove this result, it is by Theorem \ref{thm:convergence-in-distribution-by-linear-combinations} enough to show that
 	\begin{equation*}
 		c_{1} X_{1}^{(n)}+c_{2} X_{2}^{(n)}=\sum\left(c_{1} a_{nj}+c_{2} b_{nj}\right) Y_{j} \stackrel{d}{\rightarrow}c_{1} X_{1}+c_{2} X_{2},
 	\end{equation*}
@@ -163,11 +163,11 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 		\max_{j}d_{nj}^{2}/\sum_{j=1}^{n}d_{nj}^{2}\rightarrow 0.
 	\end{equation*}
 
-	According to Theorems \ref{eq:sufficient-condition-clt-independent-non-identical-random-variables}, it thus follows that
+	According to Theorems \ref{thm:linear-combination-inid}, it thus follows that
 	\begin{equation*}
 		\sum d_{nj} Y_{j} \stackrel{d}{\rightarrow}N\left(0,\left(c_{1}^2+c_{2}^2\right) \sigma^2\right).
 	\end{equation*}
-	Thus, by Theorem \ref{thm:multivariate-convergence-in-distribution-by-linear-combinations}, we have
+	Thus, by Theorem \ref{thm:convergence-in-distribution-by-linear-combinations}, we have
 	\begin{equation*}
 		(X_{1}^{(n)},X_{2}^{(n)})\stackrel{d}{\rightarrow}(X_{1},X_{2}),
 	\end{equation*}
