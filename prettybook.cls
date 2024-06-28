@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{prettybook}
 
-\LoadClass[a4paper,oneside]{book}
+\LoadClass[a4paper,oneside,12pt]{book}
 
 % ----------------------------------------------------------------------
 %           Pagestyle Packages

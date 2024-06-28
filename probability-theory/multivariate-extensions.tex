@@ -54,6 +54,105 @@
 
 \section{Convergence of Random Vectors}
 
+Let $\bfX^{(n)}$ be a sequence of random vectors with cdf $H_n$ converging in law to $\bfX$ with cdf $H$. One then often needs to know whether for some set $S$ in $R^k$,
+\begin{equation*}
+	P\left(\bfX^{(n)} \in S\right) \rightarrow P(\bfX \in S) .
+\end{equation*}
+
+That (5.1.12) need not be true for all $S$ is seen from the case $k=1, S=$ $\{x: x \leq a\}$. Then (5.1.12) can only be guaranteed when $a$ is a continuity point of $H$.
+\begin{theorem}
+	A sufficient condition for (5.1.12) to hold is that
+	\begin{equation*}
+		P(\bfX \in \partial S)=0 .
+	\end{equation*}
+\end{theorem}
+
 \begin{example}[Multinomial]
 
+\end{example}
+
+\begin{example}[Difference of Means]
+	Let $X_1,\ldots,X_m$ and $Y_1,\ldots,Y_n$ be independently distributed according to distributions $F$ and $G$, with means $\xi$ and $\eta$ and finite variances $\sigma^2$ and $\tau^2$, respectively. Then
+	\begin{equation*}
+		\sqrt{m}(\bar{X}-\xi)\xrightarrow{L}\mcN\left(0,\sigma^2\right),\quad\sqrt{n}(\bar{Y}-\eta)\xrightarrow{L}\mcN\left(0,\tau^2\right).
+	\end{equation*}
+	If $\frac{m}{m+n} \rightarrow \lambda$ $(0<\lambda<1)$, it follows that
+	\begin{equation*}
+		\sqrt{m+n}(\bar{X}-\xi)=\sqrt{\frac{m+n}{m}}\sqrt{m}(\bar{X}-\xi)\xrightarrow{L}N\left(0\frac{\sigma^2}{\lambda}\right),\quad\sqrt{m+n}(\bar{Y}-\eta)\xrightarrow{L}N\left(0,\frac{\tau^2}{1-\lambda}\right),
+	\end{equation*}
+	and hence that
+	\begin{equation*}
+		(\sqrt{m+n}(\bar{X}-\xi),\sqrt{m+n}(\bar{Y}-\eta)) \xrightarrow{L}(X,Y),
+	\end{equation*}
+	where $X$ and $Y$ are independent random variables with distributions $N\left(0, \frac{\sigma^2}{\lambda}\right)$ and $N\left(0, \frac{\tau^2}{1-\lambda}\right)$, respectively.
+	Since $Y-X$ is a continuous function of $(X, Y)$, it follows that
+	\begin{equation*}
+		\sqrt{m+n}[(\bar{Y}-\bar{X})-(\eta-\xi)] \rightarrow N\left(0, \frac{\sigma^2}{\lambda}+\frac{\tau^2}{1-\lambda}\right),
+	\end{equation*}
+	or, equivalently, that
+	\begin{equation*}
+		\frac{(\bar{Y}-\bar{X})-(\eta-\xi)}{\sqrt{\frac{\sigma^2}{m}+\frac{\tau^2}{n}}} \stackrel{L}{\rightarrow} N(0,1) .
+	\end{equation*}
+
+	The problem of testing $H: \eta=\xi$ against $\eta>\xi$ was discussed in Example 3.1.6 and more generally in the comments following Lemma 3.1.1. We now see that the conclusions stated there follow from the present Theorems 5.1.4 and 5.1.5. More specifically, consider the probability
+	\begin{equation*}
+		P\{\sqrt{m+n}[(\bar{Y}-\bar{X})-(\eta-\xi)] \leq z\} .
+	\end{equation*}
+
+	By Theorem 5.1.4, this tends to
+	\begin{equation*}
+		(P(Y-X) \leq z)=\Phi\left(\frac{z}{\sqrt{\frac{\sigma^2}{\lambda}+\frac{\tau^2}{1-\lambda}}}\right)
+	\end{equation*}
+	since $P(Y-X=z)=0$.
+\end{example}
+
+\begin{example}[Orthogonal linear combinations]
+	Let $Y_1, Y_2, \ldots$ be i.i.d. with mean $E\left(Y_i\right)=0$ and variance $\Var\left(Y_i\right)=\sigma^2$, and consider the joint distribution of the linear combinations
+	\begin{equation*}
+		X_1^{(n)}=\sum_{j=1}^n a_{n j} Y_j \text { and } X_2^{(n)}=\sum_{j=1}^n b_{n j} Y_j
+	\end{equation*}
+	satisfying the orthogonality conditions (see Section 5.3)
+	\begin{equation*}
+		\sum_{j=1}^n a_{n j}^2=\sum_{j=1}^n b_{n j}^2=1 \text { and } \sum_{j=1}^n a_{n j} b_{n j}=0 .
+	\end{equation*}
+
+	Then we shall show that, under the additional assumption (5.1.28), the relation (5.1.21) holds with $k=2$ and with ( $X_1, X_2$ ) independently distributed, each according to the normal distribution $N\left(0, \sigma^2\right)$.
+	To prove this result, it is by Theorem 5.1.7 enough to show that
+	\begin{equation*}
+		c_1 X_1^{(n)}+c_2 X_2^{(n)}=\sum\left(c_1 a_{n j}+c_2 b_{n j}\right) Y_j \xrightarrow{L} c_1 X_1+c_2 X_2,
+	\end{equation*}
+	where the distribution of $c_1 X_1+c_2 X_2$ is $N\left(0,\left[c_1^2+c_2^2\right] \sigma^2\right)$. The sum on the left side of (5.1.24) is of the form $\sum d_{n j} Y_j$ with
+	\begin{equation*}
+		d_{n j}=c_1 a_{n j}+c_2 b_{n j}
+	\end{equation*}
+
+	The asymptotic normality of such sums was stated in Theorems 2.7.3 and 2.7.4 under the condition that
+	\begin{equation*}
+		\max _j d_{n j}^2 / \sum_{j=1}^n d_{n j}^2 \rightarrow 0 .
+	\end{equation*}
+	5.1 Convergence of multivariate distributions
+	285
+	It follows from (5.1.23) that
+	\begin{equation*}
+		\sum_{j=1}^n d_{n j}^2=c_1^2+c_2^2
+	\end{equation*}
+	furthermore
+	\begin{equation*}
+		\max d_{n j}^2 \leq 2 \max \left[c_1^2 a_{n j}^2+c_2^2 b_{n j}^2\right] \leq 2\left[c_1^2 \max a_{n j}^2+c_2^2 \max b_{n j}^2\right] .
+	\end{equation*}
+
+	Condition (5.1.26) therefore holds, provided
+	\begin{equation*}
+		\max _j a_{j n}^2 \rightarrow 0 \text { and } \max _j b_{j n}^2 \rightarrow 0 \text { as } n \rightarrow \infty .
+	\end{equation*}
+
+	Under this condition, it thus follows that
+	\begin{equation*}
+		\sum d_{n j} Y_j / \sqrt{\sum d_{j n}^2} \xrightarrow{L} N\left(0, \sigma^2\right)
+	\end{equation*}
+	and hence by (5.1.27) that
+	\begin{equation*}
+		\sum d_{n j} Y_j \xrightarrow{L} N\left(0,\left(c_1^2+c_2^2\right) \sigma^2\right),
+	\end{equation*}
+	as was to be proved.
 \end{example}

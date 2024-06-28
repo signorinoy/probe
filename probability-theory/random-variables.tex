@@ -113,7 +113,7 @@ How to prove that functions are measurable?
 \begin{property}
 	The exponential family has the following properties,
 	\begin{equation*}
-		E(Y)=b^{\prime}(\theta)\quad\operatorname{Var}(Y)=b^{\prime\prime}(\theta)a(\phi).
+		E(Y)=b^{\prime}(\theta)\quad\Var(Y)=b^{\prime\prime}(\theta)a(\phi).
 	\end{equation*}
 \end{property}
 
@@ -127,7 +127,7 @@ How to prove that functions are measurable?
 		\caption{Common Distributions of Exponential Family}
 		\begin{tabular}{ccccccccc}
 			\toprule
-			Distribution & Parameter(s)           & $\theta$                                & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\operatorname{Var}(Y)$                            \\
+			Distribution & Parameter(s)           & $\theta$                                & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\Var(Y)$                                          \\
 			\midrule
 			Normal       & $N(\mu,\sigma^2)$      & $\mu$                                   & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                             \\
 			Bernoulli    & $\text{Bern}(p)$       & $\log\left(\frac{p}{1-p}\right)$        & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\

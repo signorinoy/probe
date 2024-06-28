@@ -3,10 +3,10 @@
 % \begin{introduction}
 %     \item Classic Central Limit Theorem
 %     \item Central Limit Theorem for independent non-identical Random Variables
-%     \item Central Limit Theorem for dependent Random Variables
+%     \item Central Limit Theorem for Dependent Random Variables
 % \end{introduction}
 
-\section{Classic Central Limit Theorem}
+\section{Central Limit Theorem}
 
 \subsection{The De Moivre-Laplace Theorem}
 
@@ -105,14 +105,14 @@
 	\end{equation*}
 \end{proof}
 
-\subsection{Classic Central Limit Theorem}
+\subsection{Central Limit Theorem}
 
-\begin{theorem}[Classic Central Limit Theorem (i.i.d.)]
-	Let $X_1,X_2,\ldots$ be i.i.d. with $EX_i=\mu$, $\text{Var}(X_i)=\sigma^2<\infty$. Let $S_n=X_1+X_2+\ldots+X_n$, then
+\begin{theorem}[Classic Central Limit Theorem]
+	\label{thm:classic-central-limit-theorem}
+	Let $X_1,X_2,\ldots$ be i.i.d. with $\bbE X_i=\mu$, $\Var(X_i)=\sigma^2<\infty$. Let $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$, then
 	\begin{equation}
-		\frac{S_n-n\mu}{\sigma n^{\frac{1}{2}}} \stackrel{d}{\rightarrow} \chi,
+		n^{1/2}\frac{\bar{X}-\mu}{\sigma}\stackrel{d}{\rightarrow}\mcN(0,1).
 	\end{equation}
-	where $\chi$ has the standard normal distribution.
 \end{theorem}
 
 \begin{proof}
@@ -138,7 +138,7 @@
 \end{theorem}
 
 \begin{corollary}
-	Under the assumptions of Theorem 51 ,
+	Under the assumptions of Theorem 51,
 	$$
 		G_{n}(x) \rightarrow \Phi(x) \text { as } n \rightarrow \infty
 	$$

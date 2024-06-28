@@ -101,15 +101,15 @@ Let $\bfx_{-i}$ be the sample with $x_{i}$ removed, $\bfx_{-i}=\left(x_{1},x_{2}
 \paragraph{Bias of $\hat{\theta}$}
 
 For almost all reasonable and practical estimates, we have \begin{equation*}
-	\operatorname{Bias}(\hat{\theta}_{n})=\operatorname{E}(\hat{\theta}_{n})-\theta\rightarrow 0,\quad\text{ as }n\rightarrow\infty
+	\operatorname{Bias}(\hat{\theta}_{n})=\bbE(\hat{\theta}_{n})-\theta\rightarrow 0,\quad\text{ as }n\rightarrow\infty
 \end{equation*}
 Then, it is reasonable to assume a power series of the type
 \begin{equation*}
-	\operatorname{E}(\hat{\theta}_{n})=\theta+\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots
+	\bbE(\hat{\theta}_{n})=\theta+\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots
 \end{equation*}
 with some coefficients $\left\{a_{k}\right\}$. And we have
 \begin{equation*}
-	\operatorname{E}(\hat{\theta}_{-i})=\operatorname{E}(\hat{\theta}_{n-1})=\theta+\frac{a_{1}}{n-1}+\frac{a_{2}}{\left(n-1\right)^{2}}+\frac{a_{3}}{\left(n-1\right)^{3}}+\ldots
+	\bbE(\hat{\theta}_{-i})=\bbE(\hat{\theta}_{n-1})=\theta+\frac{a_{1}}{n-1}+\frac{a_{2}}{\left(n-1\right)^{2}}+\frac{a_{3}}{\left(n-1\right)^{3}}+\ldots
 \end{equation*}
 
 For the sake of a smaller variance, we average all such estimates and let
@@ -118,12 +118,12 @@ For the sake of a smaller variance, we average all such estimates and let
 \end{equation*}
 thus,
 \begin{equation*}
-	\operatorname{E}(\hat{\theta}_{(\cdot)})=\theta+\frac{a_{1}}{n-1}+\frac{a_{2}}{\left(n-1\right)^{2}}+\frac{a_{3}}{\left(n-1\right)^{3}}+\ldots
+	\bbE(\hat{\theta}_{(\cdot)})=\theta+\frac{a_{1}}{n-1}+\frac{a_{2}}{\left(n-1\right)^{2}}+\frac{a_{3}}{\left(n-1\right)^{3}}+\ldots
 \end{equation*}
 
 Thus, we have
 \begin{equation*}
-	(n-1)\operatorname{E}\left[\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right]=\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots=\operatorname{Bias}(\hat{\theta})
+	(n-1)\bbE\left[\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right]=\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots=\operatorname{Bias}(\hat{\theta})
 \end{equation*}
 Hence, we can get the jackknife estimate bias for $\hat{\theta}$ be
 \begin{equation}
@@ -147,7 +147,7 @@ Hence, we can get the jackknife estimate bias for $\hat{\theta}$ be
 
 The jackknife estimate of variance for $\hat{\theta}$ is
 \begin{equation}
-	\widehat{\operatorname{Var}}_{\text{jack}}=\frac{n-1}{n}\sum_{i=1}^{n}\left(\hat{\theta}_{-i}-\hat{\theta}_{(\cdot)}\right)^{2},\quad\text{where }\hat{\theta}_{(\cdot)}=\frac{1}{n}\sum_{i=1}^{n}\hat{\theta}_{-i}
+	\widehat{\Var}_{\text{jack}}=\frac{n-1}{n}\sum_{i=1}^{n}\left(\hat{\theta}_{-i}-\hat{\theta}_{(\cdot)}\right)^{2},\quad\text{where }\hat{\theta}_{(\cdot)}=\frac{1}{n}\sum_{i=1}^{n}\hat{\theta}_{-i}
 \end{equation}
 
 The jackknife method of estimation can fail if the statistic $\hat{\theta}_{\text{jack}}$ is not smooth. Smoothness

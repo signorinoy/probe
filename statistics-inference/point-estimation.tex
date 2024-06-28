@@ -2,66 +2,55 @@
 
 \section{Maximum Likelihood Estimator}
 
-\subsection{Classical Likelihood Estimator}
-
 Suppose that $\bfx_{n}=\left(x_{1},\ldots,x_{n}\right)$, within a parametric family
-\begin{equation}
-	p\left(x;\theta_{0}\right)\in\mathcal{P}=\left\{p(x;\theta):\theta\in\Theta\right\}
-\end{equation}
+\begin{equation*}
+	p\left(X;\theta_{0}\right)\in\mathcal{P}=\left\{p(X;\bftheta):\bftheta\in\Theta\right\}
+\end{equation*}
 
-The maximum likelihood estimate for observed $\bfx_{n}$ is the value $\theta\in\Theta$ which maximizes $L\left(\theta;X_{n}\right):=p\left(\bfx_{n};\theta\right)$, i.e.,
+The maximum likelihood estimate for observed $\bfx_{n}$ is the value $\bftheta\in\Theta$ which maximizes $L_{n}\left(\bftheta\right):=p\left(\bfx_{n};\bftheta\right)$, i.e.,
 \begin{equation}
-	\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}L\left(\theta;\bfx_{n}\right).
+	\hat{\bftheta}=\max_{\bftheta\in\Theta}L_{n}\left(\bftheta\right).
 \end{equation}
 
 In practice, it is often convenient to work with the natural logarithm of the likelihood function, called the log-likelihood:
-\begin{equation}
-	\ell\left(\theta;\bfx_{n}\right)=\ln L\left(\theta;\bfx_{n}\right)
-\end{equation}
-Since the logarithm is a monotonic function, the maximum of $\ell\left(\theta;\bfx_{n}\right)$ occurs at the same value of $\theta$ as does the maximum of $L\left(\theta;\bfx_{n}\right)$
+\begin{equation*}
+	\ell_{n}\left(\bftheta\right):=\log L_{n}\left(\bftheta\right)
+\end{equation*}
+Since the logarithm is a monotonic function, the maximum of $\ell_{n}\left(\bftheta\right)$ occurs at the same value of $\bftheta$ as does the maximum of $L_{n}\left(\bftheta\right)$
 
-If the data are independent and identically distributed, then we have
-\begin{equation}
-	\hat{\ell}\left(\theta;\bfx_{n}\right):=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)
-\end{equation}
-this being the sample analog of the expected log-likelihood $\ell(\theta)=\bbE\left[\ln p\left(x_{i} \mid \theta\right)\right]$, where this expectation is taken to the true density.
-
-\begin{equation}
-	\hat{\theta}_{\text{MLE}}:=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\bfx_{n}\right)
-\end{equation}
-
-\paragraph{Consistency}
+\subsection{Consistency}
 
 To establish consistency, the following conditions are sufficient:
-\begin{enumerate}
-	\item Identification of the model: $\theta_{0}$ is identified in the sense that if $\theta\neq\theta_{0}$ and $\theta\in\Theta$, then $p(x;\theta)\neq p\left(x;\theta_{0}\right)$ with respect to the dominating measure $\mu$.
-	\item Compactness: the parameter space $\Theta$ of the model is compact.
-	\item Continuity: the function $\ln p(x\mid\theta)$ is continuous in $\theta$ for almost all values of $x$:
+\begin{enumerate}[label=(C\arabic*)]
+	\item Identification: $\bftheta_{0}$ is identified in the sense that if $\bftheta\neq\bftheta_{0}$ and $\bftheta\in\Theta$, then $p(X;\bftheta)\neq p\left(X;\bftheta_{0}\right)$ with respect to the dominating measure $\mu$.
+	\item \label{cond:mle-compactness}
+	      The parameter space $\Theta$ of the model is compact.
+	\item \label{cond:mle-continuity}
+	      The function $\log p(X;\bftheta)$ is continuous in $\bftheta$ for almost all values of $x$, i.e.,
 	      \begin{equation}
-		      P\left[\ln p(x\mid\theta)\in C^{0}(\Theta)\right]=1
+		      P\left[\log p(X;\bftheta)\in C^{0}(\Theta)\right]=1
 	      \end{equation}
-	\item Dominance: there exists $D(x)$ integrable with respect to the distribution $p\left(x\mid\theta_{0}\right)$ such that $|\ln p\left(x\mid\theta\right)|<D(x)$ for all $\theta\in \Theta$.
+	\item Dominance: there exists $D(x)$ integrable with respect to the distribution $p\left(X;\bftheta_{0}\right)$ such that $|\log p\left(X;\bftheta\right)|<D(x)$ for all $\bftheta\in\Theta$.
 \end{enumerate}
 
 \begin{lemma}
-	If $\theta_{0}$ is identified and $E_{\theta_{0}}\left[|\ln p(x;\theta)|\right]<\infty,\forall\theta\in\Theta$, then $\ell(\theta)$ is uniquely maximized at $\theta=\theta_{0}$.
+	If $\bftheta_{0}$ is identified and $E_{\bftheta_{0}}\left[|\ln p(X;\bftheta)|\right]<\infty,\forall\bftheta\in\Theta$, then $\ell(\bftheta)$ is uniquely maximized at $\bftheta=\bftheta_{0}$.
 \end{lemma}
 
 \begin{proof}
-	% By the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}), we have,
-	% \begin{equation}
-	%     \hat{\ell}\left(\theta;\bfx_{n}\right)=\frac{1}{n}\sum_{i=1}^{n}\ln p\left(x_{i};\theta\right)\stackrel{p}{\rightarrow}E\left[\ln p\left(x_{i}\mid \theta\right)\right]=\ell(\theta)
-	% \end{equation}
-	By the strict version of Jensen's inequality, for random variable $a=\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}$ with $\theta\neq\theta_{0}$,
-	\begin{equation}
-		\ell\left(\theta_{0}\right)-\ell(\theta)=E_{\theta_{0}}\left\{-\ln\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]\right\}>-\ln E_{\theta_{0}}\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]=-\ln \left[\int f(z \mid \theta) \dif z\right]=0
-	\end{equation}
+	By the strict version of Jensen's inequality, with $\theta\neq\theta_{0}$,
+	\begin{equation*}
+		\begin{aligned}
+			\ell\left(\theta_{0}\right)-\ell(\theta)= & \bbE_{\theta_{0}}\left\{-\ln\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]\right\}>-\ln\bbE_{\theta_{0}}\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right] \\
+			=                                         & -\ln \left[\int f(z \mid \theta) \dif z\right]=0
+		\end{aligned}
+	\end{equation*}
 \end{proof}
 
 \begin{theorem}[Consistency of MLE]
 	Under the Assumption (1)-(4), we have
 	\begin{equation}
-		\hat{\theta}_{\text{MLE}}\stackrel{p}{\rightarrow}\theta_{0}
+		\hat{\theta}\stackrel{p}{\rightarrow}\theta_{0}
 	\end{equation}
 \end{theorem}
 
@@ -82,58 +71,116 @@ To establish consistency, the following conditions are sufficient:
 
 	\begin{enumerate}
 		\item For $\theta\in\Theta\cap\Theta(\epsilon)^{C}$. suppose
-		      \begin{equation}
+		      \begin{equation*}
 			      A_{n}=\left\{\sup_{\theta\in\Theta\cap\Theta(\epsilon)^{C}}\left|\hat{\ell}\left(\theta;\textbf{X}_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
-		      \end{equation}
+		      \end{equation*}
 		      then,
-		      \begin{equation}
+		      \begin{equation*}
 			      A_{n}\Longrightarrow\hat{\ell}\left(\theta;\textbf{X}_{n}\right)<\ell(\theta)+\frac{\delta}{2}\leq \ell\left(\theta^{*}\right)+\frac{\delta}{2}=\ell\left(\theta_{0}\right)-\frac{\delta}{2}
-		      \end{equation}
+		      \end{equation*}
 		\item For $\theta\in\Theta(\epsilon)$, suppose
-		      \begin{equation}
-			      B_{n}=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|\hat{\ell}\left(\theta;\bfx_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
-		      \end{equation}
+		      \begin{equation*}
+			      B_{n}=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|\hat{\ell}\left(\theta\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
+		      \end{equation*}
 		      then
-		      \begin{equation}
-			      B_{n}\Longrightarrow\forall\theta\in\Theta(\epsilon),\,\hat{\ell}\left(\theta;\bfx_{n}\right)>\ell(\theta)-\frac{\delta}{2}
-		      \end{equation}
+		      \begin{equation*}
+			      B_{n}\Longrightarrow\forall\theta\in\Theta(\epsilon),\,\hat{\ell}\left(\theta\right)>\ell(\theta)-\frac{\delta}{2}
+		      \end{equation*}
 	\end{enumerate}
 
 	By the uniform law of large numbers, the dominance condition together with continuity establishes the uniform convergence in the probability of the log-likelihood:
-	\begin{equation}
-		\sup_{\theta\in\Theta}|\hat{\ell}(\theta;\bfx_{n})-\ell(\theta)|\stackrel{p}{\rightarrow}0
-	\end{equation}
+	\begin{equation*}
+		\sup_{\theta\in\Theta}|\hat{\ell}(\theta)-\ell(\theta)|\stackrel{p}{\rightarrow}0
+	\end{equation*}
 	Thus, we can conclude that
-	\begin{equation}
+	\begin{equation*}
 		P\left(A_{n}\cap B_{n}\right)\rightarrow 1
-	\end{equation}
+	\end{equation*}
 
 	Within the definition
-	\begin{equation}
-		\hat{\theta}_{\text{MLE}}=\max_{\theta\in\Theta}\hat{\ell}\left(\theta;\bfx_{n}\right)
-	\end{equation}
+	\begin{equation*}
+		\hat{\theta}=\max_{\theta\in\Theta}\hat{\ell}\left(\theta\right)
+	\end{equation*}
 	we have,
 	\begin{equation*}
-		A_{n}\cap B_{n}\Longrightarrow\hat{\theta}_{\text{MLE}}\in\Theta(\epsilon)
+		A_{n}\cap B_{n}\Longrightarrow\hat{\theta}\in\Theta(\epsilon)
 	\end{equation*}
 
 	Hence,
 	\begin{equation*}
-		\forall\varepsilon>0,\,P\left[\hat{\theta}_{\text{MLE}}\in\Theta(\epsilon)\right]\rightarrow 1\Longrightarrow\hat{\theta}_{\text{MLE}}\stackrel{p}{\rightarrow}\theta_{0}
+		\forall\varepsilon>0,\,P\left[\hat{\theta}\in\Theta(\epsilon)\right]\rightarrow 1\Longrightarrow\hat{\theta}\stackrel{p}{\rightarrow}\theta_{0}
 	\end{equation*}
 \end{proof}
 
-\paragraph{Asymptotic Normality}
+\subsection{Fisher Information}
 
-\paragraph{Efficiency}
+\begin{definition}[Fisher Information]
+	The Fisher information of a random variable $X$ with probability density function $p(X;\theta)$ is defined as
+	\begin{equation}
+		I(\theta)=\bbE\left[\left(\frac{\partial}{\partial\theta}\ln p(X;\theta)\right)^{2}\right].
+	\end{equation}
+\end{definition}
 
-\subsection{Modified Likelihood Estimator}
+Alternatively, the Fisher information can be expressed as
+\begin{equation}
+	I(\theta)=-\bbE\left[\frac{\partial^{2}}{\partial\theta^{2}}\ln p(X;\theta)\right]
+\end{equation}
+
+\subsection{Asymptotic Normality}
+
+\begin{enumerate}[label=(C\arabic*),resume]
+	\item The information matrix $I(\bftheta)$ is positive definite.
+	\item $\left\|\frac{\partial^{2}\log p(X;\bftheta)}{\partial\bftheta\partial\bftheta^{\top}}\right\|\leq M(x)$ for all $\bftheta\in\Theta$ and $\bbE_{\bftheta_{0}}M(x)<\infty$.
+\end{enumerate}
+
+\begin{proof}
+	Since the MLE is the maximizer of the log-likelihood function, the score function evaluated at the MLE is zero, i.e., $\ell_{n}^{\prime}(\widehat{\bftheta})=\bfzero$. By the Taylor expansion of the score function around $\bftheta_{0}$, we have
+	\begin{equation*}
+		\bfzero=\ell_{n}^{\prime}(\widehat{\bftheta})=\ell_{n}^{\prime}\left(\bftheta_{0}\right)+\left(\widehat{\bftheta}-\bftheta_{0}\right)\ell_{n}^{\prime\prime}(\widetilde{\bftheta})
+	\end{equation*}
+	where $\tilde{\bftheta}$ lies between $\widehat{\bftheta}$ and $\bftheta_{0}$. Define $J_{n}(\bftheta)=-\frac{1}{n}\ell_{n}^{\prime\prime}(\bftheta)$. Then we have
+	\begin{equation*}
+		\sqrt{n}\left(\widehat{\bftheta}-\bftheta_{0}\right)=J_{n}^{-1}(\widetilde{\bftheta})n^{-1/2}\ell_{n}^{\prime}(\bftheta_{0}).
+	\end{equation*}
+	Then we need to show that: 1) $n^{-1/2}\ell_{n}^{\prime}(\bftheta_{0})\stackrel{d}{\rightarrow}\mcN\left(\bfzero, I(\bftheta_{0})\right)$; 2) $J_{n}(\widetilde{\bftheta})\stackrel{p}{\rightarrow}I(\bftheta_{0})$.
+
+	For the first term, we have
+	\begin{equation*}
+		n^{-1/2}\ell_{n}^{\prime}(\bftheta_{0})=n^{-1/2}\sum_{i=1}^{n}\ell^{\prime}(X_{i};\bftheta_{0})=\sqrt{n}\frac{1}{n}\sum_{i=1}^{n}\frac{\partial\log p(X_{i};\bftheta_{0})}{\partial\bftheta},
+	\end{equation*}
+	thus, by the central limit theorem, we have
+	\begin{equation*}
+		\sqrt{n}\frac{1}{n}\sum_{i=1}^{n}\frac{\partial\log p(X_{i};\bftheta_{0})}{\partial\bftheta}\stackrel{d}{\rightarrow}\mcN\left(\bfzero,I(\bftheta_{0})\right).
+	\end{equation*}
+
+	For the second term, denote $I_{0}^{*}(\bftheta)=\bbE_{\bftheta_{0}}\left[-\frac{\partial^{2}\log p(X;\bftheta)}{\partial\bftheta\partial\bftheta^{\top}}\right]$, by the triangle inequality, we have
+	\begin{equation*}
+		\left\|J_{n}(\widetilde{\bftheta})-I(\bftheta_{0})\right\|\leq\left\|J_{n}(\widetilde{\bftheta})-I_{0}^{*}(\widetilde{\bftheta})\right\|+\left\|I_{0}^{*}(\widetilde{\bftheta})-I(\bftheta_{0})\right\|.
+	\end{equation*}
+	According to Lemma, we have
+	\begin{equation*}
+		\left\|J_{n}(\widetilde{\bftheta})-I_{0}^{*}(\widetilde{\bftheta})\right\|\leq\sup_{\bftheta\in\Theta}\left\|J_{n}(\bftheta)-I_{0}^{*}(\bftheta)\right\|\stackrel{p}{\rightarrow}0.
+	\end{equation*}
+	Since $I_{0}^{*}(\bftheta)$ is continuous in $\bftheta$, and $\widetilde{\bftheta}\stackrel{p}{\rightarrow}\bftheta_{0}$, by the continuous mapping theorem, we have
+	\begin{equation*}
+		I_{0}^{*}(\widetilde{\bftheta})\stackrel{p}{\rightarrow}I(\bftheta_{0}).
+	\end{equation*}
+	Combining the above results, we have
+	\begin{equation*}
+		J_{n}(\widetilde{\bftheta})\stackrel{p}{\rightarrow}I(\bftheta_{0}).
+	\end{equation*}
+	which completes the proof.
+\end{proof}
+
+\subsection{Efficiency}
+
+\section{Modified Likelihood Estimator}
 
 Seek a modified likelihood function that depends on as few of the nuisance parameters as possible while sacrificing as little information as possible.
 
-\subsubsection{Marginal Likelihood}
+\subsection{Marginal Likelihood}
 
-\subsubsection{Conditional Likelihood}
+\subsection{Conditional Likelihood}
 
 Let $\boldsymbol{\theta}=(\boldsymbol{\varphi},\bfLambda)$, where $\boldsymbol{\varphi}$ is the parameter vector of interest and $\bfLambda$ is a vector of nuisance parameters. The conditional likelihood can be obtained as follows:
 \begin{enumerate}
@@ -212,16 +259,16 @@ which is independent of the nuisance parameter and may be used for inferences re
 	\end{enumerate}
 \end{proof}
 
-\subsubsection{Profile Likelihood}
+\subsection{Profile Likelihood}
 
-\subsubsection{Quasi Likelihood}
+\subsection{Quasi Likelihood}
 
 \section{Minimum-Variance Unbiased Estimator}
 
 \begin{definition}[UMVU Estimators]
 	An unbiased estimator $\delta(\textbf{X})$ of $g(\theta)$ is the uniform minimum variance unbiased (UMVU) estimator of $g(\theta)$ if
 	\begin{equation}
-		\text{Var}_{\theta}\delta(\textbf{X})\leq\text{Var}_{\theta}\delta'(\textbf{X}),\quad\forall\theta\in\Theta,
+		\Var_{\theta}\delta(\textbf{X})\leq\Var_{\theta}\delta'(\textbf{X}),\quad\forall\theta\in\Theta,
 	\end{equation}
 	where $\delta'(\textbf{X})$ is any other unbiased estimator of $g(\theta)$.
 \end{definition}
@@ -353,4 +400,72 @@ which is independent of the nuisance parameter and may be used for inferences re
 	\begin{equation*}
 		\hat{\theta_1}=\frac{n-1}{4n}X_{(1)}+\frac{3n+1}{4n}X_{(n)},\quad\hat{\theta_2}=-\frac{n+1}{4n}X_{(1)}+\frac{n+1}{4n}X_{(n)}.
 	\end{equation*}
+\end{proof}
+
+\section{Accuracy of Estimators}
+
+\begin{example}[Normal Probability]
+	Let $X_{1},\ldots,X_{n}$ be i.i.d. as $\mcN(\theta,1)$ and consider the estimation of $p=P\left(X_{i}\leq u\right)=\Phi(u-\theta)$. The maximum likelihood estimator of $p$ is $\hat{p}=\Phi(u-\bar{X})$, and we shall attempt to obtain large-sample approximations for the bias and variance of this estimator.
+\end{example}
+
+\begin{proof}
+	Since $\bar{X}-\theta$ is likely to be small, it is natural to write
+	\begin{equation*}
+		\Phi(u-\bar{X})=\Phi[(u-\theta)-(\bar{X}-\theta)]
+	\end{equation*}
+	and to expand the right side about $u-\theta$ by Taylor's theorem as
+	\begin{equation}
+		\label{eq:taylor-expansion-normal-probability}
+		\begin{aligned}
+			\Phi(u-\bar{X})= & \Phi(u-\theta)-(\bar{X}-\theta)\phi(u-\theta)+\frac{1}{2}(\bar{X}-\theta)^{2}\phi^{\prime}(u-\theta)                                  \\
+			                 & \qquad -\frac{1}{6}(\bar{X}-\theta)^{3}\phi^{\prime\prime}(u-\theta)+\frac{1}{24}(\bar{X}-\theta)^{4}\phi^{\prime\prime \prime}(\xi),
+		\end{aligned}
+	\end{equation}
+	where $\xi$ is a random quantity that lies between $u-\theta$ and $u-\bar{X}$.
+
+	To calculate the bias
+	\begin{equation*}
+		\bbE[\Phi(u-\bar{X})]-\Phi(u-\theta),
+	\end{equation*}
+	we take the expectation of \eqref{eq:taylor-expansion-normal-probability}, which yields
+	\begin{equation*}
+		\bbE[\Phi(u-\bar{X})]=p+\frac{1}{2n}\phi^{\prime}(u-\theta)+\frac{1}{24}\bbE\left[(\bar{X}-\theta)^4\phi^{\prime\prime\prime}(\xi)\right].
+	\end{equation*}
+	Since the derivatives of $\phi(x)$ all are of the form $P(x)\phi(x)$, where $P(x)$ is a polynomial in $x$ and are therefore all bounded. It follows that
+	\begin{equation*}
+		\left|\bbE(\bar{X}-\theta)^{4}\phi^{\prime\prime\prime}(\xi)\right|<M\bbE(\bar{X}-\theta)^{4}=3M/n^2,
+	\end{equation*}
+	for some finite $M$. Using the fact that $\phi^{\prime}(x)=-x \phi(x)$, we therefore find that
+	\begin{equation*}
+		\bbE(\hat{p})=p-\frac{1}{2n}(u-\theta)\phi(u-\theta)+O\left(1/n^{2}\right),
+	\end{equation*}
+	where the error term is uniformly $O\left(1 / n^2\right)$.
+	The estimator $\delta$ therefore has a bias of order $1/n$ which tends to zero as $\theta \rightarrow \pm \infty$.
+
+	In the same way, one can show that (Problem (2.2(i))
+	\begin{equation*}
+		\Var(\delta)=\frac{1}{n} \phi^2(u-\theta)+O\left(\frac{1}{n^2}\right)
+	\end{equation*}
+	and hence that
+	\begin{equation*}
+		\Var(\sqrt{n} \delta) \rightarrow \phi^2(u-\theta)
+	\end{equation*}
+
+	Since (Problem 2.2(ii))
+	\begin{equation*}
+		\sqrt{n}[\delta-\Phi(u-\theta)] \xrightarrow{L} N\left(0, \phi^2(u-\theta)\right),
+	\end{equation*}
+	the limit of the variance in this case is equal to the asymptotic variance.
+
+	It is interesting to see what happens if the expansion (4.2.13) is carried one step less far. Then
+	\begin{equation*}
+		E[\Phi(u-\bar{X})]=p+\frac{1}{2 n} \phi^{\prime}(u-\theta)+\frac{1}{6} E\left[(\bar{X}-\theta)^3 \phi^{\prime \prime}(\xi)\right] .
+	\end{equation*}
+
+	Since the third derivative of $\phi$ is bounded, the remainder now satisfies
+	\begin{equation*}
+		\frac{1}{6} E\left|(\bar{X}-\theta)^3 \phi^{\prime \prime \prime}(\xi)\right|<M^{\prime} E|\bar{X}-\theta|^3=O\left(\frac{1}{n^{3 / 2}}\right) .
+	\end{equation*}
+
+	The conclusion is therefore weaker than before.
 \end{proof}

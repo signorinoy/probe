@@ -13,11 +13,160 @@ Let $X_{1},\ldots,X_{n}\sim F$ where $F(x)=\mathbb{P}(X\leq x)$ is a distributio
 	\end{equation}
 \end{definition}
 
+Denote $Y=\sum_{i=1}^{n}I\left(X_{i}\leq x\right)$, then $Y$ is a binomial random variable with parameters $n$ and $F(x)$, that is, $Y\sim b(n,F(x))$. Therefore, we have
+\begin{equation*}
+	E\left[\hat{F}_{n}(x)\right]=F(x),\quad\Var\left[\hat{F}_{n}(x)\right]=\frac{1}{n}F(x)[1-F(x)]
+\end{equation*}
+so that $\hat{F}_{n}(a)$ is unbiased and its variance is of order $1/n$. In addition, it follows from CLT \eqref{thm:classic-central-limit-theorem} that
+\begin{equation*}
+	\sqrt{n}\left[\hat{F}_{n}(x)-F(x)\right]\stackrel{d}{\rightarrow}\mcN(0,F(x)[1-F(x)]).
+\end{equation*}
+Thus, $\hat{F}_{n}(x)$ is a consistent estimator of $F(x)$ for each fixed $x$.
+
+However, a much stronger consistency property can be asserted if the difference between $\hat{F}_{n}(x)$ and $F(x)$ is considered not only for a fixed $x$ but simultaneously for all $x$, namely
+\begin{equation*}
+	D_{n}=\sup _x\left|\hat{F}_{n}(x)-F(x)\right| \xrightarrow{P} 0 \text { as } n \rightarrow \infty .
+\end{equation*}
+For a still stronger result, see, for example, Serfling (1980, Section 2.1.4) or Billingsley (1986, Theorem 20.6).
+
 \subsection{Probability Density Function}
 
-\subsubsection{Histogram}
+\paragraph{Histogram Estimator}
+Since
+\begin{equation*}
+	f(x)=\lim_{h\rightarrow0}\frac{F(x+h)-F(x-h)}{2h},
+\end{equation*}
+one might consider the estimator
+\begin{equation*}
+	\hat{f}_{n}(x)=\frac{\hat{F}_{n}(x+h)-\hat{F}_{n}(x-h)}{2h} .
+\end{equation*}
+and hope that with $h=h_{n}$ tending to 0 as $n\rightarrow\infty$, the estimator $\hat{f}_{n}(x)$, the so-called Rosenblatt estimator, will be consistent for $f(x)$.
 
-\subsubsection{Kernel Density Estimation}
+\begin{proof}
+	The basic properties of $\hat{p}_{n}$ are obtained from the fact that
+	\begin{equation*}
+		n\left[\hat{F}_{n}(x+h_{n})-\hat{F}_{n}(x-h_{n})\right]\sim b(n,p),
+	\end{equation*}
+	where $p=F(x+h_{n})-F(x-h_{n})$. It follows that
+	\begin{equation*}
+		\bbE\left[\hat{f}_{n}(x)\right]=\frac{F(x+h_{n})-F(x-h_{n})}{2h}.
+	\end{equation*}
+	The bias is therefore
+	\begin{equation*}
+		b(x)=\frac{F(x+h_{n})-F(x-h_{n})}{2h}-\lim_{h_{n}\rightarrow0}\frac{F(x+h_{n})-F(x-h_{n})}{2h}
+	\end{equation*}
+	which tends to be zero, provided $h_{n}\rightarrow0$, as $n\rightarrow\infty$.
+
+	Similarly, the variance of $\hat{f}_{n}(x)$ is
+	\begin{equation*}
+		\Var\left[\hat{f}_{n}(x)\right]=\frac{p(1-p)}{4nh^{2}}.
+	\end{equation*}
+	As $h_{n} \rightarrow 0$, the value of $p$
+	\begin{equation*}
+		p_{n}=F\left(x+h_{n}\right)-F\left(x-h_{n}\right) \rightarrow 0 .
+	\end{equation*}
+	thus,
+	\begin{equation*}
+		\Var\left[\hat{f}_{n}(x)\right]\sim\frac{p_{n}}{2h_{n}}\cdot\frac{1}{2nh_{n}} .
+	\end{equation*}
+	Since the first factor on the right side tends to $f(x)>0$, $\Var\left[\hat{f}_{n}(x)\right] \rightarrow 0$ as $h_{n}\rightarrow 0$ if in addition $nh_{n}\rightarrow\infty$, that is, if $h_{n}$ tends to 0 more slowly than $1/n$ or, equivalently, if $\frac{1}{n}=o\left(h_{n}\right)$.
+	From these results, we immediately obtain sufficient conditions for the consistency of $\hat{f}_{n}(x)$.
+\end{proof}
+
+It is interesting to note that $\hat{f}_{n}(x)$ is itself a probability density. Since it is non-negative, one only needs to show that $\int_{-\infty}^{\infty}\hat{f}_{n}(x)\dif x=1$. This is easily seen by writing
+\begin{equation*}
+	\hat{f}_{n}(x)=\frac{1}{2nh}\sum_{i=1}^{n}I(x-h_{n}\leq X_{i}\leq x+h_{n})
+\end{equation*}
+Then
+\begin{equation*}
+	\int\hat{f}_{n}(x)\dif x=\frac{1}{2nh}\sum_{i=1}^{n}\int_{-\infty}^{\infty}I_i(x)\dif x=\frac{1}{2nh}\sum_{i=1}^{n}\int_{x_j-h}^{x_j+h}\dif x=1 .
+\end{equation*}
+
+\begin{remark}
+	Although $\hat{f}_{n}(x)$ is consistent for estimating $f(x)$ when the $h_{n}$ 's satisfy $h_{n}\rightarrow0$ and $nh_{n}\rightarrow\infty$, note that $\hat{f}_{n}(x)$ as an estimator of $f(x)$ involves two approximations: $f(x)$ by $[F(x+h_{n})-F(x-h_{n})]/2h_{n}$ and the latter by $\hat{f}_{n}(x)$. As a result, the estimator turns out to be less accurate than one might have hoped.
+	Besides, the estimator $\hat{f}_{n}(x)$, although a density, is a step function with discontinuities at every point $x_{i}\pm h_{n},i=1,\ldots,n$. If we assume the true $f(x)$ to be a smooth density, we may prefer its estimator also to be smooth.
+\end{remark}
+
+\paragraph{Kernel Density Estimation}
+
+We can rewrite it in the form:
+\begin{equation*}
+	\hat{f}_{n}(x)=\frac{1}{2nh_{n}}\sum_{i=1}^{n}I\left(x-h_{n}<X_{i}\leq x+h_{n}\right)=\frac{1}{nh_{n}}\sum_{i=1}^{n}K_{0}\left(\frac{X_i-x}{h}\right),
+\end{equation*}
+where $K_0(u)=\frac{1}{2}I(-1<u\leq 1)$. A simple generalization of the Rosenblatt estimator is given by
+\begin{equation}
+	\label{eq:kernel-density-estimator}
+	\hat{f}_{n}(x)=\frac{1}{nh_{n}}\sum_{i=1}^{n}K\left(\frac{X_{i}-x}{h_{n}}\right),
+\end{equation}
+where $K:\bbR\rightarrow\bbR$ is an integrable function satisfying $\int K(u)\dif\mu=1$.
+Such a function $K$ is called a kernel and the parameter $h_{n}$ is called a bandwidth of the estimator \eqref{eq:kernel-density-estimator}.
+The function $x\mapsto\hat{f}_{n}(x)$ is called the kernel density estimator or the Parzen-Rosenblatt estimator.
+In addition, we shall restrict attention to kernel $K$ that are symmetric about $0$.
+
+In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}$ is a probability density since it is non-negative and since
+\begin{equation*}
+	\int\hat{f}_{n}(x)\dif x=\frac{1}{n}\sum_{i=1}^{n}\int K\left(\mu-x_i\right)\dif\mu=\frac{1}{n}\sum_{i=1}^{n}\int K(\mu)\dif\mu=1.
+\end{equation*}
+
+\begin{theorem}
+	Let the density $f$ satisfies $f(x)\leq f_{\max}<\infty$ for all $x$ and let $K$ be a kernel that $int K^2(\mu)\dif\mu<\infty$. Then for any sequence $h_{n},n=1,2,\ldots$,
+	\begin{equation*}
+		\Var\left[\hat{f}_{n}(x)\right]= \frac{f_{\max}}{nh_{n}}\int K^2(\mu)\dif\mu+o\left(\frac{1}{nh_{n}}\right).
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	Denote
+	\begin{equation*}
+		\eta_{i}(x)=K\left(\frac{x-X_{i}}{h}\right)-\bbE\left[K\left(\frac{x-X_{i}}{h}\right)\right].
+	\end{equation*}
+	The random variables $\eta_{i}(x)$ are i.i.d with zero mean and variance
+	\begin{equation*}
+		\begin{aligned}
+			\bbE\left[\eta_{i}^2(x)\right]\leq & \bbE\left[K^2\left(\frac{x-X_{i}}{h}\right)\right]                   \\
+			=                                  & \int K^2(\frac{x-z}{h})f(z)\dif z\leq f_{\max}h\int K^2(\mu)\dif\mu.
+		\end{aligned}
+	\end{equation*}
+	Then, we have
+	\begin{equation*}
+		\Var\left[\hat{f}_{n}(x)\right]=\frac{1}{n^2h^2}\sum_{i=1}^{n}\bbE\left[\eta_{i}^2(x)\right]=\frac{1}{nh^2}\bbE\left[\eta_{1}^2(x)\right]\leq \frac{f_{\max}}{nh} \int K^2(\mu)\dif\mu.
+	\end{equation*}
+\end{proof}
+
+\begin{theorem}[Bias of Kernel Density Estimator]
+	Let $f$ be three times differentiable with a bounded third derivative in a neighborhood of $y$ and let $K$ be a kernel symmetric about $0$, with
+	\begin{equation*}
+		\int K^2(\mu)\dif\mu<\infty,\quad\int\mu^2K(\mu)\dif\mu=\tau^2<\infty,\quad\int|\mu|^3 K(\mu)\dif\mu<\infty.
+	\end{equation*}
+	Then for any sequence $h_{n},n=1,2,\ldots$,
+	\begin{equation*}
+		\Bias\left[\hat{f}_{n}(x)\right]=\frac{1}{2}h_{n}^2f^{\prime\prime}(x)\tau^2+o\left(h_{n}^2\right).
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	Suppressing the subscript $n$, we find for the bias of $\hat{f}_{n}(x)$,
+	\begin{equation*}
+		\begin{aligned}
+			\Bias\left[\hat{f}_{n}(x)\right] & =E\left[\frac{1}{n}\sum_{i=1}^{n}\frac{1}{h}K\left(\frac{x-X_i}{h}\right)\right]-f(x) \\
+			                                 & =\int\frac{1}{h}K\left(\frac{x-X}{h}\right)f(X)\dif X-f(x)                            \\
+			                                 & =\int K(\mu)[f(x-h\mu)-f(x)]\dif\mu.
+		\end{aligned}
+	\end{equation*}
+	By the Taylor expansion of $f(x-h\mu)$ about $x$, we have
+	\begin{equation*}
+		f(x-h\mu)=f(x)+h\mu f^{\prime}(x)+\frac{1}{2}(h\mu)^{2}f^{\prime\prime}(x)+\frac{1}{6}(h\mu)^{3}f^{\prime\prime\prime}(\xi),
+	\end{equation*}
+	where $\xi$ lies between $x$ and $x-h\mu$. Using the fact that $\int\mu K(\mu)\dif\mu=0$, we therefore have
+	\begin{equation*}
+		\Bias\left[\hat{f}_{n}(x)\right]=\frac{1}{2}h^{2}f^{\prime\prime}(x)\int\mu^{2}K(\mu)\dif\mu+R_{n},
+	\end{equation*}
+	where, with $\left|f^{\prime \prime \prime}(z)\right| \leq M$,
+	\begin{equation*}
+		\left|R_{n}\right| \leq \frac{M h^3}{6} \int|z|^3 K(z) d z=o\left(h^2\right),
+	\end{equation*}
+	which proves the first part of the theorem.
+\end{proof}
 
 \section{Kernel Methods}
 
