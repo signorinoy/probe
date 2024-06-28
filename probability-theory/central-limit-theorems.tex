@@ -109,7 +109,7 @@
 
 \begin{theorem}[Classic Central Limit Theorem]
 	\label{thm:classic-central-limit-theorem}
-	Let $X_1,X_2,\ldots$ be i.i.d. with $\bbE X_i=\mu$, $\Var(X_i)=\sigma^2<\infty$. Let $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$, then
+	Let $X_1,X_2,\ldots$ be i.i.d. with $\bbE X_{i}=\mu$, $\Var(X_{i})=\sigma^2<\infty$. Let $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$, then
 	\begin{equation}
 		n^{1/2}\frac{\bar{X}-\mu}{\sigma}\stackrel{d}{\rightarrow}\mcN(0,1).
 	\end{equation}
@@ -154,5 +154,24 @@
 \begin{theorem}[The Liapounov Central Limit Theorem]
 
 \end{theorem}
+
+\begin{theorem}
+	Let $Y_1,Y_2,\ldots$ be i.i.d. with $\bbE\left(Y_{i}\right)=0$, $\Var\left(Y_{i}\right)=\sigma^2>$ 0, and $\bbE\left|Y_{i}^3\right|=\gamma<\infty$. If
+	\begin{equation}
+		\label{eq:sufficient-condition-clt-independent-non-identical-random-variables}
+		\left(\sum_{i=1}^n\left|d_{ni}\right|^3\right)^2=o\left(\sum_{i=1}^{n}d_{ni}^2\right)^3,
+	\end{equation}
+	then
+	\begin{equation*}
+		\frac{\sum_{i=1}^{n}d_{ni}Y_{i}}{\sigma\sqrt{\sum_{i=1}^{n}d_{n }^2}}\stackrel{d}{\rightarrow}N(0,1).
+	\end{equation*}
+\end{theorem}
+
+\begin{corollary}
+	The sufficient condition \eqref{eq:sufficient-condition-clt-independent-non-identical-random-variables} is euivalent to
+	\begin{equation}
+		\max_{i=1,\ldots,n}\left(d_{ni}^2\right)=o\left(\sum d_{ni}^2\right).
+	\end{equation}
+\end{corollary}
 
 \section{Central Limit Theorem for Dependent Random Variables}

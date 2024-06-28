@@ -423,13 +423,9 @@ which is independent of the nuisance parameter and may be used for inferences re
 	\end{equation}
 	where $\xi$ is a random quantity that lies between $u-\theta$ and $u-\bar{X}$.
 
-	To calculate the bias
+	To calculate the bias, we take the expectation of \eqref{eq:taylor-expansion-normal-probability}, which yields
 	\begin{equation*}
-		\bbE[\Phi(u-\bar{X})]-\Phi(u-\theta),
-	\end{equation*}
-	we take the expectation of \eqref{eq:taylor-expansion-normal-probability}, which yields
-	\begin{equation*}
-		\bbE[\Phi(u-\bar{X})]=p+\frac{1}{2n}\phi^{\prime}(u-\theta)+\frac{1}{24}\bbE\left[(\bar{X}-\theta)^4\phi^{\prime\prime\prime}(\xi)\right].
+		\bbE[\hat{p}]=p+\frac{1}{2n}\phi^{\prime}(u-\theta)+\frac{1}{24}\bbE\left[(\bar{X}-\theta)^4\phi^{\prime\prime\prime}(\xi)\right].
 	\end{equation*}
 	Since the derivatives of $\phi(x)$ all are of the form $P(x)\phi(x)$, where $P(x)$ is a polynomial in $x$ and are therefore all bounded. It follows that
 	\begin{equation*}
@@ -442,30 +438,44 @@ which is independent of the nuisance parameter and may be used for inferences re
 	where the error term is uniformly $O\left(1 / n^2\right)$.
 	The estimator $\delta$ therefore has a bias of order $1/n$ which tends to zero as $\theta \rightarrow \pm \infty$.
 
-	In the same way, one can show that (Problem (2.2(i))
+	In the same way, by Taylor's theorem, we can expand the square of the estimator as
 	\begin{equation*}
-		\Var(\delta)=\frac{1}{n} \phi^2(u-\theta)+O\left(\frac{1}{n^2}\right)
+		\begin{aligned}
+			\Phi^{2}(u-\bar{X})= & \Phi^{2}(u-\theta)-2(\bar{X}-\theta)\Phi(u-\theta)\phi(u-\theta)                                                                      \\
+			                     & \qquad+(\bar{X}-\theta)^{2}\left[\phi^{2}(\mu-\theta)+\Phi(\mu-\theta)\phi^{\prime}(\mu-\theta)\right]                                \\
+			                     & \qquad-\frac{1}{3}(\bar{X}-\theta)^{3}\left[2\phi(\xi)\phi^{\prime}(\xi)+\Phi(\xi)\phi^{\prime\prime}(\xi)+\phi^{\prime2}(\xi)\right]
+		\end{aligned}
+	\end{equation*}
+	where $\xi$ lies between $u-\theta$ and $u-\bar{X}$. Taking the expectation of this expansion, we find that
+	\begin{equation*}
+		\bbE[\hat{p}^{2}]=p^{2}+\frac{1}{n}\phi^{2}(u-\theta)-\frac{p}{n}(\mu-\theta)\phi(u-\theta),
+	\end{equation*}
+	and
+	\begin{equation*}
+		[\bbE(\hat{p})]^{2}=p^{2}-\frac{p}{n}(\mu-\theta)\phi(u-\theta)+O\left(1/n^{2}\right).
+	\end{equation*}
+	Thus
+	\begin{equation*}
+		\Var(\hat{p})=\bbE[\hat{p}^{2}]-[\bbE(\hat{p})]^{2}=\frac{1}{n}\phi^{2}(u-\theta)+O\left(1/n^{2}\right).
 	\end{equation*}
 	and hence that
 	\begin{equation*}
 		\Var(\sqrt{n} \delta) \rightarrow \phi^2(u-\theta)
 	\end{equation*}
 
-	Since (Problem 2.2(ii))
+	Since $\sqrt{n}(\bar{X}-\theta) \stackrel{d}{\rightarrow} N\left(0,1\right)$, and $f(\theta)=\Phi(\mu-\theta)$ is differentiable with $f^{\prime}(\theta)=-\phi(\mu-\theta)$ not equal to zero when $\mu\neq\theta$, then by the delta method \eqref{thm:delta-method}, we have
 	\begin{equation*}
-		\sqrt{n}[\delta-\Phi(u-\theta)] \xrightarrow{L} N\left(0, \phi^2(u-\theta)\right),
+		\sqrt{n}(\hat{p}-p)\stackrel{d}{\rightarrow}N\left(0,\phi^{2}(u-\theta)\right),
 	\end{equation*}
 	the limit of the variance in this case is equal to the asymptotic variance.
 
-	It is interesting to see what happens if the expansion (4.2.13) is carried one step less far. Then
+	It is interesting to see what happens if the expansion \eqref{eq:taylor-expansion-normal-probability} is carried one step less far. Then
 	\begin{equation*}
 		E[\Phi(u-\bar{X})]=p+\frac{1}{2 n} \phi^{\prime}(u-\theta)+\frac{1}{6} E\left[(\bar{X}-\theta)^3 \phi^{\prime \prime}(\xi)\right] .
 	\end{equation*}
-
 	Since the third derivative of $\phi$ is bounded, the remainder now satisfies
 	\begin{equation*}
 		\frac{1}{6} E\left|(\bar{X}-\theta)^3 \phi^{\prime \prime \prime}(\xi)\right|<M^{\prime} E|\bar{X}-\theta|^3=O\left(\frac{1}{n^{3 / 2}}\right) .
 	\end{equation*}
-
 	The conclusion is therefore weaker than before.
 \end{proof}
