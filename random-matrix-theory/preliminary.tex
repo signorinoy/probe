@@ -55,15 +55,15 @@
 \end{property}
 
 \begin{remark}
-	Most of the results involve Stieltjes transforms $m_{\mu}(z)$ of a real probability measure with support $\operatorname{supp}(\mu) \subset \bbR .$ Since Stieltjes transforms are such that
+	Most of the results involve Stieltjes transforms $m_{\mu}(z)$ of a real probability measure with support $\operatorname{supp}(\mu) \subset \bbR$. Since Stieltjes transforms are such that
 	\begin{equation*}
-		m_{\mu}(z)>0,\forall z<\inf\operatorname{supp}(\mu),\quad m_{\mu}(z)<0,\forall z>\sup \operatorname{supp}(\mu),\quad\Im[z] \Im\left[m_{\mu}(z)\right]>0,\text{ if }z\in\mathbb{C}\backslash\bbR
+		m_{\mu}(z)>0,\forall z<\inf\operatorname{supp}(\mu),\quad m_{\mu}(z)<0,\forall z>\sup \operatorname{supp}(\mu),\quad\Im[z] \Im\left[m_{\mu}(z)\right]>0,\ \text{if}\ z\in\mathbb{C}\backslash\bbR
 	\end{equation*}
 	it will be convenient in the following to consider the set of scalar pairs
 	\begin{equation*}
 		\begin{array}{c}
-			\mathcal{Z}(\mathcal{A})=\left\{(z,m)\in\mathcal{A}\times\mathbb{C},(\Im[z]\Im[m]>0\text{ if } \Im[z] \neq 0)\text{ or }\left(m>0\text{ if }z<\inf \mathcal{A}^{c} \cap \bbR\right)\right. \\
-			\left.\text{ or }\left(m<0\text{ if }z>\sup \mathcal{A}^{c} \cap \bbR\right)\right\}
+			\mathcal{Z}(\mathcal{A})=\left\{(z,m)\in\mathcal{A}\times\mathbb{C},(\Im[z]\Im[m]>0\text{ if } \Im[z] \neq 0)\ \text{or}\ \left(m>0\text{ if }z<\inf \mathcal{A}^{c} \cap \bbR\right)\right. \\
+			\left.\ \text{or}\ \left(m<0\text{ if }z>\sup \mathcal{A}^{c} \cap \bbR\right)\right\}
 		\end{array}
 	\end{equation*}
 \end{remark}
@@ -145,7 +145,7 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
 \begin{definition}[Deterministic Equivalent]
 	$\overline{\bfQ}\in\bbR^{n\times n}$ is said to be deterministic equivalent for the symmetric random matrix $\bfQ\in\bbR^{n\times n}$, if for a (sequences of) deterministic matrix $\bfA\in\bbR^{n\times n}$ and vectors $\bfa,\bfb\in\bbR^{n}$ of unit norms (operator and Euclidean, respectively),
 	\begin{equation}
-		\frac{1}{n}\operatorname{tr}\bfA(\bfQ-\overline{\bfQ})\rightarrow 0,\quad\bfa^{\prime}(\bfQ-\overline{\bfQ})\bfb\rightarrow 0,\quad\text{ as }n\rightarrow\infty
+		\frac{1}{n}\operatorname{tr}\bfA(\bfQ-\overline{\bfQ})\rightarrow 0,\quad\bfa^{\prime}(\bfQ-\overline{\bfQ})\bfb\rightarrow 0,\ \text{as}\ n\rightarrow\infty
 	\end{equation}
 	where the convergence is either in probability or almost sure.
 \end{definition}
@@ -195,16 +195,16 @@ for all $f$ complex analytic in a compact neighborhood of $\operatorname{supp}\l
 \end{lemma}
 
 \begin{lemma}[Quadratic-form-close-to-the-trace] \label{lem:quadratic-form-close-to-the-trace}
-	Let $\bfx \in \bbR^{p}$ have i.i.d. entries of zero mean, unit variance and $\bbE\left[\left|x_{i}\right|^{K}\right] \leq \nu_{K}$ for some $K \geq 1 .$ Then for $\bfA \in \bbR^{p \times p}$ and $k \geq 1$
+	Let $\bfx \in \bbR^{p}$ have iid entries of zero mean, unit variance and $\bbE\left[\left|x_{i}\right|^{K}\right] \leq \nu_{K}$ for some $K \geq 1$. Then for $\bfA \in \bbR^{p \times p}$ and $k \geq 1$
 	$$
 		\bbE\left[\left|\bfx^{\top} \bfA \bfx-\operatorname{tr} \bfA\right|^{k}\right] \leq C_{k}\left[\left(\nu_{4} \operatorname{tr}\left(\bfA \bfA^{\prime}\right)\right)^{k / 2}+\nu_{2 k} \operatorname{tr}\left(\bfA \bfA^{\prime}\right)^{k / 2}\right]
 	$$
-	for some constant $C_{k}>0$ independent of $p .$ In particular, if $\|\bfA\| \leq 1$ and the entries of $\mathrm{x}$ have bounded eighth-order moment,
+	for some constant $C_{k}>0$ independent of $p$. In particular, if $\|\bfA\| \leq 1$ and the entries of $\mathrm{x}$ have bounded eighth-order moment,
 	$$
 		\bbE\left[\left(\bfx^{\top} \bfA \bfx-\operatorname{tr} \bfA\right)^{4}\right] \leq C p^{2}
 	$$
 	for some $C>0$ independent of $p$, and consequently, as $p \rightarrow \infty$,
 	$$
-		\frac{1}{p} \bfx^{\top} \bfA \bfx-\frac{1}{p} \operatorname{tr} \bfA \stackrel{\text { a.s. }}{\longrightarrow} 0
+		\frac{1}{p} \bfx^{\top} \bfA \bfx-\frac{1}{p} \operatorname{tr} \bfA \stackrel{\text {a.s.}}{\longrightarrow} 0
 	$$
 \end{lemma}

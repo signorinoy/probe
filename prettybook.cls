@@ -46,7 +46,6 @@
   pdfborder={0 0 0},
   linktocpage
 }
-\RequirePackage{biblatex}
 
 % ----------------------------------------------------------------------
 %           Text Packages

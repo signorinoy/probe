@@ -2,7 +2,7 @@
 
 \section{The Problem of Missing Data}
 
-We are concerned with the problem of the analysis of such a data matrix when some of the entries in the matrix are not observed (Figure \ref{figure:examples-of-missingness-patterns}).
+We are concerned with the problem of the analysis of such a data matrix when some of the entries in the matrix are not observed (Figure~\ref{figure:examples-of-missingness-patterns}).
 
 \begin{figure}[hpt]
 	\centering
@@ -121,7 +121,7 @@ The likelihood of $\theta$ ignoring the missingness mechanism is defined to be
 
 \begin{remark}[Another definition of ignorable missingness mechanism]
 	\begin{equation}
-		\frac{L_{\text {full }}\left(\theta, \psi \mid \tilde{y}_{(0)}, \tilde{m}\right)}{L_{\text {full }}\left(\theta^{*}, \psi \mid \tilde{y}_{(0)}, \tilde{m}\right)}=\frac{L_{\text {ign }}\left(\theta \mid \tilde{y}_{(0)}\right)}{L_{\text {ign }}\left(\theta^{*} \mid \tilde{y}_{(0)}\right)} \quad \forall \theta, \theta^{*}, \psi .
+		\frac{L_{\text {full }}\left(\theta, \psi \mid \tilde{y}_{(0)}, \tilde{m}\right)}{L_{\text {full }}\left(\theta^{*}, \psi \mid \tilde{y}_{(0)}, \tilde{m}\right)}=\frac{L_{\text {ign }}\left(\theta \mid \tilde{y}_{(0)}\right)}{L_{\text {ign }}\left(\theta^{*} \mid \tilde{y}_{(0)}\right)} \quad \forall \theta, \theta^{*}, \psi.
 	\end{equation}
 \end{remark}
 
@@ -153,7 +153,7 @@ The likelihood of $\theta$ ignoring the missingness mechanism is defined to be
 			= & f_{M \mid Y}\left(\tilde{m} \mid \tilde{y}_{(0)}, \psi\right) \times f_{Y}\left(\tilde{y}_{(0)} \mid \theta\right)
 		\end{aligned}
 	\end{equation}
-	yields the factored likelihood equation \ref{equation:factorization-of-the-full-likelihood}.
+	yields the factored likelihood equation~\ref{equation:factorization-of-the-full-likelihood}.
 \end{proof}
 
 \subsubsection{Ignorable Missingness Mechanism v.s. Nonignorable Missingness Mechanism}
@@ -413,7 +413,7 @@ Hence, the EM algorithm for likelihood-based inference with missing data is
 				      y_{i j}^{(t+1)}=   & \left\{\begin{array}{ll}
 					                                  y_{i j},                                             & \text { if } y_{i j} \text { is observed} \\
 					                                  E\left(y_{i j} \mid y_{(0), i}, \theta^{(t)}\right), & \text { if } y_{i j} \text { is missing}
-				                                  \end{array}\right.                                                                          \\
+				                                  \end{array}\right.                                                                         \\
 				      c_{j k i}^{(t+1)}= & \left\{\begin{array}{ll}
 					                                  0,                                                                             & \text { if } y_{i j} \text { or } y_{i k} \text { is observed}  \\
 					                                  \operatorname{Cov}\left(y_{i j}, y_{i k} \mid y_{(0), i}, \theta^{(t)}\right), & \text { if } y_{i j} \text { and } y_{i k} \text { are missing}
@@ -446,9 +446,9 @@ Hence, the EM algorithm for likelihood-based inference with missing data is
 		\begin{aligned}
 			\mu    & =\left(\mu_{1}, \ldots, \mu_{p}, \mu_{y}\right) \\
 			\Sigma & =\left(\begin{array}{ll}
-				                \Sigma_{x x} & \Sigma_{x y} \\
-				                \Sigma_{y x} & \sigma_{y y}
-			                \end{array}\right)
+					                \Sigma_{x x} & \Sigma_{x y} \\
+					                \Sigma_{y x} & \sigma_{y y}
+				                \end{array}\right)
 		\end{aligned}
 	\end{equation}
 	, and that the missing data mechanism is ignorable.
@@ -519,7 +519,7 @@ The EM algorithm has the following form for MNAR selection models are as followe
 	      \end{equation}
 	\item M-step:
 	      \begin{equation}
-		      Q\left(\theta^{(t+1)}, \psi^{(t+1)} \mid \theta^{(t)}, \psi^{(t)}\right) \geq Q\left(\theta, \psi \mid \theta^{(t)}, \psi^{(t)}\right) \quad \text { for all } \theta, \psi
+		      Q\left(\theta^{(t+1)}, \psi^{(t+1)} \mid \theta^{(t)}, \psi^{(t)}\right) \geq Q\left(\theta, \psi \mid \theta^{(t)}, \psi^{(t)}\right) \quad \forall\theta, \psi
 	      \end{equation}
 \end{itemize}
 

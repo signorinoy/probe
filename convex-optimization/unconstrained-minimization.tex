@@ -15,7 +15,7 @@ Assume the problem is solvable, i.e., there exists an optimal point $\bfx^{*}$, 
 \begin{equation*}
 	f(\bfx^{*})=\inf_{\bfx}f(\bfx)
 \end{equation*}
-and denote it by $p^{*}$. Since $f$ is differentiable and convex, the point $\bfx^{*}$ is optimal. if and only if
+and denote it by $p^{*}$. Since $f$ is differentiable and convex, the point $\bfx^{*}$ is optimal, if and only if
 \begin{equation}
 	\nabla f(\bfx^{*})=0
 	\label{eq:optimal-condition-of-unconstrained-minimization-problem}
@@ -23,7 +23,7 @@ and denote it by $p^{*}$. Since $f$ is differentiable and convex, the point $\bf
 
 Solving (\ref{eq:unconstrained-minimization-problem}) is equal to finding the solution of (\ref{eq:optimal-condition-of-unconstrained-minimization-problem}), thus (\ref{eq:unconstrained-minimization-problem}) can be solved by analytic solution of (\ref{eq:optimal-condition-of-unconstrained-minimization-problem}) in a few cases, but usually can be solved by an iterative algorithm, i.e.,
 \begin{equation*}
-	\exists\bfx^{(0)},\bfx^{(1)},\ldots\in\operatorname{dom}f,\quad\text{ s.t. }f(\bfx^{(k)})\rightarrow p^{*},\quad\text{ as }\quad k\rightarrow\infty
+	\exists\bfx^{(0)},\bfx^{(1)},\ldots\in\operatorname{dom}f,\ \text{s.t.}\ f(\bfx^{(k)})\rightarrow p^{*},\ \text{as}\ \quad k\rightarrow\infty
 \end{equation*}
 This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$, where $\epsilon>0$ is some specified tolerance.
 
@@ -32,7 +32,7 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 	\begin{equation*}
 		S=\left\{\bfx\in\operatorname{dom}f\mid f(\bfx)\leq f(\bfx^{(0)})\right\}
 	\end{equation*}
-	must be closed. Any closed function (Definition \ref{def:closed-function})
+	must be closed. Any closed function (Definition~\ref{def:closed-function})
 \end{remark}
 
 \begin{example}[Quadratic Minimization]
@@ -62,7 +62,7 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 		\item
 		      Since $\bfP\nsucceq 0$, i.e.,
 		      \begin{equation*}
-			      \exists\bfv,\quad\text{ s.t. }\bfv^{\prime}\bfP\bfv<0
+			      \exists\bfv,\ \text{s.t.}\ \bfv^{\prime}\bfP\bfv<0
 		      \end{equation*}
 		      Let $\bfx=t\bfv$, we have
 		      \begin{equation*}

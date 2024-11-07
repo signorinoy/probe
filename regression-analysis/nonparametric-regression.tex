@@ -56,7 +56,7 @@ To quantify the stability of our algorithm, we will introduce one important conc
 	\begin{equation}
 		\sup_{(x,y)\in\mathcal{D}}\left|L\left(y,\hat{f}(\bfx)\right)-L\left(y,\hat{f}_{\backslash i}(\bfx)\right)\right|\leq\beta
 	\end{equation}
-	i.e. the algorithm is "stable" to remove a single sample at all points.
+	i.e.\ the algorithm is "stable" to remove a single sample at all points.
 \end{definition}
 
 \subsection{Uniform Stability of Regularized Kernel Model}
@@ -75,9 +75,9 @@ Firstly, we will provide an auxiliary lemma.
 	Due to the convexity of $f$ we know that $f(a)+(b-a) f^{\prime}(a) \leq f(b)$ and, likewise, $f(b)+(a-b) f^{\prime}(b) \leq f(a)$. Summing up both inequalities and subtracting the terms in $f(a)$ and $f(b)$ proves \eqref{eq:convex-functions-and-derivatives}.
 \end{proof}
 
-Then, we will show that the algorithm we studied in this paper satisfied the definition \ref{def:uniform-stability}, and the corresponding value of $\beta$ can be calculated.
+Then, we will show that the algorithm we studied in this paper satisfied the definition~\ref{def:uniform-stability}, and the corresponding value of $\beta$ can be calculated.
 
-\begin{theorem}[Algorithmic Stability of Risk Minimizers \cite{bousquet_stability_2002,scholkopf_learning_2001}]
+\begin{theorem}[Algorithmic Stability of Risk Minimizers \citep{bousquet2002stability,scholkopf2002learning}]
 	\label{thm:algorithmic-stability-of-risk-minimizers}
 	The algorithm that minimizes the regularized empirical risk in \eqref{eq:regularized-risk-of-rkhs} has stability
 	\begin{equation}
@@ -93,7 +93,7 @@ Then, we will show that the algorithm we studied in this paper satisfied the def
 \begin{proof}
 	To distinguish between different training sets, we use $R_{\text{reg}}[f, S]$ and $R_{\text{reg}}[f, S^{\backslash i}]$ (and likewise $R_{\text{emp}}[f, S]$) during the remainder of the proof.
 
-	Since $\hat{f}$ minimizes $R_{\text{reg}}[f,S]$, that is, the \textbf{functional derivative} \cite{stephane_canu_lecture_2014} of $R_{\text{reg}}[f,S]$ at $\hat{f}$ vanishes, and so does $R_{\text{reg}}[f,S^{\backslash i}]$ at $\hat{f}_{\backslash i}$,
+	Since $\hat{f}$ minimizes $R_{\text{reg}}[f,S]$, that is, the \textbf{functional derivative} \cite{stephane2014lecture} of $R_{\text{reg}}[f,S]$ at $\hat{f}$ vanishes, and so does $R_{\text{reg}}[f,S^{\backslash i}]$ at $\hat{f}_{\backslash i}$,
 	\begin{equation}
 		\label{eq:vanishes-derivative-of-R-reg}
 		\begin{aligned}
@@ -129,7 +129,7 @@ Then, we will show that the algorithm we studied in this paper satisfied the def
 			\geq & L^{\prime}\left(y_{i},\hat{f}(\bfx_{i})\right)\left[\hat{f}(\bfx_{i})-\hat{f}_{\backslash i}(\bfx_{i})\right]
 		\end{aligned}
 	\end{equation}
-	The first equation is since the functional derivative $\partial_{f}(f)=k(\bfx,.)$ and then collecting the common terms between $R_{\text{emp}}\left[\hat{f}, S\right]$ and $R_{\text{emp}}\left[\hat{f}_{\backslash i}, S^{\backslash i}\right]$. And, as for the last inequation, we use lemma \ref{lem:convex-functions-and-derivatives} applied to the loss function $L\left(y,f(\bfx)\right)$ which is a convex function of $f(\bfx)$.
+	The first equation is since the functional derivative $\partial_{f}(f)=k(\bfx,.)$ and then collecting the common terms between $R_{\text{emp}}\left[\hat{f}, S\right]$ and $R_{\text{emp}}\left[\hat{f}_{\backslash i}, S^{\backslash i}\right]$. And, as for the last inequation, we use lemma~\ref{lem:convex-functions-and-derivatives} applied to the loss function $L\left(y,f(\bfx)\right)$ which is a convex function of $f(\bfx)$.
 
 	Combine the above result with the fact $\tilde{R}[\hat{f}]\leq 0$, we have
 	\begin{equation}
@@ -176,7 +176,7 @@ Then, we will show that the algorithm we studied in this paper satisfied the def
 
 Within the uniform stability of our algorithm, we will also prove that the $\beta$-stable algorithm exhibits uniform convergence of the empirical risk $R_{\text{emp}}[f]$ to the true risk $R[f]$.
 
-\begin{theorem}[McDiarmid's Bound \cite{siemons_method_1989}] \label{thm:McDiarmid-bound}
+\begin{theorem}[McDiarmid's Bound \citep{mcdiarmid1989method}] \label{thm:McDiarmid-bound}
 	Suppose $\xi_{1},\ldots,\xi_{n}$ be i.i.d real value random variables and assume that there exists a function $g:\bbR^{n}\rightarrow\bbR$ with the property that for all $i\in[n]$ and $c_{i}>0$,
 	\begin{equation}
 		\sup_{\xi_{1},\ldots,\xi_{n},\xi_{i}^{\prime}\in\xi}\left|g\left(\xi_{1},\ldots,\xi_{n}\right)-g\left(\xi_{1},\ldots,\xi_{i-1},\xi_{i}^{\prime},\xi_{i+1},\ldots,\xi_{n}\right)\right|\leq c_{i}
@@ -187,7 +187,7 @@ Within the uniform stability of our algorithm, we will also prove that the $\bet
 	\end{equation}
 \end{theorem}
 
-\begin{theorem}[Bousquet and Elisseeff \cite{bousquet_algorithmic_2001,ofer_dekel_algorithmic_2011}] \label{thm:bousquet-and-elisseeff}
+\begin{theorem}[Bousquet and Elisseeff \citep{bousquet2001algorithmic,ofer2011algorithmic}] \label{thm:bousquet-and-elisseeff}
 	Assume that we have a $\beta$-stable algorithm with the additional requirement that the loss function $L\left(y,f(\bfx)\right)\leq M$ for all $(\bfx,y)\in\mathcal{D}$ and for all samples $S:=\left\{\bfx_{i},y_{i}\right\}_{i=1}^{n}\subset\mathcal{D}$. Then, for any $n\geq 1$
 	\begin{equation}
 		\mathbb{P}\left\{\left|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]\right|>\varepsilon+2\beta\right\}\leq 2\exp\left(-\frac{n\varepsilon^{2}}{2(n\beta+M)^{2}}\right)
@@ -238,7 +238,7 @@ Within the uniform stability of our algorithm, we will also prove that the $\bet
 		\end{aligned}
 	\end{equation}
 
-	Thus, by the Theorem \ref{thm:McDiarmid-bound}, we have $c_{i}=4\beta+\frac{2M}{n}$, that,
+	Thus, by the Theorem~\ref{thm:McDiarmid-bound}, we have $c_{i}=4\beta+\frac{2M}{n}$, that,
 	\begin{equation}
 		\begin{aligned}
 			\mathbb{P}\left\{|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]-2\beta|>\varepsilon\right\}\leq & \mathbb{P}\left\{|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]|>\varepsilon+2\beta\right\} \\
@@ -249,7 +249,7 @@ Within the uniform stability of our algorithm, we will also prove that the $\bet
 
 Within the above two theorems, we can directly get the following practical consequence.
 \begin{corollary}[Uniform Convergence Bounds for RKHS]
-	The algorithm minimizing the regularized risk $R_{\text{reg}}[f]$, as in \eqref{eq:regularized-risk-of-rkhs}, and with the assumptions of Theorem \ref{thm:algorithmic-stability-of-risk-minimizers} and \ref{thm:bousquet-and-elisseeff}, we obtain
+	The algorithm minimizing the regularized risk $R_{\text{reg}}[f]$, as in \eqref{eq:regularized-risk-of-rkhs}, and with the assumptions of Theorem~\ref{thm:algorithmic-stability-of-risk-minimizers} and~\ref{thm:bousquet-and-elisseeff}, we obtain
 	\begin{eqnarray}
 		\label{eq:uniform-convergence-bounds-for-rkhs}
 		\mathbb{P}\left\{\left|R_{\text{emp}}[\hat{f}]-R[\hat{f}]\right|>\varepsilon+2\beta\right\}\leq 2\exp\left(-\frac{n}{2}\left(\frac{\varepsilon}{M}\right)^{2}\left(1+\frac{4}{\lambda M}(C \kappa)^{2}\right)^{-2}\right)
@@ -266,4 +266,6 @@ Within the above two theorems, we can directly get the following practical conse
 
 \subsection*{Comments}
 
-The idea of the discussion content was inspired by \cite[Section 3]{hofmann_kernel_2008} review, and the report is organized following \cite[Chapter 12]{scholkopf_learning_2001} structure, and so are the main proof ideas.
+The idea of the discussion content was inspired by \cite[Section 3]{hofmann2008kernel} review, and the report is organized following \cite[Chapter 12]{scholkopf2002learning} structure, and so are the main proof ideas.
+
+\printbibliography[heading=subbibliography]

@@ -12,7 +12,7 @@
 
 \begin{lemma}[Stirling's Formula] \label{lem:stirling}
 	\begin{equation}
-		n ! \sim \sqrt{2 \pi} n^{n+\frac{1}{2}} e^{-n} \text{ as } n \rightarrow \infty.
+		n! \sim \sqrt{2 \pi} n^{n+\frac{1}{2}} e^{-n}\quad n \rightarrow \infty.
 	\end{equation}
 \end{lemma}
 
@@ -32,7 +32,7 @@
 \end{proof}
 
 \begin{theorem}[The De Moivre-Laplace Theorem] \label{thm:de-moivre-laplace}
-	Let $X_{1}, X_{2}, \ldots$ be i.i.d. with $P\left(X_{1}=1\right)=P\left(X_{1}=-1\right)=1 / 2$ and let $S_{n}=X_{1}+\cdots+X_{n}$. If $a<b$, then as $m \rightarrow \infty$
+	Let $X_{1}, X_{2}, \ldots$ be iid with $P\left(X_{1}=1\right)=P\left(X_{1}=-1\right)=1 / 2$ and let $S_{n}=X_{1}+\cdots+X_{n}$. If $a<b$, then as $m \rightarrow \infty$
 	\begin{equation}
 		P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \dif x.
 	\end{equation}
@@ -46,13 +46,13 @@
 				n+k
 			\end{array}\right) 2^{-2 n}
 	\end{equation*}
-	By lemma \ref{lem:stirling}, we have
+	By lemma~\ref{lem:stirling}, we have
 	\begin{equation*}
 		\begin{aligned}
 			\left(\begin{array}{c}
 					      2 n \\
 					      n+k
-				      \end{array}\right) & =\frac{(2 n) !}{(n+k) !(n-k) !}                                                                                           \\
+				      \end{array}\right) & =\frac{(2 n)!}{(n+k)!(n-k)!}                                                                                              \\
 			                       & \sim \frac{(2 n)^{2 n}}{(n+k)^{n+k}(n-k)^{n-k}} \cdot \frac{(2 \pi(2 n))^{1 / 2}}{(2 \pi(n+k))^{1 / 2}(2 \pi(n-k))^{1 / 2}}
 		\end{aligned}
 	\end{equation*}
@@ -70,7 +70,7 @@
 			                          & \cdot(\pi n)^{-1 / 2} \cdot\left(1+\frac{k}{n}\right)^{-1 / 2} \cdot\left(1-\frac{k}{n}\right)^{-1 / 2}           \\
 		\end{aligned}
 	\end{equation*}
-	Let $2k=x\sqrt{2n}$, i.e., $k=x\sqrt{\frac{n}{2}}$. By lemma \ref{lem:exp}, we have
+	Let $2k=x\sqrt{2n}$, i.e., $k=x\sqrt{\frac{n}{2}}$. By lemma~\ref{lem:exp}, we have
 	\begin{equation*}
 		\begin{aligned}
 			\left(1-\frac{k^{2}}{n^{2}}\right)^{-n} & =\left(1-x^{2} / 2 n\right)^{-n} \rightarrow e^{x^{2} / 2}       \\
@@ -84,7 +84,7 @@
 	\end{equation*}
 	Putting things together, we have
 	\begin{equation*}
-		P\left(S_{2 n}=2 k\right) \sim (\pi n)^{-1 / 2} e^{-x^{2} / 2}, \text{ as } \frac{2k}{\sqrt{2n}} \rightarrow x.
+		P\left(S_{2 n}=2 k\right) \sim (\pi n)^{-1 / 2} e^{-x^{2} / 2},\frac{2k}{\sqrt{2n}} \rightarrow x.
 	\end{equation*}
 	Therefore,
 	\begin{equation*}
@@ -109,7 +109,7 @@
 
 \begin{theorem}[Classic Central Limit Theorem]
 	\label{thm:classic-central-limit-theorem}
-	Let $X_1,X_2,\ldots$ be i.i.d. with $\bbE X_{i}=\mu$, $\Var(X_{i})=\sigma^2<\infty$. Let $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$, then
+	Let $X_1,X_2,\ldots$ be iid with $\bbE X_{i}=\mu$, $\Var(X_{i})=\sigma^2<\infty$. Let $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$, then
 	\begin{equation}
 		n^{1/2}\frac{\bar{X}-\mu}{\sigma}\stackrel{d}{\rightarrow}\mcN(0,1).
 	\end{equation}
@@ -131,7 +131,7 @@
 \subsection{Berry-Esseen Theorem}
 
 \begin{theorem}[Berry-Esseen Theorem]
-	Let $X_{1},X_{2},\ldots,X_{n}$ be i.i.d. with distribution $F$ , which has a mean $\mu$ and a finite third moment $\sigma^{3}$, then there exists a constant $C$ (independent of $F$),
+	Let $X_{1},X_{2},\ldots,X_{n}$ be iid with distribution $F$ , which has a mean $\mu$ and a finite third moment $\sigma^{3}$, then there exists a constant $C$ (independent of $F$),
 	\begin{equation}
 		\left|G_{n}(x)-\Phi(x)\right|\leq\frac{C}{\sqrt{n}}\frac{E\left|X_{1}-\mu\right|^{3}}{\sigma^{3}},\quad\forall x.
 	\end{equation}
@@ -158,7 +158,7 @@
 
 \begin{theorem}
 	\label{thm:linear-combination-inid}
-	Let $Y_1,Y_2,\ldots$ be i.i.d. with $\bbE\left(Y_{i}\right)=0$, $\Var\left(Y_{i}\right)=\sigma^2>$ 0, and $\bbE\left|Y_{i}^3\right|=\gamma<\infty$. If
+	Let $Y_1,Y_2,\ldots$ be iid with $\bbE\left(Y_{i}\right)=0$, $\Var\left(Y_{i}\right)=\sigma^2>$ 0, and $\bbE\left|Y_{i}^3\right|=\gamma<\infty$. If
 	\begin{equation}
 		\label{eq:sufficient-condition-linear-combination-inid}
 		\left(\sum_{i=1}^n\left|d_{ni}\right|^3\right)^2=o\left(\sum_{i=1}^{n}d_{ni}^2\right)^3,

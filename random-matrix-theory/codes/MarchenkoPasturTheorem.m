@@ -1,6 +1,6 @@
 clc, clear
 
-ft = @(x, rho) (sqrt(max(0, x-(1 - sqrt(rho))^2).*max(0, (1 + sqrt(rho))^2-x)) ./ (2 * pi * rho * x + eps));
+ft = @(x, rho) (sqrt(max(0, x-(1 - sqrt(rho))^2).*max(0, (1 + sqrt(rho))^2-x))./ (2 * pi * rho * x + eps));
 %% Theoretical pdf
 rhos = [0.3, 0.6, 1.0, 1.3, 1.6];
 figure;

@@ -13,7 +13,7 @@ By the multivariate central limit theorem, we have
 \begin{equation*}
 	\sqrt{n}(\bar{\bfX}-\bfmu)\xrightarrow{d}\mcN(\bfzero,\bfSigma).
 \end{equation*}
-Applying the continuous mapping theorem and Theorem \ref{thm:mvn-properties}, we obtain
+Applying the continuous mapping theorem and Theorem~\ref{thm:mvn-properties}, we obtain
 \begin{equation*}
 	n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\sim\chi^{2}_{p}.
 \end{equation*}
@@ -36,7 +36,7 @@ which provides asymptotically valid confidence regions for $\bfmu$ at level $1-\
 \begin{proof}
 	To show that
 	\begin{equation*}
-		\Pr\left(n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\leq C_{p}\right)\rightarrow1-\alpha,\quad\text{ as }n\rightarrow\infty.
+		\Pr\left(n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\leq C_{p}\right)\rightarrow1-\alpha,\ \text{as}\ n\rightarrow\infty.
 	\end{equation*}
 \end{proof}
 
@@ -88,7 +88,7 @@ and by the continuous mapping theorem with the fact that $m/(m+n)\rightarrow\rho
 
 \begin{proof}
 	\begin{equation*}
-		\Pr\left(T_{mn}\leq C_{k}\right)\rightarrow\gamma,\quad\text{ as }m\text{ and }n\rightarrow\infty
+		\Pr\left(T_{mn}\leq C_{k}\right)\rightarrow\gamma,\ \text{as}\ m,n\rightarrow\infty
 	\end{equation*}
 
 	For convenience, suppose $m<n$, then we define
@@ -139,7 +139,7 @@ against the alternatives that $p_{i}\neq p_{i}^{(0)}$ for at least some $i$. The
 The asymptotic distribution of $Q$ is $\chi^{2}_{k}$ under $H_{0}$.
 
 \begin{proof}
-	It follows from (5.4.14) and Theorem \ref{thm:mvn-properties} that
+	It follows from (5.4.14) and Theorem~\ref{thm:mvn-properties} that
 	\begin{equation}
 		\label{eq:multinomial-test-chi2}
 		n\sum_{i=1}^{k}\sum_{j=1}^{k}a_{ij}\left(\frac{Y_i}{n}-p_i^{(0)}\right)\left(\frac{Y_j}{n}-p_j^{(0)}\right)\stackrel{d}{\rightarrow}\chi_k^2,

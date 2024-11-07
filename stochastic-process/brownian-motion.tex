@@ -12,7 +12,7 @@
 		      \begin{equation}
 			      P\left(B(s+t)-B(s)\in A\right)=\int_{A}(2\pi t)^{-1/2}\exp\left(-x^{2}/2t\right)\dif x
 		      \end{equation}
-		\item the sample paths $t\rightarrow B(t)$ are a.s. continuous
+		\item the sample paths $t\rightarrow B(t)$ are a.s.\ continuous.
 	\end{enumerate}
 \end{definition}
 
@@ -63,7 +63,7 @@ A second equivalent definition of Brownian motion is as follows,
 	\begin{enumerate}
 		\item $B(t)$ is a Gaussian process\footnote{Gaussian process, i.e., all its finite-dimensional distributions are multivariate normal.}
 		\item $\forall s,t\geq 0,EB_{s}=0$ and $EB_{s}B_{t}=s\wedge t$
-		\item the sample paths $t\rightarrow B(t)$ are a.s. continuous
+		\item the sample paths $t\rightarrow B(t)$ are a.s.\ continuous
 	\end{enumerate}
 \end{definition}
 
@@ -128,7 +128,7 @@ be the corresponding increments of the Brownian motion $B(t)$.
 
 \begin{theorem} \label{thm:limited-square-variation}
 	\begin{equation}
-		\lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\quad\text { in }\quad L^{2}
+		\lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\quad\text {in}\quad L^{2}
 	\end{equation}
 \end{theorem}
 
@@ -170,18 +170,18 @@ be the corresponding increments of the Brownian motion $B(t)$.
 		\sum_{i=0}^{n-1}\left|\Delta_{i}^{n}B\right|^{2}\leq\left(\max_{i=0,\ldots,n-1}\left|\Delta_{i}^{n}B\right|\right)\sum_{i=0}^{n-1}\left|\Delta_{i}^{n}B\right|
 	\end{equation*}
 
-	Since the paths of $B(t)$ are a.s. continuous on $[0,T]$,
+	Since the paths of $B(t)$ are a.s.\ continuous on $[0,T]$,
 	\begin{equation*}
-		\lim_{n\rightarrow\infty}\left(\max_{i=0,\ldots,n-1}\left|\Delta_{i}^{n}B\right|\right)=0\quad\text{ a.s. }
+		\lim_{n\rightarrow\infty}\left(\max_{i=0,\ldots,n-1}\left|\Delta_{i}^{n}B\right|\right)=0\quad\text{a.s. }
 	\end{equation*}
 
-	By Theorem \ref{thm:limited-square-variation}, we have
+	By Theorem~\ref{thm:limited-square-variation}, we have
 	\begin{equation*}
-		\lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\quad\text { in }\quad L^{2}
+		\lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}\left(\Delta_{i}^{n}B\right)^{2}=T\ \text{in}\ L^{2}
 	\end{equation*}
 	Since every sequence of random variables convergent in $L^{2}$ has a subsequence convergent a.s. There is a subsequence $t^{n_{k}}=\left(t_{0}^{n_{k}},t_{1}^{n_{k}},\ldots,t_{n_{k}}^{n_{k}}\right)$ of partitions such that
 	\begin{equation*}
-		\lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|^{2}=T\quad\text{ a.s. }
+		\lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|^{2}=T\quad\text{a.s. }
 	\end{equation*}
 
 	Since
@@ -190,7 +190,7 @@ be the corresponding increments of the Brownian motion $B(t)$.
 	\end{equation*}
 	hence,
 	\begin{equation*}
-		\lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|=\infty\quad\text{ a.s. }
+		\lim_{k\rightarrow\infty}\sum_{i=0}^{n_{k}-1}\left|\Delta_{i}^{n_{k}}B\right|=\infty\quad\text{a.s. }
 	\end{equation*}
 	while
 	\begin{equation*}
@@ -238,13 +238,13 @@ be the corresponding increments of the Brownian motion $B(t)$.
 \end{proof}
 
 \begin{definition}[Itô Process]
-	A stochastic process $\xi(t),t\geq 0$ is said to be an Itô process if it has a.s. continuous paths and can be represented as
+	A stochastic process $\xi(t),t\geq 0$ is said to be an Itô process if it has a.s.\ continuous paths and can be represented as
 	\begin{equation}
-		\xi(T)=\xi(0)+\int_{0}^{T}a(t)\dif t+\int_{0}^{T}b(t)\dif B(t)\quad\text { a.s. }
+		\xi(T)=\xi(0)+\int_{0}^{T}a(t)\dif t+\int_{0}^{T}b(t)\dif B(t)\quad\text{a.s.}
 	\end{equation}
 	where $b(t)$ is a process belonging to $M_{T}^{2}$ for all $T>0$ and $a(t)$ is a process adapted to the filtration $\mcF_{t}$ such that
 	\begin{equation}
-		\int_{0}^{T}|a(t)|\dif t<\infty\quad\text { a.s. } \label{eq:condition-of-process-adapted-to-filtration}
+		\int_{0}^{T}|a(t)|\dif t<\infty\quad\text {a.s.} \label{eq:condition-of-process-adapted-to-filtration}
 	\end{equation}
 	for all $T\geq 0$.
 	The Itô process is denoted by
@@ -254,7 +254,7 @@ be the corresponding increments of the Brownian motion $B(t)$.
 \end{definition}
 
 \begin{remark}
-	The class of all adapted processes $a(t)$ satisfying \ref{eq:condition-of-process-adapted-to-filtration} for some $T>0$ will be denoted by $\mathcal{L}_{T}^{1}$.
+	The class of all adapted processes $a(t)$ satisfying~\ref{eq:condition-of-process-adapted-to-filtration} for some $T>0$ will be denoted by $\mathcal{L}_{T}^{1}$.
 \end{remark}
 
 \begin{theorem}[It\^o Formula]

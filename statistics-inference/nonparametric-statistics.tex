@@ -25,7 +25,7 @@ Thus, $\hat{F}_{n}(x)$ is a consistent estimator of $F(x)$ for each fixed $x$.
 
 However, a much stronger consistency property can be asserted if the difference between $\hat{F}_{n}(x)$ and $F(x)$ is considered not only for a fixed $x$ but simultaneously for all $x$, namely
 \begin{equation*}
-	D_{n}=\sup _x\left|\hat{F}_{n}(x)-F(x)\right| \xrightarrow{P} 0 \text { as } n \rightarrow \infty .
+	D_{n}=\sup _x\left|\hat{F}_{n}(x)-F(x)\right| \xrightarrow{P} 0,\quad n \rightarrow \infty.
 \end{equation*}
 For a still stronger result, see, for example, Serfling (1980, Section 2.1.4) or Billingsley (1986, Theorem 20.6).
 
@@ -38,7 +38,7 @@ Since
 \end{equation*}
 one might consider the estimator
 \begin{equation*}
-	\hat{f}_{n}(x)=\frac{\hat{F}_{n}(x+h)-\hat{F}_{n}(x-h)}{2h} .
+	\hat{f}_{n}(x)=\frac{\hat{F}_{n}(x+h)-\hat{F}_{n}(x-h)}{2h}.
 \end{equation*}
 and hope that with $h=h_{n}$ tending to 0 as $n\rightarrow\infty$, the estimator $\hat{f}_{n}(x)$, the so-called Rosenblatt estimator, will be consistent for $f(x)$.
 
@@ -63,11 +63,11 @@ and hope that with $h=h_{n}$ tending to 0 as $n\rightarrow\infty$, the estimator
 	\end{equation*}
 	As $h_{n} \rightarrow 0$, the value of $p$
 	\begin{equation*}
-		p_{n}=F\left(x+h_{n}\right)-F\left(x-h_{n}\right) \rightarrow 0 .
+		p_{n}=F\left(x+h_{n}\right)-F\left(x-h_{n}\right) \rightarrow 0.
 	\end{equation*}
 	thus,
 	\begin{equation*}
-		\Var\left[\hat{f}_{n}(x)\right]\sim\frac{p_{n}}{2h_{n}}\cdot\frac{1}{2nh_{n}} .
+		\Var\left[\hat{f}_{n}(x)\right]\sim\frac{p_{n}}{2h_{n}}\cdot\frac{1}{2nh_{n}}.
 	\end{equation*}
 	Since the first factor on the right side tends to $f(x)>0$, $\Var\left[\hat{f}_{n}(x)\right] \rightarrow 0$ as $h_{n}\rightarrow 0$ if in addition $nh_{n}\rightarrow\infty$, that is, if $h_{n}$ tends to 0 more slowly than $1/n$ or, equivalently, if $\frac{1}{n}=o\left(h_{n}\right)$.
 	From these results, we immediately obtain sufficient conditions for the consistency of $\hat{f}_{n}(x)$.
@@ -79,11 +79,11 @@ It is interesting to note that $\hat{f}_{n}(x)$ is itself a probability density.
 \end{equation*}
 Then
 \begin{equation*}
-	\int\hat{f}_{n}(x)\dif x=\frac{1}{2nh}\sum_{i=1}^{n}\int_{-\infty}^{\infty}I_i(x)\dif x=\frac{1}{2nh}\sum_{i=1}^{n}\int_{x_j-h}^{x_j+h}\dif x=1 .
+	\int\hat{f}_{n}(x)\dif x=\frac{1}{2nh}\sum_{i=1}^{n}\int_{-\infty}^{\infty}I_i(x)\dif x=\frac{1}{2nh}\sum_{i=1}^{n}\int_{x_j-h}^{x_j+h}\dif x=1.
 \end{equation*}
 
 \begin{remark}
-	Although $\hat{f}_{n}(x)$ is consistent for estimating $f(x)$ when the $h_{n}$ 's satisfy $h_{n}\rightarrow0$ and $nh_{n}\rightarrow\infty$, note that $\hat{f}_{n}(x)$ as an estimator of $f(x)$ involves two approximations: $f(x)$ by $[F(x+h_{n})-F(x-h_{n})]/2h_{n}$ and the latter by $\hat{f}_{n}(x)$. As a result, the estimator turns out to be less accurate than one might have hoped.
+	Although $\hat{f}_{n}(x)$ is consistent for estimating $f(x)$ when the $h_{n}$'s satisfy $h_{n}\rightarrow0$ and $nh_{n}\rightarrow\infty$, note that $\hat{f}_{n}(x)$ as an estimator of $f(x)$ involves two approximations: $f(x)$ by $[F(x+h_{n})-F(x-h_{n})]/2h_{n}$ and the latter by $\hat{f}_{n}(x)$. As a result, the estimator turns out to be less accurate than one might have hoped.
 	Besides, the estimator $\hat{f}_{n}(x)$, although a density, is a step function with discontinuities at every point $x_{i}\pm h_{n},i=1,\ldots,n$. If we assume the true $f(x)$ to be a smooth density, we may prefer its estimator also to be smooth.
 \end{remark}
 
@@ -248,14 +248,14 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 			            As for, $\langle f,f\rangle_{\mathcal{H}_{0}}=0$ if and only if $f=0$, we have,
 			            \begin{itemize}
 				            \item["$\Rightarrow$"] If $f=0$, that is $f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\bfx_{i}\right)=0$, we have
-					            \begin{equation*}
-						            \langle f,f\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i}f=0
-					            \end{equation*}
+				                  \begin{equation*}
+					                  \langle f,f\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i}f=0
+				                  \end{equation*}
 				            \item["$\Leftarrow$"] For $\forall\bfx\in\mcX$, by Cauchy-Schwarz Inequality, we have,
-					            \begin{equation*}
-						            |f(\bfx)|=\left|\left\langle f,K\left(,\cdot{\bfx}\right)\right\rangle_{\mathcal{H}_{0}}\right|\leq\|f\|_{\mathcal{H}_{0}}\cdot K\left(\bfx,\bfx\right)^{\frac{1}{2}}
-					            \end{equation*}
-					            therefore, if $\|f\|_{\mathcal{H}_{0}}=0$, then $f=0$
+				                  \begin{equation*}
+					                  |f(\bfx)|=\left|\left\langle f,K\left(,\cdot{\bfx}\right)\right\rangle_{\mathcal{H}_{0}}\right|\leq\|f\|_{\mathcal{H}_{0}}\cdot K\left(\bfx,\bfx\right)^{\frac{1}{2}}
+				                  \end{equation*}
+				                  therefore, if $\|f\|_{\mathcal{H}_{0}}=0$, then $f=0$
 			            \end{itemize}
 		      \end{enumerate}
 		      Hence, the definition in equation \eqref{eq:definition-pre-rkhs-inner-product} is a valid inner product, which is a valid pre-RKHS $\mathcal{H}_{0}$.
@@ -292,8 +292,8 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 		      By the Multinomial Theorem, we have
 		      \begin{equation*}
 			      \begin{aligned}
-				      \left\langle\bfx,\mathbf{y}\right\rangle^{n}= & \left(\sum_{i=1}^{d}x_{i}y_{i}\right)^{n}=\sum_{k_{1}+k_{2}+\ldots+k_{d}=n}\left[\binom{n}{k_{1},k_{2},\ldots,k_{d}}\prod_{i=1}^{d}\left(x_{i}y_{i}\right)^{k_{i}}\right]                                     \\
-				      =                                             & \sum_{k_{1}+k_{2}+\ldots+k_{d}=n}\left[\binom{n}{k_{1},k_{2},\ldots,k_{d}}^{\frac{1}{2}}\prod_{i=1}^{d}x_{i}^{k_{i}}\cdot\binom{n}{k_{1},k_{2},\ldots,k_{d}}^{\frac{1}{2}}\prod_{i=1}^{d}y_{i}^{k_{i}}\right] \\
+				      \left\langle\bfx,\mathbf{y}\right\rangle^{n}= & \left(\sum_{i=1}^{d}x_{i}y_{i}\right)^{n}=\sum_{k_{1}+k_{2}+\cdots+k_{d}=n}\left[\binom{n}{k_{1},k_{2},\ldots,k_{d}}\prod_{i=1}^{d}\left(x_{i}y_{i}\right)^{k_{i}}\right]                                     \\
+				      =                                             & \sum_{k_{1}+k_{2}+\cdots+k_{d}=n}\left[\binom{n}{k_{1},k_{2},\ldots,k_{d}}^{\frac{1}{2}}\prod_{i=1}^{d}x_{i}^{k_{i}}\cdot\binom{n}{k_{1},k_{2},\ldots,k_{d}}^{\frac{1}{2}}\prod_{i=1}^{d}y_{i}^{k_{i}}\right] \\
 			      \end{aligned}
 		      \end{equation*}
 		      Therefore,
@@ -311,7 +311,7 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 		      then,
 		      \begin{equation*}
 			      \begin{aligned}
-				      K(\bfx,\mathbf{y})= & \sum_{n=0}^{+\infty}\sum_{k_{1}+k_{2}+\ldots+k_{d}=n}c_{\sigma,n}\left(\bfx\right)f_{n,\mathbf{k}}\left(\bfx\right)\cdot c_{\sigma,n}\left(\mathbf{y}\right)f_{n,\mathbf{k}}\left(\mathbf{y}\right) \\
+				      K(\bfx,\mathbf{y})= & \sum_{n=0}^{+\infty}\sum_{k_{1}+k_{2}+\cdots+k_{d}=n}c_{\sigma,n}\left(\bfx\right)f_{n,\mathbf{k}}\left(\bfx\right)\cdot c_{\sigma,n}\left(\mathbf{y}\right)f_{n,\mathbf{k}}\left(\mathbf{y}\right) \\
 				      =                   & \left\langle\Phi\left(\bfx\right),\Phi\left(\mathbf{y}\right)\right\rangle                                                                                                                          \\
 			      \end{aligned}
 		      \end{equation*}

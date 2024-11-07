@@ -51,11 +51,8 @@ Then the rejection sampling method is as follows:
 	\caption{Rejection Sampling Method}
 	\KwIn{Proposal distribution $g(x)$, constant $M$}
 	Draw a sample $x\sim g(x)$ and $u\sim\mcU(0,1)$\;
-	\If{$u\leq \frac{f(x)}{Mg(x)}$}{
-		Accept $x$\;
-	} \Else{
-		Reject $x$ and go to step 1\;
-	}
+	\If{$u\leq \frac{f(x)}{Mg(x)}$}{Accept $x$\;}
+	\Else{Reject $x$ and go to step 1\;}
 	\KwOut{Sample $x$}
 \end{algorithm}
 
@@ -91,11 +88,7 @@ We want to sample from a distribution $\pi(x)$, where $x\in \mcX$.
 		Sample $y\sim\mcN(x^{(i-1)}, \Sigma)$\;
 		Compute $\alpha = \min\left\{1, \frac{\pi(y)}{\pi(x^{(i-1)})}\right\}$\;
 		Sample $u \sim \mcU(0, 1)$\;
-		\eIf{$u < \alpha$}{
-			$x^{(i)} = y$\;
-		}{
-			$x^{(i)} = x^{(i-1)}$\;
-		}
+		\eIf{$u < \alpha$}{$x^{(i)} = y$\;}{$x^{(i)} = x^{(i-1)}$\;}
 	}
 	\KwOut{Samples $x^{(1)},\ldots,x^{(N)}$}
 \end{algorithm}

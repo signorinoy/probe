@@ -3,7 +3,7 @@
 \section{Weak Law of Large Numbers}
 
 \begin{theorem}[Weak Law of Large Numbers with Finite Variances]
-	Let $X_1,X_2,\ldots$ be i.i.d. random variables with $EX_i=\mu$ and $\Var(X_i)\leq C<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, then
+	Let $X_1,X_2,\ldots$ be iid random variables with $EX_i=\mu$ and $\Var(X_i)\leq C<\infty$. Suppose $S_n=X_1+X_2+\cdots+X_n$, then
 	\begin{equation}
 		S_n/n\stackrel{L^2}{\rightarrow}\mu,\quad S_n/n\stackrel{p}{\rightarrow}\mu.
 	\end{equation}
@@ -13,8 +13,8 @@
 
 \end{proof}
 
-\begin{theorem}[Weak Law of Large Numbers without i.i.d.]
-	Let $X_1,X_2,\ldots$ be random variables, Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=ES_n$, $\sigma_n^2=\Var(S_n)$, if $\sigma_n^2/b_n^2\rightarrow 0$, then
+\begin{theorem}[Weak Law of Large Numbers without iid]
+	Let $X_1,X_2,\ldots$ be random variables, Suppose $S_n=X_1+X_2+\cdots+X_n$, $\mu_n=ES_n$, $\sigma_n^2=\Var(S_n)$, if $\sigma_n^2/b_n^2\rightarrow 0$, then
 	\begin{equation}
 		\frac{S_n-\mu_n}{b_n}\stackrel{p}{\rightarrow}0.
 	\end{equation}
@@ -41,11 +41,11 @@
 \end{proof}
 
 \begin{theorem}[Weak Law of Large Numbers by Feller]
-	Let $X_1,X_2,\ldots$ be i.i.d. random variables with
+	Let $X_1,X_2,\ldots$ be iid random variables with
 	\begin{equation}
 		\lim_{x\rightarrow 0}xP(|X_i|>x)=0.
 	\end{equation}
-	Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu_n=E\left(X_1I_{(|X_1|<n)}\right)$, then
+	Suppose $S_n=X_1+X_2+\cdots+X_n$, $\mu_n=E\left(X_1I_{(|X_1|<n)}\right)$, then
 	\begin{equation}
 		S_n/n-\mu_n\stackrel{p}{\rightarrow}0.
 	\end{equation}
@@ -56,7 +56,7 @@
 \end{proof}
 
 \begin{theorem}[Weak Law of Large Numbers] \label{thm:WLLN}
-	Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu=EX_i$, then
+	Let $X_1,X_2,\ldots$ be iid random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\cdots+X_n$, $\mu=EX_i$, then
 	\begin{equation}
 		S_n/n\stackrel{p}{\rightarrow}\mu.
 	\end{equation}
@@ -77,14 +77,14 @@
 \begin{lemma}[Borel-Cantelli Lemma] \label{lem:borel-cantelli-lemma}
 	If $\sum_{n=1}^{\infty}P\left(A_{n}\right)<\infty$, then
 	\begin{equation}
-		P\left(A_{n}\text{ i.o. }\right)=0.
+		P\left(A_{n}\ \text{i.o.}\ \right)=0.
 	\end{equation}
 \end{lemma}
 
 \begin{lemma}[The Second Borel-Cantelli Lemma]
 	If $\{A_n\}$ are independent with $\sum_{n=1}^{\infty}P\left(A_{n}\right)=\infty$, then,
 	\begin{equation}
-		P\left(A_{n}\text{ i.o. }\right)=1.
+		P\left(A_{n}\ \text{i.o.}\ \right)=1.
 	\end{equation}
 \end{lemma}
 
@@ -103,7 +103,7 @@
 \subsection{Strong Law of Large Numbers}
 
 \begin{theorem}[Strong Law of Large Numbers] \label{thm:SLLN}
-	Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\ldots+X_n$, $\mu=EX_i$, then
+	Let $X_1,X_2,\ldots$ be iid random variables with $E|X_i|<\infty$. Suppose $S_n=X_1+X_2+\cdots+X_n$, $\mu=EX_i$, then
 	\begin{equation}
 		S_n/n\stackrel{a.s.}{\rightarrow}\mu.
 	\end{equation}
@@ -133,7 +133,7 @@
 
 	Since (i) $\Delta_{\delta}\left(X_{i},\theta_{0}\right)\stackrel{a.s.}{\rightarrow} 0$ by condition (2), (ii) $\Delta_{\delta}\left(X_{i},\theta_{0}\right) \leq 2\sup_{\theta\in\Theta}\left|g\left(X_{i},\theta\right)\right|\leq 2G\left(X_{i}\right)$ by condition (3) and (4). Then
 	\begin{equation*}
-		E\Delta_{\delta}\left(X_{i},\theta_{0}\right)\rightarrow 0,\text{ as }\delta\rightarrow 0.
+		E\Delta_{\delta}\left(X_{i},\theta_{0}\right)\rightarrow 0,\delta\rightarrow 0.
 	\end{equation*}
 
 	So, for all $\theta\in\Theta$ and $\varepsilon>0$, there exists $\delta_{\varepsilon}(\theta)$ such that
@@ -158,7 +158,7 @@
 	\begin{equation*}
 		E\left|\sup_{\theta\in B\left(\theta_{k},\delta_{c}\left(\theta_{k}\right)\right)}g\left(X_{i},\theta\right)\right|\leq EG\left(X_{i}\right)<\infty,
 	\end{equation*}
-	by the Weak Law of Large Numbers (Theorem \ref{thm:WLLN}),
+	by the Weak Law of Large Numbers (Theorem~\ref{thm:WLLN}),
 
 	\begin{equation*}
 		\begin{aligned}

@@ -41,7 +41,7 @@ In Bayesian arguments, it is important to keep track of which variables are bein
 \end{remark}
 
 \begin{corollary}
-	Suppose the assumptions of Theorem \ref{thm:bayes-definition} hold.
+	Suppose the assumptions of Theorem~\ref{thm:bayes-definition} hold.
 	\begin{enumerate}
 		\item If $L\left(\theta,d\right)=[d-g\left(\theta\right)]^2$, then
 		      \begin{equation}
@@ -178,7 +178,7 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 	\begin{equation*}
 		\pi\left(\theta\mid x\right)=\int\pi\left(\theta\mid x,\gamma\right)\pi\left(\gamma\mid x\right)\dif\gamma,
 	\end{equation*}
-	where $\pi\left(\gamma\mid x\right)$ is the posterior distribution of $\Gamma$, unconditional on $\theta$. The equation \ref{eq:hierarchical-bayes-estimator} can be written as
+	where $\pi\left(\gamma\mid x\right)$ is the posterior distribution of $\Gamma$, unconditional on $\theta$. The equation~\ref{eq:hierarchical-bayes-estimator} can be written as
 	\begin{equation*}
 		\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x\right)\dif\theta = \int\left[\int L\left(\theta,d\left(x\right)\right)\pi\left(\theta\mid x,\gamma\right)\dif\theta\right]\pi\left(\gamma\mid x\right)\dif\gamma.
 	\end{equation*}
@@ -190,7 +190,7 @@ where $\pi\left(\theta\mid x\right)$ is posterior distribution given by
 	\begin{equation}
 		\begin{aligned}
 			X_i\mid\lambda & \stackrel{\text{i.i.d}}{\sim} \text{Poisson}\left(\lambda\right),\quad i=1,2\ldots,n \\
-			\lambda\mid b  & \sim \text{Gamma}\left(a,b\right), \text{ a known},                                  \\
+			\lambda\mid b  & \sim \text{Gamma}\left(a,b\right), \text{a known},                                   \\
 			\frac{1}{b}    & \sim \text{Gamma}\left(k,\tau\right),                                                \\
 		\end{aligned}
 	\end{equation}

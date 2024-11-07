@@ -11,7 +11,7 @@ Suppose $\left\{m_{n}\right\}$ be a sequence defined in $\mathbb{N}$ such that
 	0<\underline{\rho}:=\liminf_{n\rightarrow\infty}\frac{n}{m_{n}}\leq\limsup_{n\rightarrow\infty}\frac{n}{m_{n}}=:\bar{\rho}<\infty
 \end{equation*}
 
-Let $\bfx_{1},\ldots,\bfx_{m_{n}}$ be i.i.d. copies of $\bfx$, and $\mathbb{X}$ be the $m_{n}\times n$ random matrix with i.i.d. rows $\bfx_{1},\ldots,\bfx_{m_{n}}$, and their empirical covariance matrix is
+Let $\bfx_{1},\ldots,\bfx_{m_{n}}$ be iid copies of $\bfx$, and $\mathbb{X}$ be the $m_{n}\times n$ random matrix with iid rows $\bfx_{1},\ldots,\bfx_{m_{n}}$, and their empirical covariance matrix is
 \begin{equation*}
 	\widehat{\bfSigma}:=\frac{1}{m_{n}}\sum_{i=1}^{m_{n}}\bfx_{i}\otimes\bfx_{i}=\frac{1}{m_{n}}\mathbb{X}^{\prime}\mathbb{X}
 \end{equation*}
@@ -73,7 +73,7 @@ For convenience, we define the random matrix
 \end{theorem}
 
 \begin{remark}
-	Especially, if the random variables $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, then the distribution of the random matrix $\widehat{\bfSigma}$ can be derived from the Wishart distribution. The probability density function of $\widehat{\bfSigma}$ can be derived from \eqref{eq:pdf-wishart}, since
+	Especially, if the random variables $\left(x_{i}\right)_{1\leq i\leq n}$ are iid standard Gaussians, then the distribution of the random matrix $\widehat{\bfSigma}$ can be derived from the Wishart distribution. The probability density function of $\widehat{\bfSigma}$ can be derived from \eqref{eq:pdf-wishart}, since
 	\begin{equation*}
 		\bfA\sim W_{n}\left(\mathbf{I}_{n},m_{n}\right),\quad\operatorname{det}\left(\widehat{\bfSigma}\right)=m_{n}^{-n}\operatorname{det}\left(\bfA\right),\quad\operatorname{tr}\left(\widehat{\bfSigma}\right)=m_{n}^{-1}\operatorname{tr}\left(\bfA\right)
 	\end{equation*}
@@ -84,7 +84,7 @@ For convenience, we define the random matrix
 \end{remark}
 
 \begin{theorem}
-	If the random variables $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians, the joint probability density function of eigenvalues of $\widehat{\bfSigma}$ is
+	If the random variables $\left(x_{i}\right)_{1\leq i\leq n}$ are iid standard Gaussians, the joint probability density function of eigenvalues of $\widehat{\bfSigma}$ is
 	\begin{equation}
 		p\left(\bfLambda\right)=\widetilde{Q}_{m_{n},n}^{-1}\exp\left(-\frac{m_{n}}{2}\sum_{k=1}^{n}\lambda_{k}\right)\prod_{k=1}^{n}\lambda_{k}^{(m_{n}-n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|
 		\label{eq:jpdf-eigenvalues-sigma}
@@ -116,7 +116,7 @@ For convenience, we define the random matrix
 	\begin{equation*}
 		\bfQ=\mathbf{I}_{n}-\frac{2\imath}{m_{n}}\mathbf{P}
 	\end{equation*}
-	Since $\left(x_{i}^{(k)}\right)_{1\leq i\leq n}$ are i.i.d. standard Gaussians,
+	Since $\left(x_{i}^{(k)}\right)_{1\leq i\leq n}$ are iid standard Gaussians,
 	\begin{equation*}
 		\begin{aligned}
 			= & \left[\int_{\bbR^{n}}(2\pi)^{-n/2}\exp\left(-\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}\bfQ_{ij}x_{i}x_{j}\right)\prod_{i=1}^{n}\dif x_{i}\right]^{m_{n}}                                                                                    \\
@@ -166,11 +166,11 @@ For convenience, we define the random matrix
 	\end{equation*}
 	where $q_{k}=1+\frac{2p_{k}^{\prime}}{m_{n}}\geq 1,k=1,\ldots,n$, and since
 	\begin{equation*}
-		\forall i,j\quad\frac{q_{i}}{q_{j}}=\frac{1+\frac{2p_{i}^{\prime}}{m_{n}}}{1+\frac{2p_{j}^{\prime}}{m_{n}}}\rightarrow 1,\quad\text{ as }\quad m_{n}\rightarrow\infty
+		\forall i,j\quad\frac{q_{i}}{q_{j}}=\frac{1+\frac{2p_{i}^{\prime}}{m_{n}}}{1+\frac{2p_{j}^{\prime}}{m_{n}}}\rightarrow 1,\ \text{as}\ \quad m_{n}\rightarrow\infty
 	\end{equation*}
 	we have
 	\begin{equation*}
-		\prod_{i<j}\left|q_{i}\lambda_{i}-q_{j}\lambda_{j}\right|=\prod_{i<j}q_{i}\left|\lambda_{i}-\frac{q_{j}}{q_{i}}\lambda_{j}\right|\rightarrow\prod_{k=1}^{n}q_{k}^{(n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|,\quad\text{ as }\quad m_{n}\rightarrow\infty
+		\prod_{i<j}\left|q_{i}\lambda_{i}-q_{j}\lambda_{j}\right|=\prod_{i<j}q_{i}\left|\lambda_{i}-\frac{q_{j}}{q_{i}}\lambda_{j}\right|\rightarrow\prod_{k=1}^{n}q_{k}^{(n-1)/2}\prod_{i<j}\left|\lambda_{i}-\lambda_{j}\right|,\ \text{as}\ \quad m_{n}\rightarrow\infty
 	\end{equation*}
 	thus,
 	\begin{equation*}
@@ -181,7 +181,7 @@ For convenience, we define the random matrix
 	\end{equation*}
 	Since
 	\begin{equation*}
-		\forall k\quad q_{k}\lambda_{k}\rightarrow\lambda_{k},\quad\text{ as }\quad m_{n}\rightarrow\infty
+		\forall k\quad q_{k}\lambda_{k}\rightarrow\lambda_{k},\ \text{as}\ \quad m_{n}\rightarrow\infty
 	\end{equation*}
 	we can "lifting" from $\left\{\lambda_{k}\right\}_{k=1}^{n}$ to $\mathcal{S}_{n}^{+}$ bring the integral to
 	\begin{equation*}
@@ -240,7 +240,7 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 	\end{equation*}
 	Then, if
 	\begin{equation*}
-		\frac{n}{m_{n}}\rightarrow\rho\text{ with }\rho\in(0,\infty),\quad\text{ as }n\rightarrow\infty
+		\frac{n}{m_{n}}\rightarrow\rho\ \text{with}\ \rho\in(0,\infty),\ \text{as}\ n\rightarrow\infty
 	\end{equation*}
 	we have
 	\begin{equation*}
@@ -275,7 +275,7 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 	\begin{equation*}
 		\frac{1}{n}\operatorname{tr}\bfA(\bfQ(z)-\overline{\bfQ}(z))\rightarrow 0\quad\text{a.s.}
 	\end{equation*}
-	where $\bfA$ is arbitrary, deterministic, and such that $\|\bfA\|=1$. By Lemma \ref{lem:resolvent-identity}, we have
+	where $\bfA$ is arbitrary, deterministic, and such that $\|\bfA\|=1$. By Lemma~\ref{lem:resolvent-identity}, we have
 	\begin{equation*}
 		\begin{aligned}
 			\bfQ(z)-\overline{\bfQ}(z)= & \bfQ(z)\left(\bfF(z)+z\mathbf{I}_{n}-\widehat{\bfSigma}\right) \overline{\bfQ}(z)                                      \\
@@ -286,7 +286,7 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 	\begin{equation*}
 		\frac{1}{n}\operatorname{tr}\left[\left(\bfF(z)+z\mathbf{I}_{n}\right)\overline{\bfQ}(z)\bfA\bfQ(z)\right]-\frac{1}{n}\cdot\frac{1}{m_{n}}\sum_{i=1}^{m_{n}}\bfx_{i}^{\top}\overline{\bfQ}(z)\bfA\bfQ(z)\bfx_{i}\rightarrow 0\quad\text{a.s.}
 	\end{equation*}
-	By Lemma \ref{lem:sherman-morrison}, we have
+	By Lemma~\ref{lem:sherman-morrison}, we have
 	\begin{equation*}
 		\bfQ(z)\bfx_{i}=\frac{\bfQ_{-i}(z)\bfx_{i}}{1+\frac{1}{m_{n}}\bfx_{i}^{\top}\bfQ_{-i}(z)\bfx_{i}}
 	\end{equation*}
@@ -294,7 +294,7 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 	\begin{equation*}
 		\bfQ_{-i}(z)=\left(\frac{1}{m_{n}}\sum_{j\neq i}\bfx_{j}\bfx_{j}^{\prime}-z\mathbf{I}_{n}\right)^{-1}
 	\end{equation*}
-	is independent of $\bfx_{i}$. By Lemma \ref{lem:quadratic-form-close-to-the-trace}, we have
+	is independent of $\bfx_{i}$. By Lemma~\ref{lem:quadratic-form-close-to-the-trace}, we have
 	\begin{equation*}
 		\frac{1}{n}\bfx_{i}^{\top}\overline{\bfQ}(z)\bfA\bfQ(z)\bfx_{i}=\frac{\frac{1}{n}\bfx_{i}^{\top}\overline{\bfQ}(z)\bfA\bfQ_{-i}(z)\bfx_{i}}{1+\frac{1}{m_{n}}\bfx_{i}^{\top}\bfQ_{-i}(z)\bfx_{i}}\simeq\frac{\frac{1}{n}\operatorname{tr}\left[\overline{\bfQ}(z)\bfA\bfQ_{-i}(z)\right]}{1+\frac{1}{m_{n}}\operatorname{tr}\left[\bfQ_{-i}(z)\right]}
 	\end{equation*}
@@ -306,7 +306,7 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 	\begin{equation*}
 		\bfF(z)\simeq\left(-z+\frac{1}{1+\frac{1}{m_{n}}\operatorname{tr}\bfQ(z)}\right)\mathbf{I}_{n}
 	\end{equation*}
-	By Equation \ref{eq:relation-between-empirical-spectral-measures-stieltjes-transform-and-its-resolvent}, we have,
+	By Equation~\ref{eq:relation-between-empirical-spectral-measures-stieltjes-transform-and-its-resolvent}, we have,
 	\begin{equation*}
 		m(z)\equiv\frac{1}{n}\operatorname{tr}\left[\overline{\bfQ}(z)\right]=\frac{1}{n}\operatorname{tr}\left[\bfF(z)^{-1}\right]
 	\end{equation*}
@@ -324,13 +324,13 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 	\end{equation*}
 	This equation has two solutions defined via the two values of the complex square root function. Let
 	\begin{equation*}
-		z=r\mathrm{e}^{\imath\theta}\text{ where }r\geq 0,\theta\in[0,2\pi)\Rightarrow\sqrt{z}\in\left\{\pm\sqrt{r}\mathrm{e}^{\imath\theta/2}\right\}
+		z=r\mathrm{e}^{\imath\theta}\ \text{where}\ r\geq 0,\theta\in[0,2\pi)\Rightarrow\sqrt{z}\in\left\{\pm\sqrt{r}\mathrm{e}^{\imath\theta/2}\right\}
 	\end{equation*}
 	and we can conclude that
 	\begin{equation*}
 		m(z)=\frac{1-\rho-z}{2\rho z}+\frac{\sqrt{\left((1+\sqrt{\rho})^{2}-z\right)\left((1-\sqrt{\rho})^{2}-z\right)}}{2\rho z}
 	\end{equation*}
-	only one of which is such that $\Im[z]\Im[m(z)]>0$ as imposed by the definition of Stieltjes transforms. By the inverse Stieltjes transform theorem, Theorem \ref{thm:inverse-stieltjes-transform}, we find that $m(z)$ is the Stieltjes transform of the measure $\mu$ with
+	only one of which is such that $\Im[z]\Im[m(z)]>0$ as imposed by the definition of Stieltjes transforms. By the inverse Stieltjes transform theorem, Theorem~\ref{thm:inverse-stieltjes-transform}, we find that $m(z)$ is the Stieltjes transform of the measure $\mu$ with
 	\begin{equation*}
 		\mu([a,b])=\frac{1}{\pi}\lim_{\epsilon\downarrow 0}\int_{a}^{b}\Im[m(x+\imath\epsilon)]\dif x
 	\end{equation*}
@@ -352,37 +352,37 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 \begin{remark}
 	The asymptotic phenomenon holds not only in the Gaussian case, which also holds
 	\begin{enumerate}
-		\item if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. with finite second moment.
+		\item if $\left(x_{i}\right)_{1\leq i\leq n}$ are iid with finite second moment.
 		\item if $\bfx$ is isotropic and log-concave\footnote{A probability measure $\mu$ on $\bbR^{n}$ with density $\varphi$ is log-concave when $\varphi=e^{-V}$ with $V$ convex.} random vector.
 	\end{enumerate}
 \end{remark}
 
 \section{Limits of Extreme Eigenvalues}
 
-The weak convergence in Theorem \ref{thm:marcenko-pastur-theorem} does not provide much information at the edge on the behavior of the extremal atoms, and what one can extract is that
+The weak convergence in Theorem~\ref{thm:marcenko-pastur-theorem} does not provide much information at the edge on the behavior of the extremal atoms, and what one can extract is that
 \begin{equation}
-	\limsup_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\bfSigma}\right)\leq(1-\sqrt{\rho})^{2}\leq(1+\sqrt{\rho})^{2}\leq\liminf_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\bfSigma}\right)\quad\text{ a.s.}
+	\limsup_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\bfSigma}\right)\leq(1-\sqrt{\rho})^{2}\leq(1+\sqrt{\rho})^{2}\leq\liminf_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\bfSigma}\right)\quad\text{a.s.}
 \end{equation}
 where the first inequality is considered only in the case where $m_{n}\geq n$.
 
-The weak convergence above does not provide much information at the edge on the behavior of the extremal atoms. Now, we have more exact result, that if $\left(X_{n,k}\right)_{n\geq 1,1\leq k\leq n}$ are i.i.d. with finite fourth moment then,
+The weak convergence above does not provide much information at the edge on the behavior of the extremal atoms. Now, we have more exact result, that if $\left(X_{n,k}\right)_{n\geq 1,1\leq k\leq n}$ are iid with finite fourth moment then,
 \begin{equation} \label{eq:limits-of-extreme-eigenvalues-of-sample-covariance-matrices}
-	(1-\sqrt{\rho})^{2}=\lim_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\bfSigma}\right)\leq\lim_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\bfSigma}\right)=(1+\sqrt{\rho})^{2}\quad\text{ a.s.}
+	(1-\sqrt{\rho})^{2}=\lim_{n\rightarrow\infty}\lambda_{\min}\left(\widehat{\bfSigma}\right)\leq\lim_{n\rightarrow\infty}\lambda_{\max}\left(\widehat{\bfSigma}\right)=(1+\sqrt{\rho})^{2}\quad\text{a.s.}
 \end{equation}
 where the first inequality is considered only in the case where $m_{n}\geq n$.
 
 \begin{remark}
-	The convergence of the smallest eigenvalue in the left-hand side of (\ref{eq:limits-of-extreme-eigenvalues-of-sample-covariance-matrices}) holds if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. with finite second moment.
+	The convergence of the smallest eigenvalue in the left-hand side of (\ref{eq:limits-of-extreme-eigenvalues-of-sample-covariance-matrices}) holds if $\left(x_{i}\right)_{1\leq i\leq n}$ are iid with finite second moment.
 \end{remark}
 
 \begin{theorem}
-	If $\bar{\rho}<1$ (in particular $m_{n}>n$ for $n\gg 1$ ) and if the centered isotropic random vector $\bfx$ is log-concave or if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. then
+	If $\bar{\rho}<1$ (in particular $m_{n}>n$ for $n\gg 1$ ) and if the centered isotropic random vector $\bfx$ is log-concave or if $\left(x_{i}\right)_{1\leq i\leq n}$ are iid then
 	\begin{equation}
 		\liminf_{n\rightarrow\infty}\frac{E\left(\lambda_{\min}\left(\bfA_{n}\right)\right)}{\left(\sqrt{m_{n}}-\sqrt{n}\right)^{2}}\geq 1
 	\end{equation}
 	If additionally $\lim_{n\rightarrow\infty}\frac{n}{m_{n}}=\rho$ with $\rho \in(0,1)$, in other words $\underline{\rho}=\bar{\rho}\in(0,1)$, then
 	\begin{equation}
-		\lambda_{\min}\left(\widehat{\bfSigma}_{n}\right)\stackrel{p}{\longrightarrow}(1-\sqrt{\rho})^{2}\quad\text{ as }n\rightarrow\infty
+		\lambda_{\min}\left(\widehat{\bfSigma}_{n}\right)\stackrel{p}{\longrightarrow}(1-\sqrt{\rho})^{2}\ \text{as}\ n\rightarrow\infty
 	\end{equation}
 \end{theorem}
 
@@ -391,13 +391,13 @@ where the first inequality is considered only in the case where $m_{n}\geq n$.
 \end{proof}
 
 \begin{theorem}
-	If the centered isotropic random vector $\bfx$ is log-concave or if $\left(x_{i}\right)_{1\leq i\leq n}$ are i.i.d. with finite 4-th moment then
+	If the centered isotropic random vector $\bfx$ is log-concave or if $\left(x_{i}\right)_{1\leq i\leq n}$ are iid with finite 4-th moment then
 	\begin{equation}
 		\limsup_{n\rightarrow\infty}\frac{E\left(\lambda_{\max}\left(\bfA_{n}\right)\right)}{\left(\sqrt{m_{n}}+\sqrt{n}\right)^{2}}\leq 1
 	\end{equation}
 	If additionally $\lim_{n\rightarrow\infty}\frac{n}{m_{n}}=\rho$ with $\rho \in(0,1)$, in other words $\underline{\rho}=\bar{\rho}\in(0,1)$, then
 	\begin{equation}
-		\lambda_{\max}\left(\widehat{\bfSigma}_{n}\right)\stackrel{p}{\longrightarrow}(1+\sqrt{\rho})^{2}\quad\text{ as }n\rightarrow\infty
+		\lambda_{\max}\left(\widehat{\bfSigma}_{n}\right)\stackrel{p}{\longrightarrow}(1+\sqrt{\rho})^{2}\ \text{as}\ n\rightarrow\infty
 	\end{equation}
 \end{theorem}
 

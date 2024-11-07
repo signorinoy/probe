@@ -42,7 +42,7 @@
 \begin{definition}[Hotelling's $T^{2}$ Distribution]
 	If the vector $\bfd$ is Gaussian multivariate-distributed with zero mean and unit covariance matrix $\mcN\left(\bfzero_p,\bfI_{p}\right)$ and $\bfM$ is a $p\times p$ matrix with unit scale matrix and $m$ degrees of freedom with a Wishart distribution $W\left(\bfI_{p},m\right)$, then the quadratic form $X$ has a Hotelling distribution (with parameters $p$ and $m$):
 	\begin{equation*}
-		X=m\bfd^{\top}\bfM^{-1}\bfd\sim T^2(p,m) .
+		X=m\bfd^{\top}\bfM^{-1}\bfd\sim T^2(p,m).
 	\end{equation*}
 
 	Furthermore, if a random variable $X$ has Hotelling's $T$-squared distribution, $X \sim T_{p,m}^2$, then:
@@ -57,7 +57,7 @@
 Let $\bfX^{(n)}$ be a sequence of random vectors with cdf $H_n$ converging in law to $\bfX$ with cdf $H$. One then often needs to know whether for some set $S$ in $R^k$,
 \begin{equation}
 	\label{eq:convergence-of-random-vectors}
-	P\left(\bfX^{(n)} \in S\right) \rightarrow P(\bfX \in S) .
+	P\left(\bfX^{(n)} \in S\right) \rightarrow P(\bfX \in S).
 \end{equation}
 
 That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is seen from the case $k=1$, $S=\{x:x\leq a\}$. Then \eqref{eq:convergence-of-random-vectors} can only be guaranteed when $a$ is a continuity point of $H$.
@@ -65,7 +65,7 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 	\label{thm:sufficient-condition-for-convergence-of-random-vectors}
 	A sufficient condition for \eqref{eq:convergence-of-random-vectors} to hold is that
 	\begin{equation*}
-		P(\bfX\in\partial S)=0 .
+		P(\bfX\in\partial S)=0.
 	\end{equation*}
 \end{theorem}
 
@@ -101,7 +101,7 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 	\begin{equation*}
 		P\{\sqrt{m+n}[(\bar{Y}-\bar{X})-(\eta-\xi)]\leq z\}.
 	\end{equation*}
-	By Theorem \ref{thm:sufficient-condition-for-convergence-of-random-vectors}, since $P(Y-X=z)=0$, it follows that
+	By Theorem~\ref{thm:sufficient-condition-for-convergence-of-random-vectors}, since $P(Y-X=z)=0$, it follows that
 	\begin{equation*}
 		P\{(Y-X) \leq z\}=\Phi\left(\frac{z}{\sqrt{\frac{\sigma^2}{\lambda}+\frac{\tau^2}{1-\lambda}}}\right).
 	\end{equation*}
@@ -120,7 +120,7 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 \end{theorem}
 
 \begin{example}[Orthogonal Linear Combinations]
-	Let $Y_{1},Y_{2},\ldots$ be i.i.d. with mean $\bbE\left(Y_{i}\right)=0$ and variance $\Var\left(Y_{i}\right)=\sigma^2$, and consider the joint distribution of the linear combinations
+	Let $Y_{1},Y_{2},\ldots$ be iid with mean $\bbE\left(Y_{i}\right)=0$ and variance $\Var\left(Y_{i}\right)=\sigma^2$, and consider the joint distribution of the linear combinations
 	\begin{equation*}
 		X_{1}^{(n)}=\sum_{j=1}^{n}a_{nj}Y_{j},\quad X_{2}^{(n)}=\sum_{j=1}^{n}b_{nj}Y_{j}
 	\end{equation*}
@@ -131,7 +131,7 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 	\end{equation}
 	Then if
 	\begin{equation*}
-		\max_{j}a_{jn}^{2}\rightarrow 0,\quad\max_{j}b_{jn}^2\rightarrow 0 \text { as } n \rightarrow \infty .
+		\max_{j}a_{jn}^{2}\rightarrow 0,\quad\max_{j}b_{jn}^2\rightarrow 0,n \rightarrow \infty.
 	\end{equation*}
 	it follows that
 	\begin{equation*}
@@ -141,7 +141,7 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 \end{example}
 
 \begin{proof}
-	To prove this result, it is by Theorem \ref{thm:convergence-in-distribution-by-linear-combinations} enough to show that
+	To prove this result, it is by Theorem~\ref{thm:convergence-in-distribution-by-linear-combinations} enough to show that
 	\begin{equation*}
 		c_{1} X_{1}^{(n)}+c_{2} X_{2}^{(n)}=\sum\left(c_{1} a_{nj}+c_{2} b_{nj}\right) Y_{j} \stackrel{d}{\rightarrow}c_{1} X_{1}+c_{2} X_{2},
 	\end{equation*}
@@ -156,18 +156,18 @@ That \eqref{eq:convergence-of-random-vectors} need not be true for all $S$ is se
 	\end{equation*}
 	furthermore
 	\begin{equation*}
-		\max d_{nj}^2\leq 2\max\left[c_{1}^2a_{nj}^2+c_{2}^2 b_{nj}^2\right]\leq 2\left[c_{1}^2 \max a_{nj}^2+c_{2}^2\max b_{nj}^2\right] .
+		\max d_{nj}^2\leq 2\max\left[c_{1}^2a_{nj}^2+c_{2}^2 b_{nj}^2\right]\leq 2\left[c_{1}^2 \max a_{nj}^2+c_{2}^2\max b_{nj}^2\right].
 	\end{equation*}
 	Thus,
 	\begin{equation*}
 		\max_{j}d_{nj}^{2}/\sum_{j=1}^{n}d_{nj}^{2}\rightarrow 0.
 	\end{equation*}
 
-	According to Theorems \ref{thm:linear-combination-inid}, it thus follows that
+	According to Theorems~\ref{thm:linear-combination-inid}, it thus follows that
 	\begin{equation*}
 		\sum d_{nj} Y_{j} \stackrel{d}{\rightarrow}N\left(0,\left(c_{1}^2+c_{2}^2\right) \sigma^2\right).
 	\end{equation*}
-	Thus, by Theorem \ref{thm:convergence-in-distribution-by-linear-combinations}, we have
+	Thus, by Theorem~\ref{thm:convergence-in-distribution-by-linear-combinations}, we have
 	\begin{equation*}
 		(X_{1}^{(n)},X_{2}^{(n)})\stackrel{d}{\rightarrow}(X_{1},X_{2}),
 	\end{equation*}

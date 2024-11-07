@@ -72,7 +72,7 @@ Suppose we have i.i.d observations $X_{1},X_{2},\ldots X_{n}\sim p_{\theta}$, le
 \end{equation}
 which is not a metric. Let $G_{\varepsilon}$ be an $\varepsilon$-cover of the family $\{p_{\theta},\theta\in\Theta\}$, i.e.,
 \begin{equation}
-	\forall\theta\in\Theta,\exists\theta\in G_{\varepsilon},\text{ s.t. }D\left(p_{\theta}\|p_{\theta^{\prime}}\right)\leq\varepsilon^{2}.
+	\forall\theta\in\Theta,\exists\theta\in G_{\varepsilon},\ \text{s.t.}\ D\left(p_{\theta}\|p_{\theta^{\prime}}\right)\leq\varepsilon^{2}.
 \end{equation}
 Let $M=\left|G_{\varepsilon}\right|$, $q(x_{1},\ldots,x_{n})=\frac{1}{M}\sum_{i=1}^{M}p_{\theta_{i}}^{n}$ (centroid) and $p_{\theta_{i}}^{n}=p_{\theta_{i}}(x_{1})\ldots p_{\theta_{i}}(x_{n})$. Then,
 \begin{equation}
@@ -162,7 +162,7 @@ Then, $Z_{1},\ldots,Z_{n}\sim\frac{f}{2}+\frac{1}{2}$.
 	      \end{equation*}
 	      Note that some results given in the lectures on regression may not be directly applicable because here we deal with a fixed design. You may consider a piecewise constant estimator for upper bounding and you may use the fact that $\mathcal{U}$ has $L_{2}$ metric entropy order $1/\epsilon$.
 	      \begin{proof}
-		      Since $X$ are fixed design, then $y_{i}\sim N(u(x_{i}),1), i=1,2,\ldots,n$, which are independent but no longer i.i.d.  Let $P_{u}$ denotes the distribution of $Y$ with regression function $u$. Thus,
+		      Since $X$ are fixed design, then $y_{i}\sim N(u(x_{i}),1), i=1,2,\ldots,n$, which are independent but no longer iid  Let $P_{u}$ denotes the distribution of $Y$ with regression function $u$. Thus,
 		      \begin{equation*}
 			      D_{\text{KL}}\left(p_{u}^{n}\|p_{v}^{n}\right)=\frac{1}{2}\sum_{i=1}^{n}\left[u(x_{i})-v(x_{i})\right]^{2},
 		      \end{equation*}

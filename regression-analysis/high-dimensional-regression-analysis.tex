@@ -20,7 +20,7 @@ The lasso estimator can be computed by the following numerical algorithms.
 \subsubsection{Cyclic Coordinate Descent}
 
 Cyclic coordinate descent is an iterative algorithm. At each iteration, we update one coordinate of $\bfbeta$ while fixing all other coordinates.
-The cyclic coordinate descent algorithm for the lasso is given in Algorithm \ref{alg:coordinate-descent-for-lasso}.
+The cyclic coordinate descent algorithm for the lasso is given in Algorithm~\ref{alg:coordinate-descent-for-lasso}.
 
 \begin{algorithm}[H]
 	\caption{Cyclic Coordinate Descent for the Lasso Estimator}
@@ -49,11 +49,11 @@ In this section, we will discuss two important properties of the lasso estimator
 \begin{enumerate}
 	\item Prediction Error:
 	      \begin{equation*}
-		      \left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n\lesssim \frac{\log p}{n}s_{0}, \quad\text{ with }s_{0}=o(n/\log p).
+		      \left\|\bfX\left(\hat{\bfbeta}-\bfbeta^{0}\right)\right\|_{2}^{2}/n\lesssim \frac{\log p}{n}s_{0}, \quad\ \text{with}\ s_{0}=o(n/\log p).
 	      \end{equation*}
 	\item $l_{1}$-Error:
 	      \begin{equation*}
-		      \left\|\hat{\bfbeta}-\bfbeta^{0}\right\|_{1}\lesssim\sqrt{\frac{\log p}{n}}s_{0}, \quad\text{ with }s_{0}=o(\sqrt{n/\log p}).
+		      \left\|\hat{\bfbeta}-\bfbeta^{0}\right\|_{1}\lesssim\sqrt{\frac{\log p}{n}}s_{0}, \quad\ \text{with}\ s_{0}=o(\sqrt{n/\log p}).
 	      \end{equation*}
 \end{enumerate}
 

@@ -330,7 +330,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 
 		      Hence,
 		      \begin{equation*}
-			      E\left[s^rK_{n,r}\right]=\sigma^r \text{ and } E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
+			      E\left[s^rK_{n,r}\right]=\sigma^r\ \text{and}\ E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
 		      \end{equation*}
 		      which means the UMVU estimator of $\sigma^r$ is $s^rK_{n,r}$ and the UMVU estimator of $\xi/\sigma$ is $\xi s^{-1}K_{n,-1}$.
 
@@ -405,7 +405,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 \section{Accuracy of Estimators}
 
 \begin{example}[Normal Probability]
-	Let $X_{1},\ldots,X_{n}$ be i.i.d. as $\mcN(\theta,1)$ and consider the estimation of $p=P\left(X_{i}\leq u\right)=\Phi(u-\theta)$. The maximum likelihood estimator of $p$ is $\hat{p}=\Phi(u-\bar{X})$, and we shall attempt to obtain large-sample approximations for the bias and variance of this estimator.
+	Let $X_{1},\ldots,X_{n}$ be iid as $\mcN(\theta,1)$ and consider the estimation of $p=P\left(X_{i}\leq u\right)=\Phi(u-\theta)$. The maximum likelihood estimator of $p$ is $\hat{p}=\Phi(u-\bar{X})$, and we shall attempt to obtain large-sample approximations for the bias and variance of this estimator.
 \end{example}
 
 \begin{proof}
@@ -471,11 +471,11 @@ which is independent of the nuisance parameter and may be used for inferences re
 
 	It is interesting to see what happens if the expansion \eqref{eq:taylor-expansion-normal-probability} is carried one step less far. Then
 	\begin{equation*}
-		E[\Phi(u-\bar{X})]=p+\frac{1}{2 n} \phi^{\prime}(u-\theta)+\frac{1}{6} E\left[(\bar{X}-\theta)^3 \phi^{\prime \prime}(\xi)\right] .
+		E[\Phi(u-\bar{X})]=p+\frac{1}{2 n} \phi^{\prime}(u-\theta)+\frac{1}{6} E\left[(\bar{X}-\theta)^3 \phi^{\prime \prime}(\xi)\right].
 	\end{equation*}
 	Since the third derivative of $\phi$ is bounded, the remainder now satisfies
 	\begin{equation*}
-		\frac{1}{6} E\left|(\bar{X}-\theta)^3 \phi^{\prime \prime \prime}(\xi)\right|<M^{\prime} E|\bar{X}-\theta|^3=O\left(\frac{1}{n^{3 / 2}}\right) .
+		\frac{1}{6} E\left|(\bar{X}-\theta)^3 \phi^{\prime \prime \prime}(\xi)\right|<M^{\prime} E|\bar{X}-\theta|^3=O\left(\frac{1}{n^{3 / 2}}\right).
 	\end{equation*}
 	The conclusion is therefore weaker than before.
 \end{proof}

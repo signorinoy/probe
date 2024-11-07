@@ -1,0 +1,271 @@
+\chapter{}
+
+\section{Concentration by Entropic Techniques}
+
+\begin{definition}[Entropy]
+	The entropy of a random variable $X$ for the convex function $\phi(\cdot)$ is defined as
+	\begin{equation}
+		H_{\phi}(X)=\bbE[\phi(X)]-\phi(\bbE[X])
+	\end{equation}
+\end{definition}
+
+\begin{example}
+	\begin{enumerate}
+		\item For $\phi(u)=u^2$, $H_{\phi}(X)=\Var(X)$
+		\item For $\phi(u)=-\log(u)$ ($u>0$), and for $X$ real-valued random variable, we have that \(Z:=\exp(\lambda X)\) is a non-negative random variable, and
+		      \begin{equation}
+			      H_{\phi}(Z)=-\lambda\bbE[X]+\log(\bbE[\exp(\lambda X)])=\log\bbE\mathrm{e}^{\lambda(X-\bbE[X])}.
+		      \end{equation}
+	\end{enumerate}
+\end{example}
+
+\begin{definition}
+	Let $\Omega$ be a finate sample space and denote \(\mcM(\Omega)\) as the set of all probability measures (vectors) on $\Omega$. \begin{enumerate}
+		\item The \textbf{relative entropy} with respect to \(q\in\mcM(\Omega)\) is defined as the mapping \(H(\cdot\mid q):\mcM(\Omega)\to[0, \infty]:p\mapsto H(p\mid q)\), where
+		      \begin{equation}
+			      H(p\mid q)=\left\{
+			      \begin{array}{ll}
+				      \sum_{\omega\in\Omega}p(\omega)\log\left(\frac{p(\omega)}{q(\omega)}\right) & \text{if }p\ll q \\
+				      +\infty                                                                     & \text{otherwise}
+			      \end{array}
+			      \right.
+		      \end{equation}
+		\item The \textbf{Shannon entropy} of a \(\Omega\)-valued random variable \(X\) with distribution \(p\in\mcM(\Omega)\) is defined as
+		      \begin{equation}
+			      \mcH(p)=-\sum_{\omega\in\Omega}p(\omega)\log(p(\omega)).
+		      \end{equation}
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Duality formula of the Entropy]
+
+\end{proposition}
+
+\begin{lemma}
+	Let \(\Omega\) be a finite sample space and denote \(\mcM(\Omega)\) as the set of probability measures on \(\Omega\). Let \(q\in\mcM(\Omega)\), then the relative entropy \(H(\cdot\mid q)\) is strictly convex, continuous and
+	\begin{equation}
+		H(p\mid q)=0\iff p=q.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	To prove this theorem, we analyze the properties of the relative entropy (also known as the Kullback-Leibler divergence). Let \(\Omega\) be a finite sample space, \(\mathcal{M}(\Omega)\) denote the set of probability measures on \(\Omega\), and let \(q \in \mathcal{M}(\Omega)\) be a fixed probability measure. For any \(p \in \mathcal{M}(\Omega)\), the relative entropy \(H(p \mid q)\) is defined as
+	\[
+		H(p \mid q) = \sum_{\omega \in \Omega} p(\omega) \log \frac{p(\omega)}{q(\omega)},
+	\]
+	where we assume \(q(\omega) > 0\) for all \(\omega \in \Omega\) (otherwise, the term is taken as \(0\)).
+
+	\paragraph*{Non-negativity of Relative Entropy}
+	First, observe that for any \(p \in \mathcal{M}(\Omega)\), by Jensen's inequality, we have
+	\[
+		\sum_{\omega \in \Omega} p(\omega) \log \frac{p(\omega)}{q(\omega)} \geq 0,
+	\]
+	with equality if and only if \(p = q\). Thus, we obtain \(H(p \mid q) \geq 0\), and \(H(p \mid q) = 0 \iff p = q\). This proves
+	\[
+		H(p \mid q) = 0 \iff p = q.
+	\]
+
+	\paragraph*{Strict Convexity of Relative Entropy}
+	To prove that \(H(\cdot \mid q)\) is strictly convex, we consider the dependence of the relative entropy \(H(p \mid q)\) on \(p\). Let \(p_1, p_2 \in \mathcal{M}(\Omega)\) with \(p_1 \neq p_2\). For \(0 < \lambda < 1\), define
+	\[
+		p_\lambda = \lambda p_1 + (1 - \lambda) p_2.
+	\]
+	Using the definition of relative entropy, we have
+	\[
+		H(p_\lambda \mid q) = \sum_{\omega \in \Omega} p_\lambda(\omega) \log \frac{p_\lambda(\omega)}{q(\omega)}.
+	\]
+	Applying Jensen's inequality for strictly convex functions, we obtain
+	\[
+		H(p_\lambda \mid q) < \lambda H(p_1 \mid q) + (1 - \lambda) H(p_2 \mid q).
+	\]
+	This shows that \(H(\cdot \mid q)\) is strictly convex.
+
+	\paragraph*{Continuity of Relative Entropy}
+	Finally, we prove that the relative entropy \(H(p \mid q)\) is continuous with respect to \(p\). Since \(\Omega\) is finite, in this finite-dimensional vector space, \(p \mapsto H(p \mid q)\) is a sum of a finite number of terms, each of which is a continuous function of \(p(\omega) \log(p(\omega)/q(\omega))\). Thus, \(H(p \mid q)\) is continuous with respect to \(p\).
+
+\end{proof}
+
+\begin{equation}
+	H(\exp(\lambda X))=\lambda M'_{X}(\lambda)-M_{X}(\lambda)\log M_{X}(\lambda).
+\end{equation}
+
+\begin{proposition}[Herbst argument]
+	Let \(X\) be a random variable and suppose that for \(\sigma>0\),
+	\begin{equation}
+		\mcH(\mathrm{e}^{\lambda X})\leq\frac{\lambda^2\sigma^2}{2}M_{X}(\lambda),
+	\end{equation}
+	for \(\lambda\in I\) with interval \(I\) being either \(\bbR\) or \([0, \infty)\). Then,
+	\begin{equation}
+		\log\bbE\mathrm{e}^{\lambda(X-\bbE[X])}\leq\frac{\lambda^2\sigma^2}{2},\quad\forall\lambda\in I.
+	\end{equation}
+\end{proposition}
+
+\begin{proposition}[Bernstein entropy bound]
+	Suppose there exists \(B>0\) and \(\sigma>0\) such that
+
+\end{proposition}
+
+\begin{definition}[Separately convex]
+	A function \(f:\bbR^{n}\to\bbR\) is said to be \textbf{separately convex} if for all \(k\in[n]\), the function \(f(\cdot, x_{-k})\) is convex for all \(x_{-k}\in\bbR^{n-1}\).
+\end{definition}
+
+\begin{definition}[Lipschitz continuous]
+\end{definition}
+
+\begin{definition}[Globally Lipschitz continuous]
+\end{definition}
+\begin{lemma}[Entropy bound for univariate functions]
+	\label{lem:entropy-bound-univariate}
+	Let $X$ and $Y$ two independent, identically distributed $\mathbb{R}$-valued random variables. Denote by $\bbE_{X, Y}$ the expectation with respect to $X$ and $Y$. For any function $g: \mathbb{R} \rightarrow \mathbb{R}$ the following statements hold:
+	\begin{enumerate}
+		\item $\forall\lambda>0$, $\mcH\left(\mathrm{e}^{\lambda g(X)}\right) \leq \lambda^2 \bbE_{X, Y}\left[(g(X)-g(Y))^2\mathrm{e}^{\lambda g(X)}\bfI\{g(X) \geq g(Y)\}\right]$.
+		\item If in addition the random variable $X$ is supported on $[a, b]$, $a<b$, and the function $g$ is convex and Lipschitz continuous, then
+		      \begin{equation*}
+			      \mcH\left(\mathrm{e}^{\lambda g(X)}\right) \leq \lambda^2(b-a)^2 \bbE\left[\left(g^{\prime}(X)\right)^2 \mathrm{e}^{\lambda g(X)}\right],\quad\forall\lambda>0.
+		      \end{equation*}
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	Using the fact that $X$ and $Y$ are independent and identically distributed, we have
+	\begin{equation*}
+		\mcH\left(\mathrm{e}^{\lambda g(X)}\right)=\bbE_{X}\left[\lambda g(X)\mathrm{e}^{\lambda g(X)}\right]-\bbE_{X}\left[\lambda g(X)\right]\log\bbE_{Y}\mathrm{e}^{\lambda g(Y)}.
+	\end{equation*}
+\end{proof}
+
+\begin{lemma}[Tensorisation of the entropy]
+	\label{lem:tensorisation-entropy}
+	Let \(X_{1}, \ldots, X_{n}\) be independent real-valued random variables and \(f:\bbR^{n}\to\bbR\) be a given function. Then, for all \(\lambda>0\),
+	\begin{equation*}
+		\mcH(\mathrm{e}^{\lambda f(X_{1}, \ldots, X_{n})})\leq\sum_{i=1}^{n}\mcH(\mathrm{e}^{\lambda f_{i}(X_{i})}\mid \bfX_{-i}),
+	\end{equation*}
+	where \(f_{i}:\bbR\to\bbR\) is defined as \(f_{i}(x)=f(x_{1}, \ldots, x_{i-1}, x, x_{i+1}, \ldots, x_{n})\).
+\end{lemma}
+
+\begin{proof}
+	According to the variational representation of the entropy, we have
+	\begin{equation*}
+		\mcH(\mathrm{e}^{\lambda f(\bfX)})=\sup_{g\in\mcG}\left\{\bbE[g(\bfX)\mathrm{e}^{\lambda f(\bfX)}]\right\},
+	\end{equation*}
+	where \(\mcG=\left\{g:\Omega\to\bbR:\mathrm{e}^{g}\leq 1\right\}\).
+
+	For each $i\in[n]$, define $\bfX_{i}=(X_{i},\ldots, X_{n})$ and for any $g\in\mcG$ define $g^{i}$, $i\in[n]$:
+	\begin{equation*}
+		\begin{aligned}
+			g^{1}(\bfX)=     & g(\bfX)-\log\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{2}\right],                                                                     \\
+			g^{i}(\bfX_{i})= & log\frac{\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{i}\right]}{\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{i+1}\right]},\quad i\in[n-1].
+		\end{aligned}
+	\end{equation*}
+
+	It is easy to see that by the above construction, we have
+	\begin{equation}
+		\label{eq:tensorisation-entropy-1}
+		\sum_{i=1}^{n}g^{i}(\bfX)=g(\bfX)-\log\bbE\left[\mathrm{e}^{g(\bfX)}\right]\geq g(\bfX),
+	\end{equation}
+	and
+	\begin{equation*}
+		\bbE\left[\exp\left(g^{i}(\bfX_{i})\mid X_{i+1}\right)\right]=1.
+	\end{equation*}
+
+	Within the variational representation of the entropy, we have
+	\begin{equation*}
+		\begin{aligned}
+			\bbE\left[g(\bfX)\mathrm{e}^{\lambda f(\bfX)}\right] & \underbrace{\leq}_{\eqref{eq:tensorisation-entropy-1}}\bbE\left[\sum_{i=1}^{n}g^{i}(\bfX)\mathrm{e}^{\lambda f(\bfX)}\right] \\
+			                                                     & =\sum_{i=1}^{n}\bbE\left[g^{i}(\bfX)\mathrm{e}^{\lambda f(\bfX)}\right]                                                      \\
+			                                                     & \leq
+		\end{aligned}
+	\end{equation*}
+\end{proof}
+
+\begin{theorem}[Tail-bound for Lipschitz functions]
+	\label{thm:tail-bound-lipschitz}
+	Let \(\bfX\in\bbR^{n}\) be a random vector with independent coordinates \(X_{i}\) supporrted on the interval \([a,b], a<b\) and let \(f:\bbR^{n}\to\bbR\) be separately convex and L-Lipschitz continuous with respect to the Euclidean norm. Then, for all \(t>0\),
+	\begin{equation}
+		\bbP\left(f(\bfX)-\bbE[f(\bfX)]\geq t\right)\leq\exp\left(-\frac{t^2}{4L^2(b-a)^2}\right).
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	For $i\in[n]$, and every $\bfx_{-i}\in\bbR^{n-1}$, the function $f_{i}(x)$ is convex, and thus by Lemma~\ref{lem:entropy-bound-univariate}, for all $\lambda>0$ that for every fixed $\bfx_{-i}$, we have
+	\begin{equation*}
+		\mcH\left(\mathrm{e}^{\lambda f_{i}(X_{i})}\mid\bfX_{-i}\right)\leq\lambda^2(b-a)^2\bbE\left[\left(f_{i}^{\prime}(X_{i})\right)^2\mathrm{e}^{\lambda f_{i}(X_{i})}\mid\bfX_{-i}\right].
+	\end{equation*}
+
+\end{proof}
+
+\begin{example}[Operator norm of a random matrix]
+	Let \(M\in\bbR^{n\times d}\) be a random matrix with independent identically distributed mean-zero random entries \(M_{ij}\) supported on the interval \([-1,1]\).
+
+	% \paragraph{Separately convex and Lipschitz continuous} The operator norm \(M\mapsto\|M\|\) is a function \(f:\bbR^{n\times d}\mapsto\bbR\) that is separately convex and 1-Lipschitz continuous with respect to the Euclidean norm.
+
+	\begin{equation}
+		\|M\|=\max_{v\in\bbS^{d-1}}\|Mv\|_{2}=\max_{u\in\bbS^{n-1}, v\in\bbS^{d-1}}\langle u, Mv\rangle.
+	\end{equation}
+	The operator norm is maximin/supermum of functions that are linear in the entries of \(M\), and thus any such function is convex and as such separately convex.
+	Moreover, for any \(M, M'\in\bbR^{n\times d}\), we have
+	\begin{equation*}
+		\begin{aligned}
+			\left|\|M\|-\|M'\|\right| & =\left|\max_{u\in\bbS^{n-1}, v\in\bbS^{d-1}}\langle u, Mv\rangle-\max_{u\in\bbS^{n-1}, v\in\bbS^{d-1}}\langle u, M'v\rangle\right| \\
+			                          & \leq\max_{u\in\bbS^{n-1}, v\in\bbS^{d-1}}\left|\langle u, Mv\rangle-\langle u, M'v\rangle\right|                                   \\
+			                          & \leq\max_{u\in\bbS^{n-1}, v\in\bbS^{d-1}}\|u\|_{2}\|v\|_{2}\|M-M'\|_{F}                                                            \\
+			                          & \leq\|M-M'\|_{F},
+		\end{aligned}
+	\end{equation*}
+	where \(\|\cdot\|_{F}\) denotes the Frobenius norm, which is equivalent to the Euclidean norm for matrices.
+	Thus, the operator norm is 1-Lipschitz continuous with respect to the Euclidean norm.
+	Then by Theorem~\ref{thm:tail-bound-lipschitz}, we have
+	\begin{equation}
+		\bbP\left(\|M\|-\bbE[\|M\|]\geq t\right)\leq\exp\left(-\frac{t^2}{16}\right).
+	\end{equation}
+\end{example}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Some Matrix Calculus and Covariance Estimation}
+
+\begin{theorem}[Matrix Bernstein Inequality]
+	\label{thm:matrix-bernstein}
+	Let \(X_{1}, \ldots, X_{n}\) be independent, mean-zero random systematic matrices in \(\bbR^{d\times d}\) such that \(\|X_{i}\|\leq K\) almost surely for all \(i\in[n]\). Then for all \(t>0\), we have
+	\begin{equation*}
+		\bbP\left(\left\|\sum_{i=1}^{n}X_{i}\right\|\geq t\right)\leq 2d\exp\left(-\frac{t^2}{\sigma^{2}+Kt/3}\right),
+	\end{equation*}
+	where \(\sigma^{2}=\left\|\sum_{i=1}^{n}\bbE[X_{i}^2]\right\|\) is the norm of the matrix variance of the sum.
+\end{theorem}
+
+\begin{proof}
+	Denote \(S_{n}=\sum_{i=1}^{n}X_{i}\) and \(\lambda_{\max}(S_{n})\) as the largest eigenvalue of \(S_{n}\). Then, we have
+	\begin{equation*}
+		\|S_{n}\|=\max\{\lambda_{\max}(S_{n}), -\lambda_{\min}(S_{n})\}.
+	\end{equation*}
+
+	Since
+	\begin{equation*}
+		\bbP\left(\lambda_{\max}(S_{n})\geq t\right)=\bbP\left(\exp(\lambda\lambda_{\max}(S_{n}))\geq\exp(\lambda t)\right)\leq\frac{\bbE[\exp(\lambda\lambda_{\max}(S_{n}))]}{\exp(\lambda t)}.
+	\end{equation*}
+\end{proof}
+
+\begin{lemma}[Bound on MGF]
+	Let \(X\) be an \(d\times d\) symmetric mean-zero random matrix such that \(\|X\|\leq K\) almost surely. Then, for \(|\lambda|<3/K\), we have
+	\begin{equation*}
+		\bbE[\exp(\lambda X)]\preceq\exp\left(g(\lambda)\bbE[X^2]\right),
+	\end{equation*}
+	where \(g(\lambda)=\frac{\lambda^2/2}{1-|\lambda|K/3}\).
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}[Expectation Bound via the Bernstein Inequality]
+	Under the conditions of Theorem~\ref{thm:matrix-bernstein}, we have the tail bound
+	\begin{equation*}
+		\bbP\left(\left\|\sum_{i=1}^{n}X_{i}\right\|\geq t\right)\leq 2d\exp\left(-\frac{t^2}{\sigma^{2}+Kt/3}\right).
+	\end{equation*}
+	Then,
+	\begin{equation*}
+		\bbE\left[\left\|\sum_{i=1}^{n}X_{i}\right\|\right]\leq
+	\end{equation*}
+
+\end{proposition}
