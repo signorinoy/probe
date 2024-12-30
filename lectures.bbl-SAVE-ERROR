@@ -1,0 +1,465 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{44}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{bousquet2001algorithmic}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=cf4fea95321213e7dc3532fd33b85112}{%
+           family={Bousquet},
+           familyi={B\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=af1237fe610213b60eefaf767e506435}{%
+           family={Elisseeff},
+           familyi={E\bibinitperiod},
+           given={André},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{fullhash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{fullhashraw}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{bibnamehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authorbibnamehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authornamehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authorfullhash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authorfullhashraw}{95b6cda25f84c26f4cee89f563e92bc3}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{langid}{english}
+      \field{title}{Algorithmic Stability and Generalization Performance}
+      \field{urlday}{8}
+      \field{urlmonth}{1}
+      \field{urlyear}{2022}
+      \field{volume}{13}
+      \field{year}{2001}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://papers.nips.cc/paper/2000/hash/49ad23d1ec9fa4bd8d77d02681df5cfa-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://papers.nips.cc/paper/2000/hash/49ad23d1ec9fa4bd8d77d02681df5cfa-Abstract.html
+      \endverb
+      \keyw{Jab/Pre,linter/error}
+    \endentry
+    \entry{bousquet2002stability}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=cf4fea95321213e7dc3532fd33b85112}{%
+           family={Bousquet},
+           familyi={B\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=af1237fe610213b60eefaf767e506435}{%
+           family={Elisseeff},
+           familyi={E\bibinitperiod},
+           given={André},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{fullhash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{fullhashraw}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{bibnamehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authorbibnamehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authornamehash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authorfullhash}{95b6cda25f84c26f4cee89f563e92bc3}
+      \strng{authorfullhashraw}{95b6cda25f84c26f4cee89f563e92bc3}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We define notions of stability for learning algorithms and show how to use these notions to derive generalization error bounds based on the empirical error and the leave-one-out error. The methods we use can be applied in the regression framework as well as in the classification one when the classifier is obtained by thresholding a real-valued function. We study the stability properties of large classes of learning algorithms such as regularization based algorithms. In particular we focus on Hilbert space regularization and Kullback-Leibler regularization. We demonstrate how to apply the results to SVM for regression and classification.}
+      \field{issn}{ISSN 1533-7928}
+      \field{issue}{Mar}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{langid}{english}
+      \field{shortjournal}{J. Mach. Learn. Res.}
+      \field{title}{Stability and Generalization}
+      \field{urlday}{8}
+      \field{urlmonth}{1}
+      \field{urlyear}{2022}
+      \field{volume}{2}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{499\bibrangedash 526}
+      \range{pages}{28}
+      \verb{urlraw}
+      \verb https://www.jmlr.org/papers/v2/bousquet02a.html
+      \endverb
+      \verb{url}
+      \verb https://www.jmlr.org/papers/v2/bousquet02a.html
+      \endverb
+    \endentry
+    \entry{hofmann2008kernel}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ee42cfed2ff3020233d2de97c356eaee}{%
+           family={Hofmann},
+           familyi={H\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ca31cc11ec9370460148c3a9c48fce45}{%
+           family={Schölkopf},
+           familyi={S\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=82d61e31b4f7f82ad59ff887349bdfe3}{%
+           family={Smola},
+           familyi={S\bibinitperiod},
+           given={Alexander\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8eeec6807e9ac1a0d9580d0918986194}
+      \strng{fullhash}{8eeec6807e9ac1a0d9580d0918986194}
+      \strng{fullhashraw}{8eeec6807e9ac1a0d9580d0918986194}
+      \strng{bibnamehash}{8eeec6807e9ac1a0d9580d0918986194}
+      \strng{authorbibnamehash}{8eeec6807e9ac1a0d9580d0918986194}
+      \strng{authornamehash}{8eeec6807e9ac1a0d9580d0918986194}
+      \strng{authorfullhash}{8eeec6807e9ac1a0d9580d0918986194}
+      \strng{authorfullhashraw}{8eeec6807e9ac1a0d9580d0918986194}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{TLDR: A review of machine learning methods employing positive definite kernels, ranging from binary classifiers to sophisticated methods for estimation with structured data, which include nonlinear functions as well as functions defined on nonvectorial data.}
+      \field{day}{1}
+      \field{issn}{0090-5364}
+      \field{journaltitle}{The Annals of Statistics}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{3}
+      \field{shortjournal}{Ann. Statist.}
+      \field{title}{Kernel Methods in Machine Learning}
+      \field{volume}{36}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1214/009053607000000677
+      \endverb
+    \endentry
+    \entry{mcdiarmid1989method}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=abc378ecd66ac8742b6e711ce1f97ea0}{%
+           family={McDiarmid},
+           familyi={M\bibinitperiod},
+           given={Colin},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=9d7047a92fca058aa8882730377821e9}{%
+           family={Siemons},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{fullhash}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{fullhashraw}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{bibnamehash}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{authorbibnamehash}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{authornamehash}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{authorfullhash}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{authorfullhashraw}{abc378ecd66ac8742b6e711ce1f97ea0}
+      \strng{editorbibnamehash}{9d7047a92fca058aa8882730377821e9}
+      \strng{editornamehash}{9d7047a92fca058aa8882730377821e9}
+      \strng{editorfullhash}{9d7047a92fca058aa8882730377821e9}
+      \strng{editorfullhashraw}{9d7047a92fca058aa8882730377821e9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Surveys in {{Combinatorics}}, 1989}
+      \field{day}{3}
+      \field{edition}{1}
+      \field{isbn}{978-0-521-37823-9 978-1-107-35994-9}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{series}{London {{Mathematical Society Lecture Note Series}}}
+      \field{title}{On the Method of Bounded Differences}
+      \field{year}{1989}
+      \field{dateera}{ce}
+      \field{pages}{148\bibrangedash 188}
+      \range{pages}{41}
+      \verb{doi}
+      \verb 10.1017/CBO9781107359949.008
+      \endverb
+    \endentry
+    \entry{ofer2011algorithmic}{unpublished}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a8a50754c87fae8a4282d01ab5897577}{%
+           family={{Ofer Dekel}},
+           familyi={O\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=8a180cd601aca5aa312d06888c983df6}{%
+           family={{Thach Nguyen}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \strng{fullhash}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \strng{fullhashraw}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \strng{bibnamehash}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \strng{authorbibnamehash}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \strng{authornamehash}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \strng{authorfullhash}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \strng{authorfullhashraw}{1bf61d33cd918ef78b838b7cbf57ab6e}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{3}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{title}{Algorithmic Stability}
+      \field{year}{2011}
+      \field{dateera}{ce}
+    \endentry
+    \entry{scholkopf2002learning}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ca31cc11ec9370460148c3a9c48fce45}{%
+           family={Schölkopf},
+           familyi={S\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{namea}{1}{}{%
+        {{hash=82d61e31b4f7f82ad59ff887349bdfe3}{%
+           family={Smola},
+           familyi={S\bibinitperiod},
+           given={Alexander\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, Mass}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{fullhash}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{fullhashraw}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{bibnamehash}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{authorbibnamehash}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{authornamehash}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{authorfullhash}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{authorfullhashraw}{ca31cc11ec9370460148c3a9c48fce45}
+      \strng{nameabibnamehash}{82d61e31b4f7f82ad59ff887349bdfe3}
+      \strng{nameanamehash}{82d61e31b4f7f82ad59ff887349bdfe3}
+      \strng{nameafullhash}{82d61e31b4f7f82ad59ff887349bdfe3}
+      \strng{nameafullhashraw}{82d61e31b4f7f82ad59ff887349bdfe3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In the 1990s, a new type of learning algorithm was developed, based on results from statistical learning theory: the Support Vector Machine (SVM). This gave rise to a new class of theoretically elegant learning machines that use a central concept of SVMs -- -kernels--for a number of learning tasks. Kernel machines provide a modular framework that can be adapted to different tasks and domains by the choice of the kernel function and the base algorithm. They are replacing neural networks in a variety of fields, including engineering, information retrieval, and bioinformatics. Learning with Kernels provides an introduction to SVMs and related kernel methods. Although the book begins with the basics, it also includes the latest research. It provides all of the concepts necessary to enable a reader equipped with some basic mathematical knowledge to enter the world of machine learning using theoretically well-founded yet easy-to-use kernel algorithms and to understand and apply the powerful algorithms that have been developed over the last few years}
+      \field{isbn}{978-0-262-19475-4 978-0-262-25693-3 978-0-585-47759-6}
+      \field{langid}{english}
+      \field{nameatype}{collaborator}
+      \field{series}{Adaptive Computation and Machine Learning}
+      \field{shorttitle}{Learning with Kernels}
+      \field{title}{Learning with Kernels: Support Vector Machines, Regularization, Optimization, and Beyond}
+      \field{year}{2002}
+      \field{dateera}{ce}
+    \endentry
+    \entry{stephane2014lecture}{unpublished}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cbae7cffeb92541b1b0d7d7674ff0b69}{%
+           family={{Stéphane Canu}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \strng{fullhash}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \strng{fullhashraw}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \strng{bibnamehash}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \strng{authorbibnamehash}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \strng{authornamehash}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \strng{authorfullhash}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \strng{authorfullhashraw}{cbae7cffeb92541b1b0d7d7674ff0b69}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{4}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{title}{Lecture 4: Kernels and Associated Functions}
+      \field{venue}{Sao Paulo}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cel.archives-ouvertes.fr/cel-01003007/file/Lecture4_Kenrels_Functions_RKHS.pdf
+      \endverb
+      \verb{url}
+      \verb https://cel.archives-ouvertes.fr/cel-01003007/file/Lecture4_Kenrels_Functions_RKHS.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{56}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{dockhorn2022genie}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=e6d912296b96e53a8aba124207c10556}{%
+           family={Dockhorn},
+           familyi={D\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ab451e588b5801ee443d98c7d9f1094}{%
+           family={Vahdat},
+           familyi={V\bibinitperiod},
+           given={Arash},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1385d3fa16f20884c6f1879595666f6c}{%
+           family={Kreis},
+           familyi={K\bibinitperiod},
+           given={Karsten},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \strng{fullhash}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \strng{fullhashraw}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \strng{bibnamehash}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \strng{authorbibnamehash}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \strng{authornamehash}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \strng{authorfullhash}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \strng{authorfullhashraw}{6d3dbdbe6ac92d8cbdcb231016ba30ea}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Denoising diffusion models (DDMs) have emerged as a powerful class of generative models. A forward diffusion process slowly perturbs the data, while a deep model learns to gradually denoise. Synthesis amounts to solving a differential equation (DE) defined by the learnt model. Solving the DE requires slow iterative solvers for high-quality generation. In this work, we propose Higher-Order Denoising Diffusion Solvers (GENIE): Based on truncated Taylor methods, we derive a novel higher-order solver that significantly accelerates synthesis. Our solver relies on higher-order gradients of the perturbed data distribution, that is, higher-order score functions. In practice, only Jacobian-vector products (JVPs) are required and we propose to extract them from the first-order score network via automatic differentiation. We then distill the JVPs into a separate neural network that allows us to efficiently compute the necessary higher-order terms for our novel sampler during synthesis. We only need to train a small additional head on top of the first-order score network. We validate GENIE on multiple image generation benchmarks and demonstrate that GENIE outperforms all previous solvers. Unlike recent methods that fundamentally alter the generation process in DDMs, our GENIE solves the true generative DE and still enables applications such as encoding and guided sampling. Project page and code: https://nv-tlabs.github.io/GENIE.}
+      \field{annotation}{TLDR: This work derives a novel higher-order solver that significantly accelerates synthesis in DDMs, and solves the true generative DE and still enables applications such as encoding and guided sampling.}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{month}{10}
+      \field{number}{arXiv:2210.05475}
+      \field{shorttitle}{Genie}
+      \field{title}{{{GENIE}}: Higher-Order Denoising Diffusion Solvers}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2210.05475
+      \endverb
+      \verb{eprint}
+      \verb 2210.05475
+      \endverb
+    \endentry
+    \entry{ho2020denoising}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=2ac2ca10b22e4d13af1767e87495412f}{%
+           family={Ho},
+           familyi={H\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31ac0835ffc3ba6d612252522a6a2011}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Ajay},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e28d4ee199593959d8c29980a64f1974}{%
+           family={Abbeel},
+           familyi={A\bibinitperiod},
+           given={Pieter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{fullhash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{fullhashraw}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{bibnamehash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{authorbibnamehash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{authornamehash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{authorfullhash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{authorfullhashraw}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present high quality image synthesis results using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics. Our best results are obtained by training on a weighted variational bound designed according to a novel connection between diffusion probabilistic models and denoising score matching with Langevin dynamics, and our models naturally admit a progressive lossy decompression scheme that can be interpreted as a generalization of autoregressive decoding. On the unconditional CIFAR10 dataset, we obtain an Inception score of 9.46 and a state-of-the-art FID score of 3.17. On 256x256 LSUN, we obtain sample quality similar to ProgressiveGAN.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{langid}{english}
+      \field{title}{Denoising Diffusion Probabilistic Models}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2023}
+      \field{volume}{33}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \field{pages}{6840\bibrangedash 6851}
+      \range{pages}{12}
+    \endentry
+  \enddatalist
+  \missing{rombach2022higha}
+\endrefsection
+\endinput
+

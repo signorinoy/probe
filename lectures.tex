@@ -3,7 +3,7 @@
 \title{Statistics Learning Lectures}
 \author{Ziyang Gong}
 \date{\today}
-
+\usepackage{cancel}
 \input{notations.tex}
 
 \hypersetup{
@@ -15,7 +15,6 @@
 }
 \usepackage[natbib, style=authoryear-comp, refsection=chapter]{biblatex}
 \addbibresource{references.bib}
-% \addbibresource{generative-models/diffusion-model.bib}
 
 \begin{document}
 
@@ -59,6 +58,7 @@
 \include{stochastic-process/erercises}
 \part{Empirical Process}
 \include{empirical-process/general}
+\include{empirical-process/random-processes}
 \part{Random Matrix Theory}
 \include{random-matrix-theory/preliminary}
 \include{random-matrix-theory/wigner-matrix}
@@ -101,7 +101,6 @@
 \part{Generative Models}
 \include{generative-models/diffusion-model}
 \appendix
-
 \backmatter
 
 \end{document}

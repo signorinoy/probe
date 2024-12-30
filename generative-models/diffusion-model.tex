@@ -6,6 +6,134 @@
 
 \textcite{ho2020denoising}
 
+\section{Score Matching}
+
+The most difficult question in Langevin dynamics is how to obtain \(\nabla_{\bfx}\log p(\bfx)\), because we have no access to the true data distribution \(p(\bfx)\).
+
+\begin{equation}
+    \mcJ_{\text{ESM}}(\bftheta):=\frac{1}{2}\bbE_{p(\bfx)}\left[\left\|s_{\bftheta}(\bfx)-\nabla_{\bfx}\log p(\bfx)\right\|_{2}^{2}\right].
+\end{equation}
+
+\paragraph{Explicit Score Matching}
+
+\paragraph{Implicit Score Matching}
+
+\paragraph{Denoising Score Matching}
+
+\begin{equation}
+    \mcJ_{\text{DSM}}(\bftheta):=\frac{1}{2}\bbE_{p(\bfx',\bfx)}\left[\left\|s_{\bftheta}(\bfx')-\nabla_{\bfx}\log p(\bfx'|\bfx)\right\|_{2}^{2}\right].
+\end{equation}
+
+\begin{theorem}
+    \begin{equation}
+        \mcJ_{\text{DSM}}(\bftheta)=\mcJ_{\text{ESM}}(\bftheta)+C,
+    \end{equation}
+    where \(C\) is a constant that does not depend on \(\bftheta\).
+\end{theorem}
+
+\begin{proof}
+    \begin{equation*}
+        \begin{aligned}
+            \mcJ_{\text{ESM}}(\bftheta)&=\frac{1}{2}\bbE_{p(\bfx)}\left[\left\|s_{\bftheta}(\bfx)-\nabla_{\bfx}\log p(\bfx)\right\|_{2}^{2}\right]\\
+            & = \bbE_{p(\bfx)}\Big[\frac{1}{2}\left\|s_{\bftheta}(\bfx)\right\|_{2}^{2}-\left\langle s_{\bftheta}(\bfx),\nabla_{\bfx}\log p(\bfx)\right\rangle+\underbrace{\frac{1}{2}\left\|\nabla_{\bfx}\log p(\bfx)\right\|_{2}^{2}}_{:=C_{1},\text{independent of }\bftheta}\Big]
+        \end{aligned}
+    \end{equation*}
+
+    Let's zoom into the second term, we can show that
+    \begin{equation*}
+\begin{aligned}
+    \bbE_{p(\bfx)}\left[\left\langle s_{\bftheta}(\bfx),\nabla_{\bfx}\log p(\bfx)\right\rangle\right]=&\int\left(s_{\bftheta}(\bfx)^{\top}\nabla_{\bfx}\log p(\bfx)\right)p(\bfx)\dif\bfx \\
+    =&\int s_{\bftheta}(\bfx)^{\top}\frac{\nabla_{\bfx}p(\bfx)}{\bcancel{p(\bfx)}}\bcancel{p(\bfx)}\dif\bfx \\
+    =&\int s_{\bftheta}(\bfx)^{\top}\nabla_{\bfx}\left(\int p(\bfx\mid\bfx')p(\bfx')\dif\bfx'\right)\dif\bfx\\
+    =&\int s_{\bftheta}(\bfx)^{\top}\left(\int \nabla_{\bfx}p(\bfx\mid\bfx')p(\bfx')\dif\bfx'\right)\dif\bfx \\
+    = &\int s_{\bftheta}(\bfx)^{\top}\left(\int \nabla_{\bfx}p(\bfx\mid\bfx')p(\bfx')\times\frac{p(\bfx\mid\bfx')}{p(\bfx\mid\bfx')}\dif\bfx'\right)\dif\bfx\\
+    =&\int s_{\bftheta}(\bfx)^{\top}\left(\int \left(\nabla_{\bfx}\log p(\bfx\mid\bfx')\right)p(\bfx\mid\bfx')p(\bfx')\dif\bfx'\right)\dif\bfx\\
+    = & \bbE_{p(\bfx,\bfx')}\left[\left\langle s_{\bftheta}(\bfx),\nabla_{\bfx}\log p(\bfx\mid\bfx')\right\rangle\right].
+\end{aligned}
+    \end{equation*}
+    So if we substitute this back to the original equation, we have
+    \begin{equation*}
+        \begin{aligned}
+            \mcJ_{\text{ESM}}(\bftheta)=&\bbE_{p(\bfx,\bfx')}\left[\frac{1}{2}\left\|s_{\bftheta}(\bfx)-\nabla_{\bfx}\log p(\bfx\mid\bfx')\right\|_{2}^{2}\right]+C_{1}\\
+            =&\bbE_{p(\bfx,\bfx')}\left[\frac{1}{2}\left\|s_{\bftheta}(\bfx)-\nabla_{\bfx}\log p(\bfx\mid\bfx')\right\|_{2}^{2}+\frac{1}{2}\left\|\nabla_{\bfx}\log p(\bfx\mid\bfx')\right\|_{2}^{2}\right]\\
+            &\qquad+C_{1}-\underbrace{\bbE_{p(\bfx,\bfx')}\left[\frac{1}{2}\left\|\nabla_{\bfx}\log p(\bfx\mid\bfx')\right\|_{2}^{2}\right]}_{:=C_{2},\text{independent of }\bftheta}\\
+            =&\mcJ_{\text{DSM}}(\bftheta)+C_{1}-C_{2},
+        \end{aligned}
+    \end{equation*}
+    which completes the proof.
+\end{proof}
+
+
+In the special case where \(p(\bfx\mid\bfx')=\mcN(\bfx\mid\bfx',\sigma^{2}\bfI)\), we can let \(\bfx=\bfx'+\sigma\bfvareps\), where \(\bfvareps\sim\mcN(0,\bfI)\), then we have
+\begin{equation*}
+    \nabla_{\bfx}\log p(\bfx\mid\bfx')=-\frac{\bfx-\bfx'}{\sigma^{2}}=-\frac{\bfvareps}{\sigma}.
+\end{equation*}
+As a result, we have
+\begin{equation*}
+    \mcJ_{\text{DSM}}(\bftheta)=\bbE_{p(\bfx')}[\|s_{\bftheta}(\bfx'+\sigma\bfvareps)+\bfvareps/\sigma\|_{2}^{2}].
+\end{equation*}
+If we replace the dummy variable \(\bfx'\) with \(\bfx\), we have
+\begin{equation*}
+    \mcJ_{\text{DSM}}(\bftheta)=\bbE_{p(\bfx)}[\|s_{\bftheta}(\bfx+\sigma\bfvareps)+\bfvareps/\sigma\|_{2}^{2}].
+\end{equation*}
+
+\paragraph{}
+
+\begin{example}[SDEs for DDPM]
+For \(i=1,\ldots,N\), we have
+\begin{equation*}
+    \bfx_i=\sqrt(1-\beta_{i})\bfx_{i-1}+\sqrt{\beta_{i}}\bfz_{i},\text{where }\bfz_{i}\sim\mcN(0,\bfI).
+\end{equation*}
+which can be rewritten as an SDE via
+\begin{equation*}
+    \dif\bfx=-\frac{1}{2}\beta(t)\bfx\dif t+\sqrt{\beta(t)}\dif\bfw(t).
+\end{equation*}
+\end{example}
+
+\begin{proof}
+    We define a step size \(\Delta t=\frac{1}{N}\), and consider an auxiliary noise level \(\{\tilde{\beta}_{i}\}_{i=1}^{N}\) such that \(\beta_{i}=\tilde{\beta}_{i}\frac{1}{N}\). Then we have
+    \begin{equation*}
+        \beta_{i}=\beta\left(\frac{i}{N}\right)\frac{1}{N}=\beta(t+\Delta t)\Delta t.
+    \end{equation*}
+    here we assume that as \(N\to\infty\), \(\tilde{\beta}_{i}\) converges to \(\beta(t)\), which is a continuous function of \(t\) for all \(t\in[0,1]\). Similarly, we have
+    \begin{equation*}
+        \bfx_{i}=\bfx\left(\frac{i}{N}\right)=\bfx(t+\Delta t),\quad\bfz_{i}=\bfz\left(\frac{i}{N}\right)=\bfz(t+\Delta t).
+    \end{equation*}
+    Then we have
+    \begin{equation*}
+        \begin{aligned}
+        &\bfx_{i}=\sqrt{1-\beta_{i}}\bfx_{i-1}+\sqrt{\beta_{i}}\bfz_{i}\\
+        \Rightarrow&\begin{aligned}
+            \bfx(t+\Delta t)=&\sqrt{1-\beta(t+\Delta t)\Delta t}\cdot\bfx(t)+\sqrt{\beta(t+\Delta t)\Delta t}\cdot\bfz(t+\Delta t)\\
+            \approx&\left(1-\frac{1}{2}\beta(t)\Delta t\right)\bfx(t)+\sqrt{\beta(t)\Delta t}\cdot\bfz(t)
+        \end{aligned}\\
+        \Rightarrow&\dif\bfx=-\frac{1}{2}\beta(t)\bfx\dif t+\sqrt{\beta(t)}\dif\bfw(t),
+        \end{aligned}
+    \end{equation*}
+    The approximation arises from the Taylor expansion of \(\sqrt{1-\beta(t+\Delta t)\Delta t}\approx 1-\frac{1}{2}\beta(t)\Delta t\) as \(\Delta t\to0\). For the final expression, the first term is straightforward, and the second term follows from the fact that \(\bfw(t)\) is a Wiener process, and \(\sqrt{\Delta t}\bfz(t)=\bfz(t+\Delta t)-\bfz(t)\), thus, \(\frac{\sqrt{\Delta t}\bfz(t)}{\Delta t}\) converges to \(\dif\bfw(t)\) as \(\Delta t\to0\).
+    This completes the proof.
+\end{proof}
+
+
+\section{Classifier and Classifier-Free Guidance}
+
+According to the Bayes rule, we have
+\begin{equation}
+    p(\bfx_{t}\mid y)=\frac{p(y\mid\bfx_{t})p(\bfx_{t})}{p(y)}.
+\end{equation}
+Thus, 
+\begin{equation*}
+    \log p(\bfx_{t}\mid y)=\log p(y\mid\bfx_{t})+\log p(\bfx_{t})-\log p(y).
+\end{equation*}
+Take derivative with respect to \(\bfx_{t}\) on both sides, we have
+\begin{equation*}
+    \nabla_{\bfx_{t}}\log p(\bfx_{t}\mid y)=\nabla_{\bfx_{t}}\log p(\bfx_{t})+\nabla_{\bfx_{t}}\log p(y\mid\bfx_{t}).
+\end{equation*}
+
+\paragraph{Classifier-Free Guidance}
+
+
+
 \section{Effort in Inference}
 
 Due to the sequential nature of the sampling process, the diffusion model is computationally expensive.

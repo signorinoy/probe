@@ -1,0 +1,553 @@
+\chapter{Random Processes}
+
+\section{Introduction}
+
+\begin{definition}
+    A \textbf{random process} is a collection of random variables \(\{X(t)\}_{t\in T}\) defined on a common probability space, which are indexed by the elements of some set \(T\).
+\end{definition}
+
+\begin{example}
+    Here are some examples of random processes:
+    \begin{enumerate}
+        \item If \(T=\bbN\), then \(\{X(t)\}_{t\in T}\) with \(X_{n}=\sum_{i=1}^{n}Z_{i}\) is a discrete time \textbf{random walk}, where \(\{Z_{i}\}_{i\in\bbN}\) is a sequence of i.i.d.\ random variables.
+        \item A \textbf{Wiener process} \(X=\{X(t)\}_{t\geq 0}\), also known as \textbf{Brownian motion}, is a continuous-time random walk. It is a continuous-time stochastic process with stationary and independent increments. The Wiener process can be defined as follows:
+            \begin{enumerate}
+            \item The process has continuous paths, i.e., \(X:[0,\infty)\to\bbR\), \(t\mapsto X(t)\) is almost surely continuous.
+            \item The increments are independent and satisfy \(X(t)-X(s)\sim\mcN(0,t-s)\) for all \(0\leq s<t\).
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+\begin{enumerate}
+    \item \textbf{Covariance function}: For a random process \(\{X(t)\}_{t\in T}\), the covariance function is defined as
+        \begin{equation}
+            \bfSigma(s,t)=\operatorname{cov}(X(t),X(s)),\quad t,s\in T.
+        \end{equation}
+    \item \textbf{Increment}: For a random process \(\{X(t)\}_{t\in T}\), the increment is defined as
+        \begin{equation}
+            d(t,s)=\|X(t)-X(s)\|_{L^{2}}=\left(\bbE\left[X(t)-X(s)\right]^{2}\right)^{1/2},\quad t,s\in T.
+        \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Gaussian Process]
+    A random process \(\{X(t)\}_{t\in T}\) is a \textbf{Gaussian process} if for any finite collection of indices \(T_{0}\subset T\), the random vector \(\{X(t)\}_{t\in T_{0}}\) is multivariate Gaussian. Equivalently, \(X(t)\) is a Gaussian process if every linear combination of the random variables \(\sum_{t\in T_{0}}a_{t}X(t)\) is normally distributed, where \(a_{t}\in\bbR\).
+\end{definition}
+
+\begin{definition}[Canonical Gaussian Process]
+    A \textbf{canonical Gaussian process} is a Gaussian process with mean zero and covariance function \(\bfSigma(s,t)=\operatorname{cov}(X(t),X(s))=t\wedge s\).
+\end{definition}
+
+\begin{remark}
+    The canonical Gaussian process can also be defined as \(T\in\bbR^{n}\) and let \(Y\sim\mcN(0,\bfI)\), then \(X(t)=\langle t,Y\rangle\), \(t\in T\subset\bbR^{n}\).
+\end{remark}
+
+The increment of a canonical Gaussian process is
+\begin{equation*}
+    d(t,s)=\|X(t)-X(s)\|_{L^{2}}=\left(\bbE\left[X(t)-X(s)\right]^{2}\right)^{1/2}=\left(\bbE\left[\langle t-s,Y\rangle\right]^{2}\right)^{1/2}=\|t-s\|_{2}
+\end{equation*}
+where \(t,s\in T\).
+
+\begin{lemma}
+    Let \(X\in\bbR^{n}\) be a mean-zero Gaussian random vector. Then there exists points \(t_{1},\ldots,t_{n}\in\bbR^{n}\) such that
+    \begin{equation*}
+        X:=(\langle t_{i},Y\rangle)_{i=1}^{n}\in\bbR^{n},\quad Y\sim\mcN(0,\bfI).
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}
+    Let \(\bfSigma\) be the covariance matrix of \(X\). Then 
+    \begin{equation*}
+        X=\bfSigma^{1/2}Y,\quad Y\sim\mcN(0,\bfI).
+    \end{equation*}
+    The coordinates of \(\bfSigma^{1/2}Y\) are \(\langle t_{i},Y\rangle\), where \(t_{i}\) are the columns of \(\bfSigma^{1/2}\).
+\end{proof}
+
+\section{Slepian's Inequality}
+
+In many applications, we are interested in the supremum of a Gaussian process, i.e., \(\sup_{t\in T}X(t)\). Slepian's inequality provides an upper bound for the tail probability of the supremum of a Gaussian process.
+
+\begin{theorem}[Slepian's Inequality]
+    Let \(\{X(t)\}_{t\in T}\) and \(\{Y(t)\}_{t\in T}\) be two mean-zero Gaussian processes. Assume that for all \(t,s\in T\), we have
+    \begin{equation*}
+        \bbE\left[X(t)^{2}\right]=\bbE\left[Y(t)^{2}\right],\quad \bbE\left[(X(t)-X(s))^{2}\right]\leq\bbE\left[(Y(t)-Y(s))^{2}\right].
+    \end{equation*}
+    Then for every \(\tau\in\bbR\), we have
+    \begin{equation}
+        \label{eq:stochoastic-dominance}
+        \Pr\left(\sup_{t\in T}X(t)\geq\tau\right)\leq\Pr\left(\sup_{t\in T}Y(t)\geq\tau\right).
+    \end{equation}
+\end{theorem}
+
+\begin{remark}
+    Whenever \eqref{eq:stochoastic-dominance} holds, we say that \(\{X(t)\}_{t\in T}\) is stochastically dominated by \(\{Y(t)\}_{t\in T}\).
+\end{remark}
+
+The proof of Theorem~\ref{thm:slepian-inequality} follows by combining the two versions of Slepian's inequality, which are stated below. To present these versions, we need to introduce the method of Gaussian integration by parts.
+
+\begin{definition}[Gaussian Interpolation]
+    Suppose \(T\) is finate, and let \(\{X(t)\}_{t\in T}\) and \(\{Y(t)\}_{t\in T}\) be two Gaussian processes (withouth loss of generality, we assume that \(X\) and \(Y\) are independent). Then the \textbf{Gaussian interpolation} of \(\{X(t)\}_{t\in T}\) and \(\{Y(t)\}_{t\in T}\) is defined as
+    \begin{equation*}
+        Z(u)=\sqrt{u}X(u)+(1-\sqrt{u})Y(u),\quad u\in[0,1].
+    \end{equation*}
+\end{definition}
+
+It is easy to see that the covariance function of \(Z(u)\) is the interpolation of the covariance functions of \(X(t)\) and \(Y(t)\):
+\begin{equation*}
+    \bfSigma_{Z}(u)=u\bfSigma_{X}+(1-u)\bfSigma_{Y},\quad u\in[0,1].
+\end{equation*}
+
+For a function \(f:\bbR^{n}\to\bbR\), we shall study how the expectation \(\bbE[f(Z)]\) changes with respect to \(u\in[0,1]\). We have the following lemma:
+\begin{lemma}[Gaussian integration by part]
+    Suppose \(\bfX\sim\)
+\end{lemma}
+
+\begin{lemma}[Slepian's Inequality, Functional Form]
+    \label{lem:slepian-inequality-functional}
+    
+\end{lemma}
+
+
+
+\(X(t),Y_{t}\in\bbR^{n}\)
+
+\begin{proof}
+    The key idea is to use Lemma~\ref{lem:slepian-inequality-functional} fpr some approximation of the maximum.
+\end{proof}
+
+\begin{theorem}[Sudakov-Fernique Inequality]
+    Let \(\{X(t)\}_{t\in T}\) and \(\{Y(t)\}_{t\in T}\) be a mean-zero Gaussian process. Assume that for all \(t,s\in T\), we have
+    \begin{equation*}
+        \bbE\left[(X(t)-X(s))^{2}\right]\leq\bbE\left[(Y(t)-Y(s))^{2}\right].
+    \end{equation*}
+    Then,
+    \begin{equation*}
+        \bbE\left[\sup_{t\in T}X(t)\right]\leq\bbE\left[\sup_{t\in T}Y(t)\right].
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    The idea is to usa an approximation of the supremum itself and not for the indicator function. For \(\beta>0\), we have
+    \begin{equation*}
+        f(x):=\frac{1}{\beta}\log\sum_{i=1}^{n}\exp(\beta x_{i}),\quad x\in\bbR^{n}.
+    \end{equation*}
+    One can easily show that 
+    \begin{equation*}
+        f(x)\underset{\beta\to\infty}{\longrightarrow}\max_{i\in[n]}x_{i}.
+    \end{equation*}
+\end{proof}
+
+\section{The Supermum of a Process}
+
+\begin{definition}[Canconical Metric]
+    Suppose \(X=\{X(t)\}_{t\in T}\) is a random process with index set \(T\). The \textbf{canonical metric} of \(X\) is defined as
+    \begin{equation}
+        d(t,s)=\|X(t)-X(s)\|_{L^{2}}=\left(\bbE\left[X(t)-X(s)\right]^{2}\right)^{1/2},\quad t,s\in T.
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[Sudakov's Minorisation Inequality]
+    Let \(X=\{X(t)\}_{t\in T}\) be a mean-zero Gaussian process. Then, for any \(\varepsilon\geq 0\), we have
+    \begin{equation*}
+        \bbE\left[\sup_{t\in T}X(t)\right]\geq C\varepsilon\sqrt{\log \mcN(T,d,\varepsilon)},
+    \end{equation*}
+    where \(d\) is the canonical metric of the process, \(\mcN(T,d,\varepsilon)\) is the \(\varepsilon\)-covering number of \(T\) with respect to the metric \(d\), i.e., the smallest number of balls of radius \(\varepsilon\) needed to cover \(T\), and \(C>0\) is a universal constant.
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+In many application this geometric qun
+
+\begin{definition}[Gaussian Width]
+    The \textbf{Gaussian width} of a set \(T\subset\bbR^{n}\) is defined as
+    \begin{equation}
+        W(T)=\bbE\left[\sup_{t\in T}\langle t,Y\rangle\right],
+    \end{equation}
+    where \(Y\sim\mcN(0,\bfI_{n})\).
+\end{definition}
+
+\begin{proposition}[Properties of Gaussian Width]
+    The Gaussian width of a set \(T\subset\bbR^{n}\) satisfies the following properties:
+    \begin{enumerate}
+        \item \(W(T)\) is finate if and only if \(T\) is bounded.
+        \item \(W(T)=W(UT)\), for any orthogonal matrix \(U\in\bbR^{n\times n}\).
+        \item \(W(T+S)=W(T)+W(S)\), for any two sets \(T,S\subset\bbR^{n}\), and \(W(aT)=|a|W(T)\), for any \(a\in\bbR\).
+        \item \(W(T)=\frac{1}{2}W(T-T)=\frac{1}{2}\bbE\left[\sup_{t,t'\in T}\langle t-t',Y\rangle\right]\).
+        \item \((2\pi)^{-1/2}\operatorname{diam}(T)\leq W(T)\leq\sqrt{n}/2\operatorname{diam}(T)\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Cauchy-Schwarz inequality implies that
+            \begin{equation*}
+                |\langle t,Y\rangle|\leq\|t\|_{2}\|Y\|_{2},\quad\forall t\in T.
+            \end{equation*}
+            If \(W(T)<\infty\), then \(\|t\|_{2}\|_{2}<\infty\), \(\forall t\in T\), which implies that \(T\) is bounded. Conversely, if \(T\) is bounded, then we have \(\|t\|_{2}\leq M\), \(\forall t\in T\), for some \(M>0\), which implies that
+            \begin{equation*}
+                \bbE\left[\sup_{t\in T}\langle t,Y\rangle\right]\leq M\bbE\left[\sup_{t\in T}\|Y\|_{2}\right]\leq M\sqrt{n}<\infty.
+            \end{equation*}
+            TODO: Check the last inequality.
+        \item Let \(U\) be an orthogonal matrix, then \(UY\sim\mcN(0,\bfI_{n})\).
+        \item For the addititivity property, we have
+            \begin{equation*}
+                \bbE\left[\sup_{t\in T}\langle t,Y\rangle\right]+\bbE\left[\sup_{s\in S}\langle s,Y\rangle\right]=\bbE\left[\sup_{t\in T}\langle t,Y\rangle+\sup_{s\in S}\langle s,Y\rangle\right]=\bbE\left[\sup_{t\in T+s}\langle t,Y\rangle\right].
+            \end{equation*}
+            For the scaling property, we have
+        \item Using the additivity property, we have
+            \begin{equation*}
+                W(T)=\frac{1}{2}(W(T)+W(T))=\frac{1}{2}(W(T)-W(-T))=\frac{1}{2}W(T-T).
+            \end{equation*} 
+        \item According to the property 4, we have \(W(T)=\frac{1}{2}W(T-T)\), then for a fixed pair \(t,t'\in T\), we have
+            \begin{equation*}
+                W(T)\geq \frac{1}{2}\bbE\left[\max\{\langle t-t',Y\rangle,\langle t'-t,Y\rangle\}\right]=\frac{1}{2}\bbE\left[|\langle t-t',Y\rangle|\right]=\frac{1}{2}\sqrt{\frac{2}{\pi}}\|t-t'\|_{2}.
+            \end{equation*}
+            As for the last equality, recall that \(\langle t-t',Y\rangle\sim\mcN(0,\|t-t'\|_{2}^{2})\), and therefore
+            \begin{equation*}
+                \langle \frac{t-t'}{\|t-t'\|_{2}},Y\rangle\sim\mcN(0,1),\quad \bbE\left[|\langle \frac{t-t'}{\|t-t'\|_{2}},Y\rangle|\right]=\sqrt{\frac{2}{\pi}}.
+            \end{equation*}
+            Taking the supremum over all pairs \(t,t'\in T\) gives the lower bound. The upper bound follows from the property 4 and the Cauchy-Schwarz inequality, i.e.,
+            \begin{multline*}
+                    W(T)=\frac{1}{2}W(T-T)=\frac{1}{2}\bbE\left[\sup_{t,t'\in T}\langle t-t',Y\rangle\right]\\
+                    \leq\frac{1}{2}\bbE\left[\sup_{t,t'\in T}\|t-t'\|_{2}\|Y\|_{2}\right]\leq\frac{1}{2}\bbE\left[\|Y\|_{2}\right]\operatorname{diam}(T)=\frac{\sqrt{n}}{2}\operatorname{diam}(T).
+            \end{multline*}
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    We discuss the Gaussian width of some sets:
+    \begin{itemize}
+        \item \textbf{Unit Sphere}: The Gaussian width of the unit sphere \(S^{n-1}=\{t\in\bbR^{n}:\|t\|_{2}=1\}\) is
+            \begin{equation*}
+                W(S^{n-1})=\bbE\left[\sup_{t\in S^{n-1}}\langle t,Y\rangle\right]=\bbE\left[\|Y\|_{2}\right]=\sqrt{n}\pm C
+            \end{equation*}
+            for some constant \(C>0\).
+        \item \textbf{Unit Cube w.r.t. \(\ell_{\infty}\) norm}: The Gaussian width of the unit cube \(C^{n}=[-1,1]^{n}\) with respect to the \(\ell_{\infty}\) norm is
+            \begin{equation*}
+                W(C^{n})=\bbE\left[\|Y\|_{1}\right]=n\bbE\left[|Y_{1}|\right]=\sqrt{\frac{2}{\pi}}n.
+            \end{equation*}
+        \item \textbf{Unit Ball w.r.t. \(\ell_{1}\) norm}: The Gaussian width of the unit ball \(B^{n}=\{t\in\bbR^{n}:\|t\|_{1}\leq 1\}\) with respect to the \(\ell_{1}\) norm is
+            \begin{equation*}
+                W(B^{n})=\bbE\left[\sup_{t\in B^{n}}\langle t,Y\rangle\right]=\bbE\left[\|Y\|_{\infty}\right],
+            \end{equation*}
+            such that,
+            \begin{equation*}
+                c\sqrt{\log n}\leq W(B^{n})\leq C\sqrt{\log n},
+            \end{equation*}
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Sub-Gaussian Increments]
+    Let \(X=\{X(t)\}_{t\in T}\) be a random process on some metric space \((T,d)\). We say that \(X\) has \textbf{sub-Gaussian increments} if there exists a constant \(K>0\) such that for all \(t,s\in T\), we have
+    \begin{equation*}
+        \left\|X(t)-X(s)\right\|_{\psi_{2}}\leq Kd(t,s).
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}[Dudley's Inequality]
+    Let \(X=\{X(t)\}_{t\in T}\) be a mean-zero random process on some metric space \((T,d)\) with sub-Gaussian increments. Then
+    \begin{equation*}
+        \bbE\left[\sup_{t\in T}X(t)\right]\leq CK\int_{0}^{\infty}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon,
+    \end{equation*}
+    where \(C>0\) is a universal constant.
+\end{theorem}
+
+\begin{theorem}[Discrete Dudley's Inequality]
+    Let \(X=\{X(t)\}_{t\in T}\) be a mean-zero Gaussian process on a finite set \(T=\{t_{1},\ldots,t_{n}\}\) with sub-Gaussian increments. Then
+    \begin{equation*}
+        \bbE\left[\sup_{t\in T}X(t)\right]\leq CK\sum_{k\in\bbZ}2^{-k}\sqrt{\log\mcN(T,d,2^{-k})},
+    \end{equation*}
+    where \(C>0\) is a universal constant.
+\end{theorem}
+
+We discretize \(T\) by choosing an \(\varepsilon\)-net \(\mcN\) of \(T\), i.e., for every \(t\in T\), there exists a point \(\pi(t)\in\mcN\) such that \(d(t,\pi(t))\leq\varepsilon\). Then, the increment condition implies that
+\begin{equation*}
+    \left\|X(t)-X(\pi(t))\right\|_{\psi_{2}}\leq Kd(t,\pi(t))\leq K\varepsilon.
+\end{equation*}
+
+\begin{proof}
+    \textbf{Step 1: Chaining set-up.} Without loss of generality, we assume that \(K=1\) and \(T\) is finite. Define the dyadic scales
+    \begin{equation*}
+        \varepsilon_{k}=2^{-k},\quad k\in\bbZ,
+    \end{equation*}
+    and choose an \(\varepsilon_{k}\)-net \(\mcN_{k}\) of \(T\), such that
+    \begin{equation*}
+        |T_{k}|=\mcN(T,d,\varepsilon_{k}).
+    \end{equation*}
+    Only part of the dyadic scales will be used in the chaining argument. Indeed, since \(T\) is finite, there exists a smallest integer \(\kappa\in\bbZ\) such that \(T_{\kappa}=\{t_{0}\}\), for some \(t_{0}\in T\), and a largest integer \(K\in\bbZ\) such that \(T_{K}=T\). Then, for a point \(t\in T\), denote \(\pi_{k}(t)\) the closest point in the \(\varepsilon_{k}\)-net \(\mcN_{k}\) to \(t\), i.e.,
+    \begin{equation*}
+        d(t,\pi_{k}(t))\leq\varepsilon_{k}.
+    \end{equation*}
+
+    Since \(\bbE X(t_{0})=0\), we have
+    \begin{equation*}
+        \bbE\left[\sup_{t\in T}X(t)\right]=\bbE\left[\sup_{t\in T}\left(X(t)-X(t_{0})\right)\right].
+    \end{equation*}
+    We can express \(X(t)-X(t_{0})\) as a telescopic sum, i.e., walk from \(t_{0}\) to \(t\) through a chain of points \(\pi_{k}(t)\), \(k\in[\kappa,K]\), that mark progressively finer approximations of \(t\):
+    \begin{equation*}
+        X(t)-X(t_{0})=\sum_{k=\kappa+1}^{K}\left(X(\pi_{k}(t))-X(\pi_{k-1}(t))\right).
+    \end{equation*}
+    Since the supremum of the sum is bounded by the sum of the supremums, we have
+    \begin{equation}
+        \label{eq:discrete-dudley-inequality-chaining}
+        \bbE\left[\sup_{t\in T}\left(X(t)-X(t_{0})\right)\right]\leq\sum_{k=\kappa+1}^{K}\bbE\left[\sup_{t\in T}\left(X(\pi_{k}(t))-X(\pi_{k-1}(t))\right)\right].
+    \end{equation}
+    \textbf{Step 2: Controling the increments.} Although each term in the bound \eqref{eq:discrete-dudley-inequality-chaining} still has a supremum over \(T\), but it is actually a maximum over a much smaller set, namely the set all posible pairs \((\pi_{k}(t),\pi_{k-1}(t))\), \(t\in T\), and the number of such pairs is
+    \begin{equation*}
+        |T_{k}|\cdot|T_{k-1}|\leq |T_{k}|^{2}.
+    \end{equation*}
+    For fixed \(t\in T\), the increments in \eqref{eq:discrete-dudley-inequality-chaining} can be bounded as follows:
+    \begin{multline*}
+        \left\|X(\pi_{k}(t))-X(\pi_{k-1}(t))\right\|_{\psi_{2}}\leq d(\pi_{k}(t),\pi_{k-1}(t))\leq \\
+        d(\pi_{k}(t),t)+d(t,\pi_{k-1}(t))\leq \varepsilon_{k}+\varepsilon_{k-1}=2\varepsilon_{k}.
+    \end{multline*}
+    Recall that the expectation of \(N\) sub-Gaussian random variables is at most \(CL\sqrt{\log N}\), where \(L\) is the maximal \(\psi_{2}\) norm. Thus, we have
+    \begin{equation*}
+        \bbE\left[\sup_{t\in T}\left(X(\pi_{k}(t))-X(\pi_{k-1}(t))\right)\right]\leq C\varepsilon_{k-1}\sqrt{\log |T_{k}|}.
+    \end{equation*}
+
+    \textbf{Step 3: Summing up.} Substituting the bound into \eqref{eq:discrete-dudley-inequality-chaining}, we obtain
+    \begin{equation*}
+        \bbE\left[\sup_{t\in T}X(t)\right]\leq C_{1}\sum_{k=\kappa+1}^{K}\varepsilon_{k}\sqrt{\log |T_{k}|}.
+    \end{equation*}
+
+    TODO: Generalize the proof to the case where \(T\) is infinite.
+
+    \textbf{Step 4: Covert to integral.} To convert the sum into an integral, we express \(2^{-k}=2\int_{2^{-k-1}}^{2^{-k}}\dif\varepsilon\), and then we have
+    \begin{equation*}
+        \sum_{k\in\bbZ}2^{-k}\sqrt{\log\mcN(T,d,2^{-k})}=2\sum_{k\in\bbZ}\int_{2^{-k-1}}^{2^{-k}}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon.
+    \end{equation*}
+    Within the limits of the integral, we have \(2^{-k}\geq\varepsilon\), so \(\log\mcN(T,d,2^{-k})\leq\log\mcN(T,d,\varepsilon)\), and the sum is bounded by
+    \begin{equation*}
+        2\sum_{k\in\bbZ}\int_{2^{-k-1}}^{2^{-k}}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon=2\int_{0}^{\infty}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon,
+    \end{equation*}
+    which completes the proof.
+\end{proof}
+
+\section{Uniform Law of Large Numbers}
+
+\begin{definition}[Empirical Process]
+    \label{def:empirical-process}
+    Let \((\Omega,\mcB(\Omega),\mu)\) be a probability space, \(\mcF=\{f:\Omega\to\bbR\}\) be a class of real-valued functions, and \(X\) be a \(\Omega\)-valued random variable with law \(\mu\in\mcM_{1}(\Omega)\), with \(X_{1},X_{2},\ldots,X_{n}\) be i.i.d.\ copies of \(X\). The random process \(X=(X_{f})_{f\in\mcF}\) is defined as
+    \begin{equation*}
+        X_{f}=\frac{1}{n}\sum_{i=1}^{n}f(X_{i})-\bbE f(X),
+    \end{equation*}
+    is called the \textbf{empirical process} associated with the class \(\mcF\).
+\end{definition}
+
+\begin{theorem}[Uniform Law of Large Numbers]
+    Denote
+    \begin{equation*}
+        \mcF=\{f:[0,1]\to\bbR:\|f\|_{\text{Lip}}\leq L\},
+    \end{equation*}
+    the class of Lipschitz functions on \([0,1]\) with Lipschitz constant \(L>0\). Let \(X_{1},X_{2},\ldots,X_{n}\) be i.i.d.\ distributed \([0,1]\)-valued random variables. Then,
+    \begin{equation*}
+        \bbE\left[\sup_{f\in\mcF}\left|\frac{1}{n}\sum_{i=1}^{n}f(X_{i})-\bbE f(X)\right|\right]\leq\frac{CL}{\sqrt{n}},
+    \end{equation*}
+    where \(C>0\) is a universal constant.
+\end{theorem}
+
+A function defined on a compact set and with bounded Lipschitz constant is uniformly continuous, and therefore the function is bounded by a constant.
+
+If not compact, the function may be unbounded, we need truncate it.
+
+\begin{proof}
+    Without loss of generality, it suffices to consider the case
+    \begin{equation*}
+        \mcF=\{f:[0,1]\to[0,1]:\|f\|_{\text{Lip}}\leq 1\}.
+    \end{equation*}
+    We wound like to bound the magnitude \(\bbE\sup_{f\in\mcF}|X_{f}|\) of the empirical process \((X_{f})_{f\in\mcF}\) defined in Definition~\ref{def:empirical-process}.
+    
+    \textbf{Step 1: checking sub-gaussian increments.}
+
+    \textbf{Step 2: applying Dudley's inequality.}
+\end{proof}
+
+\begin{lemma}
+    Let \(\mcF=\{f:[0,1]\to[0,1]:\|f\|_{\text{Lip}}\leq 1\}\), then the Covering number of \(\mcF\) with respect to the \(\|\cdot\|_{\infty}\) norm is
+    \begin{equation*}
+        \mcN(\mcF,\|\cdot\|_{\infty},\varepsilon)\leq\left(\frac{2}{\varepsilon}\right)^{2/\varepsilon},\quad\forall\varepsilon>0.
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\section{VC Dimension}
+
+\begin{definition}[VC Dimension]
+    Let \(\mcF\) be a class of functions from a set \(T\) to \(\{0,1\}\). The \textbf{VC dimension} of \(\mcF\) is the cardinality of the largest set \(A\subset T\) such that the restriction of \(\mcF\) to \(A\) is the set of all possible functions from \(A\) to \(\{0,1\}\).
+\end{definition}
+
+\begin{example}[Intervals]
+    
+\end{example}
+
+\begin{example}[Half-planes]
+    
+\end{example}
+
+\begin{remark}[VC dimension of classes of sets]
+    
+\end{remark}
+
+\subsection{Pajor's Lemma}
+
+A lower bound is trivial:
+\begin{equation*}
+    |\mcF|\geq 2^{\text{vc}(\mcF)}.
+\end{equation*}
+
+\begin{lemma}[Pajor's Lemma]
+    Let \(\mcF\) be a class of Boolean functions on a finite set \(\Omega\), then
+    \begin{equation*}
+        |\mcF|\leq\left|\left\{\Lambda\subset\Omega:\Lambda\text{ is shattered by }\mcF\right\}\right|.
+    \end{equation*}
+    We include the empty set in the definition of shattering.
+\end{lemma}
+
+\begin{theorem}[Sauer-Shelah Lemma]
+    Let \(\mcF\) be a class of Boolean functions on an \(n\)-element set \(\Omega\). Then
+    \begin{equation*}
+        |\mcF|\leq\sum_{k=0}^{d}\binom{n}{k}\leq\left(\frac{en}{d}\right)^{d},
+    \end{equation*}
+    where \(d=\text{vc}(\mcF)\).
+\end{theorem}
+
+\begin{proof}
+    The proof follows by applying Pajor's Lemma to the class of all subsets of \(\Omega\) that are shattered by \(\mcF\). The cardinality of each such set \(\Lambda\) is bounded by \(d=\text{vc}(\mcF)\), according to the definition of VC dimension. Thus
+    \begin{equation*}
+        |\mcF|\leq\left|\left\{\Lambda\subset\Omega:|\Lambda|\leq d\right\}\right|\leq\sum_{k=0}^{d}\binom{n}{k},
+    \end{equation*}
+    since the sum in right-hand side gives the total number of subsets of \(\Omega\) of size at most \(d\), which proves the first inequality. The second inequality follows from the fact that \(\binom{n}{k}\leq\left(\frac{en}{k}\right)^{k}\).
+\end{proof}
+
+\subsection{Covering Numbers via VC Dimension}
+
+Let \(\mcF\) be a class of boolean functions on a set \(\Omega\), and let \(\mu\) be any probability measure on \(\Omega\). Then \(\mcF\) can be viewed as a metric space under the \(L^{2}(\mu)\) norm on \(\mcF\) given by
+\begin{equation*}
+    d(f,g)=\|f-g\|_{L^{2}(\mu)}=\left(\int_{\Omega}(f-g)^{2}\dif\mu\right)^{1/2},
+\end{equation*}
+ and the covering number of \(\mcF\) with respect to this norm is denoted by \(\mcN(\mcF,L^{2}(\mu),\varepsilon)\).
+
+ \begin{theorem}[Covering Numbers via VC Dimension]
+    \label{thm:covering-numbers-vc-dimension}
+     Let \(\mcF\) be a class of Boolean functions on a probability space \((\Omega,\Sigma,\mu)\). Then for any \(\varepsilon\in(0,1)\), we have
+     \begin{equation*}
+            \mcN(\mcF,L^{2}(\mu),\varepsilon)\leq\left(\frac{2}{\varepsilon}\right)^{d},
+     \end{equation*}
+    where \(d=\text{vc}(\mcF)\).
+ \end{theorem}
+
+ \begin{lemma}[Dimension Reduction]
+    
+    Then such that the uniform probability measure \(\mu_{n}\) on \(\Omega_{n}\) satisfies
+    \begin{equation*}
+        .
+    \end{equation*}
+ \end{lemma}
+
+ \begin{proof}
+    Our argument will be based on the probabilistic method. We choose the subset \(\Omega_{n}\) at random and show that if satisfies the conclusion of the theorem with positve probability.
+
+    Let \(X,X_{1},X_{2},\ldots,X_{n}\) independent be random points in \(\Omega\) with law \(\mu\). Define the empirical probability measure \(\mu_{n}\) on \(\Omega\) by assigning each \(X_{i}\), allowing multiplicities. We would like to show that with positive probability, the following event occurs:
+    \begin{equation*}
+        \|f-g\|_{L^{2}(\mu_{n})}:=\frac{1}{n}\sum_{i=1}^{n}(f(X_{i})-g(X_{i}))^{2}>0,\quad\forall f\neq g\in\mcF,
+    \end{equation*}
+    which guarantees that the restriction of functions \(f\in\mcF\) onto \(\Omega_{n}:=(X_{1},\ldots,X_{n})\) are all distinct.
+
+    Fix a pair of distinct functions \(f,g\in\mcF\), and denote \(h:=(f-g)^{2}\) for simplicity. Then, we would like to bound the deviation
+    \begin{equation*}
+        \|f-g\|_{L^{2}(\mu_{n})}^{2}-\|f-g\|_{L^{2}(\mu)}^{2}=\frac{1}{n}\sum_{i=1}^{n}h(X_{i})-\bbE h(X).
+    \end{equation*}
+
+ \end{proof}
+
+ \begin{proof}[Proof of Theorem~\ref{thm:covering-numbers-vc-dimension}]
+ \end{proof}
+
+\subsection{Empirical Process via VC Dimension}
+
+\begin{theorem}[Empirical Process via VC Dimension]
+    \label{thm:empirical-process-vc-dimension}
+    Let \(\mcF\) be a class of Boolean functions on a probability space \((\Omega,\Sigma,\mu)\), with finite VC dimension \(\text{vc}(\mcF)\geq 1\). Let \(X,X_{1},X_{2},\ldots,X_{n}\) be independent random points in \(\Omega\) distributed according to law \(\mu\). Then
+    \begin{equation*}
+        \bbE\sup_{f\in\mcF}\left|\frac{1}{n}\sum_{i=1}^{n}f(X_{i})-\bbE f(X)\right|\leq C\sqrt{\frac{\text{vc}(\mcF)}{n}}.
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}[Proof of Theorem~\ref{thm:empirical-process-vc-dimension}]
+    First, we use symmetrization to bound the left-hand side of the inequality by
+    \begin{equation*}
+        \frac{2}{\sqrt{n}}\bbE\sup_{f\in\mcF}\left|Z_{f}\right|,\quad Z_{f}=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}\varepsilon_{i}f(X_{i}),
+    \end{equation*}
+    TODO: Finish the proof.
+
+    Next, we condition on \((X_{i})\), leaving all the randomness in the signs \(\varepsilon_{i}\). Then, to apply Dudley's inequality, we need to check the sub-Gaussian increments of the process \((Z_{f})_{f\in\mcF}\). For any \(f,g\in\mcF\), we have
+    \begin{equation*}
+        \left\|Z_{f}-Z_{g}\right\|_{\psi_{2}}=\frac{1}{\sqrt{n}}\left\|\sum_{i=1}^{n}\varepsilon_{i}(f(X_{i})-g(X_{i}))\right\|_{\psi_{2}}\lesssim\left[\frac{1}{n}\sum_{i=1}^{n}(f-g)(X_{i})^{2}\right]^{1/2},
+    \end{equation*}
+    where we used the fact that the \(\|\varepsilon_{i}\|_{\psi_{2}}\lesssim 1\).
+
+
+    TODO
+\end{proof}
+
+Let us examine an important application of Theorem \ref{thm:empirical-process-vc-dimension}, which is called Glivenko-Cantelli Theorem.
+
+\begin{theorem}[Glivenko-Cantelli Theorem]
+    Let \(X,X_{1},X_{2},\ldots,X_{n}\) be i.i.d.\ random variables with common cumulative distribution \(F\). Then
+    \begin{equation*}
+        \bbE\|F_{n}-F\|_{\infty}=\bbE\sup_{x\in\bbR}|F_{n}(x)-F(x)|\leq\frac{C}{\sqrt{n}}.
+    \end{equation*}
+\end{theorem}
+
+\section{Application: Statistical Learning Theory}
+
+An important class of learning problems are classification problems, where the function \(T\) is a Boolean function, i.e., \(T:\Omega\to\{0,1\}\), and thus \(T\) classifies the elements of \(\Omega\) into two classes. 
+
+
+The goal is to learn a classifier \(f:\Omega\to\bbR\), which we wolud like to choose \(f\) that minimizes the risk
+\begin{equation*}
+    R(f)=\bbE\left(f(X)-T(X)\right)^{2},
+\end{equation*}
+where \(X\) denotes the random variable with distribution \(\bbP\), i.e., with the same distribution as the sample points \(X_{1},X_{2},\ldots,X_{n}\in\Omega\).
+
+Ideally, we would like to find a function \(f^{*}\) from the hypothesis class \(\mcF\) that minimizes the risk \(R(f)=\bbE(f(X)-T(X))^{2}\), that is 
+\begin{equation*}
+    f^{*}=\arg\min_{f\in\mcF}R(f).
+\end{equation*}
+However, the true distribution \(\bbP\) is unknown, and we only have access to the sample points \(X_{1},X_{2},\ldots,X_{n}\) drawn from \(\bbP\). Therefore, we need to estimate the risk \(R(f)\) based on the empirical risk
+\begin{equation*}
+    R_{n}(f)=\frac{1}{n}\sum_{i=1}^{n}(f(X_{i})-T(X_{i}))^{2},
+\end{equation*}
+Define the empirical risk minimizer in the hypothesis class \(\mcF\) as \(f_{n}^{*}\), i.e.,
+\begin{equation*}
+    f_{n}^{*}=\arg\min_{f\in\mcF}R_{n}(f).
+\end{equation*}
+
+The goal of statistical learning theory is to provide bounds on the excess risk
+\begin{equation*}
+    R(f_{n}^{*})-R(f^{*}),
+\end{equation*}
+provided by our having to learn from a finite sample of size \(n\).
+
+Let us specialize to the classification problems where the target function \(T\) is a Boolean function. In this case, the risk \(R(f)\) is the probability of misclassification, i.e.,
+\begin{equation*}
+    R(f)=\bbP(f(X)\neq T(X)).
+\end{equation*}
+
+\begin{theorem}[Excess Risk via VC Dimension]
+    Assume that the target function \(T\) is a Boolean function, and let \(\mcF\) be the hypothesis class of Boolean functions with finite VC dimension \(\text{vc}(\mcF)\geq 1\). Then
+    \begin{equation*}
+        \bbE R(f_{n}^{*})\leq R(f^{*})+C\sqrt{\frac{\text{vc}(\mcF)}{n}},
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}

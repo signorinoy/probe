@@ -103,9 +103,102 @@ Let $\mcF_{n}$ be a filtration, i.e., an increasing sequence of $\sigma$-fields.
 
 \section{Doob's Inequality}
 
-\begin{theorem}[Doob's Decomposition]
+\begin{example}[Doob's Decomposition]
+	Given a sequence of independent random variables $\{X_k\}_{k=1}^{m}$, recall the sequence \(Y_{k}=\bbE\left[f(X)\mid X_{1},\ldots,X_{k}\right]\) previously defined, and suppose that \(\bbE\left|f(X)\right|<\infty\). We claim that \(\{Y_{k}\}_{k=1}^{n}\) is a martingale with respect to \(\{X_{k}\}_{k=1}^{n}\). Indeed, in terms of the shorthand \(X_{1}^{k}=(X_{1},\ldots,X_{k})\), we have
+	\begin{equation*}
+		\bbE\left|Y_{k}\right|=\bbE\left|\bbE\left[f(X)\mid X_{1}^{k}\right]\right|\leq\bbE\left|f(X)\right|<\infty
+	\end{equation*}
+	where the bound follows from Jensen's inequality. Tuning in to the martingale property, we have
+	\begin{equation*}
+		\bbE\left[Y_{k+1}\mid X_{1}^{k}\right]=\bbE\left[\bbE\left[f(X)\mid X_{1}^{k+1}\right]\mid X_{1}^{k}\right]=\bbE\left[f(X)\mid X_{1}^{k}\right]=Y_{k}
+	\end{equation*}
+	where the second equality follows from the tower property of conditional expectation. This establishes the martingale property of \(\{Y_{k}\}_{k=1}^{n}\) with respect to \(\{X_{k}\}_{k=1}^{n}\).
+\end{example}
 
+\begin{example}[Likelihood ratio]
+	Let \(f\) and \(g\) be two mutuall absolutely continuous probability densities, and let \(\{X_{k}\}_{k=1}^{n}\) be a sequence of random variables drawn i.i.d.\ from \(f\). For each \(k>1\), let \(Y_{k}:=\prod_{l=1}^{k}\frac{g(X_{l})}{f(X_{l})}\) be the likelihood ratio based on the first \(k\) samples. Then the sequence \(\{Y_{k}\}_{k=1}^{n}\) is a martingale with respect to \(\{X_{k}\}_{k=1}^{n}\). Indeed, we have
+	\begin{equation*}
+		\bbE\left[Y_{k+1}\mid X_{1}^{k}\right]=\bbE\left[\frac{g(X_{k+1})}{f(X_{k+1})}\right]\prod_{l=1}^{k}\frac{g(X_{l})}{f(X_{l})}=Y_{k},
+	\end{equation*}
+	using the fact that \(\bbE\left[\frac{g(X_{k+1})}{f(X_{k+1})}\right]=1\).
+\end{example}
+
+A closely related notion is that of \textit{martingale difference sequences}, meaning an adapted sequence \(\{(D_{k},\mcF_{k})\}_{k=1}^{\infty}\) such that
+\begin{equation*}
+	\bbE\left[\left|D_{k}\right|\right]<\infty\quad\text{and}\quad\bbE\left[D_{k+1}\mid\mcF_{k}\right]=0.
+\end{equation*}
+As suggested by the name, the martingale difference sequence arises in a natural way from martingales, given by \(D_{k}=Y_{k}-Y_{k-1}\) for a martingale \(\{(Y_{k},\mcF_{k})\}_{k=1}^{\infty}\). 
+Martingale difference sequences is a martingale.
+Sum of martingale difference sequences is a martingale.
+
+\begin{theorem}
+	Let \(\{(D_{k},\mcF_{k})\}_{k=1}^{\infty}\) be a martingale difference sequence, and suppose that \(\bbE\left[\mathrm{e}^{\lambda D_{k}}\mid \mcF_{k-1}\right]\leq\mathrm{e}^{\frac{\lambda^{2}v_{k}^{2}}{2}}\) almost surely for any \(|\lambda|<1/\alpha_{k}\)/ Then the following hold:
+	\begin{enumerate}
+		\item The sum \(S_{n}:=\sum_{k=1}^{n}D_{k}\) is sub-exponential with parameter \(\left(\sqrt{\sum_{k=1}^{n}v_{k}^{2}},\alpha_{*}\right)\), where \(\alpha_{*}=\max_{k}\alpha_{k}\).
+		\item The sum satisfies the concentration inequality
+		\begin{equation*}
+			\bbP\left(\left|S_{n}\right|\geq t\right)\leq\begin{cases}
+				2\exp\left(-\frac{t^{2}}{2\sum_{k=1}^{n}v_{k}^{2}}\right) & \text{if }0\leq t\leq\frac{\sqrt{2\sum_{k=1}^{n}v_{k}^{2}}}{\alpha_{*}} \\
+				2\exp\left(-\frac{t}{2\alpha_{*}}\right) & \text{if }t>\frac{\sqrt{2\sum_{k=1}^{n}v_{k}^{2}}}{\alpha_{*}}
+			\end{cases}
+		\end{equation*}
+	\end{enumerate}
 \end{theorem}
+
+\begin{proof}
+	We follow the standard approach of controling the moment generating function of \(S_{n}\), and then applying the Chernoff bound. FOr any scalar \(\lambda\) such that \(|\lambda|<1/\alpha_{*}\), conditioning on \(\mcF_{n-1}\), and applying the iterated expectation yields
+	\begin{equation*}
+		\bbE\left[\mathrm{e}^{\lambda S_{n}}\right]=\bbE\left[\bbE\left[\mathrm{e}^{\lambda S_{n-1}}\right]\bbE\left[\mathrm{e}^{\lambda D_{n}}\mid \mcF_{n-1}\right]\right]\leq \bbE\left[\mathrm{e}^{\lambda S_{n-1}}\right]\mathrm{e}^{\frac{\lambda^{2}v_{n}^{2}}{2}},
+	\end{equation*}
+	where the inequality follows from the stated assumption. Iterating this inequality, we obtain
+	\begin{equation*}
+		\bbE\left[\mathrm{e}^{\lambda S_{n}}\right]\leq\mathrm{e}^{\frac{\lambda^{2}}{2}\sum_{k=1}^{n}v_{k}^{2}},
+	\end{equation*}
+	valid for any \(|\lambda|<1/\alpha_{*}\). This implies that \(S_{n}\) is sub-exponential with parameter \((\sqrt{\sum_{k=1}^{n}v_{k}^{2}},\alpha_{*})\), and the Chernoff bound follows from the definition of sub-exponentiality.
+\end{proof}
+
+\begin{corollary}[Azuma-Hoeffding]
+	\label{cor:azuma-hoeffding}
+	Let \(\{(D_{k},\mcF_{k})\}_{k=1}^{\infty}\) be a martingale difference sequence for which there are constants \(\{(a_{k},b_{k})\}_{k=1}^{\infty}\) such that \(D_{k}\in[a_{k},b_{k}]\) almost surely for all \(k=1,2,\ldots,n\). Then for any \(t>0\), we have
+	\begin{equation*}
+		\bbP\left(\left|S_{n}\right|\geq t\right)\leq 2\exp\left(-\frac{t^{2}}{2\sum_{k=1}^{n}(b_{k}-a_{k})^{2}}\right).
+	\end{equation*}
+\end{corollary}
+
+An important application of Corollary \ref{cor:azuma-hoeffding} concerns functions that satisfy a bounded differences property.
+
+\begin{definition}[Bounded Differences Property]
+	A function \(f:\bbR^{n}\to\bbR\) is said to satisfy the \textit{bounded differences property} with respect to a sequence of sets \(\{S_{k}\}_{k=1}^{n}\) if for any \(x_{1},\ldots,x_{n}\in\bbR^{n}\) that differ only in the \(k\)-th coordinate, we have
+	\begin{equation*}
+		\left|f(x_{1},\ldots,x_{k-1},x_{k},x_{k+1},\ldots,x_{n})-f(x_{1},\ldots,x_{k-1},x_{k}',x_{k+1},\ldots,x_{n})\right|\leq L_{k}
+	\end{equation*}
+	for any \(x,x'\in\bbR^{n}\) 
+\end{definition}
+
+For instance, if the function \(f\) is L-Lipschitz with respect to the Hamming distance, \(d_{H}(x,x')=\sum_{k=1}^{n}\mathbb{I}\{x_{k}\neq x_{k}'\}\), then  \(f\) satisfies the bounded differences property with parameters \(L\) uniformly over all \(k=1,\ldots,n\).
+
+\begin{theorem}[Bounded Differences Inequality]
+	\label{thm:bounded-differences}
+	Let \(f:\bbR^{n}\to\bbR\) satisfy the bounded differences property with parameters \(\{L_{k}\}_{k=1}^{n}\) and that the random variables \(\bfX=(X_{1},\ldots,X_{n})\) has independent coordinates. Then for any \(t>0\), we have
+	\begin{equation*}
+		\bbP\left(\left|f(\bfX)-\bbE[f(\bfX)]\right|\geq t\right)\leq 2\exp\left(-\frac{t^{2}}{2\sum_{k=1}^{n}L_{k}^{2}}\right).
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}[Classical Hoeffding from Bounded Differences]
+	
+\end{example}
+
+\begin{example}[U-statistics]
+	
+\end{example}
+
+\begin{example}[Rademacher Complexity]
+	
+\end{example}
 
 \begin{theorem}[Doob's Inequality]
 

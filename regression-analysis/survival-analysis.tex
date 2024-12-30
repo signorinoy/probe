@@ -136,3 +136,5 @@ The partial likelihood function is
 	\ell_{p}(\bfbeta)=\prod_{j=1}^{m}\frac{\mathrm{e}^{\bfx_{(j)}^{\prime}\bfbeta}}{\sum_{l\in R\left(t_{(j)}\right)}\mathrm{e}^{\bfx_{l}^{\prime}\bfbeta}}=\prod_{i=1}^{n}\left[\frac{\mathrm{e}^{\bfx_{i}^{\top}\bfbeta}}{\sum_{l\in R\left(t_{i}\right)}\mathrm{e}^{\bfx_{l}^{\prime}\bfbeta}}\right]^{\delta_{i}}
 \end{equation}
 where $R(t)$ is the set of individuals who are alive and uncensored at a time just before $t_{i}$, which is called the risk set.
+
+Another set of work converts the survival prediction problem into a classification problem by dividing the continuous time-to-event into nonoverlapping intervals

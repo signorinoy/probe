@@ -269,3 +269,156 @@
 	\end{equation*}
 
 \end{proposition}
+
+\chapter{Basic Tools in High-dimensional Probability}
+
+\section{Decoupling}
+
+\begin{definition}[Chaos]
+	Let \(X_{1},\ldots, X_{n}\) be independent real-valued random variables, and \(a_{ij}\in\bbR\), \(i, j\in[n]\). The random quadratic form
+	\begin{equation*}
+		\sum_{i,j=1}^{n}a_{ij}X_{i}X_{j}=X^{\top}AX,\quad X=(X_{1},\ldots, X_{n})^{\top}\in\bbR^{n},\quad A=(a_{ij})\in\bbR^{n\times n},
+	\end{equation*}
+	is called \textbf{chaos} in probability theory.
+\end{definition}
+
+For simplicity, we assume that the random variables \(X_{i}\)  have mean zero and unit variance, i.e., \(\bbE[X_{i}]=0\) and \(\bbE[X_{i}^2]=1\), for all \(i\in[n]\). Then,
+\begin{equation*}
+	\bbE\left[X^{\top}AX\right]=\sum_{i,j=1}^{n}a_{ij}\bbE[X_{i}X_{j}]=\operatorname{Tr}(A).
+\end{equation*}
+
+We shall study concentration properties for chaos. This time we need to develop tools to overcome the fact that we have sums of not necessarily independent random variables. The idea is to use the decoupling technique. The idea is to study the following random quadratic form,
+\begin{equation*}
+	\sum_{i,j=1}^{n}a_{ij}X_{i}X_{j}'=X^{\top}AX'=\langle X, AX'\rangle,
+\end{equation*}
+where \(X'=(X_{1}',\ldots, X_{n}')^{\top}\) is an independent copy of \(X\), and condition on \(X\). Obvious, the bilinear form is easier to handle, e.g., when we condition on \(X'\), we simply obtain a linear form in \(X\), and vice versa, i.e.,
+\begin{equation*}
+	\langle X, AX'\rangle=\sum_{i=1}^{n}c_{i}X_{i},\quad c_{i}=\sum_{j=1}^{n}a_{ij}X_{j}',
+\end{equation*}
+is a random linear form in \(X\) depending on the condition of the independent copy \(X'\).
+
+\begin{theorem}[Decoupling]
+	Let \(A\) be an \(n\times n\) diagonal free matrix, \(X=(X_{1},\ldots, X_{n})\in\bbR^{n}\) be a random vector with independent mean-zero coordinates \(X_{i}\), and \(X'\) be an independent copy of \(X\). Then, for every convex function \(f:\bbR\to\bbR\), we have
+	\begin{equation*}
+		\bbE[f(\langle X, AX\rangle)]\leq\bbE[f(4\langle X, AX'\rangle)].
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	The idea is to study the partial chaos
+	\begin{equation*}
+		\langle X, AX\rangle=\sum_{(i,j)\in I\times I^{\complement}}a_{ij}X_{i}X_{j},
+	\end{equation*}
+	with a random subset \(I\subset[n]\). Let \(\delta_{i}\) be independent Bernoulli random variables with \(\bbP[\delta_{i}=0]=\bbP[\delta_{i}=1]=1/2\), and define the random subset \(I=\{i\in[n]:\delta_{i}=1\}\). Then, we condition on \(X\), and 
+\end{proof}
+
+\begin{theorem}[Hanson-Wright Inequality]
+	Let \(X=(X_{1},\ldots, X_{n})\in\bbR^{n}\) be a random vector with independent mean-zero sub-Gaussian coordinates \(X_{i}\) and let \(A\in\bbR^{n\times n}\) be a deterministic matrix. Then, for all \(t\geq0\), we have
+	\begin{equation*}
+		\bbP\left(\left|\langle X, AX\rangle-\bbE[\langle X, AX\rangle]\right|\geq t\right)\leq 2\exp\left(-c\min\left(\frac{t^2}{K^{4}\|A\|_{F}^{2}}, \frac{t}{K^{2}\|A\|}\right)\right),
+	\end{equation*}
+	where \(K:=\max_{i\in[n]}\|X_{i}\|_{\psi_{2}}\), and \(c>0\) is a constant.
+\end{theorem}
+
+We prepare the proof of the Hanson-Wright inequality by proving the following lemmas.
+
+\begin{lemma}[MGF of Gaussian Chaos]
+	Let \(X,X'\sim\mcN(0, I_{n})\), \(X\) and \(X'\) be independent, and let \(A\in\bbR^{n\times n}\) be a deterministic matrix. Then,
+	\begin{equation*}
+		\bbE[\exp(\lambda\langle X, AX'\rangle)]\leq\exp\left(C\lambda^{2}\|A\|_{F}^{2}\right),\quad\forall|\lambda|\leq\frac{C}{\|A\|},
+	\end{equation*}
+	where \(C>0\) is a constant.
+\end{lemma}
+
+\begin{proof}
+	We use the singular value decomposition of the matrix \(A\), i.e.,
+	\begin{equation*}
+		A=\sum_{i=1}^{n}\sigma_{i}u_{i}v_{i}^{\top},
+	\end{equation*}
+	then,
+	\begin{equation*}
+		\langle X, AX'\rangle=\sum_{i=1}^{n}\sigma_{i}\langle X, u_{i}\rangle\langle X', v_{i}\rangle=\sum_{i=1}^{n}\sigma_{i}Y_{i}Y_{i}',
+	\end{equation*}
+	where \(Y=(\langle X, u_{1}\rangle,\ldots, \langle X, u_{n}\rangle)\sim\mcN(0, I_{n})\) and \(Y'=(\langle X', v_{1}\rangle,\ldots, \langle X', v_{n}\rangle)\sim\mcN(0, I_{n})\) are independent Gaussian vectors. Then independence of the Gaussian vectors \(Y\) and \(Y'\) implies that
+	\begin{equation*}
+		\bbE[\exp(\lambda\langle X, AX'\rangle)]=\bbE[\exp(\lambda\sum_{i=1}^{n}\sigma_{i}Y_{i}Y_{i}')]=\prod_{i=1}^{n}\bbE[\exp(\lambda\sigma_{i}Y_{i}Y_{i}')].
+	\end{equation*}
+	For each \(i\in[n]\), we compute the expectation with respect to \(Y'\), i.e., the conditional expectation holding the random vector \(Y\) fixed,
+	\begin{equation*}
+		\bbE_{Y}\left[\bbE_{Y'}\left[\exp(\lambda\sigma_{i}Y_{i}Y_{i}')\mid Y\right]\right]=\bbE_{Y}\left[\exp\left(\frac{\lambda^{2}\sigma_{i}^{2}Y_{i}^{2}}{2}\right)\right]=\exp\left(\frac{C\lambda^{2}\sigma_{i}^{2}}{2}\right),\quad \forall\lambda\leq\frac{C}{\sigma_{i}},
+	\end{equation*}
+	where the first equality follows from the fact that the MGF of a Gaussian random variable is given by \(\bbE[\exp(\lambda Y)]=\exp(\lambda^{2}/2)\), and the second equality follows from the fact that the random variable \(Y_{i}\) is Gaussian and thus sub-Gaussian, and therefore \(Y_{i}^{2}\) is sub-exponential, and thus gives the bound. Then, we obtain
+	\begin{equation*}
+		\bbE[\exp(\lambda\langle X, AX'\rangle)]=\prod_{i=1}^{n}\exp\left(\frac{C\lambda^{2}\sigma_{i}^{2}}{2}\right)=\exp\left(C\lambda^{2}\sum_{i=1}^{n}\sigma_{i}^{2}\right),\quad\forall\lambda\leq\frac{C}{\max_{i\in[n]}\sigma_{i}}.
+	\end{equation*}
+	Finally, we use the fact that the Frobenius norm of the matrix \(A\) is given by \(\|A\|_{F}^{2}=\sum_{i=1}^{n}\sigma_{i}^{2}\), and the operator norm of the matrix \(A\) is given by \(\|A\|=\max_{i\in[n]}\sigma_{i}\), and thus we obtain the desired bound.
+\end{proof}
+
+\begin{lemma}[Comparison]
+	Let \(X\) and \(X'\) be independent mean-zero sub-Gaussian random vectors in \(\bbR^{n}\) with \(\|X\|_{\psi_{2}}\leq K\) and \(\|X'\|_{\psi_{2}}\leq K\). Furthermore, let \(Y\) and \(Y'\) be independent mean-zero Gaussian random vectors in \(\bbR^{n}\) with \(Y,Y'\sim\mcN(0, I_{n})\), and let \(A\in\bbR^{n\times n}\) be a deterministic matrix. Then, for all \(\lambda\in\bbR\), we have
+	\begin{equation*}
+		\bbE[\exp(\lambda\langle X, AX\rangle)]\leq\bbE[\exp(CK^{2}\lambda\langle Y, AY\rangle)].
+	\end{equation*}
+\end{lemma}
+
+\begin{proof}
+	We condtion on \(X'\) and take the expectation with respect to \(X\), then, \(\langle X, AX'\rangle\) is conditionally sub-Gaussian and we have
+	\begin{equation*}
+		\bbE_{X}[\exp(\lambda\langle X, AX'\rangle)]\leq\bbE[\exp(CK^{2}\lambda\|AX'\|_{2}^{2})],\quad\forall\lambda\in\bbR.
+	\end{equation*}
+	We now replace \(X\) by \(Y\) but still condition on \(X'\), then we have
+	\begin{equation*}
+		\bbE_{Y}[\exp(\mu\langle Y, AX'\rangle)]\leq\bbE[\exp(\mu^2\|AX'\|_{2}^{2}/2)],\quad\forall\mu\in\bbR.
+	\end{equation*}
+	Choosing \(\mu=\sqrt{2C\lambda}K\), we can match our estimates to get
+	\begin{equation*}
+		\bbE_{X}[\exp(\lambda\langle X, AX'\rangle)]\leq\bbE_{Y}[\exp(CK^{2}\lambda\langle Y, AX'\rangle)]=\exp(CK^{2}\lambda\|AX'\|_{2}^{2}).
+	\end{equation*}
+	We can now take the expectation with respect to \(X'\) on both sides, repeate the same procedure for the \(X'\) and \(Y'\) to obtain the desired bound.
+\end{proof}
+
+\begin{proof}
+	Wihtout loss of generality, \(K=1\). It suffices to show the one sided bound. Denote
+	\begin{equation*}
+		p=\bbP\left(\langle X, AX\rangle-\bbE[\langle X, AX\rangle]\geq t\right).
+	\end{equation*}
+	We can write
+	\begin{equation*}
+		\langle X, AX\rangle=\sum_{i=1}^{n}a_{ii}X_{i}^{2}+\sum_{i\neq j}a_{ij}X_{i}X_{j},
+	\end{equation*}
+	and thus the problem reduces to bounding the tail of the diagonal sums and the off-diagonal sums separately:
+	\begin{equation*}
+		p\leq\bbP\left(\sum_{i=1}^{n}a_{ii}\left(X_{i}^{2}-\bbE\left[X_{i}^{2}\right]\right)\geq t/2\right)+\bbP\left(\sum_{i\neq j}a_{ij}\left(X_{i}X_{j}\right)\geq t/2\right):=p_{1}+p_{2}.
+	\end{equation*}
+	We shall bound the two terms separately. For the diagonal terms, since \(X_i^2-\bbE[X_i^2]\) are independent mean-zero sub-Eponential random variables, we have
+	\begin{equation*}
+		\|X_{i}^{2}-\bbE[X_{i}^{2}]\|_{\psi_{1}}\leq C\|X_{i}^{2}\|_{\psi_{1}}\leq C\|X_{i}\|_{\psi_{2}}^{2}\leq C,
+	\end{equation*}
+	and thus by the Bernstein inequality, we have
+	\begin{equation*}
+		p_{1}\leq\exp\left(-C\min\left(\frac{t^{2}}{\|A\|_{F}^{2}}, \frac{t}{\|A\|}\right)\right).
+	\end{equation*}
+	For the off-diagonal terms, denote \(S:=\sum_{i\neq j}a_{ij}X_{i}X_{j}\), then we have
+\end{proof}
+
+\section{Concentration for Anisotropic Random Vectors}
+
+\begin{lemma}
+	Let \(B\in\bbR^{m\times n}\) be a deterministic matrix, and let \(X\in\bbR^{n}\) be an isotropic random vector \(\in\bbR^{n}\), then
+	\begin{equation*}
+		\bbE\left[\|BX\|_{2}^{2}\right]=\|B\|_{F}^{2}.
+	\end{equation*}
+\end{lemma}
+
+\begin{proof}
+	We have
+	\begin{equation*}
+		\bbE\left[\|BX\|_{2}^{2}\right]=\bbE\left[\sum_{i=1}^{m}\left(\sum_{j=1}^{n}b_{ij}X_{j}\right)^{2}\right]=\sum_{i=1}^{m}\sum_{j=1}^{n}b_{ij}^{2}\bbE[X_{j}^{2}]=\|B\|_{F}^{2}.
+	\end{equation*}
+\end{proof}
+
+\section{Symmetrisation}
+
+\begin{definition}[Symmetric Random Variables]
+	A real-valued random variable \(X\) is said to be symmetric if \(X\) and \(-X\) have the same distribution.
+\end{definition}
