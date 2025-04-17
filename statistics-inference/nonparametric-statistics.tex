@@ -4,26 +4,26 @@
 
 \subsection{Cumulative Distribution Function}
 
-Let $X_{1},\ldots,X_{n}\sim F$ where $F(x)=\mathbb{P}(X\leq x)$ is a distribution function on the real line.
+Let \(X_{1},\ldots,X_{n}\sim F\) where \(F(x)=\mathbb{P}(X\leq x)\) is a distribution function on the real line.
 
 \begin{definition}[Empirical Cumulative Distribution Function]
-	The empirical cumulative distribution function $\widehat{F}_{n}$ is the CDF that puts mass $1/n$ at each data point $X_{i}$, that,
+	The empirical cumulative distribution function \(\widehat{F}_{n}\) is the CDF that puts mass \(1/n\) at each data point \(X_{i}\), that,
 	\begin{equation}
 		\widehat{F}_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}I\left(X_{i}\leq x\right)
 	\end{equation}
 \end{definition}
 
-Denote $Y=\sum_{i=1}^{n}I\left(X_{i}\leq x\right)$, then $Y$ is a binomial random variable with parameters $n$ and $F(x)$, that is, $Y\sim b(n,F(x))$. Therefore, we have
+Denote \(Y=\sum_{i=1}^{n}I\left(X_{i}\leq x\right)\), then \(Y\) is a binomial random variable with parameters \(n\) and \(F(x)\), that is, \(Y\sim b(n,F(x))\). Therefore, we have
 \begin{equation*}
 	E\left[\hat{F}_{n}(x)\right]=F(x),\quad\Var\left[\hat{F}_{n}(x)\right]=\frac{1}{n}F(x)[1-F(x)]
 \end{equation*}
-so that $\hat{F}_{n}(a)$ is unbiased and its variance is of order $1/n$. In addition, it follows from CLT \eqref{thm:classic-central-limit-theorem} that
+so that \(\hat{F}_{n}(a)\) is unbiased and its variance is of order \(1/n\). In addition, it follows from CLT~\eqref{thm:classic-central-limit-theorem} that
 \begin{equation*}
 	\sqrt{n}\left[\hat{F}_{n}(x)-F(x)\right]\stackrel{d}{\rightarrow}\mcN(0,F(x)[1-F(x)]).
 \end{equation*}
-Thus, $\hat{F}_{n}(x)$ is a consistent estimator of $F(x)$ for each fixed $x$.
+Thus, \(\hat{F}_{n}(x)\) is a consistent estimator of \(F(x)\) for each fixed \(x\).
 
-However, a much stronger consistency property can be asserted if the difference between $\hat{F}_{n}(x)$ and $F(x)$ is considered not only for a fixed $x$ but simultaneously for all $x$, namely
+However, a much stronger consistency property can be asserted if the difference between \(\hat{F}_{n}(x)\) and \(F(x)\) is considered not only for a fixed \(x\) but simultaneously for all \(x\), namely
 \begin{equation*}
 	D_{n}=\sup _x\left|\hat{F}_{n}(x)-F(x)\right| \xrightarrow{P} 0,\quad n \rightarrow \infty.
 \end{equation*}
@@ -40,14 +40,14 @@ one might consider the estimator
 \begin{equation*}
 	\hat{f}_{n}(x)=\frac{\hat{F}_{n}(x+h)-\hat{F}_{n}(x-h)}{2h}.
 \end{equation*}
-and hope that with $h=h_{n}$ tending to 0 as $n\rightarrow\infty$, the estimator $\hat{f}_{n}(x)$, the so-called Rosenblatt estimator, will be consistent for $f(x)$.
+and hope that with \(h=h_{n}\) tending to 0 as \(n\rightarrow\infty\), the estimator \(\hat{f}_{n}(x)\), the so-called Rosenblatt estimator, will be consistent for \(f(x)\).
 
 \begin{proof}
-	The basic properties of $\hat{p}_{n}$ are obtained from the fact that
+	The basic properties of \(\hat{p}_{n}\) are obtained from the fact that
 	\begin{equation*}
 		n\left[\hat{F}_{n}(x+h_{n})-\hat{F}_{n}(x-h_{n})\right]\sim b(n,p),
 	\end{equation*}
-	where $p=F(x+h_{n})-F(x-h_{n})$. It follows that
+	where \(p=F(x+h_{n})-F(x-h_{n})\). It follows that
 	\begin{equation*}
 		\bbE\left[\hat{f}_{n}(x)\right]=\frac{F(x+h_{n})-F(x-h_{n})}{2h}.
 	\end{equation*}
@@ -55,13 +55,13 @@ and hope that with $h=h_{n}$ tending to 0 as $n\rightarrow\infty$, the estimator
 	\begin{equation*}
 		b(x)=\frac{F(x+h_{n})-F(x-h_{n})}{2h}-\lim_{h_{n}\rightarrow0}\frac{F(x+h_{n})-F(x-h_{n})}{2h}
 	\end{equation*}
-	which tends to be zero, provided $h_{n}\rightarrow0$, as $n\rightarrow\infty$.
+	which tends to be zero, provided \(h_{n}\rightarrow0\), as \(n\rightarrow\infty\).
 
-	Similarly, the variance of $\hat{f}_{n}(x)$ is
+	Similarly, the variance of \(\hat{f}_{n}(x)\) is
 	\begin{equation*}
 		\Var\left[\hat{f}_{n}(x)\right]=\frac{p(1-p)}{4nh^{2}}.
 	\end{equation*}
-	As $h_{n} \rightarrow 0$, the value of $p$
+	As \(h_{n} \rightarrow 0\), the value of \(p\)
 	\begin{equation*}
 		p_{n}=F\left(x+h_{n}\right)-F\left(x-h_{n}\right) \rightarrow 0.
 	\end{equation*}
@@ -69,11 +69,11 @@ and hope that with $h=h_{n}$ tending to 0 as $n\rightarrow\infty$, the estimator
 	\begin{equation*}
 		\Var\left[\hat{f}_{n}(x)\right]\sim\frac{p_{n}}{2h_{n}}\cdot\frac{1}{2nh_{n}}.
 	\end{equation*}
-	Since the first factor on the right side tends to $f(x)>0$, $\Var\left[\hat{f}_{n}(x)\right] \rightarrow 0$ as $h_{n}\rightarrow 0$ if in addition $nh_{n}\rightarrow\infty$, that is, if $h_{n}$ tends to 0 more slowly than $1/n$ or, equivalently, if $\frac{1}{n}=o\left(h_{n}\right)$.
-	From these results, we immediately obtain sufficient conditions for the consistency of $\hat{f}_{n}(x)$.
+	Since the first factor on the right side tends to \(f(x)>0\), \(\Var\left[\hat{f}_{n}(x)\right] \rightarrow 0\) as \(h_{n}\rightarrow 0\) if in addition \(nh_{n}\rightarrow\infty\), that is, if \(h_{n}\) tends to 0 more slowly than \(1/n\) or, equivalently, if \(\frac{1}{n}=o\left(h_{n}\right)\).
+	From these results, we immediately obtain sufficient conditions for the consistency of \(\hat{f}_{n}(x)\).
 \end{proof}
 
-It is interesting to note that $\hat{f}_{n}(x)$ is itself a probability density. Since it is non-negative, one only needs to show that $\int_{-\infty}^{\infty}\hat{f}_{n}(x)\dif x=1$. This is easily seen by writing
+It is interesting to note that \(\hat{f}_{n}(x)\) is itself a probability density. Since it is non-negative, one only needs to show that \(\int_{-\infty}^{\infty}\hat{f}_{n}(x)\dif x=1\). This is easily seen by writing
 \begin{equation*}
 	\hat{f}_{n}(x)=\frac{1}{2nh}\sum_{i=1}^{n}I(x-h_{n}\leq X_{i}\leq x+h_{n})
 \end{equation*}
@@ -83,8 +83,8 @@ Then
 \end{equation*}
 
 \begin{remark}
-	Although $\hat{f}_{n}(x)$ is consistent for estimating $f(x)$ when the $h_{n}$'s satisfy $h_{n}\rightarrow0$ and $nh_{n}\rightarrow\infty$, note that $\hat{f}_{n}(x)$ as an estimator of $f(x)$ involves two approximations: $f(x)$ by $[F(x+h_{n})-F(x-h_{n})]/2h_{n}$ and the latter by $\hat{f}_{n}(x)$. As a result, the estimator turns out to be less accurate than one might have hoped.
-	Besides, the estimator $\hat{f}_{n}(x)$, although a density, is a step function with discontinuities at every point $x_{i}\pm h_{n},i=1,\ldots,n$. If we assume the true $f(x)$ to be a smooth density, we may prefer its estimator also to be smooth.
+	Although \(\hat{f}_{n}(x)\) is consistent for estimating \(f(x)\) when the \(h_{n}\)'s satisfy \(h_{n}\rightarrow0\) and \(nh_{n}\rightarrow\infty\), note that \(\hat{f}_{n}(x)\) as an estimator of \(f(x)\) involves two approximations: \(f(x)\) by \([F(x+h_{n})-F(x-h_{n})]/2h_{n}\) and the latter by \(\hat{f}_{n}(x)\). As a result, the estimator turns out to be less accurate than one might have hoped.
+	Besides, the estimator \(\hat{f}_{n}(x)\), although a density, is a step function with discontinuities at every point \(x_{i}\pm h_{n},i=1,\ldots,n\). If we assume the true \(f(x)\) to be a smooth density, we may prefer its estimator also to be smooth.
 \end{remark}
 
 \paragraph{Kernel Density Estimation}
@@ -93,23 +93,23 @@ We can rewrite it in the form:
 \begin{equation*}
 	\hat{f}_{n}(x)=\frac{1}{2nh_{n}}\sum_{i=1}^{n}I\left(x-h_{n}<X_{i}\leq x+h_{n}\right)=\frac{1}{nh_{n}}\sum_{i=1}^{n}K_{0}\left(\frac{X_i-x}{h}\right),
 \end{equation*}
-where $K_0(u)=\frac{1}{2}I(-1<u\leq 1)$. A simple generalization of the Rosenblatt estimator is given by
+where \(K_0(u)=\frac{1}{2}I(-1<u\leq 1)\). A simple generalization of the Rosenblatt estimator is given by
 \begin{equation}
 	\label{eq:kernel-density-estimator}
 	\hat{f}_{n}(x)=\frac{1}{nh_{n}}\sum_{i=1}^{n}K\left(\frac{X_{i}-x}{h_{n}}\right),
 \end{equation}
-where $K:\bbR\rightarrow\bbR$ is an integrable function satisfying $\int K(u)\dif\mu=1$.
-Such a function $K$ is called a kernel and the parameter $h_{n}$ is called a bandwidth of the estimator \eqref{eq:kernel-density-estimator}.
-The function $x\mapsto\hat{f}_{n}(x)$ is called the kernel density estimator or the Parzen-Rosenblatt estimator.
-In addition, we shall restrict attention to kernel $K$ that are symmetric about $0$.
+where \(K:\bbR\rightarrow\bbR\) is an integrable function satisfying \(\int K(u)\dif\mu=1\).
+Such a function \(K\) is called a kernel and the parameter \(h_{n}\) is called a bandwidth of the estimator~\eqref{eq:kernel-density-estimator}.
+The function \(x\mapsto\hat{f}_{n}(x)\) is called the kernel density estimator or the Parzen-Rosenblatt estimator.
+In addition, we shall restrict attention to kernel \(K\) that are symmetric about \(0\).
 
-In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}$ is a probability density since it is non-negative and since
+In generalization of~\eqref{eq:kernel-density-estimator}, note that \(\hat{f}_{n}\) is a probability density since it is non-negative and since
 \begin{equation*}
 	\int\hat{f}_{n}(x)\dif x=\frac{1}{n}\sum_{i=1}^{n}\int K\left(\mu-x_i\right)\dif\mu=\frac{1}{n}\sum_{i=1}^{n}\int K(\mu)\dif\mu=1.
 \end{equation*}
 
 \begin{theorem}
-	Let the density $f$ satisfies $f(x)\leq f_{\max}<\infty$ for all $x$ and let $K$ be a kernel that $int K^2(\mu)\dif\mu<\infty$. Then for any sequence $h_{n},n=1,2,\ldots$,
+	Let the density \(f\) satisfies \(f(x)\leq f_{\max}<\infty\) for all \(x\) and let \(K\) be a kernel that \(int K^2(\mu)\dif\mu<\infty\). Then for any sequence \(h_{n},n=1,2,\ldots\),
 	\begin{equation*}
 		\Var\left[\hat{f}_{n}(x)\right]= \frac{f_{\max}}{nh_{n}}\int K^2(\mu)\dif\mu+o\left(\frac{1}{nh_{n}}\right).
 	\end{equation*}
@@ -120,7 +120,7 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 	\begin{equation*}
 		\eta_{i}(x)=K\left(\frac{x-X_{i}}{h}\right)-\bbE\left[K\left(\frac{x-X_{i}}{h}\right)\right].
 	\end{equation*}
-	The random variables $\eta_{i}(x)$ are i.i.d with zero mean and variance
+	The random variables \(\eta_{i}(x)\) are i.i.d with zero mean and variance
 	\begin{equation*}
 		\begin{aligned}
 			\bbE\left[\eta_{i}^2(x)\right]\leq & \bbE\left[K^2\left(\frac{x-X_{i}}{h}\right)\right]                   \\
@@ -134,18 +134,18 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 \end{proof}
 
 \begin{theorem}[Bias of Kernel Density Estimator]
-	Let $f$ be three times differentiable with a bounded third derivative in a neighborhood of $y$ and let $K$ be a kernel symmetric about $0$, with
+	Let \(f\) be three times differentiable with a bounded third derivative in a neighborhood of \(y\) and let \(K\) be a kernel symmetric about \(0\), with
 	\begin{equation*}
 		\int K^2(\mu)\dif\mu<\infty,\quad\int\mu^2K(\mu)\dif\mu=\tau^2<\infty,\quad\int|\mu|^3 K(\mu)\dif\mu<\infty.
 	\end{equation*}
-	Then for any sequence $h_{n},n=1,2,\ldots$,
+	Then for any sequence \(h_{n},n=1,2,\ldots\),
 	\begin{equation*}
 		\Bias\left[\hat{f}_{n}(x)\right]=\frac{1}{2}h_{n}^2f^{\prime\prime}(x)\tau^2+o\left(h_{n}^2\right).
 	\end{equation*}
 \end{theorem}
 
 \begin{proof}
-	Suppressing the subscript $n$, we find for the bias of $\hat{f}_{n}(x)$,
+	Suppressing the subscript \(n\), we find for the bias of \(\hat{f}_{n}(x)\),
 	\begin{equation*}
 		\begin{aligned}
 			\Bias\left[\hat{f}_{n}(x)\right] & =E\left[\frac{1}{n}\sum_{i=1}^{n}\frac{1}{h}K\left(\frac{x-X_i}{h}\right)\right]-f(x) \\
@@ -153,15 +153,15 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 			                                 & =\int K(\mu)[f(x-h\mu)-f(x)]\dif\mu.
 		\end{aligned}
 	\end{equation*}
-	By the Taylor expansion of $f(x-h\mu)$ about $x$, we have
+	By the Taylor expansion of \(f(x-h\mu)\) about \(x\), we have
 	\begin{equation*}
 		f(x-h\mu)=f(x)+h\mu f^{\prime}(x)+\frac{1}{2}(h\mu)^{2}f^{\prime\prime}(x)+\frac{1}{6}(h\mu)^{3}f^{\prime\prime\prime}(\xi),
 	\end{equation*}
-	where $\xi$ lies between $x$ and $x-h\mu$. Using the fact that $\int\mu K(\mu)\dif\mu=0$, we therefore have
+	where \(\xi\) lies between \(x\) and \(x-h\mu\). Using the fact that \(\int\mu K(\mu)\dif\mu=0\), we therefore have
 	\begin{equation*}
 		\Bias\left[\hat{f}_{n}(x)\right]=\frac{1}{2}h^{2}f^{\prime\prime}(x)\int\mu^{2}K(\mu)\dif\mu+R_{n},
 	\end{equation*}
-	where, with $\left|f^{\prime \prime \prime}(z)\right| \leq M$,
+	where, with \(\left|f^{\prime \prime \prime}(z)\right| \leq M\),
 	\begin{equation*}
 		\left|R_{n}\right| \leq \frac{M h^3}{6} \int|z|^3 K(z) d z=o\left(h^2\right),
 	\end{equation*}
@@ -173,7 +173,7 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 \subsection{Positive Definite Kernels}
 
 \begin{definition}[Positive Definite Kernel]
-	Let $\mcX$ be a set, a function $K:\mcX\times\mcX\rightarrow\bbR$ is called a positive definite kernel on $\mcX$ if and only if it is
+	Let \(\mcX\) be a set, a function \(K:\mcX\times\mcX\rightarrow\bbR\) is called a positive definite kernel on \(\mcX\) if and only if it is
 	\begin{enumerate}
 		\item symmetric, that is,
 		      \begin{equation}
@@ -183,31 +183,31 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 		      \begin{equation}
 			      \sum_{i=1}^{n}\sum_{j=1}^{n}c_{i}c_{j}K\left(\bfx_{i},\bfx_{j}\right)\geq 0,
 		      \end{equation}
-		      holds for any $x_{1},\ldots,x_{n}\in\mcX$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR$.
+		      holds for any \(x_{1},\ldots,x_{n}\in\mcX\), given \(n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR\).
 	\end{enumerate}
 \end{definition}
 
 \subsubsection{Construction of the Reproducing Kernel Hilbert Space}
 
-\begin{theorem}[Morse-Aronszajn's Theorem] \label{thm:morse-aronszajn}
-	For any set $\mcX$, suppose $K:\mcX\times\mcX\rightarrow\bbR$ is positive definite, then there is a unique RKHS $\mathcal{H}\subset\bbR^{\mcX}$ with reproducing kernel $K$.
+\begin{theorem}[Morse-Aronszajn's Theorem]\label{thm:morse-aronszajn}
+	For any set \(\mcX\), suppose \(K:\mcX\times\mcX\rightarrow\bbR\) is positive definite, then there is a unique RKHS \(\mathcal{H}\subset\bbR^{\mcX}\) with reproducing kernel \(K\).
 \end{theorem}
 
 \begin{proof}
 	\begin{enumerate}
-		\item How to build a valid pre-RKHS $\mathcal{H}_{0}$?
+		\item How to build a valid pre-RKHS \(\mathcal{H}_{0}\)?
 
-		      Consider the vector space $\mathcal{H}_{0}\subset\mathcal{R}^{\mcX}$ spanned by the functions $\left\{K\left(\cdot,\bfx\right)\right\}_{\bfx\in\mcX}$. For any $f,g\in\mathcal{H}_{0}$, suppose
+		      Consider the vector space \(\mathcal{H}_{0}\subset\mathcal{R}^{\mcX}\) spanned by the functions \(\left\{K\left(\cdot,\bfx\right)\right\}_{\bfx\in\mcX}\). For any \(f,g\in\mathcal{H}_{0}\), suppose
 		      \begin{equation*}
 			      f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\bfx_{i}\right),\quad g=\sum_{j=1}^{n}b_{j}K\left(\cdot,\mathbf{y}_{j}\right)
 		      \end{equation*}
-		      and let the inner product of $\mathcal{H}_{0}$ be
+		      and let the inner product of \(\mathcal{H}_{0}\) be
 		      \begin{equation}
 			      \left\langle f,g\right\rangle=\sum_{i=1}^{m}\sum_{j=1}^{n}a_{i}b_{j}K\left(\bfx_{i},\mathbf{y}_{j}\right)
 			      \label{eq:definition-pre-rkhs-inner-product}
 		      \end{equation}
 
-		      Let $\bfx\in\mcX$,
+		      Let \(\bfx\in\mcX\),
 		      \begin{equation*}
 			      \left\langle f,K\left(\cdot,\bfx\right)\right\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i} K\left(\bfx,\bfx_{i}\right)=f(\bfx)
 			      \label{eq:reproducing-kernel}
@@ -223,7 +223,7 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 			      f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\bfx_{i}\right),\quad g=\sum_{j=1}^{n}b_{j}K\left(\cdot,\mathbf{y}_{j}\right),\quad h=\sum_{k=1}^{p}c_{k}K\left(\cdot,\mathbf{z}_{k}\right)
 		      \end{equation*}
 		      \begin{enumerate}
-			      \item Linearity: For any $\alpha,\beta\in\bbR$, $\left\langle\alpha f+\beta g,h\right\rangle_{\mathcal{H}_{0}}=\alpha\left\langle f,h\right\rangle_{\mathcal{H}_{0}}+\beta\left\langle g,h\right\rangle_{\mathcal{H}_{0}}$.
+			      \item Linearity: For any \(\alpha,\beta\in\bbR\), \(\left\langle\alpha f+\beta g,h\right\rangle_{\mathcal{H}_{0}}=\alpha\left\langle f,h\right\rangle_{\mathcal{H}_{0}}+\beta\left\langle g,h\right\rangle_{\mathcal{H}_{0}}\).
 			            \begin{equation*}
 				            \begin{aligned}
 					            \left\langle\alpha f+\beta g,h\right\rangle_{\mathcal{H}_{0}}= & \left[\alpha\sum_{i=1}^{m}a_{i}K\left(\cdot,\bfx_{i}\right)+\beta\sum_{j=1}^{n}b_{j}K\left(\cdot,\mathbf{y}_{j}\right)\right]\cdot\sum_{k=1}^{p}c_{k}K\left(\cdot,\mathbf{z}_{k}\right) \\
@@ -231,34 +231,34 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 					            =                                                              & \alpha\left\langle f,h\right\rangle_{\mathcal{H}_{0}}+\beta\left\langle g,h\right\rangle_{\mathcal{H}_{0}}
 				            \end{aligned}
 			            \end{equation*}
-			      \item Conjugate Symmetry: $\langle f,g\rangle_{\mathcal{H}_{0}}=\langle g,f\rangle_{\mathcal{H}_{0}}$.
+			      \item Conjugate Symmetry: \(\langle f,g\rangle_{\mathcal{H}_{0}}=\langle g,f\rangle_{\mathcal{H}_{0}}\).
 			            \begin{equation*}
 				            \begin{aligned}
 					            \langle f,g\rangle_{\mathcal{H}_{0}}= & \sum_{i=1}^{m}\sum_{j=1}^{n}a_{i}b_{j}K\left(\bfx_{i},\mathbf{y}_{j}\right)=\sum_{j=1}^{n}\sum_{i=1}^{m}b_{j}a_{i}K\left(\mathbf{y}_{j},\bfx_{i}\right) \\
 					            =                                     & \langle g,f\rangle_{\mathcal{H}_{0}}
 				            \end{aligned}
 			            \end{equation*}
-			      \item Positive Definiteness: $\langle f,f\rangle_{\mathcal{H}_{0}}\geq 0$ and $\langle f,f\rangle_{\mathcal{H}_{0}}=0$ if and only if $f=0$.
+			      \item Positive Definiteness: \(\langle f,f\rangle_{\mathcal{H}_{0}}\geq 0\) and \(\langle f,f\rangle_{\mathcal{H}_{0}}=0\) if and only if \(f=0\).
 
-			            By positive definiteness of $K$, we have:
+			            By positive definiteness of \(K\), we have:
 			            \begin{equation*}
 				            \langle f,f\rangle_{\mathcal{H}_{0}}=\|f\|_{\mathcal{H}_{0}}^{2}=\sum_{i=1}^{m}\sum_{j=1}^{m}a_{i}a_{j}K\left(\bfx_{i},\bfx_{j}\right)\geq 0
 			            \end{equation*}
 
-			            As for, $\langle f,f\rangle_{\mathcal{H}_{0}}=0$ if and only if $f=0$, we have,
+			            As for, \(\langle f,f\rangle_{\mathcal{H}_{0}}=0\) if and only if \(f=0\), we have,
 			            \begin{itemize}
-				            \item["$\Rightarrow$"] If $f=0$, that is $f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\bfx_{i}\right)=0$, we have
+				            \item[\(\Rightarrow\)] If \(f=0\), that is \(f=\sum_{i=1}^{m}a_{i}K\left(\cdot,\bfx_{i}\right)=0\), we have
 				                  \begin{equation*}
 					                  \langle f,f\rangle_{\mathcal{H}_{0}}=\sum_{i=1}^{m}a_{i}f=0
 				                  \end{equation*}
-				            \item["$\Leftarrow$"] For $\forall\bfx\in\mcX$, by Cauchy-Schwarz Inequality, we have,
+				            \item[\(\Leftarrow\)] For \(\forall\bfx\in\mcX\), by Cauchy-Schwarz Inequality, we have,
 				                  \begin{equation*}
 					                  |f(\bfx)|=\left|\left\langle f,K\left(,\cdot{\bfx}\right)\right\rangle_{\mathcal{H}_{0}}\right|\leq\|f\|_{\mathcal{H}_{0}}\cdot K\left(\bfx,\bfx\right)^{\frac{1}{2}}
 				                  \end{equation*}
-				                  therefore, if $\|f\|_{\mathcal{H}_{0}}=0$, then $f=0$
+				                  therefore, if \(\|f\|_{\mathcal{H}_{0}}=0\), then \(f=0\)
 			            \end{itemize}
 		      \end{enumerate}
-		      Hence, the definition in equation \eqref{eq:definition-pre-rkhs-inner-product} is a valid inner product, which is a valid pre-RKHS $\mathcal{H}_{0}$.
+		      Hence, the definition in equation~\eqref{eq:definition-pre-rkhs-inner-product} is a valid inner product, which is a valid pre-RKHS \(\mathcal{H}_{0}\).
 	\end{enumerate}
 \end{proof}
 
@@ -272,7 +272,7 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 
 \begin{proof}
 	\begin{enumerate}
-		\item It is obvious that $K(\bfx,\mathbf{y})$ is symmetric, we only need to show $K(\bfx,\mathbf{y})$ is positive definite.
+		\item It is obvious that \(K(\bfx,\mathbf{y})\) is symmetric, we only need to show \(K(\bfx,\mathbf{y})\) is positive definite.
 		      \begin{equation*}
 			      \begin{aligned}
 				      K(\bfx,\mathbf{y})= & \exp\left(-\frac{\left\|\bfx-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right)                                                                                                                            \\
@@ -315,7 +315,7 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 				      =                   & \left\langle\Phi\left(\bfx\right),\Phi\left(\mathbf{y}\right)\right\rangle                                                                                                                          \\
 			      \end{aligned}
 		      \end{equation*}
-		      where $\Phi\left(\bfx\right)_{\sigma,n,\mathbf{k}}=c_{\sigma,n}\left(\bfx\right)f_{n,\mathbf{k}}\left(\bfx\right)$.
+		      where \(\Phi\left(\bfx\right)_{\sigma,n,\mathbf{k}}=c_{\sigma,n}\left(\bfx\right)f_{n,\mathbf{k}}\left(\bfx\right)\).
 
 		      \begin{equation*}
 			      \begin{aligned}
@@ -323,6 +323,6 @@ In generalization of \eqref{eq:kernel-density-estimator}, note that $\hat{f}_{n}
 				      =                                                                      & \left\langle\sum_{i=1}^{n}c_{i}\Phi\left(\bfx_{i}\right),\sum_{i=1}^{n}c_{i}\Phi\left(\bfx_{i}\right)\right\rangle\geq 0
 			      \end{aligned}
 		      \end{equation*}
-		      for any $x_{1},\ldots,x_{n}\in\mcX$, given $n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR$, i.e., $K(\bfx,\mathbf{y})$ is positive definite.
+		      for any \(x_{1},\ldots,x_{n}\in\mcX\), given \(n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR\), i.e., \(K(\bfx,\mathbf{y})\) is positive definite.
 	\end{enumerate}
 \end{proof}

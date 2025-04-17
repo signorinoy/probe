@@ -3,11 +3,11 @@
 \section{General Formulation}
 
 \begin{definition}[Survival Function]
-	The survival function\footnote{The survival function is the probability that the time of death is later than some specified time $t$.} is defined to be
+	The survival function\footnote{The survival function is the probability that the time of death is later than some specified time \(t\).} is defined to be
 	\begin{equation}
 		S(t)=P(T>t)=\int_{t}^{\infty}f(u)\dif u=1-F(t).
 	\end{equation}
-	where $t$ is some specified time, $T$ is a random variable denoting the time of death.
+	where \(t\) is some specified time, \(T\) is a random variable denoting the time of death.
 \end{definition}
 
 \begin{definition}[Lifetime Distribution Function]
@@ -15,21 +15,21 @@
 	\begin{equation}
 		F(t)=P(T\leq t)
 	\end{equation}
-	If $F$ is differentiable then the derivative, which is the density function of the lifetime distribution\footnote{The function $f$ is sometimes called the event density; it is the rate of death or failure events per unit time.}, is defined to be
+	If \(F\) is differentiable then the derivative, which is the density function of the lifetime distribution\footnote{The function \(f\) is sometimes called the event density; it is the rate of death or failure events per unit time.}, is defined to be
 	\begin{equation}
 		f(t)=F^{\prime}(t)=\frac{\dif}{\dif t}F(t)
 	\end{equation}
 \end{definition}
 
 \begin{definition}[Hazard Function]
-	The Hazard function\footnote{The Hazard function is the event rate at time $t$ conditional on survival until time $t$ or later (that is, $T\geq t$).} is defined to be
+	The Hazard function\footnote{The Hazard function is the event rate at time \(t\) conditional on survival until time \(t\) or later (that is, \(T\geq t\)).} is defined to be
 	\begin{equation}
 		\lambda(t)=\lim_{\varepsilon\rightarrow 0^{+}}\left[\frac{P(t\leq T<t+\varepsilon\mid T\geq t)}{\varepsilon}\right]=\frac{f(t)}{S(t)}
 	\end{equation}
 \end{definition}
 
 \begin{property}
-	The relationship among $\lambda(t)$, $f(t)$, $S(t)$,
+	The relationship among \(\lambda(t)\), \(f(t)\), \(S(t)\),
 	\begin{enumerate}
 		\item
 		      \begin{equation}
@@ -73,7 +73,7 @@
 
 \paragraph*{Parametric Approach}
 
-Suppose $t_{1},t_{2},\ldots,t_{n}$ are failure times corresponding to censor indicators $\delta_{1},\delta_{2},\ldots,\delta_{n}$. The likelihood function is
+Suppose \(t_{1},t_{2},\ldots,t_{n}\) are failure times corresponding to censor indicators \(\delta_{1},\delta_{2},\ldots,\delta_{n}\). The likelihood function is
 \begin{equation}
 	\begin{aligned}
 		f\left(\boldsymbol{\theta}\mid\mathbf{t},\boldsymbol{\delta}\right)= & \prod_{i=1}^{n}\left[f\left(t_{i}\right)\right]^{\delta_{i}}\left[S\left(t_{i}\right)\right]^{1-\delta_{i}} \\
@@ -81,10 +81,10 @@ Suppose $t_{1},t_{2},\ldots,t_{n}$ are failure times corresponding to censor ind
 		=                                                                    & \prod_{i=1}^{n}\left[\lambda\left(t_{i}\right)\right]^{\delta_{i}}S\left(t_{i}\right)
 	\end{aligned}
 \end{equation}
-where $\lambda(t),S(t)$ depends on some parameter $\theta$.
+where \(\lambda(t),S(t)\) depends on some parameter \(\theta\).
 
 \begin{example}
-	Suppose $\boldsymbol{T}$ have exponential density, that,
+	Suppose \(\boldsymbol{T}\) have exponential density, that,
 	\begin{equation*}
 		f(t)=\lambda \mathrm{e}^{-\lambda t},\quad S(t)=\mathrm{e}^{-\lambda t}
 	\end{equation*}
@@ -103,7 +103,7 @@ where $\lambda(t),S(t)$ depends on some parameter $\theta$.
 
 \paragraph*{Nonparametric Approach}
 
-Then, for $t_{(k)}\leq t<t_{(k+1)}$,
+Then, for \(t_{(k)}\leq t<t_{(k+1)}\),
 \begin{equation}
 	\begin{aligned}
 		\hat{S}(t)= & \prod_{j=1}^{k}\left(\frac{n_{j}-d_{j}}{n_{j}}\right)                                                                                             \\
@@ -111,30 +111,30 @@ Then, for $t_{(k)}\leq t<t_{(k+1)}$,
 		\approx     & \left[1-\hat{\lambda}\left(t_{1}\right)\right]\left[1-\hat{\lambda}\left(t_{2}\right)\right] \ldots\left[1-\hat{\lambda}\left(t_{k}\right)\right]
 	\end{aligned}
 \end{equation}
-where $\hat{S}(t)$ is referred to as Kaplan-Meier estimate.
+where \(\hat{S}(t)\) is referred to as Kaplan-Meier estimate.
 
 \section{Proportional Hazards Model}
 
-Let $t_{1},t_{2},\ldots,t_{n}$ be the failure times associated with censor indicator $\delta_{1},\delta_{2},\ldots,\delta_{n}$ and the covariate vectors $\bfx_{i}$.
+Let \(t_{1},t_{2},\ldots,t_{n}\) be the failure times associated with censor indicator \(\delta_{1},\delta_{2},\ldots,\delta_{n}\) and the covariate vectors \(\bfx_{i}\).
 
-Further, let $t_{(1)}\leq t_{(2)}\leq\ldots\leq t_{(m)}$ be the ordered uncensored failure times corresponding to $\delta_{(j)}=1,j=1,2,\ldots,m$, and $x_{(1)},x_{(2)},\ldots,x_{(m)}$ are the associated covariate vectors. Note $(j)$ represents the label for the individual who dies at $t_{(j)}$.
+Further, let \(t_{(1)}\leq t_{(2)}\leq\cdots\leq t_{(m)}\) be the ordered uncensored failure times corresponding to \(\delta_{(j)}=1,j=1,2,\ldots,m\), and \(x_{(1)},x_{(2)},\ldots,x_{(m)}\) are the associated covariate vectors. Note \((j)\) represents the label for the individual who dies at \(t_{(j)}\).
 
-The proportional hazards model specifying the hazard at time $t$ for an individual whose covariate vector is $\bfx$ is given by
+The proportional hazards model specifying the hazard at time \(t\) for an individual whose covariate vector is \(\bfx\) is given by
 \begin{equation}
 	\lambda(t)=\lambda_{0}(t)\mathrm{e}^{\bfx^{\top}\bfbeta}
 \end{equation}
-where $\lambda_{0}(t)$ is referred to as the baseline hazard function.
+where \(\lambda_{0}(t)\) is referred to as the baseline hazard function.
 
 The exact likelihood function is
 \begin{equation}
 	\ell\left[\beta,\lambda_{0}(t)\right]=\prod_{i=1}^{n}\left[\lambda_{i}\left(t_{i}\right)\right]^{\delta_{i}}S\left(t_{i}\right)
 \end{equation}
-depends on both the nonparametric function $\lambda_{0}(t)$ and the parameter $\bfbeta$. Thus, it might be difficult to estimate $\lambda_{0}(t)$ and $\bfbeta$ simultaneously.
+depends on both the nonparametric function \(\lambda_{0}(t)\) and the parameter \(\bfbeta\). Thus, it might be difficult to estimate \(\lambda_{0}(t)\) and \(\bfbeta\) simultaneously.
 
 The partial likelihood function is
 \begin{equation}
 	\ell_{p}(\bfbeta)=\prod_{j=1}^{m}\frac{\mathrm{e}^{\bfx_{(j)}^{\prime}\bfbeta}}{\sum_{l\in R\left(t_{(j)}\right)}\mathrm{e}^{\bfx_{l}^{\prime}\bfbeta}}=\prod_{i=1}^{n}\left[\frac{\mathrm{e}^{\bfx_{i}^{\top}\bfbeta}}{\sum_{l\in R\left(t_{i}\right)}\mathrm{e}^{\bfx_{l}^{\prime}\bfbeta}}\right]^{\delta_{i}}
 \end{equation}
-where $R(t)$ is the set of individuals who are alive and uncensored at a time just before $t_{i}$, which is called the risk set.
+where \(R(t)\) is the set of individuals who are alive and uncensored at a time just before \(t_{i}\), which is called the risk set.
 
 Another set of work converts the survival prediction problem into a classification problem by dividing the continuous time-to-event into nonoverlapping intervals

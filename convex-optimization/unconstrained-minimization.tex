@@ -8,14 +8,14 @@
 		\min_{\bfx}f(\bfx)
 		\label{eq:unconstrained-minimization-problem}
 	\end{equation}
-	where $f:\bbR^n\rightarrow\bbR$ is convex and twice continuously differentiable.
+	where \(f:\bbR^n\rightarrow\bbR\) is convex and twice continuously differentiable.
 \end{definition}
 
-Assume the problem is solvable, i.e., there exists an optimal point $\bfx^{*}$, such that,
+Assume the problem is solvable, i.e., there exists an optimal point \(\bfx^{*}\), such that,
 \begin{equation*}
 	f(\bfx^{*})=\inf_{\bfx}f(\bfx)
 \end{equation*}
-and denote it by $p^{*}$. Since $f$ is differentiable and convex, the point $\bfx^{*}$ is optimal, if and only if
+and denote it by \(p^{*}\). Since \(f\) is differentiable and convex, the point \(\bfx^{*}\) is optimal, if and only if
 \begin{equation}
 	\nabla f(\bfx^{*})=0
 	\label{eq:optimal-condition-of-unconstrained-minimization-problem}
@@ -25,10 +25,10 @@ Solving (\ref{eq:unconstrained-minimization-problem}) is equal to finding the so
 \begin{equation*}
 	\exists\bfx^{(0)},\bfx^{(1)},\ldots\in\operatorname{dom}f,\ \text{s.t.}\ f(\bfx^{(k)})\rightarrow p^{*},\ \text{as}\ \quad k\rightarrow\infty
 \end{equation*}
-This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$, where $\epsilon>0$ is some specified tolerance.
+This algorithm is terminated when \(f\left(x^{(k)}\right)-p^{\star}\leq\epsilon\), where \(\epsilon>0\) is some specified tolerance.
 
 \begin{remark}
-	The initial point $\bfx^{(0)}$ must lie in $\operatorname{dom}f$, and the sublevel set
+	The initial point \(\bfx^{(0)}\) must lie in \(\operatorname{dom}f\), and the sublevel set
 	\begin{equation*}
 		S=\left\{\bfx\in\operatorname{dom}f\mid f(\bfx)\leq f(\bfx^{(0)})\right\}
 	\end{equation*}
@@ -40,15 +40,15 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 	\begin{equation}
 		\min_{\bfx}\,\frac{1}{2}\bfx^{\top}\bfP\bfx+\bfq^{\prime}\bfx+r \label{eq:quadratic-minimization}
 	\end{equation}
-	where $\bfP\in\mathbb{S}_{+}^{n},\bfq\in\bbR^{n}$, and $r\in\bbR$. The optimality condition is
+	where \(\bfP\in\mathbb{S}_{+}^{n},\bfq\in\bbR^{n}\), and \(r\in\bbR\). The optimality condition is
 	\begin{equation}
 		\bfP\bfx^{*}+\bfq=\bfzero
 		\label{eq:quadratic-minimization-optimality-condition}
 	\end{equation}
 	which is a set of linear equations.
 	\begin{enumerate}
-		\item If $\bfP\succ 0$, exists a unique solution $\bfx^{*}=-\bfP^{-1}\bfq$.
-		\item If $\bfP$ is not positive definite, any solution of (\ref{eq:quadratic-minimization-optimality-condition}) is optimal for (\ref{eq:quadratic-minimization}).
+		\item If \(\bfP\succ 0\), exists a unique solution \(\bfx^{*}=-\bfP^{-1}\bfq\).
+		\item If \(\bfP\) is not positive definite, any solution of (\ref{eq:quadratic-minimization-optimality-condition}) is optimal for (\ref{eq:quadratic-minimization}).
 		\item If (\ref{eq:quadratic-minimization-optimality-condition}) does not have a solution, then (\ref{eq:quadratic-minimization}) is unbounded.
 	\end{enumerate}
 \end{example}
@@ -60,15 +60,15 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 		      Obviously.
 
 		\item
-		      Since $\bfP\nsucceq 0$, i.e.,
+		      Since \(\bfP\nsucceq 0\), i.e.,
 		      \begin{equation*}
 			      \exists\bfv,\ \text{s.t.}\ \bfv^{\prime}\bfP\bfv<0
 		      \end{equation*}
-		      Let $\bfx=t\bfv$, we have
+		      Let \(\bfx=t\bfv\), we have
 		      \begin{equation*}
 			      f\left(\bfx\right)=t^{2}\left(\bfv^{\prime}\bfP\bfv/2\right)+t\left(\bfq^{\prime}\bfv\right)+r
 		      \end{equation*}
-		      which converges to $-\infty$ as $t\rightarrow\infty$.
+		      which converges to \(-\infty\) as \(t\rightarrow\infty\).
 
 		\item
 		      Since (\ref{eq:quadratic-minimization-optimality-condition}) does not have a solution, i.e.,
@@ -79,7 +79,7 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 		      \begin{equation*}
 			      \bfq=\tilde{\bfq}+\bfv
 		      \end{equation*}
-		      where $\tilde{\bfq}$ is the Euclidean projection of $\bfq$ onto $\mathcal{R}(\bfP)$, and $\bfv=\bfq-\tilde{\bfq}$. And $\bfv$ is nonzero and orthogonal to $\mathcal{R}(\bfP)$, i.e., $\bfv^{\prime}\bfP\bfv=0$. If we take $\bfx=t\bfv$, we have
+		      where \(\tilde{\bfq}\) is the Euclidean projection of \(\bfq\) onto \(\mathcal{R}(\bfP)\), and \(\bfv=\bfq-\tilde{\bfq}\). And \(\bfv\) is nonzero and orthogonal to \(\mathcal{R}(\bfP)\), i.e., \(\bfv^{\prime}\bfP\bfv=0\). If we take \(\bfx=t\bfv\), we have
 		      \begin{equation*}
 			      f(\bfx)=t\bfq^{\prime}\bfv+r=t(\tilde{\bfq}+\bfv)^{\prime}\bfv+r=t(\bfv^{\prime}\bfv)+r
 		      \end{equation*}
@@ -108,7 +108,7 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 	\begin{equation*}
 		\nabla f\left(x^{*}\right)=\frac{\sum_{i=1}^{m}\exp\left(\bfa_{i}^{\prime}\bfx^{*}+b_{i}\right)\bfa_{i}}{\sum_{j=1}^{m}\exp\left(\bfa_{j}^{\prime}\bfx^{*}+b_{j}\right)}=\bfzero
 	\end{equation*}
-	which has no analytical solution, so we must resort to an iterative algorithm. For this problem, $\operatorname{dom} f=\bbR^{n}$, so any point can be chosen as the initial point $\bfx^{(0)}$.
+	which has no analytical solution, so we must resort to an iterative algorithm. For this problem, \(\operatorname{dom} f=\bbR^{n}\), so any point can be chosen as the initial point \(\bfx^{(0)}\).
 \end{example}
 
 \begin{example}[Analytic Center of Linear Inequalities]
@@ -116,7 +116,7 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 	\begin{equation*}
 		\min_{\bfx}\,f(x)=-\sum_{i=1}^{m}\log\left(\bfb_{i}-\bfa_{i}^{T}\bfx\right)
 	\end{equation*}
-	where the domain of $f$ is the open set
+	where the domain of \(f\) is the open set
 	\begin{equation*}
 		\operatorname{dom}f=\left\{\bfx\mid\bfa_{i}^{\prime}\bfx<\bfb_{i},i=1,\ldots,m\right\}
 	\end{equation*}
@@ -134,7 +134,7 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 
 \section{Newton's Method}
 
- (Smoothness Hessian) Suppose the Hessians of $f$ are Lipschitz continuous, i.e.,
+ (Smoothness Hessian) Suppose the Hessians of \(f\) are Lipschitz continuous, i.e.,
 \begin{equation}
 	\|\nabla^{2}f(\bfx)-\nabla^{2}f(\bfy)\|_{2}\leq L\|\bfx-\bfy\|_{2}
 	\label{eq:smoothness-hessian}
@@ -142,7 +142,7 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 
 \begin{algorithm}[htbp]
 	\caption{Damped Newton Method}
-	\KwIn{Initial point $\bfx_0\in\dom f$, tolerance $\epsilon>0$}
+	\KwIn{Initial point \(\bfx_0\in\dom f\), tolerance \(\epsilon>0\)}
 	\KwOut{}
 	\Repeat{}{
 		Compute the Newton step and decrement
@@ -153,13 +153,13 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 \end{algorithm}
 
 \begin{theorem}
-	Under the condition , there exist $0<\eta<m^{2}/L$ and $\gamma>0$, for the damped Newton method, we have
+	Under the condition, there exist \(0<\eta<m^{2}/L\) and \(\gamma>0\), for the damped Newton method, we have
 	\begin{itemize}
-		\item If $\|\nabla^{2}f(\bfx^{(k)})\|\geq\eta$, then
+		\item If \(\|\nabla^{2}f(\bfx^{(k)})\|\geq\eta\), then
 		      \begin{equation*}
 			      f(\bfx^{(k+1)})-f(\bfx^{(k)})\leq-\gamma.
 		      \end{equation*}
-		\item If $\|\nabla^{2}f(\bfx^{(k)})\|<\eta$, then the backtracking line search select $t^{(k)}=1$, and
+		\item If \(\|\nabla^{2}f(\bfx^{(k)})\|<\eta\), then the backtracking line search select \(t^{(k)}=1\), and
 		      \begin{equation*}
 			      \frac{L}{2m^{2}}\|\nabla f(\bfx^{(k+1)})\|_{2}\leq \left(\frac{L}{2m^{2}}\|\nabla f(\bfx^{(k)})\|_{2}\right)^{2}.
 		      \end{equation*}
@@ -193,12 +193,12 @@ This algorithm is terminated when $f\left(x^{(k)}\right)-p^{\star}\leq\epsilon$,
 	\begin{equation}
 		\min_{\bfx}\,f(\bfx)=\sum_{i=1}^{n}r_{i}^{2}(\bfx)
 	\end{equation}
-	where $n$ is even, and
+	where \(n\) is even, and
 	\begin{equation}
 		r_{i}(\bfx)=\begin{cases}
 			10(x_{2k}-x_{2k-1}^{2}), & i=2k-1 \\
 			1-x_{2k-1},              & i=2k   \\
 		\end{cases}
 	\end{equation}
-	The minimum point is $\bfx^{*}=(1,1,\ldots,1)^{\prime}$, the initial point is $\bfx_{0}=(-1.2,1,\ldots,-1.2,1)^{\prime}$.
+	The minimum point is \(\bfx^{*}=(1,1,\ldots,1)^{\prime}\), the initial point is \(\bfx_{0}=(-1.2,1,\ldots,-1.2,1)^{\prime}\).
 \end{example}

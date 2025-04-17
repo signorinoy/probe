@@ -12,28 +12,28 @@
 \section{Probability Space}
 
 \begin{definition}[Probability Space]
-	A probability space is a triple $(\Omega,\mcF,P)$ consisting of:
+	A probability space is a triple \((\Omega,\mcF,P)\) consisting of:
 	\begin{enumerate}
-		\item the sample space $\Omega$: an arbitrary non-empty set.
-		\item the $\sigma$-algebra $\mcF\subseteq 2^{\Omega}$: a set of subsets of $\Omega$, called events.
-		\item the probability measure $P:\mcF \rightarrow[0,1]$: a function on $\mcF$ which is a measure function.
+		\item the sample space \(\Omega\): an arbitrary non-empty set.
+		\item the \(\sigma\)-algebra \(\mcF\subseteq 2^{\Omega}\): a set of subsets of \(\Omega\), called events.
+		\item the probability measure \(P:\mcF \rightarrow[0,1]\): a function on \(\mcF\) which is a measure function.
 	\end{enumerate}
 \end{definition}
 
 \section{Random Variables}
 
 \begin{definition}[Random Variable]
-	A random variable is a measurable function $X:\Omega\rightarrow S$ from a set of possible outcomes $(\Omega,\mcF)$ to a measurable space $(S,\mathcal{S})$, that is,
+	A random variable is a measurable function \(X:\Omega\rightarrow S\) from a set of possible outcomes \((\Omega,\mcF)\) to a measurable space \((S,\mathcal{S})\), that is,
 	\begin{equation}
 		X^{-1}(B)\equiv\{\omega:X(\omega)\in B\}\in\mcF\quad \forall B\in\mathcal{S}.
 	\end{equation}
-	Typically, $(S,\mathcal{S})=(R^d,\mathcal{R}^d)\quad(d>1)$.
+	Typically, \((S,\mathcal{S})=(R^d,\mathcal{R}^d)\quad(d>1)\).
 \end{definition}
 
 How to prove that functions are measurable?
 
 \begin{theorem}
-	If $\{\omega:X(\omega)\in A\}\in\mcF$ for all $A\in\mathcal{A}$ and $\mathcal{A}$ generates $\mathcal{S}$, then $X$ is measurable.
+	If \(\{\omega:X(\omega)\in A\}\in\mcF\) for all \(A\in\mathcal{A}\) and \(\mathcal{A}\) generates \(\mathcal{S}\), then \(X\) is measurable.
 \end{theorem}
 
 \begin{enumerate}
@@ -45,37 +45,37 @@ How to prove that functions are measurable?
 \subsection{Definition of Distributions}
 
 \begin{definition}[Distribution]
-	A distribution of random variable $X$ is a probability function $P:\mathcal{R}\rightarrow\bbR$ by setting
+	A distribution of random variable \(X\) is a probability function \(P:\mathcal{R}\rightarrow\bbR\) by setting
 	\begin{equation}
-		\mu(A)=P(X\in A)=P\left(X^{-1}(A)\right),\quad\text{for}A\in\mathcal{R}.
+		\mu(A)=P(X\in A)=P\left(X^{-1}(A)\right),\quad\text{for }A\in\mathcal{R}.
 	\end{equation}
 \end{definition}
 
 \begin{definition}[Distribution Function]
-	The distribution of a random variable $X$ is usually described by giving its \textbf{distribution function},
+	The distribution of a random variable \(X\) is usually described by giving its \textbf{distribution function},
 	\begin{equation}
 		F(x)=P(X\leq x).
 	\end{equation}
 \end{definition}
 
 \begin{definition}[Density Function]
-	If the distribution function $F(x)=P(X\leq x)$ has the form
+	If the distribution function \(F(x)=P(X\leq x)\) has the form
 	\begin{equation*}
 		F(x)=\int_{-\infty}^{x}f(y)\dif y,
 	\end{equation*}
-	that $X$ has density function $f$.
+	that \(X\) has density function \(f\).
 \end{definition}
 
 \subsection{Properties of Distributions}
 
-\begin{theorem}[Properties of Distribution Function] \label{thm:distribution-function-property}
-	Any distribution function $F$ has the following properties,
+\begin{theorem}[Properties of Distribution Function]\label{thm:distribution-function-property}
+	Any distribution function \(F\) has the following properties,
 	\begin{enumerate}
-		\item $F$ is nondecreasing.
-		\item $\lim_{x\rightarrow\infty}F(x)=1,\lim_{x \rightarrow-\infty}F(x)=0$.
-		\item $F$ is right continuous, i.e., $\lim_{y \downarrow x} F(y)=F(x)$.
-		\item If $F(x-)=\lim_{y\uparrow x}F(y)$, then $F(x-)=P(X<x)$.
-		\item $P(X=x)=F(x)-F(x-)$.
+		\item \(F\) is nondecreasing.
+		\item \(\lim_{x\rightarrow\infty}F(x)=1,\lim_{x \rightarrow-\infty}F(x)=0\).
+		\item \(F\) is right continuous, i.e., \(\lim_{y \downarrow x} F(y)=F(x)\).
+		\item If \(F(x-)=\lim_{y\uparrow x}F(y)\), then \(F(x-)=P(X<x)\).
+		\item \(P(X=x)=F(x)-F(x-)\).
 	\end{enumerate}
 \end{theorem}
 
@@ -84,7 +84,7 @@ How to prove that functions are measurable?
 \end{proof}
 
 \begin{theorem}
-	If $F$ satisfies (1), (2), and (3) in Theorem~\ref{thm:distribution-function-property}, then it is the distribution function of some random variable.
+	If \(F\) satisfies (1), (2), and (3) in Theorem~\ref{thm:distribution-function-property}, then it is the distribution function of some random variable.
 \end{theorem}
 
 \begin{proof}
@@ -103,7 +103,7 @@ How to prove that functions are measurable?
 
 \subsubsection{Exponential Family}
 
-\begin{definition}[Exponential Family] \label{def:exponential-family}
+\begin{definition}[Exponential Family]\label{def:exponential-family}
 	An exponential family of probability distributions is those distributions whose density is defined to be
 	\begin{equation}
 		f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
@@ -127,12 +127,12 @@ How to prove that functions are measurable?
 		\caption{Common Distributions of Exponential Family}
 		\begin{tabular}{ccccccccc}
 			\toprule
-			Distribution & Parameter(s)           & $\theta$                                & $\phi$       & $b(\theta)$                     & $a(\phi)$ & $c(y,\phi)$                                                   & $E(Y)$                            & $\Var(Y)$                                          \\
+			Distribution & Parameter (s)            & \(\theta\)                                & \(\phi\)       & \(b(\theta)\)                     & \(a(\phi)\) & \(c(y,\phi)\)                                                   & \(E(Y)\)                            & \(\Var(Y)\)                                          \\
 			\midrule
-			Normal       & $N(\mu,\sigma^2)$      & $\mu$                                   & $\sigma^{2}$ & $\frac{\theta^{2}}{2}$          & $\phi$    & $-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]$ & $\theta$                          & $\phi$                                             \\
-			Bernoulli    & $\text{Bern}(p)$       & $\log\left(\frac{p}{1-p}\right)$        & $1$          & $\log\left(1+e^{\theta}\right)$ & $1$       & $0$                                                           & $\frac{e^{\theta}}{1+e^{\theta}}$ & $\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}$ \\
-			Poisson      & $P(\mu)$               & $\log(\mu)$                             & $1$          & $\mathrm{e}^{\theta}$           & $1$       & $-\log(y!)$                                                   & $\mathrm{e}^{\theta}$             & $\mathrm{e}^{\theta}$                              \\
-			Gamma        & $\Gamma(\alpha,\beta)$ & $\log\left(\frac{\alpha}{\beta}\right)$ & $1$          & $-\log(-\theta)$                & $1$       & $-\log\left(\Gamma(\alpha)\right)+(\alpha-1)\log(y)-y$        & $\frac{\alpha}{\beta}$            & $\frac{\alpha}{\beta^{2}}$                         \\
+			Normal       & \(N(\mu,\sigma^2)\)      & \(\mu\)                                   & \(\sigma^{2}\) & \(\frac{\theta^{2}}{2}\)          & \(\phi\)    & \(-\frac{1}{2}\left[\frac{y^{2}}{\phi}+\log (2\pi\phi)\right]\) & \(\theta\)                          & \(\phi\)                                             \\
+			Bernoulli    & \(\text{Bern}(p)\)       & \(\log\left(\frac{p}{1-p}\right)\)        & \(1\)          & \(\log\left(1+e^{\theta}\right)\) & \(1\)       & \(0\)                                                           & \(\frac{e^{\theta}}{1+e^{\theta}}\) & \(\frac{e^{\theta}}{\left(1+e^{\theta}\right)^{2}}\) \\
+			Poisson      & \(P(\mu)\)               & \(\log(\mu)\)                             & \(1\)          & \(\mathrm{e}^{\theta}\)           & \(1\)       & \(-\log(y!)\)                                                   & \(\mathrm{e}^{\theta}\)             & \(\mathrm{e}^{\theta}\)                              \\
+			Gamma        & \(\Gamma(\alpha,\beta)\) & \(\log\left(\frac{\alpha}{\beta}\right)\) & \(1\)          & \(-\log(-\theta)\)                & \(1\)       & \(-\log\left(\Gamma(\alpha)\right)+(\alpha-1)\log(y)-y\)        & \(\frac{\alpha}{\beta}\)            & \(\frac{\alpha}{\beta^{2}}\)                         \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
@@ -140,30 +140,30 @@ How to prove that functions are measurable?
 
 \section{Expected Value}
 
-\begin{definition}[Expectation] \label{def:expectation}
+\begin{definition}[Expectation]\label{def:expectation}
 
 \end{definition}
 
-\begin{theorem}[Bounded Convergence theorem] \label{thm:bounded-convergence-theorem}
+\begin{theorem}[Bounded Convergence theorem]\label{thm:bounded-convergence-theorem}
 
 \end{theorem}
 
-\begin{theorem}[Fatou's Lemma] \label{thm:fatou-lemma}
-	If $X_n \geq 0$, then
+\begin{theorem}[Fatou's Lemma]\label{thm:fatou-lemma}
+	If \(X_n \geq 0\), then
 	\begin{equation}
 		\liminf _{n \rightarrow \infty} E X_{n} \geq E\left(\liminf _{n \rightarrow \infty} X_{n}\right).
 	\end{equation}
 \end{theorem}
 
-\begin{theorem}[Monotone Convergence theorem] \label{thm:monotone-convergence}
-	If $0 \leq X_{n} \uparrow X$, then
+\begin{theorem}[Monotone Convergence theorem]\label{thm:monotone-convergence}
+	If \(0 \leq X_{n} \uparrow X\), then
 	\begin{equation}
 		E X_{n} \uparrow E X.
 	\end{equation}
 \end{theorem}
 
-\begin{theorem}[Dominated Convergence theorem] \label{thm:dominated-convergence}
-	If $X_{n} \rightarrow X$ a.s., $\left|X_{n}\right| \leq Y$ for all $n$, and $E Y<\infty$, then
+\begin{theorem}[Dominated Convergence theorem]\label{thm:dominated-convergence}
+	If \(X_{n} \rightarrow X\) a.s., \(\left|X_{n}\right| \leq Y\) for all \(n\), and \(E Y<\infty\), then
 	\begin{equation}
 		E X_{n} \rightarrow E X.
 	\end{equation}
@@ -175,12 +175,12 @@ How to prove that functions are measurable?
 
 \begin{definition}[Independence]
 	\begin{enumerate}
-		\item Two events $A$ and $B$ are independent if $P(A \cap B)=P(A) P(B)$.
-		\item Two random variables $X$ and $Y$ are independent if for all $C,D\in\mathcal{R}$
+		\item Two events \(A\) and \(B\) are independent if \(P(A \cap B)=P(A) P(B)\).
+		\item Two random variables \(X\) and \(Y\) are independent if for all \(C,D\in\mathcal{R}\)
 		      \begin{equation}
 			      P(X\in C,Y\in D)=P(X\in C)P(Y\in D).
 		      \end{equation}
-		\item Two $\sigma$-fields $\mcF$ and $\mathcal{G}$ are independent if for all $A\in\mcF$ and $B\in\mathcal{G}$ the events $A$ and $B$ are independent.
+		\item Two \(\sigma\)-fields \(\mcF\) and \(\mathcal{G}\) are independent if for all \(A\in\mcF\) and \(B\in\mathcal{G}\) the events \(A\) and \(B\) are independent.
 	\end{enumerate}
 \end{definition}
 
@@ -188,8 +188,8 @@ The second definition is a special case of the third.
 
 \begin{theorem}
 	\begin{enumerate}
-		\item If $X$ and $Y$ are independent then $\sigma(X)$ and $\sigma(Y)$ are independent.
-		\item Conversely, if $\mcF$ and $\mathcal{G}$ are independent, $X\in\mcF$ and $Y\in\mathcal{G}$, then $X$ and $Y$ are independent.
+		\item If \(X\) and \(Y\) are independent then \(\sigma(X)\) and \(\sigma(Y)\) are independent.
+		\item Conversely, if \(\mcF\) and \(\mathcal{G}\) are independent, \(X\in\mcF\) and \(Y\in\mathcal{G}\), then \(X\) and \(Y\) are independent.
 	\end{enumerate}
 \end{theorem}
 
@@ -197,25 +197,25 @@ The first definition is, in turn, a special case of the second.
 
 \begin{theorem}
 	\begin{enumerate}
-		\item If $A$ and $B$ are independent, then so are $A^{c}$ and $B, A$ and $B^{c}$, and $A^{c}$ and $B^{c}$.
-		\item Conversely, events $A$ and $B$ are independent if and only if their indicator random variables $1_{A}$ and $1_{B}$ are independent.
+		\item If \(A\) and \(B\) are independent, then so are \(A^{c}\) and \(B, A\) and \(B^{c}\), and \(A^{c}\) and \(B^{c}\).
+		\item Conversely, events \(A\) and \(B\) are independent if and only if their indicator random variables \(1_{A}\) and \(1_{B}\) are independent.
 	\end{enumerate}
 \end{theorem}
 
 The definition of independence can be extended to the infinite collection.
 
 \begin{definition}
-	An infinite collection of objects ($\sigma$-fields, random variables, or sets) is said to be independent if every finite subcollection is,
+	An infinite collection of objects (\(\sigma\)-fields, random variables, or sets) is said to be independent if every finite subcollection is,
 	\begin{enumerate}
-		\item $\sigma$-fields $\mcF_{1},\mcF_{2},\ldots,\mcF_{n}$ are independent if whenever $A_{i}\in\mcF_{i}$ for $i=1, \ldots,n$, we have
+		\item \(\sigma\)-fields \(\mcF_{1},\mcF_{2},\ldots,\mcF_{n}\) are independent if whenever \(A_{i}\in\mcF_{i}\) for \(i=1, \ldots,n\), we have
 		      \begin{equation}
 			      P\left(\cap_{i=1}^{n}A_{i}\right)=\prod_{i=1}^{n}P\left(A_{i}\right).
 		      \end{equation}
-		\item Random variables $X_{1},\ldots,X_{n}$ are independent if whenever $B_{i}\in\mathcal{R}$ for $i=1,\ldots,n$ we have
+		\item Random variables \(X_{1},\ldots,X_{n}\) are independent if whenever \(B_{i}\in\mathcal{R}\) for \(i=1,\ldots,n\) we have
 		      \begin{equation}
 			      P\left(\cap_{i=1}^{n}\left\{X_{i}\in B_{i}\right\}\right)=\prod_{i=1}^{n}P\left(X_{i}\in B_{i}\right).
 		      \end{equation}
-		\item Sets $A_{1},\ldots,A_{n}$ are independent if whenever $I\subset\{1,\ldots,n\}$ we have
+		\item Sets \(A_{1},\ldots,A_{n}\) are independent if whenever \(I\subset\{1,\ldots,n\}\) we have
 		      \begin{equation}
 			      P\left(\cap_{i\in I}A_{i}\right)=\prod_{i\in I}P\left(A_{i}\right).
 		      \end{equation}
@@ -227,14 +227,14 @@ The definition of independence can be extended to the infinite collection.
 \subsection{Independence, Distribution, and Expectation}
 
 \begin{theorem}
-	Suppose $X_{1},\ldots,X_{n}$ are independent random variables and $X_{i}$ has distribution $\mu_{i}$, then $\left(X_{1},\ldots,X_{n}\right)$ has distribution $\mu_{1}\times\cdots\times\mu_{n}$.
+	Suppose \(X_{1},\ldots,X_{n}\) are independent random variables and \(X_{i}\) has distribution \(\mu_{i}\), then \(\left(X_{1},\ldots,X_{n}\right)\) has distribution \(\mu_{1}\times\cdots\times\mu_{n}\).
 \end{theorem}
 
 \begin{theorem}
-	If $X_{1},\ldots,X_{n}$ are independent and have
+	If \(X_{1},\ldots,X_{n}\) are independent and have
 	\begin{enumerate}
-		\item $X_{i} \geq 0$ for all i, or
-		\item $E\left|X_{i}\right|<\infty$ for all $i$.
+		\item \(X_{i} \geq 0\) for all i, or
+		\item \(E\left|X_{i}\right|<\infty\) for all \(i\).
 	\end{enumerate}
 	then
 	\begin{equation}
@@ -246,19 +246,19 @@ The definition of independence can be extended to the infinite collection.
 
 \begin{theorem}[Convolution for Random Variables]
 	\begin{enumerate}
-		\item If $X$ and $Y$ are independent, $F(x)=P(X\leq x)$, and $G(y)=P(Y\leq y)$, then
+		\item If \(X\) and \(Y\) are independent, \(F(x)=P(X\leq x)\), and \(G(y)=P(Y\leq y)\), then
 		      \begin{equation}
 			      P(X+Y\leq z)=\int F(z-y)\dif G(y).
 		      \end{equation}
-		\item If $X$ and $Y$ are independent,  $X$ with density $f$ and $Y$ with distribution function $G$, then $X+Y$ has density
+		\item If \(X\) and \(Y\) are independent,  \(X\) with density \(f\) and \(Y\) with distribution function \(G\), then \(X+Y\) has density
 		      \begin{equation}
 			      h(x)=\int f(x-y)\dif G(y).
 		      \end{equation}
-		      Suppose $Y$ has density $g$, the last formula can be written as
+		      Suppose \(Y\) has density \(g\), the last formula can be written as
 		      \begin{equation}
 			      h(x)=\int f(x-y)g(y)\dif y.
 		      \end{equation}
-		\item If $X$ and $Y$ are independent, integral-valued random variables, then
+		\item If \(X\) and \(Y\) are independent, integral-valued random variables, then
 		      \begin{equation}
 			      P(X+Y=n)=\sum_{m}P(X=m)P(Y=n-m).
 		      \end{equation}
@@ -268,7 +268,7 @@ The definition of independence can be extended to the infinite collection.
 \section{Moments}
 
 \begin{lemma}
-	If $Y>0$ and $p>0$, then
+	If \(Y>0\) and \(p>0\), then
 	\begin{equation}
 		E(Y^p)=\int_{0}^{\infty}py^{p-1}P(Y>y)\dif y.
 	\end{equation}
@@ -278,8 +278,8 @@ The definition of independence can be extended to the infinite collection.
 
 \subsection{Definition of Characteristic Functions}
 
-\begin{definition}[Characteristic Function] \label{def:characteristic-function}
-	If $X$ is a random variable, we define its characteristic function (ch.f) by
+\begin{definition}[Characteristic Function]\label{def:characteristic-function}
+	If \(X\) is a random variable, we define its characteristic function (ch.f) by
 	\begin{equation}
 		\varphi(t)=E\left(e^{itX}\right)=E\left(\cos tX\right)+i E\left(\sin tX\right).
 	\end{equation}
@@ -291,15 +291,15 @@ The definition of independence can be extended to the infinite collection.
 
 \subsection{Properties of Characteristic Functions}
 
-\begin{theorem}[Properties of Characteristic Function] \label{thm:characteristic-function-property}
+\begin{theorem}[Properties of Characteristic Function]\label{thm:characteristic-function-property}
 	Any characteristic function has the following properties:
 	\begin{enumerate}
-		\item $\varphi(0) = 1$,
-		\item $\varphi(-t) = \overline{\varphi(t)}$,
-		\item $|\varphi(t)| =|Ee^{itX}| \leq E|e^{itX}| = 1$,
-		\item $\varphi(t)$ is uniformly continuous on $(-\infty,\infty)$,
-		\item $Ee^{it(aX+b)}=e^{itb}\varphi(at)$,
-		\item  If $X_1$ and $X_2$ are independent and have ch.f.'s $\varphi_1$ and $\varphi_2$, then $X_1+X_2$ has ch.f. $\varphi_1(t)\varphi_2(t)$.
+		\item \(\varphi(0) = 1\),
+		\item \(\varphi(-t) = \overline{\varphi(t)}\),
+		\item \(|\varphi(t)| =|Ee^{itX}| \leq E|e^{itX}| = 1\),
+		\item \(\varphi(t)\) is uniformly continuous on \((- \infty,\infty)\),
+		\item \(Ee^{it(aX+b)}=e^{itb}\varphi(at)\),
+		\item  If \(X_1\) and \(X_2\) are independent and have ch.f.\ \(\varphi_1\) and \(\varphi_2\), then \(X_1+X_2\) has ch.f.\ \(\varphi_1(t)\varphi_2(t)\).
 	\end{enumerate}
 \end{theorem}
 
@@ -311,7 +311,7 @@ The definition of independence can be extended to the infinite collection.
 
 The characteristic function uniquely determines the distribution. This and more is provided by:
 \begin{theorem}[The Inversion Formula]
-	Let $\varphi(t)=\int e^{itx}\mu(\dif x)$ where $\mu$ is a probability measure. If $a<b$, then
+	Let \(\varphi(t)=\int e^{itx}\mu(\dif x)\) where \(\mu\) is a probability measure. If \(a<b\), then
 	\begin{equation}
 		\lim _{T \rightarrow \infty}(2 \pi)^{-1} \int_{-T}^{T} \frac{e^{-i t a}-e^{-i t b}}{i t} \varphi(t) d t=\mu(a, b)+\frac{1}{2} \mu(\{a, b\})
 	\end{equation}
@@ -322,7 +322,7 @@ The characteristic function uniquely determines the distribution. This and more 
 \end{proof}
 
 \begin{theorem}
-	If $\int|\varphi(t)|\dif t<\infty$, then $\mu$ has bounded continuous density
+	If \(\int|\varphi(t)|\dif t<\infty\), then \(\mu\) has bounded continuous density
 	\begin{equation}
 		f(y)=\frac{1}{2\pi}\int e^{-ity}\varphi(t) \dif t.
 	\end{equation}
@@ -335,21 +335,21 @@ The characteristic function uniquely determines the distribution. This and more 
 \subsection{Moments and Derivatives}
 
 \begin{theorem}
-	If $\int|x|^{n}\mu(d x)<\infty,$ then its characteristic function $\varphi$ has a continuous derivative of order $n$ given by
+	If \(\int|x|^{n}\mu(d x)<\infty\), then its characteristic function \(\varphi\) has a continuous derivative of order \(n\) given by
 	\begin{equation}
 		\varphi^{(n)}(t)=\int(i x)^{n}e^{itx}\mu(\dif x).
 	\end{equation}
 \end{theorem}
 
 \begin{theorem}
-	If $E|X|^{2}<\infty$ then
+	If \(E|X|^{2}<\infty\) then
 	\begin{equation}
 		\varphi(t)=1+itEX-t^{2}E\left(X^{2}\right)/2+o\left(t^{2}\right).
 	\end{equation}
 \end{theorem}
 
 \begin{theorem}
-	If $\limsup_{h\downarrow 0}\{\varphi(h)-2\varphi(0)+\varphi(-h)\}/h^{2}>-\infty$, then
+	If \(\limsup_{h\downarrow 0}\{\varphi(h)-2\varphi(0)+\varphi(-h)\}/h^{2}>-\infty\), then
 	\begin{equation}
 		E|X|^{2}<\infty.
 	\end{equation}

@@ -1,0 +1,36 @@
+\section{Decision Tasks}
+
+Decision tasks involve an agent selecting a policy to optimize an objective function (utility). To model these tasks causally, \textbf{Causal Influence Diagrams (CIDs)} extend \textbf{Causal Bayesian Networks (CBNs)} by adding \textbf{decision nodes} and \textbf{utility nodes}.  (Howard \& Matheson, 2005; Everitt et al., 2021)
+
+A \textbf{single-decision, single-utility CID} consists of three types of variables:
+\begin{itemize}
+	\item \textbf{Decision variables} \( D \) (what decisions are made)
+	\item \textbf{Utility variables} \( U \) (real-valued function defining the objective)
+	\item \textbf{Chance variables} \( C \) (environment variables governed by causal mechanisms)
+\end{itemize}
+
+The \textbf{agent selects a policy} \( \pi(d | pa_D) \) to \textbf{maximize expected utility}:
+
+\[
+	E_{\pi}[U] = E[U | do(D = \pi(pa_D))]
+\]
+
+An \textbf{optimal policy} \( \pi^* \) maximizes this utility:
+
+\[
+	E_{\pi^*}[U]
+\]
+
+However, real-world agents often incur \textbf{regret} \( \delta \), defined as the \textbf{difference between the optimal and actual expected utility}:
+
+\[
+	\delta := E_{\pi^*}[U] - E_{\pi}[U]
+\]
+
+To simplify analysis, the focus is on \textbf{unmediated decision tasks}, where \textbf{the agent's decision does not causally influence the environment}:
+
+\[
+	\text{Desc}_D \cap \text{Anc}_U = \emptyset
+\]
+
+Examples include \textbf{classification and regression}, while \textbf{Markov Decision Processes (MDPs)} are excluded since the agent's action affects the environment, influencing utility.

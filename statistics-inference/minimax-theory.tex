@@ -2,25 +2,25 @@
 
 \section{Fano's Inequality}
 
-Let $X\sim P_{\theta}$, $\theta\in\Theta_{0}\subset\Theta$, in which $\Theta_{0}$ are assumed to be finithe , e.g, $\left\{\theta_{1},\ldots,\theta_{M}\right\}$, and $\theta$ uniformly distributed on $\Theta_{0}$. Let $\hat{\theta}$ be an estimator of $\theta$ based on $X$, Then
+Let \(X\sim P_{\theta}\), \(\theta\in\Theta_{0}\subset\Theta\), in which \(\Theta_{0}\) are assumed to be finithe, e.g, \(\left\{\theta_{1},\ldots,\theta_{M}\right\}\), and \(\theta\) uniformly distributed on \(\Theta_{0}\). Let \(\hat{\theta}\) be an estimator of \(\theta\) based on \(X\), Then
 \begin{equation}
 	P\left(\theta\neq\hat{\theta}\right)=\frac{1}{M}\sum_{1}^{M}P_{\theta_{i}}\left(\hat{\theta}\neq\theta_{i}\right)\geq 1-\frac{I\left(\theta,X\right)+\log 2}{\log M}.
 \end{equation}
 
-Question: How to upper bound $I\left(\theta, X\right)$?
+Question: How to upper bound \(I\left(\theta, X\right)\)?
 
 There are various ways to do that, one earlier bond is
 \begin{equation}
 	I\left(\theta,X\right)\leq\frac{1}{M^{2}}\sum_{i=1}^{M}\sum_{j=1}^{M}D_{KL}\left(P_{\theta_{i}}\|\theta_{j}\right).
 \end{equation}
 
-To use such a bound needs to be very careful with the construction of $\Theta_{0}$. Alternatively, insight from the information theory may provide another method to do it in a way that takes advantage of known metric entropy ???.
+To use such a bound needs to be very careful with the construction of \(\Theta_{0}\). Alternatively, insight from the information theory may provide another method to do it in a way that takes advantage of known metric entropy.
 
-Typically, $\Theta_{0}$ is a subset of $\Theta$.
+Typically, \(\Theta_{0}\) is a subset of \(\Theta\).
 
-Original problem $X\sim P_{\theta}$, $\theta\in\Theta$. Here $\theta$ can be a finite dimension or infinite dimension (e.g., $\theta=f(x)$, pdf of $X$).
+Original problem \(X\sim P_{\theta}\), \(\theta\in\Theta\). Here \(\theta\) can be a finite dimension or infinite dimension (e.g., \(\theta=f(x)\), pdf of \(X\)).
 
-Let $\pi(\theta)$ be a prior distribution on $\Theta$. To apply Fano's Inequality, we need to choose $\Theta$ finite. Regardlessly, we want a general bound on $I\left(\theta; X\right)$, in which $\theta\sim\pi$.
+Let \(\pi(\theta)\) be a prior distribution on \(\Theta\). To apply Fano's Inequality, we need to choose \(\Theta\) finite. Regardlessly, we want a general bound on \(I\left(\theta; X\right)\), in which \(\theta\sim\pi\).
 
 Recall
 \begin{equation}
@@ -30,62 +30,62 @@ Recall
 	\end{array}\right.
 \end{equation}
 
-Given the ?? Prof P. Shannon ?? achieves (within one bit) the lower bound on the expected code length of any prefix code, with code length $\log\frac{1}{p_{i}}$ (ignoring rounding up), which is $H(X)$.
+Given the Prof P. Shannon achieves (within one bit) the lower bound on the expected code length of any prefix code, with code length \(\log\frac{1}{p_{i}}\) (ignoring rounding up), which is \(H(X)\).
 
-If we mistakenly use $q$ to code, then the expected extra bits are (also called redundancy)
+If we mistakenly use \(q\) to code, then the expected extra bits are (also called redundancy)
 \begin{equation}
 	\sum_{i}p_{i}\log\frac{1}{q_{i}}-\sum_{i}p_{i}\log\frac{1}{q_{i}}=\sum_{i}p_{i}\log\frac{p_{i}}{q_{i}}\geq 0.
 \end{equation}
 
-Bayes misfu?? mis?? the Bayes Redundancy. Let $q$ be any pdf, redundancy at $\theta$ is
+Bayes misfu?? mis?? the Bayes Redundancy. Let \(q\) be any pdf, redundancy at \(\theta\) is
 \begin{equation}
 	\int f(x,\theta)\log\frac{f(x,\theta)}{q(x)}\dif x,
 \end{equation}
-where $f(x,\theta)$ is pdf of $X$. Bayes redundancy is
+where \(f(x,\theta)\) is pdf of \(X\). Bayes redundancy is
 \begin{equation}
 	\begin{aligned}
 		  & \int_{\Theta}\left(\int f(x,\theta)\log\frac{f(x,\theta)}{q(x)}\dif x\right)\cdot\pi(\theta)\dif\theta          \\
 		= & \int\int_{\Theta}f(x,\theta)\log\frac{\pi(\theta)f(x,\theta)}{\pi(\theta)q(x)}\cdot\pi(\theta)\dif\theta\dif x,
 	\end{aligned}
 \end{equation}
-Let $q^{*}(x)=\int_{\Theta}f(x,\theta)\pi(\theta)\dif\theta$,
+Let \(q^{*}(x)=\int_{\Theta}f(x,\theta)\pi(\theta)\dif\theta\),
 \begin{equation}
 	\begin{aligned}
 		= & \int\int_{\Theta}f(x,\theta)\log\frac{\pi(\theta)f(x,\theta)}{\pi(\theta)q^{*}(x)}\cdot\pi(\theta)\dif\theta\dif x \\
 		  & \qquad+\int\int_{\Theta}f(x,\theta)\log\frac{q^{*}(x)}{q(x)}\pi(\theta)\dif\theta\dif x,
 	\end{aligned}
 \end{equation}
-in which, the first part is the Bayes redundancy of $q^{*}$, and the second part
+in which, the first part is the Bayes redundancy of \(q^{*}\), and the second part
 \begin{equation}
 	\begin{aligned}
 		= & \int\log\frac{q^{*}(x)}{q(x)}\left(\int_{\Theta}f(x,\theta)\pi(\theta)\dif\theta\right)\dif x \\
 		= & \int\log\frac{q^{*}(x)}{q(x)}q^{*}(x)\dif x\geq 0.
 	\end{aligned}
 \end{equation}
-Thus Bayes redundancy of $q^{*}$ is $I\left(\theta;X\right)$.
+Thus Bayes redundancy of \(q^{*}\) is \(I\left(\theta;X\right)\).
 
-Our approach is to provide a sensible upper bound on $I\left(\theta; X\right)$, that is not specific to the choice of $\Theta_{0}$. Rather, it reflects the native of the $\{p_{\theta},\theta\in\Theta\}$ (or a subset of it) more.
+Our approach is to provide a sensible upper bound on \(I\left(\theta; X\right)\), that is not specific to the choice of \(\Theta_{0}\). Rather, it reflects the native of the \(\{p_{\theta},\theta\in\Theta\}\) (or a subset of it) more.
 
-Suppose we have i.i.d observations $X_{1},X_{2},\ldots X_{n}\sim p_{\theta}$, let
+Suppose we have i.i.d observations \(X_{1},X_{2},\ldots X_{n}\sim p_{\theta}\), let
 \begin{equation}
 	d_{k}(p,q)=\sqrt{D(p\|q)}=\sqrt{\int p(x)\log\frac{p(x)}{q(x)}\dif x},
 \end{equation}
-which is not a metric. Let $G_{\varepsilon}$ be an $\varepsilon$-cover of the family $\{p_{\theta},\theta\in\Theta\}$, i.e.,
+which is not a metric. Let \(G_{\varepsilon}\) be an \(\varepsilon\)-cover of the family \(\{p_{\theta},\theta\in\Theta\}\), i.e.,
 \begin{equation}
 	\forall\theta\in\Theta,\exists\theta\in G_{\varepsilon},\ \text{s.t.}\ D\left(p_{\theta}\|p_{\theta^{\prime}}\right)\leq\varepsilon^{2}.
 \end{equation}
-Let $M=\left|G_{\varepsilon}\right|$, $q(x_{1},\ldots,x_{n})=\frac{1}{M}\sum_{i=1}^{M}p_{\theta_{i}}^{n}$ (centroid) and $p_{\theta_{i}}^{n}=p_{\theta_{i}}(x_{1})\ldots p_{\theta_{i}}(x_{n})$. Then,
+Let \(M=\left|G_{\varepsilon}\right|\), \(q(x_{1},\ldots,x_{n})=\frac{1}{M}\sum_{i=1}^{M}p_{\theta_{i}}^{n}\) (centroid) and \(p_{\theta_{i}}^{n}=p_{\theta_{i}}(x_{1})\ldots p_{\theta_{i}}(x_{n})\). Then,
 \begin{equation}
 	\begin{aligned}
 		D_{\text{KL}}\left(p_{\theta}^{n}\|q\right)= & \int p_{\theta}^{n}\log\frac{p_{\theta}^{n}}{\frac{1}{M}\sum_{i=1}^{M}p_{\theta_{i}}^{n}}\dif x \\
 		\leq                                         & \int p_{\theta}^{n}\log\frac{p_{\theta}^{n}}{\frac{1}{M}p_{\theta_{i}}^{n}}\dif x               \\
 		=                                            & \log M+\inf_{i}\int p_{\theta}^{n}\log\frac{p_{\theta}^{n}}{p_{\theta_{i}}^{n}}\dif x           \\
-		=                                            & log M+\inf_{i}D_{\text{KL}}\left(p_{\theta}\|p_{\theta_{i}}\right)                              \\
+		=                                            & \log M+\inf_{i}D_{\text{KL}}\left(p_{\theta}\|p_{\theta_{i}}\right)                             \\
 		\leq                                         & \log M+n\varepsilon^{2}.
 	\end{aligned}
 \end{equation}
 
-This holds for all $\theta\in\Theta$. If we have a subset $\Theta$ and for any prior $\pi$, we have
+This holds for all \(\theta\in\Theta\). If we have a subset \(\Theta\) and for any prior \(\pi\), we have
 \begin{equation}
 	I\left(\theta;X^{n}\right)\leq\log|G_{\varepsilon}|+n\varepsilon^{2}.
 \end{equation}
@@ -95,47 +95,47 @@ This holds for all $\theta\in\Theta$. If we have a subset $\Theta$ and for any p
 	D_{\text{KL}}\left(p_{\theta}^{n}\|q\right)\leq\log M+n\varepsilon^{2},\quad\forall\theta\in\Theta.
 \end{gather*}
 
-If $D_{\text{KL}}\left(p_{\theta_{i}}\|p_{\theta_{j}}\right)\geq\eta^{2}>0$, then $D_{\text{KL}}\left(p_{\theta_{i}}^{n}\|p_{\theta_{j}}^{n}\right)\geq n\eta^{2}$. But with the centroid density $q$, we have
+If \(D_{\text{KL}}\left(p_{\theta_{i}}\|p_{\theta_{j}}\right)\geq\eta^{2}>0\), then \(D_{\text{KL}}\left(p_{\theta_{i}}^{n}\|p_{\theta_{j}}^{n}\right)\geq n\eta^{2}\). But with the centroid density \(q\), we have
 \begin{equation*}
 	D_{\text{KL}}\left(p_{\theta_{i}}^{n}\|q\right)\leq\log M.
 \end{equation*}
-Then, we have the interesting situation that $D_{\text{KL}}\left(p_{\theta_{i}}^{n}\|p_{\theta_{j}}^{n}\right)$ are very large for $i\neq j$, yet $D_{\text{KL}}\left(p_{\theta_{i}}^{n}\|q\right)$ are small. Relaxing speaking!
+Then, we have the interesting situation that \(D_{\text{KL}}\left(p_{\theta_{i}}^{n}\|p_{\theta_{j}}^{n}\right)\) are very large for \(i\neq j\), yet \(D_{\text{KL}}\left(p_{\theta_{i}}^{n}\|q\right)\) are small. Relaxing speaking!
 
 \section{Minimax Rate}
 
-Consider a loss function $l(\theta,\theta^{\prime})$
+Consider a loss function \(l(\theta,\theta^{\prime})\)
 
 \begin{theorem}
-	Suppose on a finite set $\Theta_{0}\subset\Theta$, we have
+	Suppose on a finite set \(\Theta_{0}\subset\Theta\), we have
 	\begin{equation}
 		\min_{\theta_{i}\neq\theta_{j}}l(\theta_{i},\theta_{j})\geq\Delta>0,
 	\end{equation}
-	for any $\theta_{i}\neq\theta_{j}\in\Theta_{0}$ and $\theta\in\Theta$, we have
+	for any \(\theta_{i}\neq\theta_{j}\in\Theta_{0}\) and \(\theta\in\Theta\), we have
 	\begin{equation}
 		l(\theta_{i},\theta)+l(\theta_{j},\theta)\geq c\Delta,
 	\end{equation}
-	for some constant $c>0$. Then
+	for some constant \(c>0\). Then
 	\begin{equation}
 		\inf_{\hat{\theta}}\sup_{\theta\in\Theta}\bbE_{\theta}l\left(\theta,\hat{\theta}\right)\geq\frac{c\Delta}{2}\left(1-\frac{V_{k}(\varepsilon)+n\varepsilon^{2}+\log 2}{\log|\Theta_{0}|}\right),
 	\end{equation}
-	where $V_{k}(\varepsilon)$ is the covering entropy of $\{p_{\theta},\theta\in\Theta\}$ under $d_{\text{KL}}$.
+	where \(V_{k}(\varepsilon)\) is the covering entropy of \(\{p_{\theta},\theta\in\Theta\}\) under \(d_{\text{KL}}\).
 \end{theorem}
 
-For $f$, $g$ with different supports, we possibly have $D(f\|g)=\infty$, suppose density are w.r.t a probability measure $\mu$. Given original observations $X_{1},\ldots,X_{n}\sim f\in\mathcal{F}$, let $Y_{1},\ldots,Y_{n}$ be i.i.d uniform w.r.t $\mu$, and $V_{1},\ldots,V_{n}$ be coin flips. Suppose
+For \(f\), \(g\) with different supports, we possibly have \(D(f\|g)=\infty\), suppose density are w.r.t a probability measure \(\mu\). Given original observations \(X_{1},\ldots,X_{n}\sim f\in\mathcal{F}\), let \(Y_{1},\ldots,Y_{n}\) be i.i.d uniform w.r.t \(\mu\), and \(V_{1},\ldots,V_{n}\) be coin flips. Suppose
 \begin{equation*}
 	Z_{i}=\left\{\begin{array}{ll}
 		X_{i}, & \text{ if }V_{i}=1, \\
 		Y_{i}, & \text{ if }V_{i}=0. \\
 	\end{array}\right.
 \end{equation*}
-Then, $Z_{1},\ldots,Z_{n}\sim\frac{f}{2}+\frac{1}{2}$.
+Then, \(Z_{1},\ldots,Z_{n}\sim\frac{f}{2}+\frac{1}{2}\).
 
 \begin{proof}
 	Let
 	\begin{equation*}
 		\tilde{\theta}=\underset{\theta_{i}\in\Theta_{0}}{\arg\min}l(\theta_{i},\hat{\theta}).
 	\end{equation*}
-	Then, we have $\theta\neq\tilde{\theta}$, we know
+	Then, we have \(\theta\neq\tilde{\theta}\), we know
 	\begin{equation*}
 		l(\theta,\hat{\theta})\geq l(\tilde{\theta},\hat{\theta}),
 	\end{equation*}
@@ -143,7 +143,7 @@ Then, $Z_{1},\ldots,Z_{n}\sim\frac{f}{2}+\frac{1}{2}$.
 	\begin{equation*}
 		l(\theta,\hat{\theta})+l(\tilde{\theta},\hat{\theta})\geq c\Delta.
 	\end{equation*}
-	Consequently, $l(\theta,\hat{\theta})\geq\frac{c\Delta}{2}$. Thus,
+	Consequently, \(l(\theta,\hat{\theta})\geq\frac{c\Delta}{2}\). Thus,
 	\begin{equation*}
 		\inf_{\hat{\theta}}\sup_{\theta\in\Theta}\bbE_{\theta}l(\theta,\hat{\theta})\geq\inf_{\hat{\theta}}\sup_{\theta\in\Theta_{0}}\bbE_{\theta}l(\theta,\hat{\theta}).
 	\end{equation*}
@@ -156,22 +156,22 @@ Then, $Z_{1},\ldots,Z_{n}\sim\frac{f}{2}+\frac{1}{2}$.
 	      \begin{equation*}
 		      Y_{i}=u\left(X_{i}\right)+e_{i},\quad 1\leq i\leq n,
 	      \end{equation*}
-	      where $x_{i}=i/n$, $e_{i}\sim N(0,1)$ and $\mathcal{U}$ consists of all functions $g$ on $[0,1]$ that are uniformly bounded between $-A$ and $A$ for some positive constant $A$ and $|g(x)-g(y)|\leq L|x-y|$ for some constant $L>0$. The loss function of interest is $\ell(u,\hat{u})=\int_{0}^{1}(u(x)-\hat{u}(x))^{2}\,\mathrm{d}x$. Show that
+	      where \(x_{i}=i/n\), \(e_{i}\sim N(0,1)\) and \(\mathcal{U}\) consists of all functions \(g\) on \([0,1]\) that are uniformly bounded between \(-A\) and \(A\) for some positive constant \(A\) and \(|g(x)-g(y)|\leq L|x-y|\) for some constant \(L>0\). The loss function of interest is \(\ell(u,\hat{u})=\int_{0}^{1}(u(x)-\hat{u}(x))^{2}\,\mathrm{d}x\). Show that
 	      \begin{equation*}
 		      \inf_{\hat{u}}\sup_{u\in\mathcal{U}}E_{u}\ell(u,\hat{u})\asymp n^{-2/3}.
 	      \end{equation*}
-	      Note that some results given in the lectures on regression may not be directly applicable because here we deal with a fixed design. You may consider a piecewise constant estimator for upper bounding and you may use the fact that $\mathcal{U}$ has $L_{2}$ metric entropy order $1/\epsilon$.
+	      Note that some results given in the lectures on regression may not be directly applicable because here we deal with a fixed design. You may consider a piecewise constant estimator for upper bounding and you may use the fact that \(\mathcal{U}\) has \(L_{2}\) metric entropy order \(1/\epsilon\).
 	      \begin{proof}
-		      Since $X$ are fixed design, then $y_{i}\sim N(u(x_{i}),1), i=1,2,\ldots,n$, which are independent but no longer iid  Let $P_{u}$ denotes the distribution of $Y$ with regression function $u$. Thus,
+		      Since \(X\) are fixed design, then \(y_{i}\sim N(u(x_{i}),1), i=1,2,\ldots,n\), which are independent but no longer iid  Let \(P_{u}\) denotes the distribution of \(Y\) with regression function \(u\). Thus,
 		      \begin{equation*}
 			      D_{\text{KL}}\left(p_{u}^{n}\|p_{v}^{n}\right)=\frac{1}{2}\sum_{i=1}^{n}\left[u(x_{i})-v(x_{i})\right]^{2},
 		      \end{equation*}
-		      where $p_{u}^{n}(\mathbf{y})=\prod_{i=1}^{n}p_{u}(y_{i})$, and $p_{v}^{n}(\mathbf{y})=\prod_{i=1}^{n}p_{v}(y_{i})$.
+		      where \(p_{u}^{n}(\mathbf{y})=\prod_{i=1}^{n}p_{u}(y_{i})\), and \(p_{v}^{n}(\mathbf{y})=\prod_{i=1}^{n}p_{v}(y_{i})\).
 
 		      \textbf{Lower Bound}:
 	      \end{proof}
-	\item Consider the collection $\mathcal{A}=\left\{(a,b):-\infty<a<b<\infty\right\}$ comprising sets in the real number line. Show its $\mathrm{VC}$ dimension is $2$.
+	\item Consider the collection \(\mathcal{A}=\left\{(a,b):-\infty<a<b<\infty\right\}\) comprising sets in the real number line. Show its \(\mathrm{VC}\) dimension is \(2\).
 	      \begin{proof}
-		      Since we have $S_{\mathcal{A}}(n)=\frac{n(n+1)}{2}+1$, it follows that the $\mathrm{VC}$ dimension of $\mathcal{A}$ is $2$.
+		      Since we have \(S_{\mathcal{A}}(n)=\frac{n(n+1)}{2}+1\), it follows that the \(\mathrm{VC}\) dimension of \(\mathcal{A}\) is \(2\).
 	      \end{proof}
 \end{enumerate}

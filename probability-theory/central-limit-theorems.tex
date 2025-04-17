@@ -10,7 +10,7 @@
 
 \subsection{The De Moivre-Laplace Theorem}
 
-\begin{lemma}[Stirling's Formula] \label{lem:stirling}
+\begin{lemma}[Stirling's Formula]\label{lem:stirling}
 	\begin{equation}
 		n! \sim \sqrt{2 \pi} n^{n+\frac{1}{2}} e^{-n}\quad n \rightarrow \infty.
 	\end{equation}
@@ -20,8 +20,8 @@
 
 \end{proof}
 
-\begin{lemma} \label{lem:exp}
-	If $c_j\rightarrow 0$, $a_j\rightarrow\infty$ and $a_jc_j\rightarrow\lambda$, then
+\begin{lemma}\label{lem:exp}
+	If \(c_j\rightarrow 0\), \(a_j\rightarrow\infty\) and \(a_{j}c_{j}\rightarrow\lambda\), then
 	\begin{equation}
 		\left(1+c_j\right)^{a_j}\rightarrow e^\lambda.
 	\end{equation}
@@ -31,22 +31,22 @@
 
 \end{proof}
 
-\begin{theorem}[The De Moivre-Laplace Theorem] \label{thm:de-moivre-laplace}
-	Let $X_{1}, X_{2}, \ldots$ be iid with $P\left(X_{1}=1\right)=P\left(X_{1}=-1\right)=1 / 2$ and let $S_{n}=X_{1}+\cdots+X_{n}$. If $a<b$, then as $m \rightarrow \infty$
+\begin{theorem}[The De Moivre-Laplace Theorem]\label{thm:de-moivre-laplace}
+	Let \(X_{1}, X_{2}, \ldots\) be iid with \(P\left(X_{1}=1\right)=P\left(X_{1}=-1\right)=1 / 2\) and let \(S_{n}=X_{1}+\cdots+X_{n}\). If \(a<b\), then as \(m \rightarrow \infty\)
 	\begin{equation}
 		P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \dif x.
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	If $n$ and $k$ and integers
+	If \(n\) and \(k\) and integers
 	\begin{equation*}
 		P\left(S_{2 n}=2 k\right)=\left(\begin{array}{c}
 				2 n \\
 				n+k
 			\end{array}\right) 2^{-2 n}
 	\end{equation*}
-	By lemma~\ref{lem:stirling}, we have
+	By Lemma~\ref{lem:stirling}, we have
 	\begin{equation*}
 		\begin{aligned}
 			\left(\begin{array}{c}
@@ -70,7 +70,7 @@
 			                          & \cdot(\pi n)^{-1 / 2} \cdot\left(1+\frac{k}{n}\right)^{-1 / 2} \cdot\left(1-\frac{k}{n}\right)^{-1 / 2}           \\
 		\end{aligned}
 	\end{equation*}
-	Let $2k=x\sqrt{2n}$, i.e., $k=x\sqrt{\frac{n}{2}}$. By lemma~\ref{lem:exp}, we have
+	Let \(2k=x\sqrt{2n}\), i.e., \(k=x\sqrt{\frac{n}{2}}\). By Lemma~\ref{lem:exp}, we have
 	\begin{equation*}
 		\begin{aligned}
 			\left(1-\frac{k^{2}}{n^{2}}\right)^{-n} & =\left(1-x^{2} / 2 n\right)^{-n} \rightarrow e^{x^{2} / 2}       \\
@@ -78,7 +78,7 @@
 			\left(1-\frac{k}{n}\right)^{k}          & =(1-x / \sqrt{2 n})^{x \sqrt{n / 2}} \rightarrow e^{-x^{2} / 2}
 		\end{aligned}
 	\end{equation*}
-	For this choice of $k$, $k/n \rightarrow 0$, so
+	For this choice of \(k\), \(k/n \rightarrow 0\), so
 	\begin{equation*}
 		\left(1+\frac{k}{n}\right)^{-1 / 2} \cdot\left(1-\frac{k}{n}\right)^{-1 / 2} \rightarrow 1.
 	\end{equation*}
@@ -90,16 +90,16 @@
 	\begin{equation*}
 		P\left( a\sqrt{2n} \leq S_{2 n} \leq b\sqrt{2 n} \right) = \sum_{m \in \left[a\sqrt{2 n},b\sqrt{2 n}\right] \cap 2\mathbb{Z}} P\left(S_{2 n}=m\right)
 	\end{equation*}
-	Let $m=x\sqrt{2 n}$, we have that this is
+	Let \(m=x\sqrt{2 n}\), we have that this is
 	\begin{equation*}
 		\approx \sum_{x \in \left[a,b\right] \cap \left(2\mathbb{Z} / \sqrt{2 n}\right)}(2 \pi)^{-1 / 2} e^{-x^{2} / 2}\cdot(2/n)^{1/2}
 	\end{equation*}
-	where $2\mathbb{Z} / \sqrt{2 n} = \left\{2z/\sqrt{2n} : z\in\mathbb{Z}\right\}$. As $n\rightarrow\infty$, the sum just shown is
+	where \(2\mathbb{Z} / \sqrt{2 n} = \left\{2z/\sqrt{2n} : z\in\mathbb{Z}\right\}\). As \(n\rightarrow\infty\), the sum just shown is
 	\begin{equation*}
 		\approx \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \dif x.
 	\end{equation*}
-	To remove the restriction to even integers, observe $S_{2 n +1}=S_{2 n} \pm 1$.\\
-	Let $m=2n$, as $m\rightarrow\infty$,
+	To remove the restriction to even integers, observe \(S_{2 n +1}=S_{2 n} \pm 1\).\\
+	Let \(m=2n\), as \(m\rightarrow\infty\),
 	\begin{equation*}
 		P\left(a \leq S_{m} / \sqrt{m} \leq b\right) \rightarrow \int_{a}^{b}(2 \pi)^{-1 / 2} e^{-x^{2} / 2} \dif x.
 	\end{equation*}
@@ -107,9 +107,8 @@
 
 \subsection{Central Limit Theorem}
 
-\begin{theorem}[Classic Central Limit Theorem]
-	\label{thm:classic-central-limit-theorem}
-	Let $X_1,X_2,\ldots$ be iid with $\bbE X_{i}=\mu$, $\Var(X_{i})=\sigma^2<\infty$. Let $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$, then
+\begin{theorem}[Classic Central Limit Theorem]\label{thm:classic-central-limit-theorem}
+	Let \(X_1,X_2,\ldots\) be iid with \(\bbE X_{i}=\mu\), \(\Var(X_{i})=\sigma^2<\infty\). Let \(\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}\), then
 	\begin{equation}
 		n^{1/2}\frac{\bar{X}-\mu}{\sigma}\stackrel{d}{\rightarrow}\mcN(0,1).
 	\end{equation}
@@ -120,18 +119,18 @@
 \end{proof}
 
 \begin{theorem}[The Linderberg-Feller Central Limit Theorem]
-	For each $n$, let $X_{n,m},1\leq m\leq n$, be independent random variables with $EX_{n,m}=0$. If
+	For each \(n\), let \(X_{n,m},1\leq m\leq n\), be independent random variables with \(EX_{n,m}=0\). If
 	\begin{enumerate}
-		\item $\sum_{m=1}^{n}EX_{n,m}^{2} \rightarrow \sigma^{2}>0$.
-		\item $\forall\epsilon>0,\lim_{n\rightarrow\infty}\sum_{m=1}^{n}E\left(\left|X_{n,m}\right|^{2};\left|X_{n,m}\right|>\epsilon\right)=0$
+		\item \(\sum_{m=1}^{n}EX_{n,m}^{2} \rightarrow \sigma^{2}>0\).
+		\item \(\forall\epsilon>0,\lim_{n\rightarrow\infty}\sum_{m=1}^{n}E\left(\left|X_{n,m}\right|^{2};\left|X_{n,m}\right|>\epsilon\right)=0\)
 	\end{enumerate}
-	Then $S_{n}=X_{n,1}+\cdots+X_{n,n}\stackrel{d}{\rightarrow}\sigma\chi$ as $n\rightarrow\infty$.
+	Then \(S_{n}=X_{n,1}+\cdots+X_{n,n}\stackrel{d}{\rightarrow}\sigma\chi\) as \(n\rightarrow\infty\).
 \end{theorem}
 
 \subsection{Berry-Esseen Theorem}
 
 \begin{theorem}[Berry-Esseen Theorem]
-	Let $X_{1},X_{2},\ldots,X_{n}$ be iid with distribution $F$ , which has a mean $\mu$ and a finite third moment $\sigma^{3}$, then there exists a constant $C$ (independent of $F$),
+	Let \(X_{1},X_{2},\ldots,X_{n}\) be iid with distribution \(F\), which has a mean \(\mu\) and a finite third moment \(\sigma^{3}\), then there exists a constant \(C\) (independent of \(F\)),
 	\begin{equation}
 		\left|G_{n}(x)-\Phi(x)\right|\leq\frac{C}{\sqrt{n}}\frac{E\left|X_{1}-\mu\right|^{3}}{\sigma^{3}},\quad\forall x.
 	\end{equation}
@@ -139,26 +138,24 @@
 
 \begin{corollary}
 	Under the assumptions of Theorem 51,
-	$$
+	\begin{equation*}
 		G_{n}(x) \rightarrow \Phi(x) \text { as } n \rightarrow \infty
-	$$
-	for any sequence $F_{n}$ with mean $\xi_{n}$ and variance $\sigma_{n}^{2}$ for which
-	$$
+	\end{equation*}
+	for any sequence \(F_{n}\) with mean \(\xi_{n}\) and variance \(\sigma_{n}^{2}\) for which
+	\begin{equation*}
 		\frac{E_{n}\left|X_{1}-\xi_{n}\right|^{3}}{\sigma_{n}^{3}}=o(\sqrt{n})
-	$$
-	and thus in particular if $(72)$ is bounded. Here $E_{n}$ denotes the expectation under $F_{n}$.
+	\end{equation*}
+	and thus in particular if \((72)\) is bounded. Here \(E_{n}\) denotes the expectation under \(F_{n}\).
 \end{corollary}
 
 \section{CLT for independent non-identical Random Variables}
 
-\begin{theorem}[Liapounov CLT]
-	\label{thm:liapounov-clt}
+\begin{theorem}[Liapounov CLT]\label{thm:liapounov-clt}
 
 \end{theorem}
 
-\begin{theorem}
-	\label{thm:linear-combination-inid}
-	Let $Y_1,Y_2,\ldots$ be iid with $\bbE\left(Y_{i}\right)=0$, $\Var\left(Y_{i}\right)=\sigma^2>$ 0, and $\bbE\left|Y_{i}^3\right|=\gamma<\infty$. If
+\begin{theorem}\label{thm:linear-combination-inid}
+	Let \(Y_1,Y_2,\ldots\) be iid with \(\bbE\left(Y_{i}\right)=0\), \(\Var\left(Y_{i}\right)=\sigma^2>\) 0, and \(\bbE\left|Y_{i}^3\right|=\gamma<\infty\). If
 	\begin{equation}
 		\label{eq:sufficient-condition-linear-combination-inid}
 		\left(\sum_{i=1}^n\left|d_{ni}\right|^3\right)^2=o\left(\sum_{i=1}^{n}d_{ni}^2\right)^3,
@@ -170,7 +167,7 @@
 \end{theorem}
 
 \begin{corollary}
-	The sufficient condition \eqref{eq:sufficient-condition-linear-combination-inid} is euivalent to
+	The sufficient condition~\eqref{eq:sufficient-condition-linear-combination-inid} is euivalent to
 	\begin{equation}
 		\max_{i=1,\ldots,n}\left(d_{ni}^2\right)=o\left(\sum d_{ni}^2\right).
 	\end{equation}

@@ -1,48 +1,47 @@
-\chapter{Matrix Decompositions}
-\label{chapter:matrix-decompositions}
+\chapter{Matrix Decompositions}\label{chapter:matrix-decompositions}
 
 \section{Spectral Decomposition}
 
 \begin{definition}[Eigenvectors and Eigenvalues]
-	A (non-zero) vector $\bfv$ of dimension $n$ is an \textbf{eigenvector} of a square $n\times n$ matrix $\bfA$, if
+	A (non-zero) vector \(\bfv\) of dimension \(n\) is an \textbf{eigenvector} of a square \(n\times n\) matrix \(\bfA\), if
 	\begin{equation}
 		\bfA\bfv=\lambda\bfv
 	\end{equation}
-	where $\lambda$ is a scalar, termed the \textbf{eigenvalue} corresponding to $\bfv$.
+	where \(\lambda\) is a scalar, termed the \textbf{eigenvalue} corresponding to \(\bfv\).
 \end{definition}
 
 \begin{definition}[Spectral Decomposition]
-	For any $n\times n$ matrix with $n$ linearly independent eigenvectors $q_{i},i=1,\ldots,n$. Then $\bfA$ can be factorized as
+	For any \(n\times n\) matrix with \(n\) linearly independent eigenvectors \(q_{i},i=1,\ldots,n\). Then \(\bfA\) can be factorized as
 	\begin{equation*}
 		\bfA=\bfQ\bfLambda\bfQ^{-1}
 	\end{equation*}
-	where $\bfQ$ is the square $n\times n$ matrix whose $i$-th column is the eigenvector $\bfq_{i}$ of $\bfA$, and $\bfLambda$ is the diagonal matrix whose diagonal elements are the corresponding eigenvalues, $\bfLambda=\lambda_{i}$. This factorization is called eigendecomposition or sometimes spectral decomposition.
+	where \(\bfQ\) is the square \(n\times n\) matrix whose \(i\)-th column is the eigenvector \(\bfq_{i}\) of \(\bfA\), and \(\bfLambda\) is the diagonal matrix whose diagonal elements are the corresponding eigenvalues, \(\bfLambda=\lambda_{i}\). This factorization is called eigendecomposition or sometimes spectral decomposition.
 \end{definition}
 
 \begin{example}[Real Symmetric Matrices]
-	As a special case, for every $n\times n$ real symmetric matrix, the eigenvalues are real and the eigenvectors can be chosen as real and orthonormal. Thus a real symmetric matrix $\bfA$ can be decomposed as
+	As a special case, for every \(n\times n\) real symmetric matrix, the eigenvalues are real and the eigenvectors can be chosen as real and orthonormal. Thus a real symmetric matrix \(\bfA\) can be decomposed as
 	\begin{equation}
 		\bfA=\bfQ\bfLambda\bfQ^{\prime}
 	\end{equation}
-	where $\bfQ$ is an orthogonal matrix whose columns are  eigenvectors of $\bfA$, and $\bfLambda$ is a diagonal matrix whose entries are the eigenvalues of $\bfA$.
+	where \(\bfQ\) is an orthogonal matrix whose columns are  eigenvectors of \(\bfA\), and \(\bfLambda\) is a diagonal matrix whose entries are the eigenvalues of \(\bfA\).
 \end{example}
 
 \section{Singular Value Decomposition}
 
 \begin{definition}[Singular Value Decomposition]
-	For any matrix $\bfA\in\bbR^{m\times n}$, we have
+	For any matrix \(\bfA\in\bbR^{m\times n}\), we have
 	\begin{equation}
 		\bfA=\mathbf{U}\bfSigma\mathbf{V}^{\prime}
 	\end{equation}
 	where
 	\begin{itemize}
-		\item $\mathbf{U}\in\bbR^{m\times m}$ is an orthogonal matrix whose columns are the eigenvectors of $\bfA\bfA^{\prime}$
-		\item $\mathbf{V}\in\bbR^{n\times n}$ is an orthogonal matrix whose columns are the eigenvectors of $\bfA^{\prime}\bfA$
-		\item $\bfSigma\in\bbR^{m\times n}$ is an all-zero matrix except for the first $r$ diagonal elements
+		\item \(\mathbf{U}\in\bbR^{m\times m}\) is an orthogonal matrix whose columns are the eigenvectors of \(\bfA\bfA^{\prime}\)
+		\item \(\mathbf{V}\in\bbR^{n\times n}\) is an orthogonal matrix whose columns are the eigenvectors of \(\bfA^{\prime}\bfA\)
+		\item \(\bfSigma\in\bbR^{m\times n}\) is an all-zero matrix except for the first \(r\) diagonal elements
 		      \begin{equation*}
 			      \sigma_{i}=\bfSigma_{ii},\quad i=1,2,\ldots,r
 		      \end{equation*}
-		      which are called singular values, which are the square roots of the eigenvalues of $\bfA^{\prime}\bfA$ and of $\bfA\bfA^{\prime}$ (these two matrices have the same eigenvalues)
+		      which are called singular values, which are the square roots of the eigenvalues of \(\bfA^{\prime}\bfA\) and of \(\bfA\bfA^{\prime}\) (these two matrices have the same eigenvalues)
 	\end{itemize}
 \end{definition}
 
@@ -51,16 +50,16 @@
 \end{remark}
 
 \begin{proof}
-	Without loss of generality, we assume $m\geq n$. Since for the case $n>m$, can then be established by transposing the SVD of $\bfA^{\prime}$,
+	Without loss of generality, we assume \(m\geq n\). Since for the case \(n>m\), can then be established by transposing the SVD of \(\bfA^{\prime}\),
 	\begin{equation*}
 		\bfA=\left(\bfA^{\prime}\right)^{\prime}=\left(\mathbf{U}^{\prime}\bfSigma\mathbf{V}\right)^{\prime}=\mathbf{V}^{\prime}\left(\mathbf{U}^{\prime}\bfSigma\right)^{\prime}=\mathbf{V}^{\prime}\bfSigma\mathbf{U}
 	\end{equation*}
 
-	For $m\geq n$, suppose $\operatorname{rank}(A)=r$, and then $\operatorname{rank}\left(\bfA^{\prime}\bfA\right)=r$ and the spectral decomposition of $\bfA^{\prime}\bfA$ be
+	For \(m\geq n\), suppose \(\operatorname{rank}(A)=r\), and then \(\operatorname{rank}\left(\bfA^{\prime}\bfA\right)=r\) and the spectral decomposition of \(\bfA^{\prime}\bfA\) be
 	\begin{equation*}
 		\bfA^{\prime}\bfA\mathbf{V}=\mathbf{V}\operatorname{diag}\left(\sigma_{1}^{2},\ldots,\sigma_{r}^{2},0,\ldots,0\right)
 	\end{equation*}
-	where $\sigma_{i}^{2}$ are the eigenvalues of $\bfA^{\prime}\bfA$ and the columns of $\mathbf{V}$, denoted $\boldsymbol{v}^{(i)}$, are the corresponding orthonormal eigenvectors.
+	where \(\sigma_{i}^{2}\) are the eigenvalues of \(\bfA^{\prime}\bfA\) and the columns of \(\mathbf{V}\), denoted \(\boldsymbol{v}^{(i)}\), are the corresponding orthonormal eigenvectors.
 
 	Let
 	\begin{equation*}
@@ -71,16 +70,16 @@
 		\bfA^{\prime}\bfu^{(i)}=\frac{\bfA^{\prime}\bfA\boldsymbol{v}^{(i)}}{\sigma_{i}}=\sigma_{i}\boldsymbol{v}^{(i)}\Rightarrow                       \\
 		\bfA\bfA^{\prime}\bfu^{(i)}=\sigma_{i}\bfA\boldsymbol{v}^{(i)}=\sigma_{i}^{2}\bfu^{(i)}
 	\end{gather*}
-	implying that $\bfu^{(i)}$ are eigenvectors of $\bfA\bfA^{\prime}$ corresponding to eigenvalues $\sigma_{i}^{2}$.
+	implying that \(\bfu^{(i)}\) are eigenvectors of \(\bfA\bfA^{\prime}\) corresponding to eigenvalues \(\sigma_{i}^{2}\).
 
-	Since the eigenvectors $\boldsymbol{v}^{(i)}$ are orthonormal, then so are the eigenvectors $\bfu^{(i)}$
+	Since the eigenvectors \(\boldsymbol{v}^{(i)}\) are orthonormal, then so are the eigenvectors \(\bfu^{(i)}\)
 	\begin{equation*}
 		\left(\bfu^{(i)}\right)^{\prime}\bfu^{(j)}=\frac{\left(\boldsymbol{v}^{(i)}\right)^{\prime}\bfA^{\prime}\bfA\boldsymbol{v}^{(j)}}{\sigma_{i}^{2}}=\left(\boldsymbol{v}^{(i)}\right)^{\prime}\boldsymbol{v}^{(j)}=\begin{cases}1 & i=j \\ 0 & i \neq j\end{cases}
 	\end{equation*}
 
-	We have thus far a matrix $\mathbf{V}$ whose columns are eigenvectors of $\bfA^{\prime}\bfA$ with eigenvalues $\sigma_{i}^{2}$, and a matrix $\mathbf{U}$ whose columns are $r$ eigenvectors of $\bfA\bfA^{\prime}$ corresponding to eigenvalues $\sigma_{i}^{2}$.
+	We have thus far a matrix \(\mathbf{V}\) whose columns are eigenvectors of \(\bfA^{\prime}\bfA\) with eigenvalues \(\sigma_{i}^{2}\), and a matrix \(\mathbf{U}\) whose columns are \(r\) eigenvectors of \(\bfA\bfA^{\prime}\) corresponding to eigenvalues \(\sigma_{i}^{2}\).
 
-	We augment the eigenvectors $\bfu^{(i)},i=1,\ldots,r$ with orthonormal vectors $\bfu^{(i)},i=r+1,\ldots,m$ that span $\operatorname{null}\left(\bfA\bfA^{\prime}\right)$, and together $\bfu^{(i)},i=1,\ldots,n$ are a full orthonormal set of eigenvectors of $\bfA\bfA^{\prime}$ with eigenvalues $\sigma_{i}^{2}$ (with $\sigma_{i}=0$ for $i>r)$.
+	We augment the eigenvectors \(\bfu^{(i)},i=1,\ldots,r\) with orthonormal vectors \(\bfu^{(i)},i=r+1,\ldots,m\) that span \(\operatorname{null}\left(\bfA\bfA^{\prime}\right)\), and together \(\bfu^{(i)},i=1,\ldots,n\) are a full orthonormal set of eigenvectors of \(\bfA\bfA^{\prime}\) with eigenvalues \(\sigma_{i}^{2}\) (with \(\sigma_{i}=0\) for \(i>r)\).
 
 	Since
 	\begin{equation*}
@@ -108,19 +107,19 @@
 \subsection{Relationship to Matrix Norm}
 
 \begin{theorem}
-	For any matrix $\bfA\in\bbR^{m\times n}$,
+	For any matrix \(\bfA\in\bbR^{m\times n}\),
 	\begin{equation}
 		\|\bfA\|_{2}=\sigma_{\max}(\bfA)
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	For any matrix $\bfA\in\bbR^{m\times n}$, the SVD implies that,
+	For any matrix \(\bfA\in\bbR^{m\times n}\), the SVD implies that,
 	\begin{equation*}
 		\|\bfA\|_{2}=\sup_{\bfx\neq 0}\frac{\|\bfA\bfx\|_{2}}{\|\bfx\|_{2}}=\sup_{\bfx\neq 0}\frac{\left\|\mathbf{U}\bfSigma\mathbf{V}^{\prime}\bfx\right\|_{2}}{\|\bfx\|_{2}}
 	\end{equation*}
 
-	Since $\mathbf{U}$ is unitary, that is,
+	Since \(\mathbf{U}\) is unitary, that is,
 	\begin{equation*}
 		\left\|\mathbf{U}\bfx\right\|_{2}^{2}=\bfx^{\top}\mathbf{U}^{\prime}\mathbf{U}\bfx^{T}\bfx=\left\|\bfx\right\|_{2}^{2},\quad\forall\bfx\in\bbR^{m}
 	\end{equation*}
@@ -129,7 +128,7 @@
 		=\sup_{\bfx\neq 0}\frac{\left\|\bfSigma\mathbf{V}^{\prime}\bfx\right\|_{2}}{\|\bfx\|_{2}}
 	\end{equation*}
 
-	Let $\mathbf{y}=\mathbf{V}^{\prime}\bfx$, and since $\mathbf{V}$ is unitary, we have
+	Let \(\mathbf{y}=\mathbf{V}^{\prime}\bfx\), and since \(\mathbf{V}\) is unitary, we have
 	\begin{equation*}
 		\|\mathbf{y}\|_{2}=\left\|\mathbf{V}^{\prime}\bfx\right\|_{2}=\|\bfx\|_{2}=1
 	\end{equation*}
@@ -137,11 +136,11 @@
 	\begin{equation*}
 		=\sup_{\mathbf{y}\neq 0}\frac{\|\bfSigma\mathbf{y}\|_{2}}{\|\mathbf{V}\mathbf{y}\|_{2}}=\sup_{\mathbf{y}\neq 0}\frac{\left(\sum_{i=1}^{r}\sigma_{i}^{2}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}{\left(\sum_{i=1}^{r}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}\leq\sigma_{\max}(\bfA)
 	\end{equation*}
-	which takes "$=$", if $\boldsymbol{y}=\left(1,0,\ldots,0\right)^{\prime}$.
+	which takes ``\(=\)'', if \(\boldsymbol{y}=\left(1,0,\ldots,0\right)^{\prime}\).
 \end{proof}
 
 \begin{theorem}
-	For any matrix $\bfA\in\bbR^{m\times n}$, suppose $\operatorname{rank}(A)=n$, then
+	For any matrix \(\bfA\in\bbR^{m\times n}\), suppose \(\operatorname{rank}(A)=n\), then
 	\begin{equation}
 		\min_{\|\bfx\|_{2}=1}\|\bfA\bfx\|_{2}=\sigma_{n}(\bfA)
 	\end{equation}
@@ -152,5 +151,5 @@
 \end{proof}
 
 \begin{remark}
-	If $\operatorname{rank}(\bfA)<n$, then there is an $\bfx$ such that the minimum is zero.
+	If \(\operatorname{rank}(\bfA)<n\), then there is an \(\bfx\) such that the minimum is zero.
 \end{remark}

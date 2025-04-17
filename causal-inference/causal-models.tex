@@ -1,0 +1,98 @@
+\chapter{Causal Inference}\label{chap:causal-inference}
+
+A fundamental aspect of causal inference is the precise representation of the study design-that is, the method by which data are collected-which directly influences the validity of the causal conclusions. Typically, each study design is characterized by three components: the population, the regime (Observational vs. Experimental), and the sampling method. As schematically illustrated in Figure 1, these elements provide the framework for categorizing causal inference tasks into four main types, each presenting its own set of distinct challenges and corresponding solutions.
+
+\paragraph{Policy Evaluation and Confounding Bias}
+Suppose we aim to predict the outcome distribution after intervening on \(X\), i.e.,  \(Q=P(Y=y\mid do(X=x))\), we consider an observational study where \(X\), \(Y\), \(Z\), and \(W\) are measured from a random sample. The challenge is to identify \(Q\) from  \(P(y,x,z,w)\) by adequately controlling for the confounding effects of \(Z\) and \(W\).
+
+\paragraph{Instrumental Variables and Experimental Data}
+To estimate the causal effect of \(do(X = x)\), suppose that the available data come from an \textbf{experimental study}, in which the variable \(Z\)-being easier to manipulate than \(X\)-is randomized. The key question is: \textbf{Under what conditions can the randomization of variable \(Z\) be utilized to infer the causal effect of \(X\)?} Formally, our objective is to infer  \(P(Y = y \mid do(X = x))\) from the distribution \(P(y, x, w \mid \text{do}(Z = z))\).
+
+\paragraph{Randomized Trials with Non-Representative Samples}
+In the preceding tasks, we assumed that data were obtained via a perfectly random sample from the underlying population. In practice, however, such ideal sampling conditions rarely hold. For instance, in randomized clinical trials (RCTs), the study cohort may only represent a specific subset of the broader population. Suppose that the experimental data are available in the form \(P(y,z,w\mid \text{do}(X=x), S=1)\) and possibly \(P(y,x,z,w\mid S=1)\), where \(S\) denotes the sample selection indicator (with \(S=1\) indicating inclusion in the sample). The central challenge is therefore: \textbf{How can we reliably infer causal effects when the data arise under non-ideal, imperfect sampling conditions?}
+
+\paragraph{Extrapolation Bias and Transportability}
+In previous tasks, we assumed that the population from which data were collected coincides with the target population for inference. In practice, however, this assumption may not hold. For instance, biological experiments might employ animal models as stand-ins for humans, or experimental data may originate from studies conducted in the past, when the characteristics of the target population could have been different.
+Suppose our goal is to estimate the causal effect in a target population defined by \(S = s\), namely:
+\begin{equation*}
+	P(Y = y \mid \text{do}(X = x), S = s).
+\end{equation*}
+Yet, the data at our disposal consist solely of the experimental distribution \(P(y,z,w\mid \text{do}(X=x))\) and the observational distribution \(P(y,x,z,w\mid S=s)\). This scenario poses a central challenge:
+\textbf{How can we effectively combine these data sources to infer the causal effects within the target population?}
+
+These problems are classified as: Confounding Bias, Sample Selection Bias, and Transportability Bias, respectively. Each study design leads to different data structures, which naturally result in different causal inference conclusions.
+
+\section{Causal Models}
+
+\subsection{Structural Causal Models}
+
+\subsection{Causal Bayesian Networks}
+
+\begin{definition}[Bayesian Networks]
+	A Bayesian network \(M = (G, P)\) over a set of variables \(\mathbf{V} = \{V_1, \dots, V_n\}\) is defined as a joint probability distribution \(P(\mathbf{V})\) that factorizes according to a directed acyclic graph (DAG) \(G\):
+	\begin{equation}
+		P(V_1,\dots,V_n)=\prod_{i=1}^{n} P(V_i|\text{Pa}_{V_i}),
+	\end{equation}
+	where \(\text{Pa}_{V_i}\) denotes the set of parents of \(V_i\) in \(G\).
+\end{definition}
+
+\begin{remark}
+	A Bayesian network is termed \textbf{causal} if the graph \(G\) accurately encodes the causal relationships among the variables. Specifically, for any intervention \(\text{do}(X = x)\) (with \(X \subseteq \mathbf{V}\)), the resulting distribution is determined by the truncated factorization formula:
+	\begin{equation}
+		P(v|\text{do}(x)) =
+		\begin{cases}
+			\prod_{i: v_i \notin x} P(v_i|\text{Pa}_{V_i}), & \text{if} v \text{is consistent with} x, \\
+			0,                                              & \text{otherwise}.
+		\end{cases}
+	\end{equation}
+\end{remark}
+
+\paragraph{Interventions}
+
+Interventions represent deliberate modifications to the data-generating process, thereby altering the joint distribution.
+
+\begin{definition}[Hard Intervention]
+	A \textbf{hard intervention} \(\text{do}(X = x)\) forces the variables in \(X\) to assume specific values, resulting in a new distribution:
+	\begin{equation}
+		P(\mathbf{V}|\text{do}(X = x)) = P(\mathbf{V}_x),
+	\end{equation}
+	where \(\mathbf{V}_x\) denotes the set of variables under the intervention.
+\end{definition}
+
+\begin{definition}[Soft Intervention]
+	A \textbf{soft intervention} replaces the conditional probability distribution for a variable \(V_i\) with a new distribution \(P'(V_i|Pa^*_i)\), potentially altering its set of parents \(Pa^*_i\) (while avoiding causal cycles). The updated distribution under a soft intervention is given by:
+	\begin{equation}
+		P(v; \sigma_{v'}) = \prod_{i: v_i \in v'} P'(v_i|pa^*_{v_i}) \prod_{i: v_i \notin v'} P(v_i|\text{pa}_{v_i}).
+	\end{equation}
+	For instance, the intervention \(\sigma_Y = P'(y|x)\) would be incompatible with a causal structure \(Y \to X\) as it would create a cycle.
+\end{definition}
+
+In our study, which focuses on learning causal models and structures, we primarily consider \textbf{local interventions}-a subset of soft interventions that remain compatible with any causal structure.
+
+\begin{definition}[Local Intervention]
+	A local intervention \(\sigma\) on \(V_i \in \mathbf{V}\) modifies only the state of \(V_i\) without conditioning on other endogenous variables. Formally, this is represented as \(v_i \mapsto f(v_i)\), denoted by \(\sigma = \text{do}(V_i = f(v_i))\), and alters the conditional probability distribution as:
+	\begin{equation}
+		P(v_i|\text{pa}_i; \sigma) = \sum_{v'_i: f(v'_i) = v_i} P(v'_i|\text{pa}_i).
+	\end{equation}
+\end{definition}
+
+\begin{itemize}
+	\item \textbf{Hard interventions} \(\text{do}(V_i = v'_i)\) represent local interventions where \(f(v_i)\) is a constant function.
+	\item \textbf{Translations}, as in \(\text{do}(V_i = v_i + k)\), are local interventions where the function is defined by \(f(v_i) = v_i + k\). Examples include shifting object positions in reinforcement learning environments (Shah et al., 2022) or translating images (Engstrom et al., 2019).
+	\item \textbf{Logical NOT operations}, such as mapping \(X \mapsto \neg X\) for a Boolean variable \(X\), are also considered local interventions.
+\end{itemize}
+
+We additionally address \textbf{stochastic interventions}, which involve mixtures of local interventions and do not require prior knowledge of the graph \(G\).
+
+For example, adding noise to a variable:
+\begin{equation*}
+	X = X + \epsilon, \quad \epsilon \sim \mathcal{N}(0,1),
+\end{equation*}
+constitutes a soft intervention on \(X\) that can be interpreted as a mixture of local interventions (translations).
+
+\begin{definition}[Mixtures of Intervention]
+	A mixed intervention \(\sigma^* = \sum_i p_i \sigma_i\) applies each intervention \(\sigma_i\) with probability \(p_i\) (where \(\sum_i p_i = 1\)), leading to the composite distribution:
+	\begin{equation*}
+		P(v|\sigma^*) = \sum_i p_i P(v|\sigma_i).
+	\end{equation*}
+\end{definition}

@@ -3,14 +3,14 @@
 \section{Properties of the Integral}
 
 \begin{theorem}[Jensen's Inequality]
-	Let $(\Omega,A,\mu)$ be a probability space. If $f$ is a real-valued function that is $\mu$-integrable, and if $\varphi$ is a convex function on the real line, then:
+	Let \((\Omega,A,\mu)\) be a probability space. If \(f\) is a real-valued function that is \(\mu\)-integrable, and if \(\varphi\) is a convex function on the real line, then:
 	\begin{equation}
 		\varphi\left(\int_{\Omega}f\dif\mu\right)\leq\int_{\Omega}\varphi(f)\dif\mu.
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	Let $x_{0}=\int_{\Omega}f\dif\mu$. Since the existence of subderivatives for convex functions, $\exists a,b\in R$, such that,
+	Let \(x_{0}=\int_{\Omega}f\dif\mu\). Since the existence of subderivatives for convex functions, \(\exists a,b\in R\), such that,
 	\begin{equation*}
 		\forall x\in R,\varphi(x)\geq ax+b\ \text{and}\ ax_0+b=\varphi(x_0).
 	\end{equation*}
@@ -20,27 +20,27 @@
 	\end{equation*}
 \end{proof}
 
-\begin{theorem}[H\"older's Inequality] \label{thm:holder-inequality}
-	Let $(\Omega,\mcF,\mu)$ be a measure space and let $p,q\in[1,\infty]$ with $1/p+1/q=1$. Then, for all measurable functions $f$ and $g$ on $\Omega$,
+\begin{theorem}[H\"older's Inequality]\label{thm:holder-inequality}
+	Let \((\Omega,\mcF,\mu)\) be a measure space and let \(p,q\in[1,\infty]\) with \(1/p+1/q=1\). Then, for all measurable functions \(f\) and \(g\) on \(\Omega\),
 	\begin{equation}
 		\int_{\Omega}|f\cdot g|\dif\mu\leq\|f\|_{p}\|g\|_{q}.
 	\end{equation}
-	% If, in addition, $p,q\in(1,\infty)$ and $f\in L^{p}(\mu)$ and $g \in L^{q}(\mu)$, then Hölder's inequality becomes an equality iff $|f|^{p}$ and $|g|^{q}$ are linearly dependent in $L^{1}(\mu)$, meaning that there exist real numbers $\alpha, \beta \geq 0,$ not both of them zero, such that $\alpha|f|^{p}=\beta|g|^{q} \mu$ -almost everywhere.
+	% If, in addition, \(p,q\in(1,\infty)\) and \(f\in L^{p}(\mu)\) and \(g \in L^{q}(\mu)\), then Hölder's inequality becomes an equality iff \(|f|^{p}\) and \(|g|^{q}\) are linearly dependent in \(L^{1}(\mu)\), meaning that there exist real numbers \(\alpha, \beta \geq 0,\) not both of them zero, such that \(\alpha|f|^{p}=\beta|g|^{q} \mu\) -almost everywhere.
 \end{theorem}
 
 \begin{proof}
 
 \end{proof}
 
-\begin{theorem}[Minkowski's Inequality] \label{thm:minkowski-inequality}
-	Let $(\Omega,\mcF,\mu)$ be a measure space and let $p\in[1,\infty]$. Then, for all measurable functions $f$ and $g$ on $\Omega$,
+\begin{theorem}[Minkowski's Inequality]\label{thm:minkowski-inequality}
+	Let \((\Omega,\mcF,\mu)\) be a measure space and let \(p\in[1,\infty]\). Then, for all measurable functions \(f\) and \(g\) on \(\Omega\),
 	\begin{equation}
 		\|f+g\|_{p} \leq\|f\|_{p}+\|g\|_{p}.
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	Since $\varphi(x)=x^p$ is a convex function for $p\in[1,\infty)$. By it's definition,
+	Since \(\varphi(x)=x^p\) is a convex function for \(p\in[1,\infty)\). By it's definition,
 	\begin{equation*}
 		|f+g|^{p}=\left|2\cdot\frac{f}{2}+2\cdot\frac{g}{2}\right|^{p}\leq \frac{1}{2}|2f|^p+\frac{1}{2}|2g|^p=2^{p-1}\left(|f|^{p}+|g|^{p}\right).
 	\end{equation*}
@@ -59,11 +59,11 @@
 			                & =\left(\|f\|_{p}+\|g\|_{p}\right) \frac{\|f+g\|_{p}^{p}}{\|f+g\|_{p}}
 		\end{aligned}
 	\end{equation*}
-	which means, as $p\in[1,\infty)$,
+	which means, as \(p\in[1,\infty)\),
 	\begin{equation*}
 		\|f+g\|_{p} \leq\|f\|_{p}+\|g\|_{p}.
 	\end{equation*}
-	When $p=\infty$,
+	When \(p=\infty\),
 	\begin{equation*}
 		a
 	\end{equation*}

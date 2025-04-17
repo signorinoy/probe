@@ -2,12 +2,12 @@
 
 \section{Maximum Likelihood Estimator}
 
-Suppose that $\bfx_{n}=\left(x_{1},\ldots,x_{n}\right)$, within a parametric family
+Suppose that \(\bfx_{n}=\left(x_{1},\ldots,x_{n}\right)\), within a parametric family
 \begin{equation*}
 	p\left(X;\theta_{0}\right)\in\mathcal{P}=\left\{p(X;\bftheta):\bftheta\in\Theta\right\}
 \end{equation*}
 
-The maximum likelihood estimate for observed $\bfx_{n}$ is the value $\bftheta\in\Theta$ which maximizes $L_{n}\left(\bftheta\right):=p\left(\bfx_{n};\bftheta\right)$, i.e.,
+The maximum likelihood estimate for observed \(\bfx_{n}\) is the value \(\bftheta\in\Theta\) which maximizes \(L_{n}\left(\bftheta\right):=p\left(\bfx_{n};\bftheta\right)\), i.e.,
 \begin{equation}
 	\hat{\bftheta}=\max_{\bftheta\in\Theta}L_{n}\left(\bftheta\right).
 \end{equation}
@@ -16,29 +16,29 @@ In practice, it is often convenient to work with the natural logarithm of the li
 \begin{equation*}
 	\ell_{n}\left(\bftheta\right):=\log L_{n}\left(\bftheta\right)
 \end{equation*}
-Since the logarithm is a monotonic function, the maximum of $\ell_{n}\left(\bftheta\right)$ occurs at the same value of $\bftheta$ as does the maximum of $L_{n}\left(\bftheta\right)$
+Since the logarithm is a monotonic function, the maximum of \(\ell_{n}\left(\bftheta\right)\) occurs at the same value of \(\bftheta\) as does the maximum of \(L_{n}\left(\bftheta\right)\)
 
 \subsection{Consistency}
 
 To establish consistency, the following conditions are sufficient:
-\begin{enumerate}[label=(C\arabic*)]
-	\item Identification: $\bftheta_{0}$ is identified in the sense that if $\bftheta\neq\bftheta_{0}$ and $\bftheta\in\Theta$, then $p(X;\bftheta)\neq p\left(X;\bftheta_{0}\right)$ with respect to the dominating measure $\mu$.
-	\item \label{cond:mle-compactness}
-	      The parameter space $\Theta$ of the model is compact.
-	\item \label{cond:mle-continuity}
-	      The function $\log p(X;\bftheta)$ is continuous in $\bftheta$ for almost all values of $x$, i.e.,
+\begin{enumerate}[label = (C\arabic*)]
+	\item Identification: \(\bftheta_{0}\) is identified in the sense that if \(\bftheta\neq\bftheta_{0}\) and \(\bftheta\in\Theta\), then \(p(X;\bftheta)\neq p\left(X;\bftheta_{0}\right)\) with respect to the dominating measure \(\mu\).
+	\item\label{cond:mle-compactness}
+	      The parameter space \(\Theta\) of the model is compact.
+	\item\label{cond:mle-continuity}
+	      The function \(\log p(X;\bftheta)\) is continuous in \(\bftheta\) for almost all values of \(x\), i.e.,
 	      \begin{equation}
 		      P\left[\log p(X;\bftheta)\in C^{0}(\Theta)\right]=1
 	      \end{equation}
-	\item Dominance: there exists $D(x)$ integrable with respect to the distribution $p\left(X;\bftheta_{0}\right)$ such that $|\log p\left(X;\bftheta\right)|<D(x)$ for all $\bftheta\in\Theta$.
+	\item Dominance: there exists \(D(x)\) integrable with respect to the distribution \(p\left(X;\bftheta_{0}\right)\) such that \(|\log p\left(X;\bftheta\right)|<D(x)\) for all \(\bftheta\in\Theta\).
 \end{enumerate}
 
 \begin{lemma}
-	If $\bftheta_{0}$ is identified and $E_{\bftheta_{0}}\left[|\ln p(X;\bftheta)|\right]<\infty,\forall\bftheta\in\Theta$, then $\ell(\bftheta)$ is uniquely maximized at $\bftheta=\bftheta_{0}$.
+	If \(\bftheta_{0}\) is identified and \(E_{\bftheta_{0}}\left[|\ln p(X;\bftheta)|\right]<\infty,\forall\bftheta\in\Theta\), then \(\ell(\bftheta)\) is uniquely maximized at \(\bftheta=\bftheta_{0}\).
 \end{lemma}
 
 \begin{proof}
-	By the strict version of Jensen's inequality, with $\theta\neq\theta_{0}$,
+	By the strict version of Jensen's inequality, with \(\theta\neq\theta_{0}\),
 	\begin{equation*}
 		\begin{aligned}
 			\ell\left(\theta_{0}\right)-\ell(\theta)= & \bbE_{\theta_{0}}\left\{-\ln\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right]\right\}>-\ln\bbE_{\theta_{0}}\left[\frac{p(z\mid\theta)}{p(z\mid\theta_{0})}\right] \\
@@ -48,7 +48,7 @@ To establish consistency, the following conditions are sufficient:
 \end{proof}
 
 \begin{theorem}[Consistency of MLE]
-	Under the Assumption (1)-(4), we have
+	Under the Assumption (1)- (4), we have
 	\begin{equation}
 		\hat{\theta}\stackrel{p}{\rightarrow}\theta_{0}
 	\end{equation}
@@ -60,17 +60,17 @@ To establish consistency, the following conditions are sufficient:
 		\Theta(\epsilon)=\left\{\theta:\left\|\theta-\theta_{0}\right\|<\epsilon\right\},\quad\forall\varepsilon>0
 	\end{equation*}
 
-	Since $Q_{0}(\theta)$ is a continuous function, thus
+	Since \(Q_{0}(\theta)\) is a continuous function, thus
 	\begin{equation*}
 		\theta^{*}:=\sup_{\theta\in\Theta\cap \Theta(\epsilon)^{C}}\left\{\ell(\theta)\right\}
 	\end{equation*}
-	is a achieved for a $\theta$ in the compact set $\theta\in\Theta\cap \Theta(\epsilon)^{C}$ (For open set $\Theta(\epsilon)$, $\Theta\cap\Theta(\epsilon)^{C}$ is a compact set). And $\theta_{0}$ is the unique maximized,
+	is a achieved for a \(\theta\) in the compact set \(\theta\in\Theta\cap \Theta(\epsilon)^{C}\) (For open set \(\Theta(\epsilon)\), \(\Theta\cap\Theta(\epsilon)^{C}\) is a compact set). And \(\theta_{0}\) is the unique maximized,
 	\begin{equation*}
 		\exists\delta>0,\quad\ell\left(\theta_{0}\right)-\ell\left(\theta^{*}\right)=\delta
 	\end{equation*}
 
 	\begin{enumerate}
-		\item For $\theta\in\Theta\cap\Theta(\epsilon)^{C}$. suppose
+		\item For \(\theta\in\Theta\cap\Theta(\epsilon)^{C}\). Suppose
 		      \begin{equation*}
 			      A_{n}=\left\{\sup_{\theta\in\Theta\cap\Theta(\epsilon)^{C}}\left|\hat{\ell}\left(\theta;\textbf{X}_{n}\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
 		      \end{equation*}
@@ -78,7 +78,7 @@ To establish consistency, the following conditions are sufficient:
 		      \begin{equation*}
 			      A_{n}\Longrightarrow\hat{\ell}\left(\theta;\textbf{X}_{n}\right)<\ell(\theta)+\frac{\delta}{2}\leq \ell\left(\theta^{*}\right)+\frac{\delta}{2}=\ell\left(\theta_{0}\right)-\frac{\delta}{2}
 		      \end{equation*}
-		\item For $\theta\in\Theta(\epsilon)$, suppose
+		\item For \(\theta\in\Theta(\epsilon)\), suppose
 		      \begin{equation*}
 			      B_{n}=\left\{\sup_{\theta\in\Theta(\epsilon)}\left|\hat{\ell}\left(\theta\right)-\ell(\theta)\right|<\frac{\delta}{2}\right\}
 		      \end{equation*}
@@ -115,7 +115,7 @@ To establish consistency, the following conditions are sufficient:
 \subsection{Fisher Information}
 
 \begin{definition}[Fisher Information]
-	The Fisher information of a random variable $X$ with probability density function $p(X;\theta)$ is defined as
+	The Fisher information of a random variable \(X\) with probability density function \(p(X;\theta)\) is defined as
 	\begin{equation}
 		I(\theta)=\bbE\left[\left(\frac{\partial}{\partial\theta}\ln p(X;\theta)\right)^{2}\right].
 	\end{equation}
@@ -128,21 +128,25 @@ Alternatively, the Fisher information can be expressed as
 
 \subsection{Asymptotic Normality}
 
-\begin{enumerate}[label=(C\arabic*),resume]
-	\item The information matrix $I(\bftheta)$ is positive definite.
-	\item $\left\|\frac{\partial^{2}\log p(X;\bftheta)}{\partial\bftheta\partial\bftheta^{\top}}\right\|\leq M(x)$ for all $\bftheta\in\Theta$ and $\bbE_{\bftheta_{0}}M(x)<\infty$.
+\begin{enumerate}[label = (C\arabic*), resume]
+	\item The information matrix \(I(\bftheta)\) is positive definite.
+	\item \(\left\|\frac{\partial^{2}\log p(X;\bftheta)}{\partial\bftheta\partial\bftheta^{\top}}\right\|\leq M(x)\) for all \(\bftheta\in\Theta\) and \(\bbE_{\bftheta_{0}}M(x)<\infty\).
 \end{enumerate}
 
 \begin{proof}
-	Since the MLE is the maximizer of the log-likelihood function, the score function evaluated at the MLE is zero, i.e., $\ell_{n}^{\prime}(\widehat{\bftheta})=\bfzero$. By the Taylor expansion of the score function around $\bftheta_{0}$, we have
+	Since the MLE is the maximizer of the log-likelihood function, the score function evaluated at the MLE is zero, i.e., \(\ell_{n}^{\prime}(\widehat{\bftheta})=\bfzero\). By the Taylor expansion of the score function around \(\bftheta_{0}\), we have
 	\begin{equation*}
 		\bfzero=\ell_{n}^{\prime}(\widehat{\bftheta})=\ell_{n}^{\prime}\left(\bftheta_{0}\right)+\left(\widehat{\bftheta}-\bftheta_{0}\right)\ell_{n}^{\prime\prime}(\widetilde{\bftheta})
 	\end{equation*}
-	where $\tilde{\bftheta}$ lies between $\widehat{\bftheta}$ and $\bftheta_{0}$. Define $J_{n}(\bftheta)=-\frac{1}{n}\ell_{n}^{\prime\prime}(\bftheta)$. Then we have
+	where \(\tilde{\bftheta}\) lies between \(\widehat{\bftheta}\) and \(\bftheta_{0}\). Define \(J_{n}(\bftheta)=-\frac{1}{n}\ell_{n}^{\prime\prime}(\bftheta)\). Then we have
 	\begin{equation*}
 		\sqrt{n}\left(\widehat{\bftheta}-\bftheta_{0}\right)=J_{n}^{-1}(\widetilde{\bftheta})n^{-1/2}\ell_{n}^{\prime}(\bftheta_{0}).
 	\end{equation*}
-	Then we need to show that: 1) $n^{-1/2}\ell_{n}^{\prime}(\bftheta_{0})\stackrel{d}{\rightarrow}\mcN\left(\bfzero, I(\bftheta_{0})\right)$; 2) $J_{n}(\widetilde{\bftheta})\stackrel{p}{\rightarrow}I(\bftheta_{0})$.
+	Then we need to show that:
+	\begin{enumerate}
+		\item \(n^{-1/2}\ell_{n}^{\prime}(\bftheta_{0})\stackrel{d}{\rightarrow}\mcN\left(\bfzero, I(\bftheta_{0})\right)\);
+		\item \(J_{n}(\widetilde{\bftheta})\stackrel{p}{\rightarrow}I(\bftheta_{0})\).
+	\end{enumerate}
 
 	For the first term, we have
 	\begin{equation*}
@@ -153,7 +157,7 @@ Alternatively, the Fisher information can be expressed as
 		\sqrt{n}\frac{1}{n}\sum_{i=1}^{n}\frac{\partial\log p(X_{i};\bftheta_{0})}{\partial\bftheta}\stackrel{d}{\rightarrow}\mcN\left(\bfzero,I(\bftheta_{0})\right).
 	\end{equation*}
 
-	For the second term, denote $I_{0}^{*}(\bftheta)=\bbE_{\bftheta_{0}}\left[-\frac{\partial^{2}\log p(X;\bftheta)}{\partial\bftheta\partial\bftheta^{\top}}\right]$, by the triangle inequality, we have
+	For the second term, denote \(I_{0}^{*}(\bftheta)=\bbE_{\bftheta_{0}}\left[-\frac{\partial^{2}\log p(X;\bftheta)}{\partial\bftheta\partial\bftheta^{\top}}\right]\), by the triangle inequality, we have
 	\begin{equation*}
 		\left\|J_{n}(\widetilde{\bftheta})-I(\bftheta_{0})\right\|\leq\left\|J_{n}(\widetilde{\bftheta})-I_{0}^{*}(\widetilde{\bftheta})\right\|+\left\|I_{0}^{*}(\widetilde{\bftheta})-I(\bftheta_{0})\right\|.
 	\end{equation*}
@@ -161,7 +165,7 @@ Alternatively, the Fisher information can be expressed as
 	\begin{equation*}
 		\left\|J_{n}(\widetilde{\bftheta})-I_{0}^{*}(\widetilde{\bftheta})\right\|\leq\sup_{\bftheta\in\Theta}\left\|J_{n}(\bftheta)-I_{0}^{*}(\bftheta)\right\|\stackrel{p}{\rightarrow}0.
 	\end{equation*}
-	Since $I_{0}^{*}(\bftheta)$ is continuous in $\bftheta$, and $\widetilde{\bftheta}\stackrel{p}{\rightarrow}\bftheta_{0}$, by the continuous mapping theorem, we have
+	Since \(I_{0}^{*}(\bftheta)\) is continuous in \(\bftheta\), and \(\widetilde{\bftheta}\stackrel{p}{\rightarrow}\bftheta_{0}\), by the continuous mapping theorem, we have
 	\begin{equation*}
 		I_{0}^{*}(\widetilde{\bftheta})\stackrel{p}{\rightarrow}I(\bftheta_{0}).
 	\end{equation*}
@@ -182,48 +186,48 @@ Seek a modified likelihood function that depends on as few of the nuisance param
 
 \subsection{Conditional Likelihood}
 
-Let $\boldsymbol{\theta}=(\boldsymbol{\varphi},\bfLambda)$, where $\boldsymbol{\varphi}$ is the parameter vector of interest and $\bfLambda$ is a vector of nuisance parameters. The conditional likelihood can be obtained as follows:
+Let \(\boldsymbol{\theta}=(\boldsymbol{\varphi},\bfLambda)\), where \(\boldsymbol{\varphi}\) is the parameter vector of interest and \(\bfLambda\) is a vector of nuisance parameters. The conditional likelihood can be obtained as follows:
 \begin{enumerate}
-	\item Find the complete sufficient statistic $S_{\bfLambda}$, respectively for $\bfLambda$.
+	\item Find the complete sufficient statistic \(S_{\bfLambda}\), respectively for \(\bfLambda\).
 	\item  Construct the conditional log-likelihood
 	      \begin{equation}
 		      \ell_{c}=\ln\left(f_{Y\mid S_{\bfLambda}}\right)
 	      \end{equation}
-	      where $f_{Y\mid S_{\bfLambda}}$ is the conditional distribution of the response $Y$ given $S_{\bfLambda}$.
+	      where \(f_{Y\mid S_{\bfLambda}}\) is the conditional distribution of the response \(Y\) given \(S_{\bfLambda}\).
 \end{enumerate}
 
 \begin{remark}
-	Two cases might occur, that, for fixed $\boldsymbol{\varphi}_{0}$, $S_{\bfLambda}\left(\boldsymbol{\varphi}_{0}\right)$ depends on $\boldsymbol{\varphi}_{0}$; or $S_{\bfLambda}\left(\boldsymbol{\varphi}_{0}\right)=S_{\bfLambda}$ is independent of $\boldsymbol{\varphi}_{0}$.
+	Two cases might occur, that, for fixed \(\boldsymbol{\varphi}_{0}\), \(S_{\bfLambda}\left(\boldsymbol{\varphi}_{0}\right)\) depends on \(\boldsymbol{\varphi}_{0}\); or \(S_{\bfLambda}\left(\boldsymbol{\varphi}_{0}\right)=S_{\bfLambda}\) is independent of \(\boldsymbol{\varphi}_{0}\).
 	\begin{enumerate}
 		\item Independent:
 		\item Dependent:
 	\end{enumerate}
 \end{remark}
 
-Suppose that the log-likelihood for $\boldsymbol{\theta}=\left(\boldsymbol{\varphi},\bfLambda\right)$ can be written in the exponential family form
+Suppose that the log-likelihood for \(\boldsymbol{\theta}=\left(\boldsymbol{\varphi},\bfLambda\right)\) can be written in the exponential family form
 \begin{equation}
 	\ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\theta}^{\prime}\mathbf{s}-b\left(\boldsymbol{\theta}\right)
 \end{equation}
 
-Also, suppose $\ell\left(\boldsymbol{\theta},\mathbf{y}\right)$ has a decomposition of the form
+Also, suppose \(\ell\left(\boldsymbol{\theta},\mathbf{y}\right)\) has a decomposition of the form
 \begin{equation}
 	\ell\left(\boldsymbol{\theta},\mathbf{y}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}+\bfLambda^{\prime}\mathbf{s}_{2}-b(\boldsymbol{\varphi},\bfLambda)
 \end{equation}
 
 \begin{remark}
-	The above decomposition can be achieved only if $\boldsymbol{\varphi}$ is a linear function of $\theta$. The choice of nuisance parameter $\lambda$ is arbitrary and the inferences regarding $\boldsymbol{\varphi}$ should be unaffected by the parameterization chosen for $\lambda$.
+	The above decomposition can be achieved only if \(\boldsymbol{\varphi}\) is a linear function of \(\theta\). The choice of nuisance parameter \(\lambda\) is arbitrary and the inferences regarding \(\boldsymbol{\varphi}\) should be unaffected by the parameterization chosen for \(\lambda\).
 \end{remark}
 
-The conditional likelihood of the data $\mathbf{Y}$ given $\mathbf{s}_{2}$ is
+The conditional likelihood of the data \(\mathbf{Y}\) given \(\mathbf{s}_{2}\) is
 \begin{equation}
 	\ell\left(\boldsymbol{\varphi}\mid\mathbf{s}_{2}\right)=\boldsymbol{\varphi}^{\prime}\mathbf{s}_{1}-b^{*}\left(\boldsymbol{\varphi},\bfLambda\right)
 \end{equation}
-which is independent of the nuisance parameter and may be used for inferences regarding $\boldsymbol{\varphi}$.
+which is independent of the nuisance parameter and may be used for inferences regarding \(\boldsymbol{\varphi}\).
 
 \begin{example}
-	$Y_{1}\sim P\left(\mu_{1}\right),Y_{2}\sim P\left(\mu_{2}\right)$ are independent. Suppose $\varphi=\ln\left(\frac{\mu_{2}}{\mu_{1}}\right)=\ln\left(\mu_{2}\right)-\ln\left(\mu_{1}\right)$ is the parameter of interest and the nuisance parameter is
+	\(Y_{1}\sim P\left(\mu_{1}\right),Y_{2}\sim P\left(\mu_{2}\right)\) are independent. Suppose \(\varphi=\ln\left(\frac{\mu_{2}}{\mu_{1}}\right)=\ln\left(\mu_{2}\right)-\ln\left(\mu_{1}\right)\) is the parameter of interest and the nuisance parameter is
 	\begin{enumerate}
-		\item $\lambda_{1}=\ln\left(\mu_{1}\right)$.
+		\item \(\lambda_{1}=\ln\left(\mu_{1}\right)\).
 		\item
 	\end{enumerate}
 	Then, give the conditional log-likelihood for different nuisance parameters.
@@ -232,7 +236,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 \begin{proof}
 	\begin{enumerate}
 		\item
-		      The log-likelihood function in the form of $\left(\varphi,\lambda\right)$ is
+		      The log-likelihood function in the form of \(\left(\varphi,\lambda\right)\) is
 		      \begin{equation*}
 			      \begin{aligned}
 				      \ell\left(\phi,\lambda_{1}\right)\propto & \ln\left[e^{-\left(\mu_{1}+\mu_{2}\right)}\mu_{1}^{y_{1}}\mu_{2}^{y_{2}}\right]                               \\
@@ -243,9 +247,9 @@ which is independent of the nuisance parameter and may be used for inferences re
 				      =                                        & s_{1}\varphi+s_{2}\lambda_{1}-b\left(\varphi,\lambda_{1}\right)
 			      \end{aligned}
 		      \end{equation*}
-		      where $s_{1}=-y_{2},s_{2}=y_{1}+y_{2},b\left(\varphi,\lambda_{1}\right)=e^{\lambda_{1}}\left(1+e^{\varphi}\right)$.
+		      where \(s_{1}=-y_{2},s_{2}=y_{1}+y_{2},b\left(\varphi,\lambda_{1}\right)=e^{\lambda_{1}}\left(1+e^{\varphi}\right)\).
 
-		      Then, the conditional distribution of $Y_{1},Y_{2}$ given $S_{2}=Y_{1}+Y_{2}$ is $b\left(S_{2},\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)$, thus,
+		      Then, the conditional distribution of \(Y_{1},Y_{2}\) given \(S_{2}=Y_{1}+Y_{2}\) is \(b\left(S_{2},\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)\), thus,
 		      \begin{equation*}
 			      \begin{aligned}
 				      \ell\left(\varphi\mid S_{2}=s_{2}\right)\propto & y_{1}\ln\left(\frac{\mu_{1}}{\mu_{1}+\mu_{2}}\right)+y_{2}\ln\left(\frac{\mu_{2}}{\mu_{1}+\mu_{2}}\right)          \\
@@ -255,7 +259,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 				      =                                               & s_{1}\varphi-b^{*}\left(\varphi,s_{2}\right)
 			      \end{aligned}
 		      \end{equation*}
-		      where $b^{*}\left(\varphi,s_{2}\right)=-s_{2}\ln\left(\frac{1}{1+\varphi^{-1}}\right)$.
+		      where \(b^{*}\left(\varphi,s_{2}\right)=-s_{2}\ln\left(\frac{1}{1+\varphi^{-1}}\right)\).
 	\end{enumerate}
 \end{proof}
 
@@ -266,60 +270,60 @@ which is independent of the nuisance parameter and may be used for inferences re
 \section{Minimum-Variance Unbiased Estimator}
 
 \begin{definition}[UMVU Estimators]
-	An unbiased estimator $\delta(\textbf{X})$ of $g(\theta)$ is the uniform minimum variance unbiased (UMVU) estimator of $g(\theta)$ if
+	An unbiased estimator \(\delta(\textbf{X})\) of \(g(\theta)\) is the uniform minimum variance unbiased (UMVU) estimator of \(g(\theta)\) if
 	\begin{equation}
 		\Var_{\theta}\delta(\textbf{X})\leq\Var_{\theta}\delta'(\textbf{X}),\quad\forall\theta\in\Theta,
 	\end{equation}
-	where $\delta'(\textbf{X})$ is any other unbiased estimator of $g(\theta)$.
+	where \(\delta'(\textbf{X})\) is any other unbiased estimator of \(g(\theta)\).
 \end{definition}
 
 \begin{remark}
-	If there exists an unbiased estimator of $g$, the estimand $g$ will be called $U$-estimable.
+	If there exists an unbiased estimator of \(g\), the estimand \(g\) will be called \(U\)-estimable.
 \end{remark}
 
 \begin{enumerate}
-	\item If $T(\textbf{X})$ is a complete sufficient statistic, estimator $\delta(\textbf{X})$ that only depends on $T(\textbf{X})$, then for any $U$-estimable function $g(\theta)$ with
+	\item If \(T(\textbf{X})\) is a complete sufficient statistic, estimator \(\delta(\textbf{X})\) that only depends on \(T(\textbf{X})\), then for any \(U\)-estimable function \(g(\theta)\) with
 	      \begin{equation}
 		      E_{\theta}\delta(T(\textbf{X}))=g(\theta),\quad\forall\theta\in\Theta,
 	      \end{equation}
-	      hence, $\delta(T(\textbf{X}))$ is the unique UMVU estimator of $g(\theta)$.
-	\item If $T(\textbf{X})$ is a complete sufficient statistic and $\delta({\textbf{X}})$ is any unbiased estimator of $g(\theta)$, then the UMVU estimator of $g(\theta)$ can be obtained by
+	      hence, \(\delta(T(\textbf{X}))\) is the unique UMVU estimator of \(g(\theta)\).
+	\item If \(T(\textbf{X})\) is a complete sufficient statistic and \(\delta({\textbf{X}})\) is any unbiased estimator of \(g(\theta)\), then the UMVU estimator of \(g(\theta)\) can be obtained by
 	      \begin{equation}
 		      E\left[\delta(\textbf{X})\mid T(\textbf{X})\right].
 	      \end{equation}
 \end{enumerate}
 
 \begin{example}[Estimating Polynomials of a Normal Variance]
-	Let $X_{1},\ldots,X_{n}$ be distributed with joint density
+	Let \(X_{1},\ldots,X_{n}\) be distributed with joint density
 	\begin{equation}
 		\frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\sum\left(x_{i}-\xi\right)^{2}\right].
 	\end{equation}
-	Discussing the UMVU estimators of $\xi^r$, $\sigma^r$, $\xi/\sigma$.
+	Discussing the UMVU estimators of \(\xi^r\), \(\sigma^r\), \(\xi/\sigma\).
 \end{example}
 
 \begin{proof}
 	\begin{enumerate}
-		\item \textbf{$\sigma$ is known}:
+		\item \textbf{\(\sigma\) is known}:
 
-		      Since $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ is the complete sufficient statistic of $X_i$, and
+		      Since \(\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i\) is the complete sufficient statistic of \(X_i\), and
 		      \begin{equation*}
 			      E(\bar{X})=\xi,
 		      \end{equation*}
-		      then the UMVU estimator of $\xi$ is $\bar{X}$.
+		      then the UMVU estimator of \(\xi\) is \(\bar{X}\).
 
-		      Therefore, the UMVU estimator of $\xi^r$ is $\bar{X}^r$ and the UMVU estimator of $\xi/\sigma$ is $\bar{X}/\sigma$.
+		      Therefore, the UMVU estimator of \(\xi^r\) is \(\bar{X}^r\) and the UMVU estimator of \(\xi/\sigma\) is \(\bar{X}/\sigma\).
 
-		\item \textbf{$\xi$ is known}:
+		\item \textbf{\(\xi\) is known}:
 
-		      Since $s^r=\sum\left(x_{i}-\xi\right)^r$ is the complete sufficient statistic of $X_i$.
+		      Since \(s^r=\sum\left(x_{i}-\xi\right)^r\) is the complete sufficient statistic of \(X_i\).
 
 		      Assume
 		      \begin{equation*}
 			      E\left[\frac{s^r}{\sigma^r}\right]=\frac{1}{K_{n,r}},
 		      \end{equation*}
-		      where $K_{n,r}$ is a constant depends on $n,r$.
+		      where \(K_{n,r}\) is a constant depends on \(n,r\).
 
-		      Since $s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)$, then
+		      Since \(s^2/\sigma^2\sim\text{Ga}(n/2,1/2)=\chi^2(n)\), then
 		      \begin{equation*}
 			      E\left[\frac{s^r}{\sigma^r}\right]=E\left[\left(\frac{s^2}{\sigma^2}\right)^{\frac{r}{2}}\right]=\int_{0}^{\infty}x^{\frac{r}{2}}\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\dif x=\frac{\Gamma\left(\frac{n+r}{2}\right)}{\Gamma(\frac{n}{2})}\cdot 2^{\frac{r}{2}}.
 		      \end{equation*}
@@ -330,44 +334,44 @@ which is independent of the nuisance parameter and may be used for inferences re
 
 		      Hence,
 		      \begin{equation*}
-			      E\left[s^rK_{n,r}\right]=\sigma^r\ \text{and}\ E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
+			      E\left[s^{r}K_{n,r}\right]=\sigma^r\ \text{and}\ E[\xi s^{-1}K_{n,-1}]=\xi/\sigma,
 		      \end{equation*}
-		      which means the UMVU estimator of $\sigma^r$ is $s^rK_{n,r}$ and the UMVU estimator of $\xi/\sigma$ is $\xi s^{-1}K_{n,-1}$.
+		      which means the UMVU estimator of \(\sigma^r\) is \(s^{r}K_{n,r}\) and the UMVU estimator of \(\xi/\sigma\) is \(\xi s^{-1}K_{n,-1}\).
 
-		\item \textbf{Both $\xi$ and $\sigma$ is unknown}:
+		\item \textbf{Both \(\xi\) and \(\sigma\) is unknown}:
 
-		      Since $(\bar{X},s_x^r)$ are the complete sufficient statistic of $X_i$, where $s_x^2=\sum\left(x_{i}-\bar{X}\right)^r$.
+		      Since \((\bar{X},s_{x}^{r})\) are the complete sufficient statistic of \(X_{i}\), where \(s_{x}^{2}=\sum\left(x_{i}-\bar{X}\right)^{r}\).
 
-		      Since $s_x^2/\sigma^2\sim\chi^2(n-1)$, then
+		      Since \(s_x^2/\sigma^2\sim\chi^2(n-1)\), then
 		      \begin{equation*}
 			      E\left[\frac{s_x^r}{\sigma^r}\right]=\frac{1}{K_{n-1,r}}.
 		      \end{equation*}
 
 		      Hence,
 		      \begin{equation*}
-			      E\left[s_x^rK_{n-1,r}\right]=\sigma^r,
+			      E\left[s_{x}^{r}K_{n-1,r}\right]=\sigma^r,
 		      \end{equation*}
-		      which means the UMVU estimator of $\sigma^r$ is $s_x^rK_{n-1,r}$,
+		      which means the UMVU estimator of \(\sigma^r\) is \(s_{x}^{r}K_{n-1,r}\),
 		      and
 		      \begin{equation*}
 			      E(\bar{X}^r)=\xi^r,
 		      \end{equation*}
-		      which means the UMVU estimator of $\xi^r$ is $\bar{X}^r$.
+		      which means the UMVU estimator of \(\xi^r\) is \(\bar{X}^r\).
 
-		      Since $\bar{X}$ and $s_x^r$ are independent, then
+		      Since \(\bar{X}\) and \(s_x^r\) are independent, then
 		      \begin{equation*}
 			      E[\bar{X}s_x^{-1}K_{n-1,-1}]=\xi/\sigma
 		      \end{equation*}
-		      which means the UMVU estimator of $\xi/\sigma$ is $\bar{X}s_x^{-1}K_{n-1,-1}$.
+		      which means the UMVU estimator of \(\xi/\sigma\) is \(\bar{X}s_x^{-1}K_{n-1,-1}\).
 	\end{enumerate}
 \end{proof}
 
 \begin{example}[]
-	Let $X_{1},\ldots,X_{n}$ be i.i.d sample from $U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)$, where $\theta_1\in\bbR,\theta_2\in\bbR^+$. Discussing the UMVU estimators of $\theta_1,\theta_2$.
+	Let \(X_{1},\ldots,X_{n}\) be i.i.d sample from \(U\left(\theta_1-\theta_2,\theta_1+\theta_2\right)\), where \(\theta_1\in\bbR,\theta_2\in\bbR^+\). Discussing the UMVU estimators of \(\theta_1,\theta_2\).
 \end{example}
 
 \begin{proof}
-	Let $X_{(i)}$ be the $i$-th order statistic of $X_i$, then $\left(X_{(1)},X_{(n)}\right)$ is the complete and sufficient statistic for $(\theta_1,\theta_2)$. Thus it suffices to find a function $\left(X_{(1)},X_{(n)}\right)$, which is unbiased of $(\theta_1,\theta_2)$.
+	Let \(X_{(i)}\) be the \(i\)-th order statistic of \(X_i\), then \(\left(X_{(1)},X_{(n)}\right)\) is the complete and sufficient statistic for \((\theta_1,\theta_2)\). Thus it suffices to find a function \(\left(X_{(1)},X_{(n)}\right)\), which is unbiased of \((\theta_1,\theta_2)\).
 
 	Let
 	\begin{equation*}
@@ -377,7 +381,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 	\begin{equation*}
 		Y_{(i)}=\frac{X_{(i)}-(\theta_1-\theta_2)}{2\theta_2},
 	\end{equation*}
-	be the $i$-th order statistic of $Y_i$, then we got
+	be the \(i\)-th order statistic of \(Y_i\), then we got
 	\begin{equation*}
 		\begin{aligned}
 			E[X_{(1)}] & = 2\theta_2E[Y_{(1)}]+(\theta_1-\theta_2)                      \\
@@ -405,15 +409,15 @@ which is independent of the nuisance parameter and may be used for inferences re
 \section{Accuracy of Estimators}
 
 \begin{example}[Normal Probability]
-	Let $X_{1},\ldots,X_{n}$ be iid as $\mcN(\theta,1)$ and consider the estimation of $p=P\left(X_{i}\leq u\right)=\Phi(u-\theta)$. The maximum likelihood estimator of $p$ is $\hat{p}=\Phi(u-\bar{X})$, and we shall attempt to obtain large-sample approximations for the bias and variance of this estimator.
+	Let \(X_{1},\ldots,X_{n}\) be iid as \(\mcN(\theta,1)\) and consider the estimation of \(p=P\left(X_{i}\leq u\right)=\Phi(u-\theta)\). The maximum likelihood estimator of \(p\) is \(\hat{p}=\Phi(u-\bar{X})\), and we shall attempt to obtain large-sample approximations for the bias and variance of this estimator.
 \end{example}
 
 \begin{proof}
-	Since $\bar{X}-\theta$ is likely to be small, it is natural to write
+	Since \(\bar{X}-\theta\) is likely to be small, it is natural to write
 	\begin{equation*}
 		\Phi(u-\bar{X})=\Phi[(u-\theta)-(\bar{X}-\theta)]
 	\end{equation*}
-	and to expand the right side about $u-\theta$ by Taylor's theorem as
+	and to expand the right side about \(u-\theta\) by Taylor's theorem as
 	\begin{equation}
 		\label{eq:taylor-expansion-normal-probability}
 		\begin{aligned}
@@ -421,22 +425,22 @@ which is independent of the nuisance parameter and may be used for inferences re
 			                 & \qquad -\frac{1}{6}(\bar{X}-\theta)^{3}\phi^{\prime\prime}(u-\theta)+\frac{1}{24}(\bar{X}-\theta)^{4}\phi^{\prime\prime \prime}(\xi),
 		\end{aligned}
 	\end{equation}
-	where $\xi$ is a random quantity that lies between $u-\theta$ and $u-\bar{X}$.
+	where \(\xi\) is a random quantity that lies between \(u-\theta\) and \(u-\bar{X}\).
 
-	To calculate the bias, we take the expectation of \eqref{eq:taylor-expansion-normal-probability}, which yields
+	To calculate the bias, we take the expectation of~\eqref{eq:taylor-expansion-normal-probability}, which yields
 	\begin{equation*}
 		\bbE[\hat{p}]=p+\frac{1}{2n}\phi^{\prime}(u-\theta)+\frac{1}{24}\bbE\left[(\bar{X}-\theta)^4\phi^{\prime\prime\prime}(\xi)\right].
 	\end{equation*}
-	Since the derivatives of $\phi(x)$ all are of the form $P(x)\phi(x)$, where $P(x)$ is a polynomial in $x$ and are therefore all bounded. It follows that
+	Since the derivatives of \(\phi(x)\) all are of the form \(P(x)\phi(x)\), where \(P(x)\) is a polynomial in \(x\) and are therefore all bounded. It follows that
 	\begin{equation*}
 		\left|\bbE(\bar{X}-\theta)^{4}\phi^{\prime\prime\prime}(\xi)\right|<M\bbE(\bar{X}-\theta)^{4}=3M/n^2,
 	\end{equation*}
-	for some finite $M$. Using the fact that $\phi^{\prime}(x)=-x \phi(x)$, we therefore find that
+	for some finite \(M\). Using the fact that \(\phi^{\prime}(x)=-x \phi(x)\), we therefore find that
 	\begin{equation*}
 		\bbE(\hat{p})=p-\frac{1}{2n}(u-\theta)\phi(u-\theta)+O\left(1/n^{2}\right),
 	\end{equation*}
-	where the error term is uniformly $O\left(1 / n^2\right)$.
-	The estimator $\delta$ therefore has a bias of order $1/n$ which tends to zero as $\theta \rightarrow \pm \infty$.
+	where the error term is uniformly \(O\left(1 / n^2\right)\).
+	The estimator \(\delta\) therefore has a bias of order \(1/n\) which tends to zero as \(\theta \rightarrow \pm \infty\).
 
 	In the same way, by Taylor's theorem, we can expand the square of the estimator as
 	\begin{equation*}
@@ -446,7 +450,7 @@ which is independent of the nuisance parameter and may be used for inferences re
 			                     & \qquad-\frac{1}{3}(\bar{X}-\theta)^{3}\left[2\phi(\xi)\phi^{\prime}(\xi)+\Phi(\xi)\phi^{\prime\prime}(\xi)+\phi^{\prime2}(\xi)\right]
 		\end{aligned}
 	\end{equation*}
-	where $\xi$ lies between $u-\theta$ and $u-\bar{X}$. Taking the expectation of this expansion, we find that
+	where \(\xi\) lies between \(u-\theta\) and \(u-\bar{X}\). Taking the expectation of this expansion, we find that
 	\begin{equation*}
 		\bbE[\hat{p}^{2}]=p^{2}+\frac{1}{n}\phi^{2}(u-\theta)-\frac{p}{n}(\mu-\theta)\phi(u-\theta),
 	\end{equation*}
@@ -463,17 +467,17 @@ which is independent of the nuisance parameter and may be used for inferences re
 		\Var(\sqrt{n} \delta) \rightarrow \phi^2(u-\theta)
 	\end{equation*}
 
-	Since $\sqrt{n}(\bar{X}-\theta) \stackrel{d}{\rightarrow} N\left(0,1\right)$, and $f(\theta)=\Phi(\mu-\theta)$ is differentiable with $f^{\prime}(\theta)=-\phi(\mu-\theta)$ not equal to zero when $\mu\neq\theta$, then by the delta method \eqref{thm:delta-method}, we have
+	Since \(\sqrt{n}(\bar{X}-\theta) \stackrel{d}{\rightarrow} N\left(0,1\right)\), and \(f(\theta)=\Phi(\mu-\theta)\) is differentiable with \(f^{\prime}(\theta)=-\phi(\mu-\theta)\) not equal to zero when \(\mu\neq\theta\), then by the delta method~\eqref{thm:delta-method}, we have
 	\begin{equation*}
 		\sqrt{n}(\hat{p}-p)\stackrel{d}{\rightarrow}N\left(0,\phi^{2}(u-\theta)\right),
 	\end{equation*}
 	the limit of the variance in this case is equal to the asymptotic variance.
 
-	It is interesting to see what happens if the expansion \eqref{eq:taylor-expansion-normal-probability} is carried one step less far. Then
+	It is interesting to see what happens if the expansion~\eqref{eq:taylor-expansion-normal-probability} is carried one step less far. Then
 	\begin{equation*}
 		E[\Phi(u-\bar{X})]=p+\frac{1}{2 n} \phi^{\prime}(u-\theta)+\frac{1}{6} E\left[(\bar{X}-\theta)^3 \phi^{\prime \prime}(\xi)\right].
 	\end{equation*}
-	Since the third derivative of $\phi$ is bounded, the remainder now satisfies
+	Since the third derivative of \(\phi\) is bounded, the remainder now satisfies
 	\begin{equation*}
 		\frac{1}{6} E\left|(\bar{X}-\theta)^3 \phi^{\prime \prime \prime}(\xi)\right|<M^{\prime} E|\bar{X}-\theta|^3=O\left(\frac{1}{n^{3 / 2}}\right).
 	\end{equation*}

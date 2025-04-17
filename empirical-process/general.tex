@@ -3,7 +3,7 @@
 \section{Concentration by Entropic Techniques}
 
 \begin{definition}[Entropy]
-	The entropy of a random variable $X$ for the convex function $\phi(\cdot)$ is defined as
+	The entropy of a random variable \(X\) for the convex function \(\phi(\cdot)\) is defined as
 	\begin{equation}
 		H_{\phi}(X)=\bbE[\phi(X)]-\phi(\bbE[X])
 	\end{equation}
@@ -11,8 +11,8 @@
 
 \begin{example}
 	\begin{enumerate}
-		\item For $\phi(u)=u^2$, $H_{\phi}(X)=\Var(X)$
-		\item For $\phi(u)=-\log(u)$ ($u>0$), and for $X$ real-valued random variable, we have that \(Z:=\exp(\lambda X)\) is a non-negative random variable, and
+		\item For \(\phi(u)=u^2\), \(H_{\phi}(X)=\Var(X)\)
+		\item For \(\phi(u)=-\log(u)\) (\(u>0\)), and for \(X\) real-valued random variable, we have that \(Z:=\exp(\lambda X)\) is a non-negative random variable, and
 		      \begin{equation}
 			      H_{\phi}(Z)=-\lambda\bbE[X]+\log(\bbE[\exp(\lambda X)])=\log\bbE\mathrm{e}^{\lambda(X-\bbE[X])}.
 		      \end{equation}
@@ -20,7 +20,8 @@
 \end{example}
 
 \begin{definition}
-	Let $\Omega$ be a finate sample space and denote \(\mcM(\Omega)\) as the set of all probability measures (vectors) on $\Omega$. \begin{enumerate}
+	Let \(\Omega\) be a finate sample space and denote \(\mcM(\Omega)\) as the set of all probability measures (vectors) on \(\Omega\).
+	\begin{enumerate}
 		\item The \textbf{relative entropy} with respect to \(q\in\mcM(\Omega)\) is defined as the mapping \(H(\cdot\mid q):\mcM(\Omega)\to[0, \infty]:p\mapsto H(p\mid q)\), where
 		      \begin{equation}
 			      H(p\mid q)=\left\{
@@ -114,12 +115,11 @@
 
 \begin{definition}[Globally Lipschitz continuous]
 \end{definition}
-\begin{lemma}[Entropy bound for univariate functions]
-	\label{lem:entropy-bound-univariate}
-	Let $X$ and $Y$ two independent, identically distributed $\mathbb{R}$-valued random variables. Denote by $\bbE_{X, Y}$ the expectation with respect to $X$ and $Y$. For any function $g: \mathbb{R} \rightarrow \mathbb{R}$ the following statements hold:
+\begin{lemma}[Entropy bound for univariate functions]\label{lem:entropy-bound-univariate}
+	Let \(X\) and \(Y\) two independent, identically distributed \(\mathbb{R}\)-valued random variables. Denote by \(\bbE_{X, Y}\) the expectation with respect to \(X\) and \(Y\). For any function \(g: \mathbb{R} \rightarrow \mathbb{R}\) the following statements hold:
 	\begin{enumerate}
-		\item $\forall\lambda>0$, $\mcH\left(\mathrm{e}^{\lambda g(X)}\right) \leq \lambda^2 \bbE_{X, Y}\left[(g(X)-g(Y))^2\mathrm{e}^{\lambda g(X)}\bfI\{g(X) \geq g(Y)\}\right]$.
-		\item If in addition the random variable $X$ is supported on $[a, b]$, $a<b$, and the function $g$ is convex and Lipschitz continuous, then
+		\item \(\forall\lambda>0\), \(\mcH\left(\mathrm{e}^{\lambda g(X)}\right) \leq \lambda^2 \bbE_{X, Y}\left[(g(X)-g(Y))^2\mathrm{e}^{\lambda g(X)}\bfI\{g(X) \geq g(Y)\}\right]\).
+		\item If in addition the random variable \(X\) is supported on \([a, b]\), \(a<b\), and the function \(g\) is convex and Lipschitz continuous, then
 		      \begin{equation*}
 			      \mcH\left(\mathrm{e}^{\lambda g(X)}\right) \leq \lambda^2(b-a)^2 \bbE\left[\left(g^{\prime}(X)\right)^2 \mathrm{e}^{\lambda g(X)}\right],\quad\forall\lambda>0.
 		      \end{equation*}
@@ -127,14 +127,13 @@
 \end{lemma}
 
 \begin{proof}
-	Using the fact that $X$ and $Y$ are independent and identically distributed, we have
+	Using the fact that \(X\) and \(Y\) are independent and identically distributed, we have
 	\begin{equation*}
 		\mcH\left(\mathrm{e}^{\lambda g(X)}\right)=\bbE_{X}\left[\lambda g(X)\mathrm{e}^{\lambda g(X)}\right]-\bbE_{X}\left[\lambda g(X)\right]\log\bbE_{Y}\mathrm{e}^{\lambda g(Y)}.
 	\end{equation*}
 \end{proof}
 
-\begin{lemma}[Tensorisation of the entropy]
-	\label{lem:tensorisation-entropy}
+\begin{lemma}[Tensorisation of the entropy]\label{lem:tensorisation-entropy}
 	Let \(X_{1}, \ldots, X_{n}\) be independent real-valued random variables and \(f:\bbR^{n}\to\bbR\) be a given function. Then, for all \(\lambda>0\),
 	\begin{equation*}
 		\mcH(\mathrm{e}^{\lambda f(X_{1}, \ldots, X_{n})})\leq\sum_{i=1}^{n}\mcH(\mathrm{e}^{\lambda f_{i}(X_{i})}\mid \bfX_{-i}),
@@ -149,11 +148,11 @@
 	\end{equation*}
 	where \(\mcG=\left\{g:\Omega\to\bbR:\mathrm{e}^{g}\leq 1\right\}\).
 
-	For each $i\in[n]$, define $\bfX_{i}=(X_{i},\ldots, X_{n})$ and for any $g\in\mcG$ define $g^{i}$, $i\in[n]$:
+	For each \(i\in[n]\), define \(\bfX_{i}=(X_{i},\ldots, X_{n})\) and for any \(g\in\mcG\) define \(g^{i}\), \(i\in[n]\):
 	\begin{equation*}
 		\begin{aligned}
-			g^{1}(\bfX)=     & g(\bfX)-\log\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{2}\right],                                                                     \\
-			g^{i}(\bfX_{i})= & log\frac{\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{i}\right]}{\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{i+1}\right]},\quad i\in[n-1].
+			g^{1}(\bfX)=     & g(\bfX)-\log\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{2}\right],                                                                      \\
+			g^{i}(\bfX_{i})= & \log\frac{\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{i}\right]}{\bbE\left[\mathrm{e}^{g(\bfX)}\mid \bfX_{i+1}\right]},\quad i\in[n-1].
 		\end{aligned}
 	\end{equation*}
 
@@ -177,8 +176,7 @@
 	\end{equation*}
 \end{proof}
 
-\begin{theorem}[Tail-bound for Lipschitz functions]
-	\label{thm:tail-bound-lipschitz}
+\begin{theorem}[Tail-bound for Lipschitz functions]\label{thm:tail-bound-lipschitz}
 	Let \(\bfX\in\bbR^{n}\) be a random vector with independent coordinates \(X_{i}\) supporrted on the interval \([a,b], a<b\) and let \(f:\bbR^{n}\to\bbR\) be separately convex and L-Lipschitz continuous with respect to the Euclidean norm. Then, for all \(t>0\),
 	\begin{equation}
 		\bbP\left(f(\bfX)-\bbE[f(\bfX)]\geq t\right)\leq\exp\left(-\frac{t^2}{4L^2(b-a)^2}\right).
@@ -186,7 +184,7 @@
 \end{theorem}
 
 \begin{proof}
-	For $i\in[n]$, and every $\bfx_{-i}\in\bbR^{n-1}$, the function $f_{i}(x)$ is convex, and thus by Lemma~\ref{lem:entropy-bound-univariate}, for all $\lambda>0$ that for every fixed $\bfx_{-i}$, we have
+	For \(i\in[n]\), and every \(\bfx_{-i}\in\bbR^{n-1}\), the function \(f_{i}(x)\) is convex, and thus by Lemma~\ref{lem:entropy-bound-univariate}, for all \(\lambda>0\) that for every fixed \(\bfx_{-i}\), we have
 	\begin{equation*}
 		\mcH\left(\mathrm{e}^{\lambda f_{i}(X_{i})}\mid\bfX_{-i}\right)\leq\lambda^2(b-a)^2\bbE\left[\left(f_{i}^{\prime}(X_{i})\right)^2\mathrm{e}^{\lambda f_{i}(X_{i})}\mid\bfX_{-i}\right].
 	\end{equation*}
@@ -225,8 +223,7 @@
 
 \section{Some Matrix Calculus and Covariance Estimation}
 
-\begin{theorem}[Matrix Bernstein Inequality]
-	\label{thm:matrix-bernstein}
+\begin{theorem}[Matrix Bernstein Inequality]\label{thm:matrix-bernstein}
 	Let \(X_{1}, \ldots, X_{n}\) be independent, mean-zero random systematic matrices in \(\bbR^{d\times d}\) such that \(\|X_{i}\|\leq K\) almost surely for all \(i\in[n]\). Then for all \(t>0\), we have
 	\begin{equation*}
 		\bbP\left(\left\|\sum_{i=1}^{n}X_{i}\right\|\geq t\right)\leq 2d\exp\left(-\frac{t^2}{\sigma^{2}+Kt/3}\right),
@@ -309,7 +306,7 @@ is a random linear form in \(X\) depending on the condition of the independent c
 	\begin{equation*}
 		\langle X, AX\rangle=\sum_{(i,j)\in I\times I^{\complement}}a_{ij}X_{i}X_{j},
 	\end{equation*}
-	with a random subset \(I\subset[n]\). Let \(\delta_{i}\) be independent Bernoulli random variables with \(\bbP[\delta_{i}=0]=\bbP[\delta_{i}=1]=1/2\), and define the random subset \(I=\{i\in[n]:\delta_{i}=1\}\). Then, we condition on \(X\), and 
+	with a random subset \(I\subset[n]\). Let \(\delta_{i}\) be independent Bernoulli random variables with \(\bbP[\delta_{i}=0]=\bbP[\delta_{i}=1]=1/2\), and define the random subset \(I=\{i\in[n]:\delta_{i}=1\}\). Then, we condition on \(X\), and
 \end{proof}
 
 \begin{theorem}[Hanson-Wright Inequality]

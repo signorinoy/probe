@@ -3,69 +3,92 @@
 \section{Affine and Convex Sets}
 
 \subsection{Affine Sets}
-
+A nonempty set \(C\) is said to be \textbf{affine set}, if
+\begin{equation*}
+	\forall x_1,x_2\in C, \theta\in\bbR, \theta x_1+(1-\theta)x_2\in C.
+\end{equation*}
 \begin{definition}[Affine Set]
-	A nonempty set $C$ is said to be \textbf{affine set}, if $$\forall x_1,x_2\in C, \theta\in\bbR, \theta x_1+(1-\theta)x_2\in C.$$
+
 \end{definition}
 
 \subsection{Convex Sets}
 
 \begin{definition}[Convex Set]
-	A nonempty set $C$ is said to be \textbf{convex set}, if $$\forall x_1,x_2\in C,\theta\in[0,1], \theta x_1+(1-\theta)x_2\in C.$$
+	A nonempty set \(C\) is said to be \textbf{convex set}, if
+	\begin{equation*}
+		\forall x_1,x_2\in C,\theta\in[0,1], \theta x_1+(1-\theta)x_2\in C.
+	\end{equation*}
 \end{definition}
 
 \begin{definition}[Convex Hull]
-	The \textbf{convex hull} of said to be set $C$, denoted by $\text{conv } C$ is a set of all convex combinations of points in $C$, $$\text{conv } C=\{\theta_1x_1+\cdots+\theta_kx_k|x_i\in C;\theta_i\geq 0,i=1,\ldots,k;\theta_1+\cdots+\theta_k=1\}.$$
+	The \textbf{convex hull} of said to be set \(C\), denoted by \(\text{conv } C\) is a set of all convex combinations of points in \(C\),
+	\begin{equation*}
+		\text{conv } C=\{\theta_1x_1+\cdots+\theta_{k}x_{k}|x_i\in C;\theta_i\geq 0,i=1,\ldots,k;\theta_1+\cdots+\theta_k=1\}.
+	\end{equation*}
 \end{definition}
 
 \begin{remark}
-	The convex hull $\text{conv } C$ is always convex, which is the minimal convex set that contains $C$.
+	The convex hull \(\text{conv } C\) is always convex, which is the minimal convex set that contains \(C\).
 \end{remark}
 
 \subsection{Cones}
 
 \begin{definition}[Cone]
-	A nonempty set $C$ is said to be \textbf{cone}, if $$\forall x\in C,\theta\geq 0,\theta x\in C.$$
+	A nonempty set \(C\) is said to be \textbf{cone}, if
+	\begin{equation*}
+		\forall x\in C,\theta\geq 0,\theta x\in C.
+	\end{equation*}
 \end{definition}
 
 \begin{definition}[Convex Cone]
-	A nonempty set $C$ is said to be \textbf{convex cone}, if $$\forall x_1,x_2\in C, \theta_1,\theta_2\geq 0,\theta_1 x_1+\theta_2 x_2\in C.$$
+	A nonempty set \(C\) is said to be \textbf{convex cone}, if
+	\begin{equation*}
+		\forall x_1,x_2\in C, \theta_1,\theta_2\geq 0,\theta_1 x_1+\theta_2 x_2\in C.
+	\end{equation*}
 \end{definition}
 
 \section{Some Important Examples}
 
 \begin{definition}[Hyperplane]
-	A hyperplane is defined to be $$\{x|a^{\top}x=b\},$$ where $a\in\bbR^n,a\neq 0,b\in\bbR$.
+	A hyperplane is defined to be \(\{x|a^{\top}x=b\}\), where \(a\in\bbR^n,a\neq 0,b\in\bbR\).
 \end{definition}
 
 \begin{definition}[Halfspace]
-	A hyperplane is defined to be $$\{x|a^{\top}x\leq b\},$$ where $a\in\bbR^n,a\neq 0,b\in\bbR$.
+	A hyperplane is defined to be \(\{x|a^{\top}x\leq b\}\), where \(a\in\bbR^n,a\neq 0,b\in\bbR\).
 \end{definition}
 
 \begin{definition}[(Euclidean) Ball]
-	A (Euclidean) ball in $\bbR^n$ with center $x_c$ and radius $r$ is defined to be $$B(x_c,r)=\{x\vert\|x-x_c\|_2\leq r\}=\{x_c+ru\vert\|u\|_2\leq 1\},$$ where $r>0$.
+	A (Euclidean) ball in \(\bbR^n\) with center \(x_c\) and radius \(r\) is defined to be
+	\begin{equation*}
+		B(x_c,r)=\{x\vert\|x-x_c\|_2\leq r\}=\{x_c+ru\vert\|u\|_2\leq 1\},
+	\end{equation*}
+	where \(r>0\).
 \end{definition}
 
 \begin{definition}[Ellipsoid]
-	A Ellipsoid in $\bbR^n$ with center $x_c$ is defined to be $$\mathcal{E}=\{x\vert(x-x_c)^{\top}P^{-1}(x-x_c)\leq 1\}=\{x_c+Au\vert \|u_2\|\leq 1\},$$ where $P\in\bbS^{n}_{++}$ (symmetric positive definite).
+	A Ellipsoid in \(\bbR^n\) with center \(x_c\) is defined to be
+	\begin{equation*}
+		\mathcal{E}=\{x\vert(x-x_c)^{\top}P^{-1}(x-x_c)\leq 1\}=\{x_c+Au\vert \|u_2\|\leq 1\},
+	\end{equation*}
+	where \(P\in\bbS^{n}_{++}\) (symmetric positive definite).
 \end{definition}
 
 \section{Generalized Inequalities}
 
 \subsection{Definition of Generalized Inequalities}
 
-\begin{definition}[Proper Cone] \label{def:proper-cone}
-	A cone $K\subseteq\bbR^n$ is said to be a proper cone, if
+\begin{definition}[Proper Cone]\label{def:proper-cone}
+	A cone \(K\subseteq\bbR^n\) is said to be a proper cone, if
 	\begin{itemize}
-		\item $K$ is convex.
-		\item $K$ is closed.
-		\item $K$ is solid (nonempty interior).
-		\item $K$ is pointed (contains no line).
+		\item \(K\) is convex.
+		\item \(K\) is closed.
+		\item \(K\) is solid (nonempty interior).
+		\item \(K\) is pointed (contains no line).
 	\end{itemize}
 \end{definition}
 
-\begin{definition}[Generalized Inequalities] \label{def:generalized-inequalities}
-	The partial ordering on $\bbR^n$ defined by proper cone $K$, if
+\begin{definition}[Generalized Inequalities]\label{def:generalized-inequalities}
+	The partial ordering on \(\bbR^n\) defined by proper cone \(K\), if
 	\begin{equation}
 		y-x\in K,
 	\end{equation}
@@ -73,7 +96,7 @@
 	\begin{equation}
 		x\preceq_{K}y\ \text{or}\ y\succeq_{K}x.
 	\end{equation}
-	The strict partial ordering on $\bbR^n$ defined by proper cone $K$, if
+	The strict partial ordering on \(\bbR^n\) defined by proper cone \(K\), if
 	\begin{equation}
 		y-x\in\operatorname{int}K,
 	\end{equation}
@@ -84,13 +107,13 @@
 \end{definition}
 
 \begin{remark}
-	When $K=\bbR_{+}$, the partial ordering $\preceq_{K}$ is the usual ordering $\leq$ on $\bbR$, and the strict partial ordering $\prec_{K}$ is the usual strict ordering $<$ on $\bbR$.
+	When \(K=\bbR_{+}\), the partial ordering \(\preceq_{K}\) is the usual ordering \(\leq\) on \(\bbR\), and the strict partial ordering \(\prec_{K}\) is the usual strict ordering \(<\) on \(\bbR\).
 \end{remark}
 
 \subsection{Properties of Generalized Inequalities}
 
 \begin{theorem}[Properties of Generalized Inequalities]
-	A generalized inequality $\preceq_{K}$ has the following properties:
+	A generalized inequality \(\preceq_{K}\) has the following properties:
 	\begin{itemize}
 		\item Preserved under addition:
 		\item Transitive:
@@ -99,5 +122,5 @@
 		\item Antisymmetric:
 		\item Preserved under limits:
 	\end{itemize}
-	A strict generalized inequality $\prec_{K}$ has the following properties:
+	A strict generalized inequality \(\prec_{K}\) has the following properties:
 \end{theorem}

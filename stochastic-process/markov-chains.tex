@@ -3,7 +3,7 @@
 \section{Markov Chain}
 
 \begin{definition}[Markov Chain, Simple]
-	A sequence $\left\{X_{n}\right\}$ of real-valued random variables  is said to be a Markov chain, if for any states $i_{0},\ldots i_{n-1},i$, and $j$
+	A sequence \(\left\{X_{n}\right\}\) of real-valued random variables  is said to be a Markov chain, if for any states \(i_{0},\ldots i_{n-1},i\), and \(j\)
 	\begin{equation}
 		P\left(X_{n+1}=j\mid X_{n}=i,X_{n-1}=i_{n-1},\ldots X_{0}=i_{0}\right)=P\left(X_{n+1}=j\mid X_{n}=i\right)
 	\end{equation}
@@ -14,14 +14,14 @@
 \end{definition}
 
 \begin{example}[Random Walk]
-	Suppose $X_{n}=X_{0}+\xi_{1}+\cdots+\xi_{n}$, where $X_{0}$ is constant, $\xi_{m}\in\mathbb{Z}^{d}$ are independent with distribution $\mu$. Show $X_{n}$ is a Markov chain with transition probability,
+	Suppose \(X_{n}=X_{0}+\xi_{1}+\cdots+\xi_{n}\), where \(X_{0}\) is constant, \(\xi_{m}\in\mathbb{Z}^{d}\) are independent with distribution \(\mu\). Show \(X_{n}\) is a Markov chain with transition probability,
 	\begin{equation*}
 		p\left(i,j\right)=\mu\left(\left\{j-i\right\}\right)
 	\end{equation*}
 \end{example}
 
 \begin{proof}
-	Since $\xi_{m}$ are independent with distribution $\mu$,
+	Since \(\xi_{m}\) are independent with distribution \(\mu\),
 	\begin{equation*}
 		\begin{aligned}
 			  & P\left(X_{n+1}=j\mid X_{n}=i,X_{n-1}=i_{n-1},\ldots X_{0}=i_{0}\right)                                     \\
@@ -31,18 +31,18 @@
 \end{proof}
 
 \begin{definition}[Branching Processes]
-	Let $\xi_{i}^{n},i,n\geq 1$, be iid nonnegative integer-valued random variables. Define a sequence $Z_{n},n\geq 0$ by $Z_{0}=1$ and
+	Let \(\xi_{i}^{n},i,n\geq 1\), be iid nonnegative integer-valued random variables. Define a sequence \(Z_{n},n\geq 0\) by \(Z_{0}=1\) and
 	\begin{equation}
 		Z_{n+1}=\left\{\begin{array}{ll}
 			\xi_{1}^{n+1}+\cdots+\xi_{Z_{n}}^{n+1} & Z_{n}>0 \\
 			0                                      & Z_{n}=0
 		\end{array}\right.
 	\end{equation}
-	$Z_{n}$ is called a Branching process.
+	\(Z_{n}\) is called a Branching process.
 \end{definition}
 
 \begin{remark}
-	The idea behind the definitions is that $Z_{n}$ is the number of individuals in the $n$-th generation, and each member of the $n$-th generation gives birth independently to an identically distributed number of children.
+	The idea behind the definitions is that \(Z_{n}\) is the number of individuals in the \(n\)-th generation, and each member of the \(n\)-th generation gives birth independently to an identically distributed number of children.
 \end{remark}
 
 \begin{example}[Branching Processes]
@@ -53,7 +53,7 @@
 \end{example}
 
 \begin{proof}
-	Since $\xi_{k}^{n}$ are independent with identically distribution,
+	Since \(\xi_{k}^{n}\) are independent with identically distribution,
 	\begin{equation*}
 		\begin{aligned}
 			  & P\left(Z_{n+1}=j\mid Z_{n}=i,Z_{n-1}=i_{n-1},\ldots Z_{0}=i_{0}\right)                            \\
@@ -62,24 +62,24 @@
 	\end{equation*}
 \end{proof}
 
-Suppose $(S, \mathcal{S})$ is a measurable space, which will be the state space for our Markov chain.
+Suppose \((S, \mathcal{S})\) is a measurable space, which will be the state space for our Markov chain.
 
 \begin{definition}[Transition Probability]
-	A function $p:S\times\mathcal{S}\rightarrow\bbR$ is said to be a transition probability, if
+	A function \(p:S\times\mathcal{S}\rightarrow\bbR\) is said to be a transition probability, if
 	\begin{enumerate}
-		\item For each $x\in S$, $A\rightarrow p(x,A)$ is a probability measure on $(S,\mathcal{S})$
-		\item For each $A\in\mathcal{S}$, $x\rightarrow p(x,A)$ is a measurable function
+		\item For each \(x\in S\), \(A\rightarrow p(x,A)\) is a probability measure on \((S,\mathcal{S})\)
+		\item For each \(A\in\mathcal{S}\), \(x\rightarrow p(x,A)\) is a measurable function
 	\end{enumerate}
 \end{definition}
 \begin{definition}[Markov Chain]
-	A sequence $\left\{X_{n}\right\}$ of real-valued random variables with transition probability $p$ is said to be a Markov chain with respect to $\mcF_{n}$, if
+	A sequence \(\left\{X_{n}\right\}\) of real-valued random variables with transition probability \(p\) is said to be a Markov chain with respect to \(\mcF_{n}\), if
 	\begin{equation}
 		P\left(X_{n+1}\in B\mid\mcF_{n}\right)=p\left(X_{n},B\right)
 	\end{equation}
 \end{definition}
 
 \begin{remark}
-	Given a transition probability $p$ and an initial distribution $\mu$ on $(S,\mathcal{S})$, the consistent set of finite dimensional distributions is
+	Given a transition probability \(p\) and an initial distribution \(\mu\) on \((S,\mathcal{S})\), the consistent set of finite dimensional distributions is
 	\begin{equation}
 		P\left(X_{j}\in B_{j},0\leq j\leq n\right)=\int_{B_{0}}\mu\left(\dif x_{0}\right)\int_{B_{1}}p\left(x_{0},\dif x_{1}\right)\cdots\int_{B_{n}}p\left(x_{n-1},\dif x_{n}\right)
 		F    \end{equation}
@@ -105,11 +105,11 @@ Suppose $(S, \mathcal{S})$ is a measurable space, which will be the state space 
 
 \section{Recurrence and Transience}
 
-Let $T_{y}^{0}=0$, and for $k\geq 1$, and
+Let \(T_{y}^{0}=0\), and for \(k\geq 1\), and
 \begin{equation}
 	T_{y}^{k}=\inf\left\{n>T_{y}^{k-1}:X_{n}=y\right\}
 \end{equation}
-then $T_{y}^{k}$ is the time of the $k$-th return to $y$, where $T_{y}^{1}>0$, so any visit at time 0 does not count.
+then \(T_{y}^{k}\) is the time of the \(k\)-th return to \(y\), where \(T_{y}^{1}>0\), so any visit at time 0 does not count.
 
 Let
 \begin{equation}
@@ -128,31 +128,31 @@ Let
 \begin{equation}
 	N(y)=\sum_{n=1}^{\infty}1_{\left(X_{n}=y\right)}
 \end{equation}
-be the number of visits to $y$ at positive times.
+be the number of visits to \(y\) at positive times.
 
 \begin{definition}[Recurrent]
-	A state $y$ is said to be recurrent if $\rho_{yy}=1$.
+	A state \(y\) is said to be recurrent if \(\rho_{yy}=1\).
 \end{definition}
 
 \begin{property}
-	The recurrent state $y$ has the following properties
+	The recurrent state \(y\) has the following properties
 	\begin{enumerate}
-		\item $y$ is recurrent if and only if
+		\item \(y\) is recurrent if and only if
 		      \begin{equation*}
 			      E_{y}N(y)=\infty.
 		      \end{equation*}
-		\item If $x$ is recurrent and $\rho_{xy}>0$, then $y$ is recurrent and $\rho_{yx}=1$.
+		\item If \(x\) is recurrent and \(\rho_{xy}>0\), then \(y\) is recurrent and \(\rho_{yx}=1\).
 	\end{enumerate}
 \end{property}
 
 \begin{definition}
-	A state $y$ is said to be transient if $\rho_{yy}<1$.
+	A state \(y\) is said to be transient if \(\rho_{yy}<1\).
 \end{definition}
 
 \begin{property}
-	The transient state $y$ has the following properties
+	The transient state \(y\) has the following properties
 	\begin{enumerate}
-		\item If $y$ is transient, then
+		\item If \(y\) is transient, then
 		      \begin{equation*}
 			      E_{x}N(y)<\infty,\quad\forall x.
 		      \end{equation*}
@@ -169,33 +169,33 @@ be the number of visits to $y$ at positive times.
 \end{proof}
 
 \begin{definition}[Closed State Set]
-	A set $C$ of states is said to be closed, if
+	A set \(C\) of states is said to be closed, if
 	\begin{equation}
 		x\in C,\rho_{xy}>0\Rightarrow y\in C.
 	\end{equation}
 \end{definition}
 
 \begin{definition}[Irreducible State Set]
-	A set $D$ of states is said to be irreducible, if
+	A set \(D\) of states is said to be irreducible, if
 	\begin{equation}
 		x,y\in D\Rightarrow\rho_{xy}>0.
 	\end{equation}
 \end{definition}
 
 \begin{theorem}
-	Let $C$ be a finite closed set, then
+	Let \(C\) be a finite closed set, then
 	\begin{enumerate}
-		\item $C$ contains a recurrent state.
-		\item If $C$ is irreducible, then all states in $C$ are recurrent.
+		\item \(C\) contains a recurrent state.
+		\item If \(C\) is irreducible, then all states in \(C\) are recurrent.
 	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}
-	Suppose $C_{x}=\left\{y:\rho_{x y}>0\right\}$, then $C_{x}$ is an irreducible closed set.
+	Suppose \(C_{x}=\left\{y:\rho_{x y}>0\right\}\), then \(C_{x}\) is an irreducible closed set.
 \end{theorem}
 
 \begin{proof}
-	If $y,z\in C_{x}$, then $\rho_{yz}\geq\rho_{yx}\rho_{xz}>0$. If $\rho_{yw}>0$, then $\rho_{xw}\geq\rho_{xy}\rho_{yw}>0$, so $w\in C_{x}$.
+	If \(y,z\in C_{x}\), then \(\rho_{yz}\geq\rho_{yx}\rho_{xz}>0\). If \(\rho_{yw}>0\), then \(\rho_{xw}\geq\rho_{xy}\rho_{yw}>0\), so \(w\in C_{x}\).
 \end{proof}
 
 \begin{example}[A Seven-state Chain]
@@ -216,24 +216,24 @@ be the number of visits to $y$ at positive times.
 \end{example}
 
 \begin{proof}
-	$\{2,3\}$ are transition states, and $\{1,4,5,6,7\}$ are recurrent states.
+	\(\{2,3\}\) are transition states, and \(\{1,4,5,6,7\}\) are recurrent states.
 \end{proof}
 
 \begin{remark}
-	Suppose $S$ is finite, for $x\in S$,
+	Suppose \(S\) is finite, for \(x\in S\),
 	\begin{enumerate}
-		\item $x$ is transient, if
+		\item \(x\) is transient, if
 		      \begin{equation*}
 			      \exists y,\rho_{xy}>0,\ \text{s.t.}\ \rho_{yx}=0
 		      \end{equation*}
-		\item $x$ is recurrent, if
+		\item \(x\) is recurrent, if
 		      \begin{equation*}
 			      \forall y,\rho_{xy}>0,\ \text{s.t.}\ \rho_{yx}>0
 		      \end{equation*}
 	\end{enumerate}
 \end{remark}
 
-% Theorem 5.2.6 implies $P_{y}\left(T_{y}^{k}<\infty\right)=1$ for all $k$, so $P_{y}\left(X_{n}=y\text{ i.o. }\right)=1$.
+% Theorem 5.2.6 implies \(P_{y}\left(T_{y}^{k}<\infty\right)=1\) for all \(k\), so \(P_{y}\left(X_{n}=y\text{ i.o. }\right)=1\).
 
 \section{Stationary Measures}
 

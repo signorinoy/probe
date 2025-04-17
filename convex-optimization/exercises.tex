@@ -3,20 +3,20 @@
 \section{Convex Sets}
 
 \begin{exercise}{Solution set of a quadratic inequality}
-	Let $C\subseteq\bbR^{n}$ be the solution set of a quadratic inequality,
+	Let \(C\subseteq\bbR^{n}\) be the solution set of a quadratic inequality,
 	\begin{equation*}
 		C=\{x\in\bbR^{n}\vert x^{T}Ax+b^{T}x+c\leq 0\}
 	\end{equation*}
-	with $A\in\bbS^{n}$, $b\in\bbR^{n}$, and $c\in\bbR$.
+	with \(A\in\bbS^{n}\), \(b\in\bbR^{n}\), and \(c\in\bbR\).
 	\begin{enumerate}
-		\item Show that $C$ is convex if $A\succeq 0$.
+		\item Show that \(C\) is convex if \(A\succeq 0\).
 	\end{enumerate}
 \end{exercise}
 
 \begin{proof}
 	\begin{enumerate}
 		\item
-		      We have to show that $\theta x+(1-\theta)y\in C$ for all $\theta\in[0,1]$ and $x,y\in C$.
+		      We have to show that \(\theta x+(1-\theta)y\in C\) for all \(\theta\in[0,1]\) and \(x,y\in C\).
 		      \begin{equation*}
 			      \begin{aligned}
 				           & (\theta x+(1-\theta)y)^{T}A(\theta x+(1-\theta)y)+b^{T}(\theta x+(1-\theta)y)+c                                          \\
@@ -29,7 +29,7 @@
 				      \leq & \theta(1-\theta)(-x^{\top}Ax-y^{\top}Ay+x^{\top}Ax+y^{\top}Ay)\leq 0                                                     \\
 			      \end{aligned}
 		      \end{equation*}
-		      Therefore, $\theta x+(1-\theta)y\in C$, which shows that $C$ is convex if $A\succeq 0$.
+		      Therefore, \(\theta x+(1-\theta)y\in C\), which shows that \(C\) is convex if \(A\succeq 0\).
 	\end{enumerate}
 
 \end{proof}

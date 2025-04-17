@@ -4,17 +4,17 @@ Bootstrap is a statistical method for estimating the sampling distribution of an
 
 \section{Bootstrap Principle}
 
-Suppose the i.i.d samples $\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}$ from an unknown probability distribution $F$ on some probability space $\mcX$. Let $\hat{\theta}_{n}$ be an estimator of $\theta$ based on the sample $\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}$, that is,
+Suppose the i.i.d samples \(\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}\) from an unknown probability distribution \(F\) on some probability space \(\mcX\). Let \(\hat{\theta}_{n}\) be an estimator of \(\theta\) based on the sample \(\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}\), that is,
 \begin{equation*}
 	\hat{\theta}_{n}=s\left(\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right),
 \end{equation*}
-where $s(\cdot)$ is some algorithm.
+where \(s(\cdot)\) is some algorithm.
 
-The bootstrap principle is to use the sample $\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}$ to estimate the sampling distribution of $\hat{\theta}_{n}$.
+The bootstrap principle is to use the sample \(\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}\) to estimate the sampling distribution of \(\hat{\theta}_{n}\).
 
 \paragraph{Nonparametric Bootstrap}
 
-In the $b$-th bootstrap replicate, we sample with replacement from the original sample $\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}$ to get $\left\{\bfx_{1}^{*b},\bfx_{2}^{*b},\ldots,\bfx_{n}^{*b}\right\}$, and then compute the bootstrap estimate of $\hat{\theta}_{n}$ as
+In the \(b\)-th bootstrap replicate, we sample with replacement from the original sample \(\left\{\bfx_{1},\bfx_{2},\ldots,\bfx_{n}\right\}\) to get \(\left\{\bfx_{1}^{*b},\bfx_{2}^{*b},\ldots,\bfx_{n}^{*b}\right\}\), and then compute the bootstrap estimate of \(\hat{\theta}_{n}\) as
 \begin{equation}
 	\hat{\theta}_{n}^{*b}=s\left(\bfx_{1}^{*b},\bfx_{2}^{*b},\ldots,\bfx_{n}^{*b}\right).
 \end{equation}
@@ -29,24 +29,24 @@ In the $b$-th bootstrap replicate, we sample with replacement from the original 
 
 \section{Standard Error Estimation}
 
-The bootstrap estimate of the standard error of $\hat{\theta}_{n}$ is
+The bootstrap estimate of the standard error of \(\hat{\theta}_{n}\) is
 \begin{equation}
-	\widehat{\operatorname{se}}_{\text{boot}}=\sqrt{\frac{1}{B-1}\sum_{b=1}^{B}\left(\hat{\theta}_{n}^{*b}-\hat{\theta}_{n}^{*}\right)^{2}},
+	\widehat{\operatorname{se}}_{\text{boot}}=\sqrt{\frac{1}{B-1}\sum_{b=1}^{B}{\left(\hat{\theta}_{n}^{*b}-\hat{\theta}_{n}^{*}\right)}^{2}},
 \end{equation}
-where $\hat{\theta}_{n}^{*b}$ is the $b$-th bootstrap replicate of $\hat{\theta}_{n}$ and $\hat{\theta}_{n}^{*}$ is the bootstrap estimate of $\hat{\theta}_{n}$, that is,
+where \(\hat{\theta}_{n}^{*b}\) is the \(b\)-th bootstrap replicate of \(\hat{\theta}_{n}\) and \(\hat{\theta}_{n}^{*}\) is the bootstrap estimate of \(\hat{\theta}_{n}\), that is,
 \begin{equation}
 	\hat{\theta}_{n}^{*}=\frac{1}{B}\sum_{b=1}^{B}\hat{\theta}_{n}^{*b}.
 \end{equation}
 
 \section{Bias Estimation}
 
-The bootstrap estimate of the bias of $\hat{\theta}_{n}$ is
+The bootstrap estimate of the bias of \(\hat{\theta}_{n}\) is
 \begin{equation}
 	\widehat{\operatorname{Bias}}_{\text{boot}}=\hat{\theta}_{n}^{*}-\hat{\theta}_{n}.
 \end{equation}
 
 \begin{remark}
-	The bias-corrected bootstrap estimate of $\hat{\theta}_{n}$ is
+	The bias-corrected bootstrap estimate of \(\hat{\theta}_{n}\) is
 	\begin{equation}
 		\hat{\theta}_{n}^{*}=\hat{\theta}_{n}-\widehat{\operatorname{Bias}}_{\text{boot}}=2\hat{\theta}_{n}-\hat{\theta}_{n}^{*}.
 	\end{equation}
@@ -56,33 +56,33 @@ The bootstrap estimate of the bias of $\hat{\theta}_{n}$ is
 
 \paragraph{Percentile Confidence Interval}
 
-The $1-\alpha$ percentile confidence interval of $\hat{\theta}_{n}$ is
+The \(1-\alpha\) percentile confidence interval of \(\hat{\theta}_{n}\) is
 \begin{equation}
 	\left[\hat{\theta}_{n}^{*}\left(\alpha/2\right),\hat{\theta}_{n}^{*}\left(1-\alpha/2\right)\right],
 \end{equation}
-where $\hat{\theta}_{n}^{*}\left(\alpha/2\right)$ is the $\alpha/2$-th percentile of the bootstrap distribution of $\hat{\theta}_{n}$ and $\hat{\theta}_{n}^{*}\left(1-\alpha/2\right)$ is the $\left(1-\alpha/2\right)$-th percentile of the bootstrap distribution of $\hat{\theta}_{n}$.
+where \(\hat{\theta}_{n}^{*}\left(\alpha/2\right)\) is the \(\alpha/2\)-th percentile of the bootstrap distribution of \(\hat{\theta}_{n}\) and \(\hat{\theta}_{n}^{*}\left(1-\alpha/2\right)\) is the \(\left(1-\alpha/2\right)\)-th percentile of the bootstrap distribution of \(\hat{\theta}_{n}\).
 
 \paragraph{Bootstrap-t Confidence Interval}
 
-The $1-\alpha$ bootstrap-t confidence interval of $\hat{\theta}_{n}$ is
+The \(1-\alpha\) bootstrap-t confidence interval of \(\hat{\theta}_{n}\) is
 \begin{equation}
 	\left[\hat{\theta}_{n}-t_{n-1}^{*}\left(1-\alpha/2\right)\widehat{\operatorname{se}}_{\text{boot}},\hat{\theta}_{n}-t_{n-1}^{*}\left(\alpha/2\right)\widehat{\operatorname{se}}_{\text{boot}}\right],
 \end{equation}
-where $t_{n-1}^{*}\left(1-\alpha/2\right)$ is the $\left(1-\alpha/2\right)$-th percentile of the bootstrap distribution of $t_{n-1}$ and $t_{n-1}^{*}\left(\alpha/2\right)$ is the $\alpha/2$-th percentile of the bootstrap distribution of $t_{n-1}$.
+where \(t_{n-1}^{*}\left(1-\alpha/2\right)\) is the \(\left(1-\alpha/2\right)\)-th percentile of the bootstrap distribution of \(t_{n-1}\) and \(t_{n-1}^{*}\left(\alpha/2\right)\) is the \(\alpha/2\)-th percentile of the bootstrap distribution of \(t_{n-1}\).
 
 \paragraph{Bias-corrected and accelerated (BCa) Confidence Interval}
 
-The $1-\alpha$ bias-corrected and accelerated (BCa) confidence interval of $\hat{\theta}_{n}$ is
+The \(1-\alpha\) bias-corrected and accelerated (BCa) confidence interval of \(\hat{\theta}_{n}\) is
 \begin{equation}
 	\left[\hat{\theta}_{n}^{*}\left(\alpha_{\text{BCa}}/2\right),\hat{\theta}_{n}^{*}\left(1-\alpha_{\text{BCa}}/2\right)\right],
 \end{equation}
-where $\alpha_{\text{BCa}}$ is the percentile of the bootstrap distribution of $\hat{\theta}_{n}$ that satisfies
+where \(\alpha_{\text{BCa}}\) is the percentile of the bootstrap distribution of \(\hat{\theta}_{n}\) that satisfies
 \begin{equation}
 	\alpha_{\text{BCa}}=\Phi\left(z_{0}+\frac{z_{0}+z_{\alpha}-\widehat{\operatorname{Bias}}_{\text{boot}}}{1-\widehat{\operatorname{a}}}\right),
 \end{equation}
-where $\Phi(\cdot)$ is the cumulative distribution function of the standard normal distribution, $z_{0}$ is the $1-\alpha/2$ percentile of the standard normal distribution, $z_{\alpha}$ is the $\alpha/2$ percentile of the standard normal distribution, and $\widehat{\operatorname{a}}$ is the percentile of the bootstrap distribution of $\hat{\theta}_{n}$ that satisfies
+where \(\Phi(\cdot)\) is the cumulative distribution function of the standard normal distribution, \(z_{0}\) is the \(1-\alpha/2\) percentile of the standard normal distribution, \(z_{\alpha}\) is the \(\alpha/2\) percentile of the standard normal distribution, and \(\widehat{\operatorname{a}}\) is the percentile of the bootstrap distribution of \(\hat{\theta}_{n}\) that satisfies
 \begin{equation}
-	\widehat{\operatorname{a}}=\frac{\sum_{b=1}^{B}\left(\hat{\theta}_{n}^{*b}-\hat{\theta}_{n}^{*}\right)^{3}}{6\left[\sum_{b=1}^{B}\left(\hat{\theta}_{n}^{*b}-\hat{\theta}_{n}^{*}\right)^{2}\right]^{3/2}}.
+	\widehat{\operatorname{a}}=\frac{\sum_{b=1}^{B}{\left(\hat{\theta}_{n}^{*b}-\hat{\theta}_{n}^{*}\right)}^{3}}{6{\left[\sum_{b=1}^{B}\left(\hat{\theta}_{n}^{*b}-\hat{\theta}_{n}^{*}\right)^{2}\right]}^{3/2}}.
 \end{equation}
 
 \section{Hypothesis Testing}
@@ -93,12 +93,12 @@ where $\Phi(\cdot)$ is the cumulative distribution function of the standard norm
 
 \section{Jackknife}
 
-Let $\bfx_{-i}$ be the sample with $x_{i}$ removed, $\bfx_{-i}=\left(x_{1},x_{2},\ldots,x_{i-1},x_{i+1},\ldots,x_{n}\right)^{\top}$, and denote the corresponding value of the statistic of interest as
+Let \(\bfx_{-i}\) be the sample with \(x_{i}\) removed, \(\bfx_{-i}=\left(x_{1},x_{2},\ldots,x_{i-1},x_{i+1},\ldots,x_{n}\right)^{\top}\), and denote the corresponding value of the statistic of interest as
 \begin{equation}
 	\hat{\theta}_{-i}=s\left(\bfx_{-i}\right)
 \end{equation}
 
-\paragraph{Bias of $\hat{\theta}$}
+\paragraph{Bias of \(\hat{\theta}\)}
 
 For almost all reasonable and practical estimates, we have
 \begin{equation*}
@@ -108,7 +108,7 @@ Then, it is reasonable to assume a power series of the type
 \begin{equation*}
 	\bbE(\hat{\theta}_{n})=\theta+\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots
 \end{equation*}
-with some coefficients $\left\{a_{k}\right\}$. And we have
+with some coefficients \(\left\{a_{k}\right\}\). And we have
 \begin{equation*}
 	\bbE(\hat{\theta}_{-i})=\bbE(\hat{\theta}_{n-1})=\theta+\frac{a_{1}}{n-1}+\frac{a_{2}}{\left(n-1\right)^{2}}+\frac{a_{3}}{\left(n-1\right)^{3}}+\ldots
 \end{equation*}
@@ -124,34 +124,34 @@ thus,
 
 Thus, we have
 \begin{equation*}
-	(n-1)\bbE\left[\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right]=\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots=\operatorname{Bias}(\hat{\theta})
+	(n-1)\bbE\left[\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right]=\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\cdots=\operatorname{Bias}(\hat{\theta})
 \end{equation*}
-Hence, we can get the jackknife estimate bias for $\hat{\theta}$ be
+Hence, we can get the jackknife estimate bias for \(\hat{\theta}\) be
 \begin{equation}
 	\widehat{\operatorname{Bias}}_{\text{jack}}=(n-1)\left(\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right)
 \end{equation}
 
-% Variance of the bias of $\hat{\theta}$
+% Variance of the bias of \(\hat{\theta}\)
 
 \begin{remark}
-	It is easy to combine the averaged Jackknife estimator $\hat{\theta}_{-i}$ with the original $\hat{\theta}$, to kill the main term in the bias of $\hat{\theta}$, thus,
+	It is easy to combine the averaged Jackknife estimator \(\hat{\theta}_{-i}\) with the original \(\hat{\theta}\), to kill the main term in the bias of \(\hat{\theta}\), thus,
 	\begin{equation*}
 		\begin{aligned}
 			\bbE\left[n\hat{\theta}_{n}-(n-1)\hat{\theta}_{(\cdot)}\right] & =\left[n\theta-(n-1)\theta\right]+\left[a_{1}-a_{1}\right]+\left[\frac{a_{2}}{n}-\frac{a_{2}}{n-1}\right]+\ldots \\
-			                                                               & =\theta+\frac{a_{2}}{n(n-1)}+\ldots=\theta+\frac{a_{2}}{n^{2}}+O\left(n^{-3}\right)
+			                                                               & =\theta+\frac{a_{2}}{n(n-1)}+\cdots=\theta+\frac{a_{2}}{n^{2}}+O\left(n^{-3}\right)
 		\end{aligned}
 	\end{equation*}
-	This removes the bias in the special case that the bias is $O\left(n^{-1}\right)$ and removes it to $O\left(n^{-2}\right)$ in other cases.
+	This removes the bias in the special case that the bias is \(O\left(n^{-1}\right)\) and removes it to \(O\left(n^{-2}\right)\) in other cases.
 \end{remark}
 
-\paragraph{Variance of $\hat{\theta}$}
+\paragraph{Variance of \(\hat{\theta}\)}
 
-The jackknife estimate of variance for $\hat{\theta}$ is
+The jackknife estimate of variance for \(\hat{\theta}\) is
 \begin{equation}
 	\widehat{\Var}_{\text{jack}}=\frac{n-1}{n}\sum_{i=1}^{n}\left(\hat{\theta}_{-i}-\hat{\theta}_{(\cdot)}\right)^{2},\quad\text{where }\hat{\theta}_{(\cdot)}=\frac{1}{n}\sum_{i=1}^{n}\hat{\theta}_{-i}
 \end{equation}
 
-The jackknife method of estimation can fail if the statistic $\hat{\theta}_{\text{jack}}$ is not smooth. Smoothness
+The jackknife method of estimation can fail if the statistic \(\hat{\theta}_{\text{jack}}\) is not smooth. Smoothness
 implies that relatively small changes to data values will cause only a small change in the
 statistic.
 

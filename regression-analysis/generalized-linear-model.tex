@@ -2,15 +2,15 @@
 
 \section{Introduction}
 
-Suppose the response $Y$ has a distribution in the exponential family
+Suppose the response \(Y\) has a distribution in the exponential family
 \begin{equation*}
 	f\left(y\mid\theta,\phi\right)=\exp\left[\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right]
 \end{equation*}
-with link function $g$, such that,
+with link function \(g\), such that,
 \begin{equation}
 	E\left(Y\mid\bfx\right)=\mu=g^{-1}(\eta),\quad\eta=\bfx^{\top}\bfbeta
 \end{equation}
-where the link function provides the relationship between the linear predictor and the mean of the distribution function. If $\eta=\theta$, the link function is called \textbf{canonical link function}.
+where the link function provides the relationship between the linear predictor and the mean of the distribution function. If \(\eta=\theta\), the link function is called \textbf{canonical link function}.
 
 \begin{remark}
 	A generalized linear model (GLM) is a flexible generalization of ordinary linear regression that allows for the response variable to have an error distribution other than the normal distribution.
@@ -21,11 +21,11 @@ where the link function provides the relationship between the linear predictor a
 	\caption{Commonly Used Link Functions}
 	\begin{tabular}{clcc}
 		\toprule
-		Distribution & Support of Distribution  & Link Function $g(\mu)$               & Mean Function $g^{-1}(\eta)$ \\
+		Distribution & Support of Distribution    & Link Function \(g(\mu)\)               & Mean Function \(g^{-1}(\eta)\) \\
 		\midrule
-		Normal       & real:$(-\infty,+\infty)$ & $\mu$                                & $\eta$                       \\
-		Bernoulli    & integer: $\{0,1\}$       & $\log\left(\frac{\mu}{1-\mu}\right)$ & $\frac{1}{1+\exp(-\eta)}$    \\
-		Poisson      & integer: $0,1,2,\ldots$  & $\log\left(\mu\right)$               & $\exp\left(\eta\right)$      \\
+		Normal       & real:\((-\infty,+\infty)\) & \(\mu\)                                & \(\eta\)                       \\
+		Bernoulli    & integer: \(\{0,1\}\)       & \(\log\left(\frac{\mu}{1-\mu}\right)\) & \(\frac{1}{1+\exp(-\eta)}\)    \\
+		Poisson      & integer: \(0,1,2,\ldots\)  & \(\log\left(\mu\right)\)               & \(\exp\left(\eta\right)\)      \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -36,7 +36,7 @@ Suppose the log-likelihood function be
 \begin{equation}
 	\ell\left(\bfbeta\mid\bfx,y\right)=\log\left[f\left(y\mid\theta,\phi\right)\right]=\log\left[f\left(y\mid g^{-1}(\eta),\phi\right)\right]
 \end{equation}
-where $g$ is the canonical link function and $\eta=\bfx^{\top}\bfbeta$.
+where \(g\) is the canonical link function and \(\eta=\bfx^{\top}\bfbeta\).
 
 Let
 \begin{equation*}
@@ -44,7 +44,7 @@ Let
 \end{equation*}
 be the score function and observed information matrix.
 
-If $\hat{\bfbeta}$ is the maximum likelihood estimate, then
+If \(\hat{\bfbeta}\) is the maximum likelihood estimate, then
 \begin{equation*}
 	U\left(\hat{\bfbeta}\right)=\bfzero
 \end{equation*}
@@ -56,12 +56,12 @@ By the mean value theorem,
 		\Rightarrow & -U\left(\bfbeta_{0}\right)=-A\left(\bfbeta^{*}\right)\left(\hat{\bfbeta}-\bfbeta_{0}\right)
 	\end{aligned}
 \end{equation*}
-where $\bfbeta^{*}\in\left[\bfbeta_{0},\hat{\bfbeta}\right]$. Thus,
+where \(\bfbeta^{*}\in\left[\bfbeta_{0},\hat{\bfbeta}\right]\). Thus,
 \begin{equation*}
 	\hat{\bfbeta}=\bfbeta_{0}+A^{-1}\left(\bfbeta^{*}\right)U\left(\bfbeta_{0}\right)
 \end{equation*}
 
-Suppose $\hat{\bfbeta}_{t},\hat{\bfbeta}_{t+1}$ be the maximum likelihood estimate at the t-th and (t+1)-th iterations, respectively. Two algorithms can be used to obtain the maximum likelihood estimate $\hat{\bfbeta}$.
+Suppose \(\hat{\bfbeta}_{t},\hat{\bfbeta}_{t+1}\) be the maximum likelihood estimate at the t-th and (t+1)-th iterations, respectively. Two algorithms can be used to obtain the maximum likelihood estimate \(\hat{\bfbeta}\).
 
 \begin{enumerate}
 	\item Newton-Raphson Method:
@@ -81,7 +81,7 @@ Suppose $\hat{\bfbeta}_{t},\hat{\bfbeta}_{t+1}$ be the maximum likelihood estima
 	      \begin{equation}
 		      \hat{\bfbeta}_{t+1}=\hat{\bfbeta}_{t}+I^{-1}\left(\hat{\bfbeta}_{t}\right)U\left(\hat{\bfbeta}_{t}\right)\Leftrightarrow I\left(\hat{\bfbeta}_{t}\right)\hat{\bfbeta}_{t+1}=I\left(\hat{\bfbeta}_{t}\right)\hat{\bfbeta}_{t}+U\left(\hat{\bfbeta}_{t}\right)
 	      \end{equation}
-	      where $U\left(\bfbeta\right)$ is the score function and
+	      where \(U\left(\bfbeta\right)\) is the score function and
 	      \begin{equation}
 		      I\left(\bfbeta\right)=E\left[A\left(\bfbeta\right)\right]=-E\left[\frac{\partial^{2}\ell\left(\bfbeta\right)}{\partial\bfbeta^{\prime}\partial\bfbeta}\right]
 	      \end{equation}
@@ -142,15 +142,15 @@ Thus,
 	\end{enumerate}
 \end{remark}
 
-Let the category probabilities given $\bfx_{i}$ be
+Let the category probabilities given \(\bfx_{i}\) be
 \begin{equation}
 	\pi_{j}\left(\bfx_{i}\right)=P\left(Y=y_{j}\mid\bfx=\bfx_{i}\right)
 \end{equation}
-and the cumulative probabilities given $\bfx_{i}$ be
+and the cumulative probabilities given \(\bfx_{i}\) be
 \begin{equation}
 	r_{j}\left(\bfx_{i}\right)=P\left(Y\leq\sum_{r\leq j}y_{r}\mid\bfx=\bfx_{i}\right)
 \end{equation}
-where $i=1,2,\ldots,n,\quad j=1,2,\ldots,k$.
+where \(i=1,2,\ldots,n,\quad j=1,2,\ldots,k\).
 
 Here, multinomial distribution is in many ways the most natural distribution to consider in the context of a polytomous response variable. The density function of the multinomial distribution is,
 \begin{equation*}
@@ -160,7 +160,7 @@ Here, multinomial distribution is in many ways the most natural distribution to 
 		0                                                                              & \text { otherwise }
 	\end{array}\right.
 \end{equation*}
-for non-negative integers $y_{1},\ldots,y_{k}$.
+for non-negative integers \(y_{1},\ldots,y_{k}\).
 
 As for the link function, we have
 
@@ -169,7 +169,7 @@ As for the link function, we have
 \begin{equation}
 	\pi_{j}\left(\bfx_{i}\right)=\frac{\exp \left[\eta_{j}\left(\bfx_{i}\right)\right]}{\sum_{j=1}^{k} \exp \left[\eta_{j}\left(\bfx_{i}\right)\right]}
 \end{equation}
-where $\eta_{j}\left(\bfx_{i}\right)=\eta_{j}\left(\bfx_{0}\right)+\left(\bfx_{i}-\bfx_{0}\right)^{\prime}\bfbeta_{j}+\alpha_{i}$.
+where \(\eta_{j}\left(\bfx_{i}\right)=\eta_{j}\left(\bfx_{0}\right)+\left(\bfx_{i}-\bfx_{0}\right)^{\prime}\bfbeta_{j}+\alpha_{i}\).
 
 \paragraph*{Ordinal Scale}
 
@@ -186,17 +186,17 @@ where $\eta_{j}\left(\bfx_{i}\right)=\eta_{j}\left(\bfx_{0}\right)+\left(\bfx_{i
 
 \paragraph*{Interval Scale}
 
-Suppose the $j$-th category exits a cardinal number or score, $s_j$, where the difference between scores is a measure of distance between or separation of categories.
+Suppose the \(j\)-th category exits a cardinal number or score, \(s_j\), where the difference between scores is a measure of distance between or separation of categories.
 
 \begin{enumerate}
 	\item \begin{equation}
 		      \log\left[\frac{r_{j}\left(\bfx_{i}\right)}{1-r_{j}\left(\bfx_{i}\right)}\right]=\varsigma_{0}+\varsigma_{1}\left(\frac{s_{j}+s_{j+1}}{2}\right)-\bfx_{i}^{\top}\bfbeta-\bfx_{i}^{\top}\boldsymbol{\xi}\left(c_{j}-\bar{c}\right)
 	      \end{equation}
-	      where $c_{j}=\frac{s_{j}+s_{j+1}}{2}$ or $c_{j}=\operatorname{logit}\left(\frac{s_{j}+s_{j+1}}{2}\right)$.
+	      where \(c_{j}=\frac{s_{j}+s_{j+1}}{2}\) or \(c_{j}=\operatorname{logit}\left(\frac{s_{j}+s_{j+1}}{2}\right)\).
 	\item \begin{equation}
 		      \pi_{j}\left(\bfx_{i}\right)=\frac{\exp \left[\eta_{j}\left(\bfx_{i}\right)\right]}{\sum_{j=1}^{k} \exp \left[\eta_{j}\left(\bfx_{i}\right)\right]}
 	      \end{equation}
-	      where $\eta_{j}\left(\bfx_{i}\right)=\eta_{j}+\left(\bfx_{i}^{\top}\bfbeta\right)s_{j}+\alpha_{i}$.
+	      where \(\eta_{j}\left(\bfx_{i}\right)=\eta_{j}+\left(\bfx_{i}^{\top}\bfbeta\right)s_{j}+\alpha_{i}\).
 	\item \begin{equation}
 		      \sum_{j=1}^{k}\pi_{j}\left(\bfx_{i}\right)s_{j}=\bfx_{i}\bfbeta
 	      \end{equation}
@@ -212,7 +212,7 @@ with link function
 \begin{equation}
 	\log\left(\mu\right)=\eta=\bfx^{\top}\bfbeta
 \end{equation}
-where $\mu=E\left(Y\mid\bfx\right)$.
+where \(\mu=E\left(Y\mid\bfx\right)\).
 
 For the response in the Poisson distribution, i.e.
 \begin{equation*}
@@ -222,4 +222,4 @@ and the log-likelihood function is
 \begin{equation}
 	\ell\left(\bfbeta\right)\propto\sum_{i=1}^{n}\left(y_{i} \log\left(\mu_{i}\right)-\mu_{i}\right)
 \end{equation}
-where $\mu_{i}=E\left(Y\mid\bfx=\bfx_{i}\right)$.
+where \(\mu_{i}=E\left(Y\mid\bfx=\bfx_{i}\right)\).

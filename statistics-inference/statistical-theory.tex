@@ -7,11 +7,11 @@
 \subsection{Sufficient Statistics}
 
 \begin{definition}[Sufficient Statistics]
-	A statistic $T$ is said to be sufficient for $X$, or for the family $\mathcal{P}=\left\{P_{\theta}, \theta \in \Omega\right\}$ of possible distributions of $X$, or for $\theta$, if the conditional distribution of $X$ given $T=t$ is independent of $\theta$ for all $t$.
+	A statistic \(T\) is said to be sufficient for \(X\), or for the family \(\mathcal{P}=\left\{P_{\theta}, \theta \in \Omega\right\}\) of possible distributions of \(X\), or for \(\theta\), if the conditional distribution of \(X\) given \(T=t\) is independent of \(\theta\) for all \(t\).
 \end{definition}
 
 \begin{theorem}[Fisher-Neyman Factorization Theorem]
-	If the probability density function is $p_{\theta}(x)$, then $T$ is sufficient for $\theta$ if and only if nonnegative functions $g$ and $h$ can be found such that
+	If the probability density function is \(p_{\theta}(x)\), then \(T\) is sufficient for \(\theta\) if and only if nonnegative functions \(g\) and \(h\) can be found such that
 	\begin{equation*}
 		p_{\theta}(x)=h(x)g_{\theta}[T(x)].
 	\end{equation*}
@@ -24,23 +24,23 @@
 \subsection{Complete Statistics}
 
 \begin{definition}[Complete Statistics]
-	A statistic $T$ is said to be complete, if $Eg(T)=0$ for all $\theta$ and some function $g$ implies that $P(g(T)=0\mid\theta)=1$ for all $\theta$.
+	A statistic \(T\) is said to be complete, if \(Eg(T)=0\) for all \(\theta\) and some function \(g\) implies that \(P(g(T)=0\mid\theta)=1\) for all \(\theta\).
 \end{definition}
 
 \section{Estimators}
 
-\begin{definition}[Estimator] \label{def:estimator}
+\begin{definition}[Estimator]\label{def:estimator}
 	An estimator is a real-valued function defined over the sample space, that is
 	\begin{equation}
 		\delta:\textbf{X}\rightarrow\bbR.
 	\end{equation}
-	It is used to estimate an estimand, $\theta$, a real-valued function of the parameter.
+	It is used to estimate an estimand, \(\theta\), a real-valued function of the parameter.
 \end{definition}
 
 \subsection*{Unbiasedness}
 
 \begin{definition}[Unbiasedness]
-	An estimator $\hat{\theta}$ of $\theta$ is unbiased if
+	An estimator \(\hat{\theta}\) of \(\theta\) is unbiased if
 	\begin{equation}
 		E\hat{\theta}=\theta,\quad\forall\theta\in\Theta.
 	\end{equation}
@@ -48,7 +48,7 @@
 
 \begin{remark}
 	\begin{itemize}
-		\item Unbiased estimators of $\theta$ may not exist.
+		\item Unbiased estimators of \(\theta\) may not exist.
 		\item
 	\end{itemize}
 \end{remark}
@@ -60,7 +60,7 @@
 \subsection*{Consistency}
 
 \begin{definition}[Consistency]
-	An estimator $\hat{\theta}_n$ of $\theta$ is consistent if
+	An estimator \(\hat{\theta}_n\) of \(\theta\) is consistent if
 	\begin{equation}
 		\lim_{n\rightarrow\infty}P\left(\left|\hat{\theta}_n-\theta\right|>\varepsilon\right)=0,\quad\forall\varepsilon>0,
 	\end{equation}
@@ -84,7 +84,7 @@
 \subsection*{Asymptotic Normality}
 
 \begin{definition}[Asymptotic Normality]
-	An estimator $\hat{\theta}_n$ of $\theta$ is asymptotic normality if
+	An estimator \(\hat{\theta}_n\) of \(\theta\) is asymptotic normality if
 	\begin{equation}
 		\sqrt{n}\left(\hat{\theta}-\theta\right)\stackrel{d}{\rightarrow}N\left(0,\sigma_{\theta}^{2}\right).
 	\end{equation}

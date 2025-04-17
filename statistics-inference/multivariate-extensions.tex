@@ -4,7 +4,7 @@
 
 \subsection{Mean vector}
 
-Let $\bfX_{i}$, $i=1,\ldots,n$ be drawn from a $p$-dimensional distribution with mean vector $\bfmu$ and covariance matrix $\bfSigma$. The sample mean vector is given by
+Let \(\bfX_{i}\), \(i=1,\ldots,n\) be drawn from a \(p\)-dimensional distribution with mean vector \(\bfmu\) and covariance matrix \(\bfSigma\). The sample mean vector is given by
 \begin{equation*}
 	\bar{\bfX}=\frac{1}{n}\sum_{i=1}^{n}\bfX_{i}.
 \end{equation*}
@@ -18,7 +18,7 @@ Applying the continuous mapping theorem and Theorem~\ref{thm:mvn-properties}, we
 	n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\sim\chi^{2}_{p}.
 \end{equation*}
 
-If $\bfSigma$ is known, then the confidence region for $\bfmu$ with confidence level $1-\alpha$ is given by
+If \(\bfSigma\) is known, then the confidence region for \(\bfmu\) with confidence level \(1-\alpha\) is given by
 \begin{equation*}
 	n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\leq C_{p},
 \end{equation*}
@@ -27,11 +27,11 @@ where
 	\int_{0}^{C_{p}}\chi^{2}_{p}(t)\dif t=1-\alpha.
 \end{equation*}
 
-In applications where $\bfSigma$ is unknown, we can use the sample covariance matrix $\widehat{\bfSigma}$ to replace $\bfSigma$, and $\widehat{\bfSigma}^{-1}$ is a consistent estimator of $\bfSigma^{-1}$. This leads to the following confidence region for $\bfmu$:
+In applications where \(\bfSigma\) is unknown, we can use the sample covariance matrix \(\widehat{\bfSigma}\) to replace \(\bfSigma\), and \(\widehat{\bfSigma}^{-1}\) is a consistent estimator of \(\bfSigma^{-1}\). This leads to the following confidence region for \(\bfmu\):
 \begin{equation*}
 	n(\bar{\bfX}-\bfmu)^{\top}\widehat{\bfSigma}^{-1}(\bar{\bfX}-\bfmu)\leq C_{p},
 \end{equation*}
-which provides asymptotically valid confidence regions for $\bfmu$ at level $1-\alpha$ for any non-singular $\bfSigma$ and fixed shape of distribution $F$.
+which provides asymptotically valid confidence regions for \(\bfmu\) at level \(1-\alpha\) for any non-singular \(\bfSigma\) and fixed shape of distribution \(F\).
 
 \begin{proof}
 	To show that
@@ -41,7 +41,7 @@ which provides asymptotically valid confidence regions for $\bfmu$ at level $1-\
 \end{proof}
 
 \begin{remark}
-	If $\bfX_{i}$, $i=1,\ldots,n$ are drawn from a $p$-dimensional multivariate normal distribution, the exact distribution of $n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)$ is a Hotelling's $T^{2}$ distribution with parameters $p$ and $n-1$.
+	If \(\bfX_{i}\), \(i=1,\ldots,n\) are drawn from a \(p\)-dimensional multivariate normal distribution, the exact distribution of \(n(\bar{\bfX}-\bfmu)^{\top}\bfSigma^{-1}(\bar{\bfX}-\bfmu)\) is a Hotelling's \(T^{2}\) distribution with parameters \(p\) and \(n-1\).
 \end{remark}
 
 We next consider the power of
@@ -81,7 +81,7 @@ It is easy to see that
 	\sum_{i}\left(X_i-\bar{X}\right)^2+\sum_{j}\left(Y_j-\bar{Y}\right)^2\rightarrow_{p} m\sigma^{2}+n\gamma^{2},\\
 	\gamma^{2}\sum_{i}\left(X_i-\bar{X}\right)^2+\sigma^{2}\sum_{j}\left(Y_j-\bar{Y}\right)^2\rightarrow_{p} (m+n)\sigma^{2}\gamma^{2}>0,
 \end{gather*}
-and by the continuous mapping theorem with the fact that $m/(m+n)\rightarrow\rho$, we have
+and by the continuous mapping theorem with the fact that \(m/(m+n)\rightarrow\rho\), we have
 \begin{equation*}
 	\sqrt{\frac{\sum_{i}\left(X_i-\bar{X}\right)^2+\sum_{j}\left(Y_j-\bar{Y}\right)^2}{\gamma^{2}\sum_{i}\left(X_i-\bar{X}\right)^2+\sigma^{2}\sum_{j}\left(Y_j-\bar{Y}\right)^2}}\cdot\sqrt{\frac{(m+n)\sigma^{2}\gamma^{2}}{n\sigma^{2}+m\gamma^{2}}}\rightarrow_{p}\sqrt{\frac{\rho\sigma^{2}+(1-\rho)\gamma^{2}}{(1-\rho)\sigma^{2}+\rho\gamma^{2}}}.
 \end{equation*}
@@ -91,7 +91,7 @@ and by the continuous mapping theorem with the fact that $m/(m+n)\rightarrow\rho
 		\Pr\left(T_{mn}\leq C_{k}\right)\rightarrow\gamma,\ \text{as}\ m,n\rightarrow\infty
 	\end{equation*}
 
-	For convenience, suppose $m<n$, then we define
+	For convenience, suppose \(m<n\), then we define
 	\begin{equation*}
 		\bfZ_{i}=\bfX_{i}-\sqrt{\frac{m}{n}}Y_{i}+\frac{m}{\sqrt{mn}}
 	\end{equation*}
@@ -103,11 +103,11 @@ Suppose
 \begin{equation*}
 	\bfX_{i}=\bfalpha+\bfv_{i}\bfbeta+\bfvareps_{i},\quad i=1,\ldots,n
 \end{equation*}
-where $\bfv_{i}$ is a $p$-dimensional vector of known constants, and $\bfvareps_{i}$ is a $p$-dimensional random vector with mean $\bfzero$ and covariance matrix $\bfSigma$. The least squares estimator of $\bfalpha$ and $\bfbeta$ are given by
+where \(\bfv_{i}\) is a \(p\)-dimensional vector of known constants, and \(\bfvareps_{i}\) is a \(p\)-dimensional random vector with mean \(\bfzero\) and covariance matrix \(\bfSigma\). The least squares estimator of \(\bfalpha\) and \(\bfbeta\) are given by
 \begin{equation*}
 	\hat{\beta}_{j}=\frac{\sum_{i}(X_{i,j}-\bar{X}_{j})(v_{i,j}-\bar{v}_{j})}{\sum_{i}(v_{i,j}-\bar{v}_{j})^{2}},\quad\hat{\alpha}_{j}=\bar{X}_{j}-\hat{\beta}_{j}\bar{v}_{j}.
 \end{equation*}
-where $\bar{\bfX}=\frac{1}{n}\sum_{i}\bfX_{i}$ and $\bar{\bfv}=\frac{1}{n}\sum_{i}\bfv_{i}$.
+where \(\bar{\bfX}=\frac{1}{n}\sum_{i}\bfX_{i}\) and \(\bar{\bfv}=\frac{1}{n}\sum_{i}\bfv_{i}\).
 
 Denote
 \begin{equation*}
@@ -125,18 +125,18 @@ By Theorem, we have
 
 \subsection{Multinomial One-Sample Test}
 
-Consider a sequence of $n$ independent multinomial trials with $k+1$ categories, where the probability of the $i$-th category is $p_{i}$, $i=1,\ldots,k+1$.
+Consider a sequence of \(n\) independent multinomial trials with \(k+1\) categories, where the probability of the \(i\)-th category is \(p_{i}\), \(i=1,\ldots,k+1\).
 
 Let us now consider testing the hypothesis
 \begin{equation*}
 	H_{0}:p_i=p_i^{(0)},\quad i=1,\ldots,k+1
 \end{equation*}
-against the alternatives that $p_{i}\neq p_{i}^{(0)}$ for at least some $i$. The standard test for this problem is Pearson's $\chi^2$-test, which rejects $H_{0}$ when
+against the alternatives that \(p_{i}\neq p_{i}^{(0)}\) for at least some \(i\). The standard test for this problem is Pearson's \(\chi^2\)-test, which rejects \(H_{0}\) when
 \begin{equation*}
 	Q=n\sum_{i=1}^{k+1}\left(\frac{Y_i}{n}-p_i^{(0)}\right)^2/p_i^{(0)}\geq C_k,
 \end{equation*}
 
-The asymptotic distribution of $Q$ is $\chi^{2}_{k}$ under $H_{0}$.
+The asymptotic distribution of \(Q\) is \(\chi^{2}_{k}\) under \(H_{0}\).
 
 \begin{proof}
 	It follows from (5.4.14) and Theorem~\ref{thm:mvn-properties} that
@@ -152,7 +152,7 @@ The asymptotic distribution of $Q$ is $\chi^{2}_{k}$ under $H_{0}$.
 		\end{cases}
 	\end{equation*}
 
-	The left side of \eqref{eq:multinomial-test-chi2} can be written as
+	The left side of~\eqref{eq:multinomial-test-chi2} can be written as
 	\begin{equation*}
 		n\sum_{i=1}^{k}\frac{1}{p_i^{(0)}}\left(\frac{Y_i}{n}-p_i^{(0)}\right)^2+\frac{n}{p_{k+1}^{(0)}}\sum_{i=1}^{k}\sum_{j=1}^k\left(\frac{Y_i}{n}-p_i^{(0)}\right)\left(\frac{Y_j}{n}-p_j^{(0)}\right),
 	\end{equation*}
