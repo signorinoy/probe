@@ -299,7 +299,8 @@ In generalization of~\eqref{eq:kernel-density-estimator}, note that \(\hat{f}_{n
 		      Therefore,
 		      \begin{equation*}
 			      \begin{aligned}
-				      K(\bfx,\mathbf{y})= & \exp\left(-\frac{\left\|\bfx-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right)=\exp\left(-\frac{\|\bfx\|^{2}}{2\sigma^{2}}\right)\cdot\exp\left(-\frac{\|\mathbf{y}\|^{2}}{2\sigma^{2}}\right)\cdot\sum_{n=0}^{+\infty}\left\{\frac{\left\langle\bfx,\mathbf{y}\right\rangle^{n}}{\sigma^{2n}\cdot n!}\right\} \\
+				      K(\bfx,\mathbf{y})= & \exp\left(-\frac{\left\|\bfx-\mathbf{y}\right\|^{2}}{2\sigma^{2}}\right)                                                                                                                                                                               \\
+				      =                   & \exp\left(-\frac{\|\bfx\|^{2}}{2\sigma^{2}}\right)\cdot\exp\left(-\frac{\|\mathbf{y}\|^{2}}{2\sigma^{2}}\right)\cdot\sum_{n=0}^{+\infty}\left\{\frac{\left\langle\bfx,\mathbf{y}\right\rangle^{n}}{\sigma^{2n}\cdot n!}\right\}                        \\
 				      =                   & \sum_{n=0}^{+\infty}\frac{\exp\left(-\frac{\|\bfx\|^{2}}{2\sigma^{2}}\right)}{\sigma^{n}\cdot\sqrt{n!}}\cdot\frac{\exp\left(-\frac{\|\mathbf{y}\|^{2}}{2\sigma^{2}}\right)}{\sigma^{n}\cdot\sqrt{n!}}\cdot\left\langle\bfx,\mathbf{y}\right\rangle^{n}
 			      \end{aligned}
 		      \end{equation*}

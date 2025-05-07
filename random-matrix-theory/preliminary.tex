@@ -56,15 +56,20 @@
 
 \begin{remark}
 	Most of the results involve Stieltjes transforms \(m_{\mu}(z)\) of a real probability measure with support \(\operatorname{supp}(\mu) \subset \bbR\). Since Stieltjes transforms are such that
-	\begin{equation*}
-		m_{\mu}(z)>0,\forall z<\inf\operatorname{supp}(\mu),\quad m_{\mu}(z)<0,\forall z>\sup \operatorname{supp}(\mu),\quad\Im[z] \Im\left[m_{\mu}(z)\right]>0,\ \text{if}\ z\in\mathbb{C}\backslash\bbR
-	\end{equation*}
+	\begin{gather*}
+		m_{\mu}(z)>0,\forall z<\inf\operatorname{supp}(\mu),\quad m_{\mu}(z)<0,\forall z>\sup \operatorname{supp}(\mu),\\
+		\Im[z] \Im\left[m_{\mu}(z)\right]>0,\ \text{if}\ z\in\mathbb{C}\backslash\bbR
+	\end{gather*}
 	it will be convenient in the following to consider the set of scalar pairs
 	\begin{equation*}
-		\begin{array}{c}
-			\mathcal{Z}(\mathcal{A})=\left\{(z,m)\in\mathcal{A}\times\mathbb{C},(\Im[z]\Im[m]>0\text{ if } \Im[z] \neq 0)\ \text{or}\ \left(m>0\text{ if }z<\inf \mathcal{A}^{c} \cap \bbR\right)\right. \\
-			\left.\ \text{or}\ \left(m<0\text{ if }z>\sup \mathcal{A}^{c} \cap \bbR\right)\right\}
+		\mathcal{Z}(\mathcal{A}) = \left\{
+		(z, m) \in \mathcal{A} \times \mathbb{C} \;\middle|\;
+		\begin{array}{l}
+			\Im[z] \neq 0 \Rightarrow \Im[m] \Im[z] > 0,          \\[0.5em]
+			z < \inf \mathcal{A}^{c} \cap \bbR \Rightarrow m > 0, \\[0.5em]
+			z > \sup \mathcal{A}^{c} \cap \bbR \Rightarrow m < 0
 		\end{array}
+		\right\}
 	\end{equation*}
 \end{remark}
 

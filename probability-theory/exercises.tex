@@ -1,4 +1,4 @@
-\chapter{Exercises for Probability Theory and Examples}
+\chapter{Exercises}
 
 \section{Measure Theory}
 
@@ -64,11 +64,12 @@
 \begin{proof}
 	\begin{equation*}
 		\begin{aligned}
-			\left|\int h(x)\dif F_{n}(x)-\int h(x)\dif F(x)\right| = & \left|{\int_{x\in[-M,M]}h(x)\dif F_{n}(x)+\int_{x\notin[-M,M]}h(x)\dif F_{n}(x)}\right. \\
-			                                                         & \left.{-\int_{x\in[-M,M]}h(x)\dif F(x)-\int_{x\notin[-M,M]}h(x)\dif F(x)}\right|        \\
-			\leq                                                     & \left|\int_{x\in[-M,M]}h(x)\dif F_{n}(x)-\int_{x\in[-M,M]}h(x)\dif F(x)\right|          \\
-			                                                         & + \left|\int_{x\notin[-M,M]}h(x)\dif F_{n}(x)-\int_{x\notin[-M,M]}h(x)\dif F(x)\right|
-		\end{aligned}.
+			     & \left|\int h(x)\dif F_{n}(x)-\int h(x)\dif F(x)\right|                                             \\
+			=    & \left|\int_{x\in[-M,M]} h(x)\dif F_{n}(x) - \int_{x\in[-M,M]} h(x)\dif F(x) \right.                \\
+			     & \qquad \left. + \int_{x\notin[-M,M]} h(x)\dif F_{n}(x) - \int_{x\notin[-M,M]} h(x)\dif F(x)\right| \\
+			\leq & \left|\int_{x\in[-M,M]} h(x)\dif F_{n}(x) - \int_{x\in[-M,M]} h(x)\dif F(x)\right|                 \\
+			     & \qquad + \left|\int_{x\notin[-M,M]} h(x)\dif F_{n}(x) - \int_{x\notin[-M,M]} h(x)\dif F(x)\right|.
+		\end{aligned}
 	\end{equation*}
 
 	Let \(X_n,1\leq n<\infty\), with distribution \(F_n\), so that \(X_n\stackrel{a.s.}{\rightarrow}X\) (Lemma~\ref{lem:distribution-to-probability}).
@@ -76,7 +77,10 @@
 		\left|\int_{x\in[-M,M]}h(x)\dif F_{n}(x)-\int_{x\in[-M,M]}h(x)\dif F(x)\right| = \left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right|.
 	\end{equation*}
 
-	By Continuity Mapping Theorem (\ref{thm:continuous-mapping-theorem}), \(\lim_{n\rightarrow\infty}\left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right| = 0\).
+	By Continuity Mapping Theorem (\ref{thm:continuous-mapping-theorem}), we have
+	\begin{equation*}
+		\lim_{n\rightarrow\infty}\left|E\left(h(X_n)-h(X)\right)I_{x\in[-M,M]}\right| = 0.
+	\end{equation*}
 
 	Since
 	\begin{equation*}

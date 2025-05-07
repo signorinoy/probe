@@ -134,12 +134,17 @@ Sum of martingale difference sequences is a martingale.
 \begin{theorem}
 	Let \(\{(D_{k},\mcF_{k})\}_{k=1}^{\infty}\) be a martingale difference sequence, and suppose that \(\bbE\left[\mathrm{e}^{\lambda D_{k}}\mid \mcF_{k-1}\right]\leq\mathrm{e}^{\frac{\lambda^{2}v_{k}^{2}}{2}}\) almost surely for any \(|\lambda|<1/\alpha_{k}\)/ Then the following hold:
 	\begin{enumerate}
-		\item The sum \(S_{n}:=\sum_{k=1}^{n}D_{k}\) is sub-exponential with parameter \(\left(\sqrt{\sum_{k=1}^{n}v_{k}^{2}},\alpha_{*}\right)\), where \(\alpha_{*}=\max_{k}\alpha_{k}\).
-		\item The sum satisfies the concentration inequality
+		\item The sum \(S_{n}:=\sum_{k=1}^{n}D_{k}\) is sub-exponential with parameters
 		      \begin{equation*}
-			      \bbP\left(\left|S_{n}\right|\geq t\right)\leq\begin{cases}
-				      2\exp\left(-\frac{t^{2}}{2\sum_{k=1}^{n}v_{k}^{2}}\right) & \text{if }0\leq t\leq\frac{\sqrt{2\sum_{k=1}^{n}v_{k}^{2}}}{\alpha_{*}} \\
-				      2\exp\left(-\frac{t}{2\alpha_{*}}\right)                  & \text{if }t>\frac{\sqrt{2\sum_{k=1}^{n}v_{k}^{2}}}{\alpha_{*}}
+			      \left(\sqrt{\sum_{k=1}^{n}v_{k}^{2}},\,\alpha_{*}\right),
+		      \end{equation*}
+		      where \(\alpha_{*}=\max_{k}\alpha_{k}\).
+		\item Moreover, \(S_n\) satisfies the following concentration inequality: for any \(t > 0\),
+		      \begin{equation*}
+			      \bbP\left(\left|S_{n}\right|\geq t\right)\leq
+			      \begin{cases}
+				      2\exp\left(-\dfrac{t^{2}}{2\sum_{k=1}^{n}v_{k}^{2}}\right) & \text{if } 0 \leq t \leq \dfrac{\sum_{k=1}^{n}v_{k}^{2}}{\alpha_{*}} \\[2ex]
+				      2\exp\left(-\dfrac{t}{2\alpha_{*}}\right)                  & \text{if } t > \dfrac{\sum_{k=1}^{n}v_{k}^{2}}{\alpha_{*}}
 			      \end{cases}
 		      \end{equation*}
 	\end{enumerate}

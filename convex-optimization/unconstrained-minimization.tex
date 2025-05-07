@@ -190,15 +190,17 @@ This algorithm is terminated when \(f\left(x^{(k)}\right)-p^{\star}\leq\epsilon\
 \end{table}
 
 \begin{example}[Extended Rosenbrock Function]
+	Consider the minimization problem
 	\begin{equation}
-		\min_{\bfx}\,f(\bfx)=\sum_{i=1}^{n}r_{i}^{2}(\bfx)
+		\min_{\bfx}\,f(\bfx)=\sum_{i=1}^{n} r_{i}^{2}(\bfx)
 	\end{equation}
-	where \(n\) is even, and
+	where \(n\) is even, and the residuals are defined as
 	\begin{equation}
-		r_{i}(\bfx)=\begin{cases}
+		r_{i}(\bfx)=
+		\begin{cases}
 			10(x_{2k}-x_{2k-1}^{2}), & i=2k-1 \\
 			1-x_{2k-1},              & i=2k   \\
 		\end{cases}
 	\end{equation}
-	The minimum point is \(\bfx^{*}=(1,1,\ldots,1)^{\prime}\), the initial point is \(\bfx_{0}=(-1.2,1,\ldots,-1.2,1)^{\prime}\).
+	for \(k=1,2,\ldots,n/2\). The global minimum is attained at \(\bfx^{*}=(1,1,\ldots,1)^{\prime}\), and the initial point is \(\bfx_{0}=(-1.2,1,\ldots,-1.2,1)^{\prime}\).
 \end{example}

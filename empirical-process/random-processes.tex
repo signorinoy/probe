@@ -200,7 +200,10 @@ In many application this geometric qun
 		      \end{equation*}
 		\item According to the property 4, we have \(W(T)=\frac{1}{2}W(T-T)\), then for a fixed pair \(t,t'\in T\), we have
 		      \begin{equation*}
-			      W(T)\geq \frac{1}{2}\bbE\left[\max\{\langle t-t',Y\rangle,\langle t'-t,Y\rangle\}\right]=\frac{1}{2}\bbE\left[|\langle t-t',Y\rangle|\right]=\frac{1}{2}\sqrt{\frac{2}{\pi}}\|t-t'\|_{2}.
+			      \begin{aligned}
+				      W(T)\geq & \frac{1}{2}\bbE\left[\max\{\langle t-t',Y\rangle,\langle t'-t,Y\rangle\}\right]                  \\
+				      =        & \frac{1}{2}\bbE\left[|\langle t-t',Y\rangle|\right]=\frac{1}{2}\sqrt{\frac{2}{\pi}}\|t-t'\|_{2}.
+			      \end{aligned}
 		      \end{equation*}
 		      As for the last equality, recall that \(\langle t-t',Y\rangle\sim\mcN(0,\|t-t'\|_{2}^{2})\), and therefore
 		      \begin{equation*}
@@ -266,15 +269,15 @@ We discretize \(T\) by choosing an \(\varepsilon\)-net \(\mcN\) of \(T\), i.e., 
 \end{equation*}
 
 \begin{proof}
-	\textbf{Step 1: Chaining set-up.} Without loss of generality, we assume that \(K=1\) and \(T\) is finite. Define the dyadic scales
+	\textbf{Step 1: Chaining set-up.} Without loss of generality, assume \(K=1\) and \(T\) is finite. Define the dyadic scales
 	\begin{equation*}
 		\varepsilon_{k}=2^{-k},\quad k\in\bbZ,
 	\end{equation*}
-	and choose an \(\varepsilon_{k}\)-net \(\mcN_{k}\) of \(T\), such that
+	and for each \(k\), choose an \(\varepsilon_{k}\)-net \(\mcN_{k}\) of \(T\), so that
 	\begin{equation*}
 		|T_{k}|=\mcN(T,d,\varepsilon_{k}).
 	\end{equation*}
-	Only part of the dyadic scales will be used in the chaining argument. Indeed, since \(T\) is finite, there exists a smallest integer \(\kappa\in\bbZ\) such that \(T_{\kappa}=\{t_{0}\}\), for some \(t_{0}\in T\), and a largest integer \(K\in\bbZ\) such that \(T_{K}=T\). Then, for a point \(t\in T\), denote \(\pi_{k}(t)\) the closest point in the \(\varepsilon_{k}\)-net \(\mcN_{k}\) to \(t\), i.e.,
+	Since \(T\) is finite, there exist integers \(\kappa\) and \(K\) such that \(T_{\kappa}=\{t_{0}\}\) for some \(t_{0}\in T\), and \(T_{K}=T\). For each \(t\in T\), let \(\pi_{k}(t)\) denote the closest point in \(\mcN_{k}\) to \(t\), i.e.,
 	\begin{equation*}
 		d(t,\pi_{k}(t))\leq\varepsilon_{k}.
 	\end{equation*}
@@ -283,44 +286,41 @@ We discretize \(T\) by choosing an \(\varepsilon\)-net \(\mcN\) of \(T\), i.e., 
 	\begin{equation*}
 		\bbE\left[\sup_{t\in T}X(t)\right]=\bbE\left[\sup_{t\in T}\left(X(t)-X(t_{0})\right)\right].
 	\end{equation*}
-	We can express \(X(t)-X(t_{0})\) as a telescopic sum, i.e., walk from \(t_{0}\) to \(t\) through a chain of points \(\pi_{k}(t)\), \(k\in[\kappa,K]\), that mark progressively finer approximations of \(t\):
+	We can write \(X(t)-X(t_{0})\) as a telescoping sum along the chain of approximations \(\pi_{k}(t)\), \(k=\kappa,\ldots,K\):
 	\begin{equation*}
 		X(t)-X(t_{0})=\sum_{k=\kappa+1}^{K}\left(X(\pi_{k}(t))-X(\pi_{k-1}(t))\right).
 	\end{equation*}
-	Since the supremum of the sum is bounded by the sum of the supremums, we have
+	By the triangle inequality,
 	\begin{equation}
 		\label{eq:discrete-dudley-inequality-chaining}
 		\bbE\left[\sup_{t\in T}\left(X(t)-X(t_{0})\right)\right]\leq\sum_{k=\kappa+1}^{K}\bbE\left[\sup_{t\in T}\left(X(\pi_{k}(t))-X(\pi_{k-1}(t))\right)\right].
 	\end{equation}
-	\textbf{Step 2: Controling the increments.} Although each term in the bound~\eqref{eq:discrete-dudley-inequality-chaining} still has a supremum over \(T\), but it is actually a maximum over a much smaller set, namely the set all posible pairs \((\pi_{k}(t),\pi_{k-1}(t))\), \(t\in T\), and the number of such pairs is
+
+	\textbf{Step 2: Controlling the increments.} Each term in~\eqref{eq:discrete-dudley-inequality-chaining} is a supremum over all possible pairs \((\pi_{k}(t),\pi_{k-1}(t))\), and the number of such pairs is at most \(|T_{k}|^{2}\). For any \(t\in T\),
+	\begin{align*}
+		\left\|X(\pi_{k}(t))-X(\pi_{k-1}(t))\right\|_{\psi_{2}}
+		 & \leq d(\pi_{k}(t),\pi_{k-1}(t))                              \\
+		 & \leq d(\pi_{k}(t),t) + d(t,\pi_{k-1}(t))                     \\
+		 & \leq \varepsilon_{k} + \varepsilon_{k-1} = 2\varepsilon_{k}.
+	\end{align*}
+	Recall that the expectation of the maximum of \(N\) sub-Gaussian random variables with \(\psi_{2}\)-norm at most \(L\) is bounded by \(CL\sqrt{\log N}\) for some universal constant \(C\). In our case, each increment \(X(\pi_{k}(t)) - X(\pi_{k-1}(t))\) is sub-Gaussian with \(\psi_{2}\)-norm at most \(2\varepsilon_{k}\). Therefore,
 	\begin{equation*}
-		|T_{k}|\cdot|T_{k-1}|\leq |T_{k}|^{2}.
-	\end{equation*}
-	For fixed \(t\in T\), the increments in~\eqref{eq:discrete-dudley-inequality-chaining} can be bounded as follows:
-	\begin{multline*}
-		\left\|X(\pi_{k}(t))-X(\pi_{k-1}(t))\right\|_{\psi_{2}}\leq d(\pi_{k}(t),\pi_{k-1}(t))\leq \\
-		d(\pi_{k}(t),t)+d(t,\pi_{k-1}(t))\leq \varepsilon_{k}+\varepsilon_{k-1}=2\varepsilon_{k}.
-	\end{multline*}
-	Recall that the expectation of \(N\) sub-Gaussian random variables is at most \(CL\sqrt{\log N}\), where \(L\) is the maximal \(\psi_{2}\) norm. Thus, we have
-	\begin{equation*}
-		\bbE\left[\sup_{t\in T}\left(X(\pi_{k}(t))-X(\pi_{k-1}(t))\right)\right]\leq C\varepsilon_{k-1}\sqrt{\log |T_{k}|}.
+		\bbE\left[\sup_{t\in T}\left(X(\pi_{k}(t))-X(\pi_{k-1}(t))\right)\right]\leq C\varepsilon_{k}\sqrt{\log |T_{k}|}.
 	\end{equation*}
 
-	\textbf{Step 3: Summing up.} Substituting the bound into~\eqref{eq:discrete-dudley-inequality-chaining}, we obtain
+	\textbf{Step 3: Summing up.} Substituting the above bound into~\eqref{eq:discrete-dudley-inequality-chaining}, we obtain
 	\begin{equation*}
 		\bbE\left[\sup_{t\in T}X(t)\right]\leq C_{1}\sum_{k=\kappa+1}^{K}\varepsilon_{k}\sqrt{\log |T_{k}|}.
 	\end{equation*}
 
 	% TODO: Generalize the proof to the case where \(T\) is infinite.
 
-	\textbf{Step 4: Covert to integral.} To convert the sum into an integral, we express \(2^{-k}=2\int_{2^{-k-1}}^{2^{-k}}\dif\varepsilon\), and then we have
-	\begin{equation*}
-		\sum_{k\in\bbZ}2^{-k}\sqrt{\log\mcN(T,d,2^{-k})}=2\sum_{k\in\bbZ}\int_{2^{-k-1}}^{2^{-k}}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon.
-	\end{equation*}
-	Within the limits of the integral, we have \(2^{-k}\geq\varepsilon\), so \(\log\mcN(T,d,2^{-k})\leq\log\mcN(T,d,\varepsilon)\), and the sum is bounded by
-	\begin{equation*}
-		2\sum_{k\in\bbZ}\int_{2^{-k-1}}^{2^{-k}}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon=2\int_{0}^{\infty}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon,
-	\end{equation*}
+	\textbf{Step 4: Passing to the integral.} To convert the sum into an integral, note that \(2^{-k}=2\int_{2^{-k-1}}^{2^{-k}}\dif\varepsilon\), so
+	\begin{align*}
+		\sum_{k\in\bbZ}2^{-k}\sqrt{\log\mcN(T,d,2^{-k})}
+		 & = 2\sum_{k\in\bbZ}\int_{2^{-k-1}}^{2^{-k}}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon \\
+		 & \leq 2\int_{0}^{\infty}\sqrt{\log\mcN(T,d,\varepsilon)}\dif\varepsilon,
+	\end{align*}
 	which completes the proof.
 \end{proof}
 
@@ -424,11 +424,11 @@ A lower bound is trivial:
 
 \subsection{Covering Numbers via VC Dimension}
 
-Let \(\mcF\) be a class of boolean functions on a set \(\Omega\), and let \(\mu\) be any probability measure on \(\Omega\). Then \(\mcF\) can be viewed as a metric space under the \(L^{2}(\mu)\) norm on \(\mcF\) given by
+Let \(\mcF\) be a class of Boolean functions on a set \(\Omega\), and let \(\mu\) be any probability measure on \(\Omega\). We can equip \(\mcF\) with the metric induced by the \(L^{2}(\mu)\) norm, defined as
 \begin{equation*}
-	d(f,g)=\|f-g\|_{L^{2}(\mu)}=\left(\int_{\Omega}(f-g)^{2}\dif\mu\right)^{1/2},
+	d(f,g)=\|f-g\|_{L^{2}(\mu)}=\left(\int_{\Omega}(f-g)^{2}\dif\mu\right)^{1/2}.
 \end{equation*}
-and the covering number of \(\mcF\) with respect to this norm is denoted by \(\mcN(\mcF,L^{2}(\mu),\varepsilon)\).
+The covering number \(\mcN(\mcF, L^{2}(\mu), \varepsilon)\) is the minimal number of \(L^{2}(\mu)\)-balls of radius \(\varepsilon\) required to cover \(\mcF\).
 
 \begin{theorem}[Covering Numbers via VC Dimension]\label{thm:covering-numbers-vc-dimension}
 	Let \(\mcF\) be a class of Boolean functions on a probability space \((\Omega,\Sigma,\mu)\). Then for any \(\varepsilon\in(0,1)\), we have

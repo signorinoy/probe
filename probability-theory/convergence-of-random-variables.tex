@@ -52,11 +52,11 @@
 \begin{theorem}[Portmanteau Lemma]\label{thm:portmanteau-lemma}
 	\(\{X_n\}\) converges in distribution to \(X\), if and only if any of the following statements are true,
 	\begin{itemize}
-		\item \(P(X_n\leq x)\rightarrow P(X\leq x)\), for all continuity points of the distribution of \(X\).
-		\item \(Ef(X_n)\rightarrow Ef(X)\), for all bounded, continuous (Lipschitz) functions \(f\).
-		\item \(\liminf_{n\rightarrow\infty}P\left(X_{n} \in G\right)\geq P\left(X_{\infty}\in G\right)\), for all open sets \(G\).
-		\item \(\limsup_{n \rightarrow\infty}P\left(X_{n} \in K\right) \leq P\left(X_{\infty} \in K\right)\), for all closed sets \(K\).
-		\item \(\lim_{n\rightarrow\infty}P\left(X_{n}\in A\right)=P\left(X_{\infty}\in A\right)\), for all Borel sets \(A\) with \(P\left(X_{\infty}\in \partial A\right)=0\).
+		\item \(P(X_n \leq x) \to P(X \leq x)\) for all continuity points \(x\) of the distribution function of \(X\).
+		\item \(\bbE[f(X_n)] \to \bbE[f(X)]\) for all bounded, continuous functions \(f\).
+		\item \(\liminf_{n \to \infty} P(X_n \in G) \geq P(X \in G)\) for all open sets \(G\).
+		\item \(\limsup_{n \to \infty} P(X_n \in K) \leq P(X \in K)\) for all closed sets \(K\).
+		\item \(\lim_{n \to \infty} P(X_n \in A) = P(X \in A)\) for all Borel sets \(A\) with \(P(X \in \partial A) = 0\).
 	\end{itemize}
 \end{theorem}
 

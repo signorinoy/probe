@@ -3,22 +3,27 @@
 A fundamental aspect of causal inference is the precise representation of the study design-that is, the method by which data are collected-which directly influences the validity of the causal conclusions. Typically, each study design is characterized by three components: the population, the regime (Observational vs. Experimental), and the sampling method. As schematically illustrated in Figure 1, these elements provide the framework for categorizing causal inference tasks into four main types, each presenting its own set of distinct challenges and corresponding solutions.
 
 \paragraph{Policy Evaluation and Confounding Bias}
+
 Suppose we aim to predict the outcome distribution after intervening on \(X\), i.e.,  \(Q=P(Y=y\mid do(X=x))\), we consider an observational study where \(X\), \(Y\), \(Z\), and \(W\) are measured from a random sample. The challenge is to identify \(Q\) from  \(P(y,x,z,w)\) by adequately controlling for the confounding effects of \(Z\) and \(W\).
 
 \paragraph{Instrumental Variables and Experimental Data}
+
 To estimate the causal effect of \(do(X = x)\), suppose that the available data come from an \textbf{experimental study}, in which the variable \(Z\)-being easier to manipulate than \(X\)-is randomized. The key question is: \textbf{Under what conditions can the randomization of variable \(Z\) be utilized to infer the causal effect of \(X\)?} Formally, our objective is to infer  \(P(Y = y \mid do(X = x))\) from the distribution \(P(y, x, w \mid \text{do}(Z = z))\).
 
 \paragraph{Randomized Trials with Non-Representative Samples}
+
 In the preceding tasks, we assumed that data were obtained via a perfectly random sample from the underlying population. In practice, however, such ideal sampling conditions rarely hold. For instance, in randomized clinical trials (RCTs), the study cohort may only represent a specific subset of the broader population. Suppose that the experimental data are available in the form \(P(y,z,w\mid \text{do}(X=x), S=1)\) and possibly \(P(y,x,z,w\mid S=1)\), where \(S\) denotes the sample selection indicator (with \(S=1\) indicating inclusion in the sample). The central challenge is therefore: \textbf{How can we reliably infer causal effects when the data arise under non-ideal, imperfect sampling conditions?}
 
 \paragraph{Extrapolation Bias and Transportability}
-In previous tasks, we assumed that the population from which data were collected coincides with the target population for inference. In practice, however, this assumption may not hold. For instance, biological experiments might employ animal models as stand-ins for humans, or experimental data may originate from studies conducted in the past, when the characteristics of the target population could have been different.
-Suppose our goal is to estimate the causal effect in a target population defined by \(S = s\), namely:
+
+In the previous tasks, we assumed that the population from which data were collected coincides with the target population for inference. However, this assumption often fails in practice. For example, biological experiments may use animal models as proxies for humans, or experimental data may be drawn from historical studies where the characteristics of the target population differ from those of interest.
+
+Suppose our goal is to estimate the causal effect in a target population defined by \(S = s\), that is,
 \begin{equation*}
 	P(Y = y \mid \text{do}(X = x), S = s).
 \end{equation*}
-Yet, the data at our disposal consist solely of the experimental distribution \(P(y,z,w\mid \text{do}(X=x))\) and the observational distribution \(P(y,x,z,w\mid S=s)\). This scenario poses a central challenge:
-\textbf{How can we effectively combine these data sources to infer the causal effects within the target population?}
+However, the available data consist only of the experimental distribution \(P(y, z, w \mid \text{do}(X = x))\) and the observational distribution \(P(y, x, z, w \mid S = s)\). This leads to a central challenge:
+\textbf{How can we effectively integrate these disparate data sources to infer causal effects in the target population?}
 
 These problems are classified as: Confounding Bias, Sample Selection Bias, and Transportability Bias, respectively. Each study design leads to different data structures, which naturally result in different causal inference conclusions.
 
@@ -49,7 +54,7 @@ These problems are classified as: Confounding Bias, Sample Selection Bias, and T
 
 \paragraph{Interventions}
 
-Interventions represent deliberate modifications to the data-generating process, thereby altering the joint distribution.
+Interventions are deliberate manipulations of the data-generating process that actively modify the underlying joint distribution of the variables.
 
 \begin{definition}[Hard Intervention]
 	A \textbf{hard intervention} \(\text{do}(X = x)\) forces the variables in \(X\) to assume specific values, resulting in a new distribution:

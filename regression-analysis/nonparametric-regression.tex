@@ -1,6 +1,6 @@
 \chapter{Nonparametric Regression}
 
-\section{Uniform Stability of Regularized Kernel Model}
+\section{Regularized Kernel Models}
 
 \subsection{Introduction}
 
@@ -89,7 +89,7 @@ Then, we will show that the algorithm we studied in this paper satisfied the def
 \end{remark}
 
 \begin{proof}
-	To distinguish between different training sets, we use \(R_{\text{reg}}[f, S]\) and \(R_{\text{reg}}[f, S^{\backslash i}]\) (and likewise \(R_{\text{emp}}[f, S]\)) during the remainder of the proof.
+	To clarify the dependence on the training data, we denote the regularized risk as \(R_{\text{reg}}[f, S]\) and \(R_{\text{reg}}[f, S^{\backslash i}]\), and similarly the empirical risk as \(R_{\text{emp}}[f, S]\), throughout the remainder of the proof.
 
 	Since \(\hat{f}\) minimizes \(R_{\text{reg}}[f,S]\), that is, the \textbf{functional derivative}~\cite{stephane2014lecture} of \(R_{\text{reg}}[f,S]\) at \(\hat{f}\) vanishes, and so does \(R_{\text{reg}}[f,S^{\backslash i}]\) at \(\hat{f}_{\backslash i}\),
 	\begin{equation}

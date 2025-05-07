@@ -88,13 +88,13 @@ To establish consistency, the following conditions are sufficient:
 		      \end{equation*}
 	\end{enumerate}
 
-	By the uniform law of large numbers, the dominance condition together with continuity establishes the uniform convergence in the probability of the log-likelihood:
+	By the uniform law of large numbers, the dominance condition together with continuity ensures the uniform convergence in probability of the log-likelihood:
 	\begin{equation*}
-		\sup_{\theta\in\Theta}|\hat{\ell}(\theta)-\ell(\theta)|\stackrel{p}{\rightarrow}0
+		\sup_{\theta\in\Theta}|\hat{\ell}(\theta)-\ell(\theta)|\stackrel{p}{\rightarrow}0.
 	\end{equation*}
-	Thus, we can conclude that
+	Therefore,
 	\begin{equation*}
-		P\left(A_{n}\cap B_{n}\right)\rightarrow 1
+		P\left(A_{n}\cap B_{n}\right)\rightarrow 1.
 	\end{equation*}
 
 	Within the definition
@@ -340,29 +340,25 @@ which is independent of the nuisance parameter and may be used for inferences re
 
 		\item \textbf{Both \(\xi\) and \(\sigma\) is unknown}:
 
-		      Since \((\bar{X},s_{x}^{r})\) are the complete sufficient statistic of \(X_{i}\), where \(s_{x}^{2}=\sum\left(x_{i}-\bar{X}\right)^{r}\).
-
-		      Since \(s_x^2/\sigma^2\sim\chi^2(n-1)\), then
+		      Since \((\bar{X}, s_{x}^{r})\) are the complete sufficient statistics for \(X_{i}\), where \(s_{x}^{2} = \sum (x_{i} - \bar{X})^{2}\).
+		      Note that \(s_x^2/\sigma^2 \sim \chi^2(n-1)\), so
 		      \begin{equation*}
-			      E\left[\frac{s_x^r}{\sigma^r}\right]=\frac{1}{K_{n-1,r}}.
+			      \bbE\left[\frac{s_x^r}{\sigma^r}\right] = \frac{1}{K_{n-1, r}}.
 		      \end{equation*}
 
-		      Hence,
+		      Therefore,
 		      \begin{equation*}
-			      E\left[s_{x}^{r}K_{n-1,r}\right]=\sigma^r,
+			      \bbE\left[s_{x}^{r} K_{n-1, r}\right] = \sigma^r,
 		      \end{equation*}
-		      which means the UMVU estimator of \(\sigma^r\) is \(s_{x}^{r}K_{n-1,r}\),
-		      and
-		      \begin{equation*}
-			      E(\bar{X}^r)=\xi^r,
-		      \end{equation*}
-		      which means the UMVU estimator of \(\xi^r\) is \(\bar{X}^r\).
+		      which implies that the UMVU estimator of \(\sigma^r\) is \(s_{x}^{r} K_{n-1, r}\).
 
-		      Since \(\bar{X}\) and \(s_x^r\) are independent, then
+		      Similarly, we have \(\bbE\left[\bar{X}^r\right] = \xi^r\), so the UMVU estimator of \(\xi^r\) is \(\bar{X}^r\).
+
+		      Since \(\bar{X}\) and \(s_x^r\) are independent, we have
 		      \begin{equation*}
-			      E[\bar{X}s_x^{-1}K_{n-1,-1}]=\xi/\sigma
+			      \bbE[\bar{X} s_x^{-1} K_{n-1, -1}] = \xi / \sigma,
 		      \end{equation*}
-		      which means the UMVU estimator of \(\xi/\sigma\) is \(\bar{X}s_x^{-1}K_{n-1,-1}\).
+		      which means the UMVU estimator of \(\xi / \sigma\) is \(\bar{X} s_x^{-1} K_{n-1, -1}\).
 	\end{enumerate}
 \end{proof}
 

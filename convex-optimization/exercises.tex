@@ -16,20 +16,31 @@
 \begin{proof}
 	\begin{enumerate}
 		\item
-		      We have to show that \(\theta x+(1-\theta)y\in C\) for all \(\theta\in[0,1]\) and \(x,y\in C\).
+		      We need to show that for any \(x, y \in C\) and any \(\theta \in [0,1]\), the point \(\theta x + (1-\theta) y\) also belongs to \(C\).
+
+		      Since \(x, y \in C\), we have
 		      \begin{equation*}
-			      \begin{aligned}
-				           & (\theta x+(1-\theta)y)^{T}A(\theta x+(1-\theta)y)+b^{T}(\theta x+(1-\theta)y)+c                                          \\
-				      =    & \theta^2x^{\top}Ax+\theta(1-\theta)(y^{\top}Ax+x^{\top}Ay)+(1-\theta)^2y^{\top}Ay+\theta b^{\top}x+(1-\theta)b^{\top}y+c \\
-				      =    & \theta^2(x^{T}Ax+b^{T}x+c)+(1-\theta)^2(y^{T}Ay+b^{T}y+c)-\theta^2(b^{T}x+c)                                             \\
-				           & -(1-\theta)^2(b^{T}y+c)+\theta(1-\theta)(y^{\top}Ax+x^{\top}Ay)+\theta b^{\top}x+(1-\theta)b^{\top}y+c                   \\
-				      \leq & -\theta^2(b^{T}x+c)-(1-\theta)^2(b^{T}y+c)+\theta(1-\theta)(y^{\top}Ax+x^{\top}Ay)                                       \\
-				           & +\theta b^{\top}x+(1-\theta)b^{\top}y+c                                                                                  \\
-				      =    & \theta(1-\theta)[(b^{\top}x+c)+(b^{\top}y+c)+x^{\top}Ax+y^{\top}Ay]                                                      \\
-				      \leq & \theta(1-\theta)(-x^{\top}Ax-y^{\top}Ay+x^{\top}Ax+y^{\top}Ay)\leq 0                                                     \\
-			      \end{aligned}
+			      x^{T}Ax + b^{T}x + c \leq 0, \quad y^{T}Ay + b^{T}y + c \leq 0.
 		      \end{equation*}
-		      Therefore, \(\theta x+(1-\theta)y\in C\), which shows that \(C\) is convex if \(A\succeq 0\).
+
+		      Consider the value of the quadratic form at the convex combination:
+		      \begin{align*}
+			       & \quad\, [\theta x + (1-\theta) y]^T A [\theta x + (1-\theta) y] + b^T [\theta x + (1-\theta) y] + c \\
+			       & = \theta^2 x^T A x + 2\theta(1-\theta) x^T A y + (1-\theta)^2 y^T A y                               \\
+			       & \quad + \theta b^T x + (1-\theta) b^T y + c                                                         \\
+			       & = \theta [x^T A x + b^T x + c] + (1-\theta)[y^T A y + b^T y + c]                                    \\
+			       & \quad + \theta(1-\theta) [2 x^T A y - x^T A x - y^T A y]                                            \\
+		      \end{align*}
+
+		      Since \(A \succeq 0\), the function \(x \mapsto x^T A x\) is convex, so
+		      \begin{equation*}
+			      [\theta x + (1-\theta) y]^T A [\theta x + (1-\theta) y] \leq \theta x^T A x + (1-\theta) y^T A y.
+		      \end{equation*}
+		      Therefore, the entire expression is less than or equal to
+		      \begin{equation*}
+			      \theta [x^T A x + b^T x + c] + (1-\theta)[y^T A y + b^T y + c] \leq 0,
+		      \end{equation*}
+		      since both terms are nonpositive. Thus, \(\theta x + (1-\theta) y \in C\), which proves that \(C\) is convex when \(A \succeq 0\).
 	\end{enumerate}
 
 \end{proof}
