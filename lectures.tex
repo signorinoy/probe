@@ -14,7 +14,7 @@
     pdfcreator={Ziyang Gong},
     pdfkeywords={}
 }
-\usepackage[natbib, style=authoryear-comp, refsection=chapter]{biblatex}
+\usepackage[backend=biber,style=authoryear]{biblatex}
 \addbibresource{references.bib}
 
 \begin{document}
@@ -104,6 +104,7 @@
 \include{deep-learning/mixture-of-experts}
 \part{Generative Models}
 \include{generative-models/diffusion-model}
+\printbibliography
 \appendix
 \backmatter
 \end{document}

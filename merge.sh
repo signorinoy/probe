@@ -12,13 +12,13 @@ fi
 # 遍历 source_dir 中的所有 .bib 文件
 find "$source_dir" -type f -name "*.bib" | while read -r file; do
     # 写入文件来源注释
-    echo "\n% From file: $file\n" >> "$output_file"
+    echo -e "% From file: $file" >> "$output_file"
 
     # 将 .bib 文件内容追加到目标文件中
     cat "$file" >> "$output_file"
 
     # 添加空行分隔内容
-    echo "\n" >> "$output_file"
+    echo >> "$output_file"
 done
 
 echo "合并完成，所有内容已写入 $output_file"

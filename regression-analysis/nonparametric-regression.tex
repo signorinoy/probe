@@ -76,7 +76,7 @@ Firstly, we will provide an auxiliary lemma.
 
 Then, we will show that the algorithm we studied in this paper satisfied the definition~\ref{def:uniform-stability}, and the corresponding value of \(\beta\) can be calculated.
 
-\begin{theorem}[Algorithmic Stability of Risk Minimizers \citep{bousquet2002stability,scholkopf2002learning}]\label{thm:algorithmic-stability-of-risk-minimizers}
+\begin{theorem}[Algorithmic Stability of Risk Minimizers \parencite{bousquet2002stability,scholkopf2002learning}]\label{thm:algorithmic-stability-of-risk-minimizers}
 	The algorithm that minimizes the regularized empirical risk in~\eqref{eq:regularized-risk-of-rkhs} has stability
 	\begin{equation}
 		\beta=\frac{2C^{2}\kappa^{2}}{n\lambda}
@@ -174,7 +174,7 @@ Then, we will show that the algorithm we studied in this paper satisfied the def
 
 Within the uniform stability of our algorithm, we will also prove that the \(\beta\)-stable algorithm exhibits uniform convergence of the empirical risk \(R_{\text{emp}}[f]\) to the true risk \(R[f]\).
 
-\begin{theorem}[McDiarmid's Bound \citep{mcdiarmid1989method}]\label{thm:McDiarmid-bound}
+\begin{theorem}[McDiarmid's Bound \parencite{mcdiarmid1989method}]\label{thm:McDiarmid-bound}
 	Suppose \(\xi_{1},\ldots,\xi_{n}\) be i.i.d real value random variables and assume that there exists a function \(g:\bbR^{n}\rightarrow\bbR\) with the property that for all \(i\in[n]\) and \(c_{i}>0\),
 	\begin{equation}
 		\sup_{\xi_{1},\ldots,\xi_{n},\xi_{i}^{\prime}\in\xi}\left|g\left(\xi_{1},\ldots,\xi_{n}\right)-g\left(\xi_{1},\ldots,\xi_{i-1},\xi_{i}^{\prime},\xi_{i+1},\ldots,\xi_{n}\right)\right|\leq c_{i}
@@ -185,7 +185,7 @@ Within the uniform stability of our algorithm, we will also prove that the \(\be
 	\end{equation}
 \end{theorem}
 
-\begin{theorem}[Bousquet and Elisseeff \citep{bousquet2001algorithmic,ofer2011algorithmic}]\label{thm:bousquet-and-elisseeff}
+\begin{theorem}[Bousquet and Elisseeff \parencite{bousquet2001algorithmic,ofer2011algorithmic}]\label{thm:bousquet-and-elisseeff}
 	Assume that we have a \(\beta\)-stable algorithm with the additional requirement that the loss function \(L\left(y,f(\bfx)\right)\leq M\) for all \((\bfx,y)\in\mathcal{D}\) and for all samples \(S:=\left\{\bfx_{i},y_{i}\right\}_{i=1}^{n}\subset\mathcal{D}\). Then, for any \(n\geq 1\)
 	\begin{equation}
 		\mathbb{P}\left\{\left|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]\right|>\varepsilon+2\beta\right\}\leq 2\exp\left(-\frac{n\varepsilon^{2}}{2(n\beta+M)^{2}}\right)
