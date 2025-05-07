@@ -138,3 +138,46 @@ The partial likelihood function is
 where \(R(t)\) is the set of individuals who are alive and uncensored at a time just before \(t_{i}\), which is called the risk set.
 
 Another set of work converts the survival prediction problem into a classification problem by dividing the continuous time-to-event into nonoverlapping intervals
+
+\section{Accelerated Failure Time Model}
+
+The Accelerated Failure Time (AFT) model posits that the logarithm of the survival time \( T \) is linearly related to a set of covariates \( \bfX \):
+
+\begin{equation}
+	\log T = -\bfX^\top \bfbeta + \varepsilon,
+\end{equation}
+where \( \varepsilon \) is a random error term whose distribution determines the baseline survival characteristics. By exponentiating both sides, we obtain
+
+\begin{equation*}
+	T = \exp(-\bfX^\top \bfbeta + \varepsilon) = \exp(\varepsilon) \cdot \exp(-\bfX^\top \bfbeta).
+\end{equation*}
+
+Let \( T_0 = \exp(\varepsilon) \) denote the baseline survival time, with survival function \( S_0(t) = \bbP(T_0 > t) \). The conditional survival function under the AFT model is then given by
+\begin{equation*}
+	\begin{aligned}
+		S(t|\bfX) & = \bbP(T > t \mid \bfX)                                      \\
+		          & = \bbP(\exp(\varepsilon) \cdot \exp(-\bfX^\top \bfbeta) > t) \\
+		          & = \bbP\left(\varepsilon > \log t + \bfX^\top \bfbeta \right) \\
+		          & = S_0(t \exp(\bfX^\top \bfbeta)).
+	\end{aligned}
+\end{equation*}
+
+The corresponding cumulative hazard function is
+\begin{equation*}
+	\Lambda_{\bfX}(t) = -\log S(t|\bfX) = -\log S_0(t \exp(\bfX^\top \bfbeta)).
+\end{equation*}
+
+Differentiating with respect to \( t \), we obtain the hazard function:
+\begin{equation*}
+	\begin{aligned}
+		\Lambda_{\bfX}'(t) & = - \frac{\dif}{\dif t} \log S_0(t \exp(\bfX^\top \bfbeta))                                              \\
+		                   & = - \frac{S_0'(t \exp(\bfX^\top \bfbeta)) \cdot \exp(\bfX^\top \bfbeta)}{S_0(t \exp(\bfX^\top \bfbeta))} \\
+		                   & = h_0(t \exp(\bfX^\top \bfbeta)) \cdot \exp(\bfX^\top \bfbeta),
+	\end{aligned}
+\end{equation*}
+where \( h_0(u) = -\frac{d}{du} \log S_0(u) \) is the baseline hazard function. Thus, the hazard function under the AFT model can be expressed as
+
+\begin{equation}
+	\Lambda_{\bfX}'(t) = q(\Lambda_{\bfX}(t)) \cdot \exp(\bfX^\top \bfbeta), \tag{4}
+\end{equation}
+where \( q(\cdot) \geq 0 \) is a function determined by the distribution of the error term \( \varepsilon \), characterizing the stochastic component of the AFT model within this ordinary differential equation framework.
