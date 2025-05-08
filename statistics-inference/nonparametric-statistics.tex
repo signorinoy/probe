@@ -4,7 +4,7 @@
 
 \subsection{Cumulative Distribution Function}
 
-Let \(X_{1},\ldots,X_{n}\sim F\) where \(F(x)=\mathbb{P}(X\leq x)\) is a distribution function on the real line.
+Let \(X_{1},\ldots,X_{n}\sim F\) where \(F(x)=\bbP(X\leq x)\) is a distribution function on the real line.
 
 \begin{definition}[Empirical Cumulative Distribution Function]
 	The empirical cumulative distribution function \(\widehat{F}_{n}\) is the CDF that puts mass \(1/n\) at each data point \(X_{i}\), that,
@@ -183,7 +183,7 @@ In generalization of~\eqref{eq:kernel-density-estimator}, note that \(\hat{f}_{n
 		      \begin{equation}
 			      \sum_{i=1}^{n}\sum_{j=1}^{n}c_{i}c_{j}K\left(\bfx_{i},\bfx_{j}\right)\geq 0,
 		      \end{equation}
-		      holds for any \(x_{1},\ldots,x_{n}\in\mcX\), given \(n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR\).
+		      holds for any \(x_{1},\ldots,x_{n}\in\mcX\), given \(n\in\bbN,c_{1},\ldots,c_{n}\in\bbR\).
 	\end{enumerate}
 \end{definition}
 
@@ -324,6 +324,6 @@ In generalization of~\eqref{eq:kernel-density-estimator}, note that \(\hat{f}_{n
 				      =                                                                      & \left\langle\sum_{i=1}^{n}c_{i}\Phi\left(\bfx_{i}\right),\sum_{i=1}^{n}c_{i}\Phi\left(\bfx_{i}\right)\right\rangle\geq 0
 			      \end{aligned}
 		      \end{equation*}
-		      for any \(x_{1},\ldots,x_{n}\in\mcX\), given \(n\in\mathbb{N},c_{1},\ldots,c_{n}\in\bbR\), i.e., \(K(\bfx,\mathbf{y})\) is positive definite.
+		      for any \(x_{1},\ldots,x_{n}\in\mcX\), given \(n\in\bbN,c_{1},\ldots,c_{n}\in\bbR\), i.e., \(K(\bfx,\mathbf{y})\) is positive definite.
 	\end{enumerate}
 \end{proof}

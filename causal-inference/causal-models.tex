@@ -34,7 +34,7 @@ These problems are classified as: Confounding Bias, Sample Selection Bias, and T
 \subsection{Causal Bayesian Networks}
 
 \begin{definition}[Bayesian Networks]
-	A Bayesian network \(M = (G, P)\) over a set of variables \(\mathbf{V} = \{V_1, \dots, V_n\}\) is defined as a joint probability distribution \(P(\mathbf{V})\) that factorizes according to a directed acyclic graph (DAG) \(G\):
+	A Bayesian network \(M = (G, P)\) over a set of variables \(\bfV = \{V_1, \dots, V_n\}\) is defined as a joint probability distribution \(P(\bfV)\) that factorizes according to a directed acyclic graph (DAG) \(G\):
 	\begin{equation}
 		P(V_1,\dots,V_n)=\prod_{i=1}^{n} P(V_i|\text{Pa}_{V_i}),
 	\end{equation}
@@ -42,7 +42,7 @@ These problems are classified as: Confounding Bias, Sample Selection Bias, and T
 \end{definition}
 
 \begin{remark}
-	A Bayesian network is termed \textbf{causal} if the graph \(G\) accurately encodes the causal relationships among the variables. Specifically, for any intervention \(\text{do}(X = x)\) (with \(X \subseteq \mathbf{V}\)), the resulting distribution is determined by the truncated factorization formula:
+	A Bayesian network is termed \textbf{causal} if the graph \(G\) accurately encodes the causal relationships among the variables. Specifically, for any intervention \(\text{do}(X = x)\) (with \(X \subseteq \bfV\)), the resulting distribution is determined by the truncated factorization formula:
 	\begin{equation}
 		P(v|\text{do}(x)) =
 		\begin{cases}
@@ -59,9 +59,9 @@ Interventions are deliberate manipulations of the data-generating process that a
 \begin{definition}[Hard Intervention]
 	A \textbf{hard intervention} \(\text{do}(X = x)\) forces the variables in \(X\) to assume specific values, resulting in a new distribution:
 	\begin{equation}
-		P(\mathbf{V}|\text{do}(X = x)) = P(\mathbf{V}_x),
+		P(\bfV|\text{do}(X = x)) = P(\bfV_x),
 	\end{equation}
-	where \(\mathbf{V}_x\) denotes the set of variables under the intervention.
+	where \(\bfV_x\) denotes the set of variables under the intervention.
 \end{definition}
 
 \begin{definition}[Soft Intervention]
@@ -75,7 +75,7 @@ Interventions are deliberate manipulations of the data-generating process that a
 In our study, which focuses on learning causal models and structures, we primarily consider \textbf{local interventions}-a subset of soft interventions that remain compatible with any causal structure.
 
 \begin{definition}[Local Intervention]
-	A local intervention \(\sigma\) on \(V_i \in \mathbf{V}\) modifies only the state of \(V_i\) without conditioning on other endogenous variables. Formally, this is represented as \(v_i \mapsto f(v_i)\), denoted by \(\sigma = \text{do}(V_i = f(v_i))\), and alters the conditional probability distribution as:
+	A local intervention \(\sigma\) on \(V_i \in \bfV\) modifies only the state of \(V_i\) without conditioning on other endogenous variables. Formally, this is represented as \(v_i \mapsto f(v_i)\), denoted by \(\sigma = \text{do}(V_i = f(v_i))\), and alters the conditional probability distribution as:
 	\begin{equation}
 		P(v_i|\text{pa}_i; \sigma) = \sum_{v'_i: f(v'_i) = v_i} P(v'_i|\text{pa}_i).
 	\end{equation}

@@ -181,14 +181,14 @@ Within the uniform stability of our algorithm, we will also prove that the \(\be
 	\end{equation}
 	where \(\xi_{i}^{\prime}\) is drawn from the same distribution as \(\xi_{i}\). Then
 	\begin{equation}
-		\mathbb{P}\left\{\left|g\left(\xi_{1},\ldots,\xi_{n}\right)-\bbE\left[g\left(\xi_{1},\ldots,\xi_{n}\right)\right]\right|>\varepsilon\right\}\leq 2\exp\left(-\frac{2\varepsilon^{2}}{\sum_{i=1}^{n}c_{i}^{2}}\right)
+		\bbP\left\{\left|g\left(\xi_{1},\ldots,\xi_{n}\right)-\bbE\left[g\left(\xi_{1},\ldots,\xi_{n}\right)\right]\right|>\varepsilon\right\}\leq 2\exp\left(-\frac{2\varepsilon^{2}}{\sum_{i=1}^{n}c_{i}^{2}}\right)
 	\end{equation}
 \end{theorem}
 
 \begin{theorem}[Bousquet and Elisseeff \parencite{bousquet2001algorithmic,ofer2011algorithmic}]\label{thm:bousquet-and-elisseeff}
 	Assume that we have a \(\beta\)-stable algorithm with the additional requirement that the loss function \(L\left(y,f(\bfx)\right)\leq M\) for all \((\bfx,y)\in\mathcal{D}\) and for all samples \(S:=\left\{\bfx_{i},y_{i}\right\}_{i=1}^{n}\subset\mathcal{D}\). Then, for any \(n\geq 1\)
 	\begin{equation}
-		\mathbb{P}\left\{\left|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]\right|>\varepsilon+2\beta\right\}\leq 2\exp\left(-\frac{n\varepsilon^{2}}{2(n\beta+M)^{2}}\right)
+		\bbP\left\{\left|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]\right|>\varepsilon+2\beta\right\}\leq 2\exp\left(-\frac{n\varepsilon^{2}}{2(n\beta+M)^{2}}\right)
 	\end{equation}
 \end{theorem}
 
@@ -239,7 +239,7 @@ Within the uniform stability of our algorithm, we will also prove that the \(\be
 	Thus, by the Theorem~\ref{thm:McDiarmid-bound}, we have \(c_{i}=4\beta+\frac{2M}{n}\), that,
 	\begin{equation}
 		\begin{aligned}
-			\mathbb{P}\left\{|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]-2\beta|>\varepsilon\right\}\leq & \mathbb{P}\left\{|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]|>\varepsilon+2\beta\right\} \\
+			\bbP\left\{|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]-2\beta|>\varepsilon\right\}\leq & \bbP\left\{|R_{\text{emp}}[\hat{f},S]-R[\hat{f}]|>\varepsilon+2\beta\right\} \\
 			\leq                                                                                   & 2\exp\left(-\frac{n\varepsilon^{2}}{2(2n\beta+M)^{2}}\right)
 		\end{aligned}
 	\end{equation}
@@ -250,7 +250,7 @@ Within the above two theorems, we can directly get the following practical conse
 	The algorithm minimizing the regularized risk \(R_{\text{reg}}[f]\), as in~\eqref{eq:regularized-risk-of-rkhs}, and with the assumptions of Theorem~\ref{thm:algorithmic-stability-of-risk-minimizers} and~\ref{thm:bousquet-and-elisseeff}, we obtain
 	\begin{eqnarray}
 		\label{eq:uniform-convergence-bounds-for-rkhs}
-		\mathbb{P}\left\{\left|R_{\text{emp}}[\hat{f}]-R[\hat{f}]\right|>\varepsilon+2\beta\right\}\leq 2\exp\left(-\frac{n}{2}\left(\frac{\varepsilon}{M}\right)^{2}\left(1+\frac{4}{\lambda M}(C \kappa)^{2}\right)^{-2}\right)
+		\bbP\left\{\left|R_{\text{emp}}[\hat{f}]-R[\hat{f}]\right|>\varepsilon+2\beta\right\}\leq 2\exp\left(-\frac{n}{2}\left(\frac{\varepsilon}{M}\right)^{2}\left(1+\frac{4}{\lambda M}(C \kappa)^{2}\right)^{-2}\right)
 	\end{eqnarray}
 	where
 	\begin{equation*}

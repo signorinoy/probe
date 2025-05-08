@@ -4,11 +4,11 @@
 
 The attention mechanism is a fundamental component of the Transformer architecture, enabling each token to incorporate contextual information from the entire sequence. The most widely adopted form is the \textbf{scaled dot-product attention}.
 
-Given an input sequence \(\{\mathbf{x}_1, \dots, \mathbf{x}_n\}\) with \(\mathbf{x}_i \in \mathbb{R}^{d_{\text{model}}}\), each token is projected into three vectors:
+Given an input sequence \(\{\mathbf{x}_1, \dots, \mathbf{x}_n\}\) with \(\mathbf{x}_i \in \bbR^{d_{\text{model}}}\), each token is projected into three vectors:
 \begin{equation*}
 	\mathbf{q}_i = \mathbf{x}_i W^Q, \quad \mathbf{k}_i = \mathbf{x}_i W^K, \quad \mathbf{v}_i = \mathbf{x}_i W^V,
 \end{equation*}
-where \(W^Q, W^K, W^V \in \mathbb{R}^{d_{\text{model}} \times d_k}\) are learnable parameter matrices.
+where \(W^Q, W^K, W^V \in \bbR^{d_{\text{model}} \times d_k}\) are learnable parameter matrices.
 The attention score between the \(i\)-th and \(j\)-th tokens is defined as:
 \begin{equation*}
 	\text{score}_{ij} = \frac{\mathbf{q}_i^\top \mathbf{k}_j}{\sqrt{d_k}},
@@ -22,12 +22,12 @@ The output for the \(i\)-th token is computed as a weighted sum of the value vec
 	\text{Attention}(\mathbf{q}_i, K, V) = \sum_{j=1}^{n} \alpha_{ij} \cdot \mathbf{v}_j.
 \end{equation*}
 
-In matrix form, let \(Q, K, V \in \mathbb{R}^{n \times d_k}\) represent the matrices of all queries, keys, and values, respectively. The attention output is given by:
+In matrix form, let \(Q, K, V \in \bbR^{n \times d_k}\) represent the matrices of all queries, keys, and values, respectively. The attention output is given by:
 \begin{equation*}
 	\text{Attention}(Q, K, V) = \text{softmax}\left( \frac{QK^\top}{\sqrt{d_k}} \right)V.
 \end{equation*}
 
-In tasks requiring restricted access (e.g., causal decoding or padding), a mask matrix \(M \in \mathbb{R}^{n \times n}\) can be added prior to the softmax operation:
+In tasks requiring restricted access (e.g., causal decoding or padding), a mask matrix \(M \in \bbR^{n \times n}\) can be added prior to the softmax operation:
 \begin{equation*}
 	\text{Attention}(Q, K, V) = \text{softmax}\left( \frac{QK^\top}{\sqrt{d_k}} + M \right)V.
 \end{equation*}
@@ -41,7 +41,7 @@ Each attention head is computed independently:
 \begin{equation}
 	\text{head}_i = \text{Attention}(Q W_i^Q, K W_i^K, V W_i^V),
 \end{equation}
-where \(W_i^Q, W_i^K, W_i^V \in \mathbb{R}^{d_{\text{model}} \times d_k}\) are projection matrices specific to head \(i\), and \(W^O \in \mathbb{R}^{hd_v \times d_{\text{model}}}\) is the final output projection.
+where \(W_i^Q, W_i^K, W_i^V \in \bbR^{d_{\text{model}} \times d_k}\) are projection matrices specific to head \(i\), and \(W^O \in \bbR^{hd_v \times d_{\text{model}}}\) is the final output projection.
 
 This mechanism enables the model to dynamically integrate context across the sequence and has proven essential for the success of Transformer-based architectures in natural language processing and beyond.
 

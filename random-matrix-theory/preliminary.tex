@@ -32,7 +32,7 @@
 	\begin{equation}
 		\bfQ_{\bfM}(z):=\left(\bfM-z\mathbf{I}_{n}\right)^{-1}
 	\end{equation}
-	where \(z\in\mathbb{C}\) not eigenvalue of \(\bfM\).
+	where \(z\in\bbC\) not eigenvalue of \(\bfM\).
 \end{definition}
 
 \begin{definition}[Stieltjes Transform]
@@ -40,13 +40,13 @@
 	\begin{equation}
 		m_{\mu}(z):=\int\frac{1}{t-z}\mu\left(\dif t\right)
 	\end{equation}
-	where \(z\in\mathbb{C}\backslash\operatorname{supp}(\mu)\).
+	where \(z\in\bbC\backslash\operatorname{supp}(\mu)\).
 \end{definition}
 
 \begin{property}
 	The Stieltjes transform \(m_{\mu}\) has numerous interesting properties:
 	\begin{enumerate}
-		\item it is complex analytic on its domain of definition \(\mathbb{C} \backslash \operatorname{supp}(\mu)\).
+		\item it is complex analytic on its domain of definition \(\bbC \backslash \operatorname{supp}(\mu)\).
 		\item it is bounded \(\left|m_{\mu}(z)\right|\leq 1/\operatorname{dist}(z,\operatorname{supp}(\mu))\).
 		\item it satisfies \(\Im[z]>0 \Rightarrow \Im[m(z)]>0\).
 		\item it is an increasing function on all connected components of its restriction to \(\bbR\backslash\operatorname{supp}(\mu)\). % (since \(m_{\mu}^{\prime}(x)=\int(t-x)^{-2} \mu(d t)>0\))
@@ -58,12 +58,12 @@
 	Most of the results involve Stieltjes transforms \(m_{\mu}(z)\) of a real probability measure with support \(\operatorname{supp}(\mu) \subset \bbR\). Since Stieltjes transforms are such that
 	\begin{gather*}
 		m_{\mu}(z)>0,\forall z<\inf\operatorname{supp}(\mu),\quad m_{\mu}(z)<0,\forall z>\sup \operatorname{supp}(\mu),\\
-		\Im[z] \Im\left[m_{\mu}(z)\right]>0,\ \text{if}\ z\in\mathbb{C}\backslash\bbR
+		\Im[z] \Im\left[m_{\mu}(z)\right]>0,\ \text{if}\ z\in\bbC\backslash\bbR
 	\end{gather*}
 	it will be convenient in the following to consider the set of scalar pairs
 	\begin{equation*}
 		\mathcal{Z}(\mathcal{A}) = \left\{
-		(z, m) \in \mathcal{A} \times \mathbb{C} \;\middle|\;
+		(z, m) \in \mathcal{A} \times \bbC \;\middle|\;
 		\begin{array}{l}
 			\Im[z] \neq 0 \Rightarrow \Im[m] \Im[z] > 0,          \\[0.5em]
 			z < \inf \mathcal{A}^{c} \cap \bbR \Rightarrow m > 0, \\[0.5em]
@@ -158,7 +158,7 @@ for all \(f\) complex analytic in a compact neighborhood of \(\operatorname{supp
 \begin{remark}
 	A practical use of deterministic equivalents is to establish that, for a random matrix \(\bfM\) of interest, suppose
 	\begin{equation*}
-		\frac{1}{n}\operatorname{tr}\left(\bfQ_{\bfM}(z)-\overline{\bfQ}(z)\right)\rightarrow 0,\quad\text{a.s.},\quad\forall z\in\mathcal{C} ,\mathcal{C}\subset\mathbb{C}
+		\frac{1}{n}\operatorname{tr}\left(\bfQ_{\bfM}(z)-\overline{\bfQ}(z)\right)\rightarrow 0,\quad\text{a.s.},\quad\forall z\in\mathcal{C} ,\mathcal{C}\subset\bbC
 	\end{equation*}
 	this convergence implies that the Stieltjes transform of \(\mu_{\mathrm{M}}\) ``converges'' in the sense that
 	\begin{equation*}

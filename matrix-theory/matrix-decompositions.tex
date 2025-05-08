@@ -31,12 +31,12 @@
 \begin{definition}[Singular Value Decomposition]
 	For any matrix \(\bfA\in\bbR^{m\times n}\), we have
 	\begin{equation}
-		\bfA=\mathbf{U}\bfSigma\mathbf{V}^{\prime}
+		\bfA=\mathbf{U}\bfSigma\bfV^{\prime}
 	\end{equation}
 	where
 	\begin{itemize}
 		\item \(\mathbf{U}\in\bbR^{m\times m}\) is an orthogonal matrix whose columns are the eigenvectors of \(\bfA\bfA^{\prime}\)
-		\item \(\mathbf{V}\in\bbR^{n\times n}\) is an orthogonal matrix whose columns are the eigenvectors of \(\bfA^{\prime}\bfA\)
+		\item \(\bfV\in\bbR^{n\times n}\) is an orthogonal matrix whose columns are the eigenvectors of \(\bfA^{\prime}\bfA\)
 		\item \(\bfSigma\in\bbR^{m\times n}\) is an all-zero matrix except for the first \(r\) diagonal elements
 		      \begin{equation*}
 			      \sigma_{i}=\bfSigma_{ii},\quad i=1,2,\ldots,r
@@ -52,14 +52,14 @@
 \begin{proof}
 	Without loss of generality, we assume \(m\geq n\). Since for the case \(n>m\), can then be established by transposing the SVD of \(\bfA^{\prime}\),
 	\begin{equation*}
-		\bfA=\left(\bfA^{\prime}\right)^{\prime}=\left(\mathbf{U}^{\prime}\bfSigma\mathbf{V}\right)^{\prime}=\mathbf{V}^{\prime}\left(\mathbf{U}^{\prime}\bfSigma\right)^{\prime}=\mathbf{V}^{\prime}\bfSigma\mathbf{U}
+		\bfA=\left(\bfA^{\prime}\right)^{\prime}=\left(\mathbf{U}^{\prime}\bfSigma\bfV\right)^{\prime}=\bfV^{\prime}\left(\mathbf{U}^{\prime}\bfSigma\right)^{\prime}=\bfV^{\prime}\bfSigma\mathbf{U}
 	\end{equation*}
 
 	For \(m\geq n\), suppose \(\operatorname{rank}(A)=r\), and then \(\operatorname{rank}\left(\bfA^{\prime}\bfA\right)=r\) and the spectral decomposition of \(\bfA^{\prime}\bfA\) be
 	\begin{equation*}
-		\bfA^{\prime}\bfA\mathbf{V}=\mathbf{V}\operatorname{diag}\left(\sigma_{1}^{2},\ldots,\sigma_{r}^{2},0,\ldots,0\right)
+		\bfA^{\prime}\bfA\bfV=\bfV\operatorname{diag}\left(\sigma_{1}^{2},\ldots,\sigma_{r}^{2},0,\ldots,0\right)
 	\end{equation*}
-	where \(\sigma_{i}^{2}\) are the eigenvalues of \(\bfA^{\prime}\bfA\) and the columns of \(\mathbf{V}\), denoted \(\boldsymbol{v}^{(i)}\), are the corresponding orthonormal eigenvectors.
+	where \(\sigma_{i}^{2}\) are the eigenvalues of \(\bfA^{\prime}\bfA\) and the columns of \(\bfV\), denoted \(\boldsymbol{v}^{(i)}\), are the corresponding orthonormal eigenvectors.
 
 	Let
 	\begin{equation*}
@@ -77,17 +77,17 @@
 		\left(\bfu^{(i)}\right)^{\prime}\bfu^{(j)}=\frac{\left(\boldsymbol{v}^{(i)}\right)^{\prime}\bfA^{\prime}\bfA\boldsymbol{v}^{(j)}}{\sigma_{i}^{2}}=\left(\boldsymbol{v}^{(i)}\right)^{\prime}\boldsymbol{v}^{(j)}=\begin{cases}1 & i=j \\ 0 & i \neq j\end{cases}
 	\end{equation*}
 
-	We have thus far a matrix \(\mathbf{V}\) whose columns are eigenvectors of \(\bfA^{\prime}\bfA\) with eigenvalues \(\sigma_{i}^{2}\), and a matrix \(\mathbf{U}\) whose columns are \(r\) eigenvectors of \(\bfA\bfA^{\prime}\) corresponding to eigenvalues \(\sigma_{i}^{2}\).
+	We have thus far a matrix \(\bfV\) whose columns are eigenvectors of \(\bfA^{\prime}\bfA\) with eigenvalues \(\sigma_{i}^{2}\), and a matrix \(\mathbf{U}\) whose columns are \(r\) eigenvectors of \(\bfA\bfA^{\prime}\) corresponding to eigenvalues \(\sigma_{i}^{2}\).
 
 	We extend the set of eigenvectors \(\bfu^{(i)},\,i=1,\ldots,r\) by adding orthonormal vectors \(\bfu^{(i)},\,i=r+1,\ldots,m\) that span the null space \(\operatorname{null}\left(\bfA\bfA^{\prime}\right)\). Thus, the collection \(\bfu^{(i)},\,i=1,\ldots,m\) forms a complete orthonormal basis of eigenvectors for \(\bfA\bfA^{\prime}\), where the corresponding eigenvalues are \(\sigma_{i}^{2}\) for \(i\leq r\) and zero for \(i>r\).
 
 	Since
 	\begin{equation*}
-		\left[\mathbf{U}^{\prime}\bfA\mathbf{V}\right]_{ij}=\left(\bfu^{(i)}\right)^{\prime}\bfA\boldsymbol{v}^{(j)}=\begin{cases}\sigma_{j}\left(\bfu^{(i)}\right)^{\prime}\bfu^{(j)} & i \leq r \\ 0 & i>r\end{cases}
+		\left[\mathbf{U}^{\prime}\bfA\bfV\right]_{ij}=\left(\bfu^{(i)}\right)^{\prime}\bfA\boldsymbol{v}^{(j)}=\begin{cases}\sigma_{j}\left(\bfu^{(i)}\right)^{\prime}\bfu^{(j)} & i \leq r \\ 0 & i>r\end{cases}
 	\end{equation*}
 	we get
 	\begin{equation*}
-		\mathbf{U}^{\prime}\bfA\mathbf{V}=\bfSigma
+		\mathbf{U}^{\prime}\bfA\bfV=\bfSigma
 	\end{equation*}
 	where
 	\begin{equation*}
@@ -100,7 +100,7 @@
 
 	Consequentially, we get the desired decompositions
 	\begin{equation*}
-		\bfA=\mathbf{U}\bfSigma\mathbf{V}^{\prime}
+		\bfA=\mathbf{U}\bfSigma\bfV^{\prime}
 	\end{equation*}
 \end{proof}
 
@@ -116,7 +116,7 @@
 \begin{proof}
 	For any matrix \(\bfA\in\bbR^{m\times n}\), the SVD implies that,
 	\begin{equation*}
-		\|\bfA\|_{2}=\sup_{\bfx\neq 0}\frac{\|\bfA\bfx\|_{2}}{\|\bfx\|_{2}}=\sup_{\bfx\neq 0}\frac{\left\|\mathbf{U}\bfSigma\mathbf{V}^{\prime}\bfx\right\|_{2}}{\|\bfx\|_{2}}
+		\|\bfA\|_{2}=\sup_{\bfx\neq 0}\frac{\|\bfA\bfx\|_{2}}{\|\bfx\|_{2}}=\sup_{\bfx\neq 0}\frac{\left\|\mathbf{U}\bfSigma\bfV^{\prime}\bfx\right\|_{2}}{\|\bfx\|_{2}}
 	\end{equation*}
 
 	Since \(\mathbf{U}\) is unitary, that is,
@@ -125,16 +125,16 @@
 	\end{equation*}
 	thus,
 	\begin{equation*}
-		=\sup_{\bfx\neq 0}\frac{\left\|\bfSigma\mathbf{V}^{\prime}\bfx\right\|_{2}}{\|\bfx\|_{2}}
+		=\sup_{\bfx\neq 0}\frac{\left\|\bfSigma\bfV^{\prime}\bfx\right\|_{2}}{\|\bfx\|_{2}}
 	\end{equation*}
 
-	Let \(\mathbf{y}=\mathbf{V}^{\prime}\bfx\), and since \(\mathbf{V}\) is unitary, we have
+	Let \(\mathbf{y}=\bfV^{\prime}\bfx\), and since \(\bfV\) is unitary, we have
 	\begin{equation*}
-		\|\mathbf{y}\|_{2}=\left\|\mathbf{V}^{\prime}\bfx\right\|_{2}=\|\bfx\|_{2}=1
+		\|\mathbf{y}\|_{2}=\left\|\bfV^{\prime}\bfx\right\|_{2}=\|\bfx\|_{2}=1
 	\end{equation*}
 	thus,
 	\begin{equation*}
-		=\sup_{\mathbf{y}\neq 0}\frac{\|\bfSigma\mathbf{y}\|_{2}}{\|\mathbf{V}\mathbf{y}\|_{2}}=\sup_{\mathbf{y}\neq 0}\frac{\left(\sum_{i=1}^{r}\sigma_{i}^{2}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}{\left(\sum_{i=1}^{r}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}\leq\sigma_{\max}(\bfA)
+		=\sup_{\mathbf{y}\neq 0}\frac{\|\bfSigma\mathbf{y}\|_{2}}{\|\bfV\mathbf{y}\|_{2}}=\sup_{\mathbf{y}\neq 0}\frac{\left(\sum_{i=1}^{r}\sigma_{i}^{2}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}{\left(\sum_{i=1}^{r}\left|y_{i}\right|^{2}\right)^{\frac{1}{2}}}\leq\sigma_{\max}(\bfA)
 	\end{equation*}
 	which takes ``\(=\)'', if \(\boldsymbol{y}=\left(1,0,\ldots,0\right)^{\prime}\).
 \end{proof}

@@ -6,14 +6,14 @@ Suppose \(\left\{\bfx\right\}\) be a sequence of random vectors defined in \(\bb
 \end{equation*}
 where \(\bfx\) is also called \textbf{isotropic} random vector.
 
-Suppose \(\left\{m_{n}\right\}\) be a sequence defined in \(\mathbb{N}\) such that
+Suppose \(\left\{m_{n}\right\}\) be a sequence defined in \(\bbN\) such that
 \begin{equation*}
 	0<\underline{\rho}:=\liminf_{n\rightarrow\infty}\frac{n}{m_{n}}\leq\limsup_{n\rightarrow\infty}\frac{n}{m_{n}}=:\bar{\rho}<\infty
 \end{equation*}
 
-Let \(\bfx_{1},\ldots,\bfx_{m_{n}}\) be iid copies of \(\bfx\), and \(\mathbb{X}\) be the \(m_{n}\times n\) random matrix with iid rows \(\bfx_{1},\ldots,\bfx_{m_{n}}\), and their empirical covariance matrix is
+Let \(\bfx_{1},\ldots,\bfx_{m_{n}}\) be iid copies of \(\bfx\), and \(\bbX\) be the \(m_{n}\times n\) random matrix with iid rows \(\bfx_{1},\ldots,\bfx_{m_{n}}\), and their empirical covariance matrix is
 \begin{equation*}
-	\widehat{\bfSigma}:=\frac{1}{m_{n}}\sum_{i=1}^{m_{n}}\bfx_{i}\otimes\bfx_{i}=\frac{1}{m_{n}}\mathbb{X}^{\prime}\mathbb{X}
+	\widehat{\bfSigma}:=\frac{1}{m_{n}}\sum_{i=1}^{m_{n}}\bfx_{i}\otimes\bfx_{i}=\frac{1}{m_{n}}\bbX^{\prime}\bbX
 \end{equation*}
 which is a \(n\times n\) symmetric positive semidefinite random matrix, and
 \begin{equation*}
@@ -22,19 +22,19 @@ which is a \(n\times n\) symmetric positive semidefinite random matrix, and
 
 For convenience, we define the random matrix
 \begin{equation*}
-	\bfA:=m_{n}\widehat{\bfSigma}=\mathbb{X}^{\prime}\mathbb{X}=\sum_{i=1}^{m_{n}}\bfx_{i}\otimes\bfx_{i}
+	\bfA:=m_{n}\widehat{\bfSigma}=\bbX^{\prime}\bbX=\sum_{i=1}^{m_{n}}\bfx_{i}\otimes\bfx_{i}
 \end{equation*}
 
 \section{Eigenvalues and Singular Values}
 
 \begin{theorem}
-	The eigenvalues of \(\bfA\) are squares of the singular values of \(\mathbb{X}\), in particularly
+	The eigenvalues of \(\bfA\) are squares of the singular values of \(\bbX\), in particularly
 	\begin{equation*}
-		\lambda_{\max}\left(\bfA\right)=s_{\max}\left(\mathbb{X}\right)^{2}=\max_{\|\bfx\|=1}\left\|\mathbb{X}\bfx\right\|^{2}=\left\|\mathbb{X}\right\|_{2}^{2}
+		\lambda_{\max}\left(\bfA\right)=s_{\max}\left(\bbX\right)^{2}=\max_{\|\bfx\|=1}\left\|\bbX\bfx\right\|^{2}=\left\|\bbX\right\|_{2}^{2}
 	\end{equation*}
 	if \(m_{n}\geq n\), then
 	\begin{equation*}
-		\lambda_{\min}\left(\bfA\right)=s_{\min}\left(\mathbb{X}\right)^{2}=\min_{\|\bfx\|=1}\left\|\mathbb{X}\bfx\right\|^{2}=\left\|\mathbb{X}^{-1}\right\|_{2}^{-2}
+		\lambda_{\min}\left(\bfA\right)=s_{\min}\left(\bbX\right)^{2}=\min_{\|\bfx\|=1}\left\|\bbX\bfx\right\|^{2}=\left\|\bbX^{-1}\right\|_{2}^{-2}
 	\end{equation*}
 \end{theorem}
 
@@ -45,13 +45,13 @@ For convenience, we define the random matrix
 \section{Laguerre Orthogonal Ensemble}
 
 \begin{definition}[Wishart Distribution]
-	Suppose \(\mathbb{X}\) be a \(p\times n\) matrix, each column of which is independently drawn from a \(p\)-variate normal distribution with zero means:
+	Suppose \(\bbX\) be a \(p\times n\) matrix, each column of which is independently drawn from a \(p\)-variate normal distribution with zero means:
 	\begin{equation*}
 		\bfx_{i}=\left(x_{i}^{1},\ldots,x_{i}^{p}\right)^{\prime}\sim N_{p}(0,\bfSigma)
 	\end{equation*}
 	Then the Wishart distribution is the probability distribution of the \(p\times p\) random matrix,
 	\begin{equation}
-		\bfM=\mathbb{X}^{\prime}\mathbb{X}=\sum_{i=1}^{n}\bfx_{i}\bfx_{i}^{\top}
+		\bfM=\bbX^{\prime}\bbX=\sum_{i=1}^{n}\bfx_{i}\bfx_{i}^{\top}
 	\end{equation}
 	and which can be denoted by
 	\begin{equation*}
@@ -246,7 +246,7 @@ With the above tools, we can prove the Mar\v{c}enko-Pastur Theorem. Here, we onl
 	\begin{equation*}
 		\bfQ(z)\leftrightarrow\overline{\bfQ}(z),\quad\overline{\bfQ}(z)=m(z)\mathbf{I}_{n}
 	\end{equation*}
-	with \((z,m(z))\) the unique solution in \(\mathcal{Z}\left(\mathbb{C}\backslash\left[(1-\sqrt{\rho})^{2},(1+\sqrt{\rho})^{2}\right]\right)\) be
+	with \((z,m(z))\) the unique solution in \(\mathcal{Z}\left(\bbC\backslash\left[(1-\sqrt{\rho})^{2},(1+\sqrt{\rho})^{2}\right]\right)\) be
 	\begin{equation*}
 		zcm^{2}(z)-(1-c-z)m(z)+1=0
 	\end{equation*}
